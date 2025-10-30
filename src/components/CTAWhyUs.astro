@@ -1,0 +1,77 @@
+---
+import ImageComp from "./ImageComp.astro";
+import { FaArrowRight } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
+
+const data = {
+  eyebrow: "WHY CHOOSE US",
+  title: "Building Wings For\nAviation Leaders",
+  bullets: [
+    "One-on-one training with a highly experienced instructor",
+    "Comprehensive programs from private pilot to flight instructor",
+    "Hands-on control from your very first lesson",
+    "Flexible scheduling that adapts to your lifestyle",
+    "A focus on discipline, persistence, and confidence in every flight",
+  ],
+  blurb: "We equip aspiring pilots with the vision, discipline, and skills needed to excel above the rest in aviation.",
+  imageSrc: "/src/assets/cfi-group-airplane-vegas-aviation-las-vegas-flight-instructor.jpg",
+  imageAlt: "Vegas Aviation Certified Flight Instructors",
+  ctaLabel: "Learn About Our Programs",
+  ctaHref: "/",
+};
+
+---
+
+<section class="relative isolate overflow-hidden bg-primary-800 text-white">
+  <div class="mx-auto max-w-7xl px-5 md:px-10 lg:px-16 py-16 lg:py-24">
+    <div class="grid items-center gap-10 lg:grid-cols-2">
+      <!-- LEFT: image -->
+      <figure class="relative">
+        <ImageComp
+          src={data.imageSrc}
+          alt={data.imageAlt}
+          class="h-72 w-full rounded-3xl object-cover object-bottom -2xl md:h-96 lg:h-112"
+        />
+        <!-- soft inner vignette -->
+        <div class="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-white/10 shadow-inner"></div>
+      </figure>
+
+      <!-- RIGHT: content -->
+      <div class="max-w-2xl lg:max-w-none">
+        <!-- eyebrow -->
+        <p
+          class="eyebrow inline-flex items-center gap-2 px-3 py-1 tracking-widest"
+        >
+          <span class="size-1.5 rounded-full bg-primary-500"></span>
+          {data.eyebrow}
+        </p>
+
+        <!-- title -->
+        <h2 class="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+          {data.title}
+        </h2>
+
+        <!-- bullets -->
+        <ul class="mt-6 space-y-4 text-base/7">
+          {data.bullets.map((item) => (
+            <li class="flex items-start gap-3 font-medium">
+              <FaCheckCircle />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- blurb -->
+        <p class="mt-6 font-medium">
+          {data.blurb}
+        </p>
+
+        <!-- CTA -->
+        <a href={data.ctaHref} class="btn-transparent w-fit">
+          {data.ctaLabel}
+          <FaArrowRight />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,2 +1,3 @@
-# vegas
-Vegas Aviation (https://vegasaviation.com/)
+# Vegas Aviation Website Draft
+
+[Current website](https://vegasaviation.com/)

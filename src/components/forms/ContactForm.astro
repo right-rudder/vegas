@@ -1,0 +1,621 @@
+---
+/**
+ * Reusable contact/enroll/intro form component.
+ * Props:
+ * - content: object with { eyebrow, heading, subheading, info:{...}, form:{labels, placeholders, fields[], cta} }
+ * - classes: optional class overrides (see defaults below)
+ */
+import contactData from "../../data/forms/contact.js";
+
+const {
+  content = contactData,
+  classes = {},
+  webhook,
+  cpApi,
+  accId,
+  campaign,
+  redirect,
+} = Astro.props;
+
+const FORM_WEBHOOK_URL = webhook;
+const PORTAL_API_KEY = cpApi;
+const PORTAL_ACCOUNT_ID = accId;
+
+// Types for dynamic form fields
+type FieldOption = {
+  label: string;
+  value: string | number;
+  selected?: boolean;
+  disabled?: boolean;
+  hidden?: boolean;
+};
+
+type Field = {
+  id: string;
+  name?: string;
+  label: string;
+  type?: string;
+  required?: boolean;
+  placeholder?: string;
+  pattern?: string;
+  inputmode?: string;
+  datalistId?: string;
+  rows?: number;
+  options?: FieldOption[];
+  colSpan?: number;
+  row?: number;
+  step?: number | string;
+  min?: string;
+  max?: string;
+};
+
+const ui = {
+  section: "bg-black px-4 py-12 sm:px-6 lg:px-8 lg:py-20",
+  grid: "grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 max-w-7xl mx-auto",
+  left: "relative overflow-hidden rounded-3xl text-white",
+  leftInner: "text-muted-50 p-6 sm:p-8 lg:p-10",
+  right:
+    "bg-primary-500/30 rounded-3xl p-6 ring-1 ring-primary-200/70 sm:p-8 lg:p-10 text-white font-semibold",
+  eyebrow:
+    "eyebrow-dark inline-flex items-center gap-2 px-3 py-1 text-[11px] tracking-widest uppercase",
+  h2: "mt-2 text-4xl font-extrabold lg:text-5xl",
+  sub: "text-muted-300 mt-4 max-w-prose",
+  input:
+    "bg-muted-900/70 text-muted-50 placeholder:text-muted-400 mt-2 h-12 rounded-2xl border border-white/10 px-4 outline-none focus:border-primary-300/40 focus:ring-2 focus:ring-primary-300/30",
+  textarea:
+    "bg-muted-900/70 text-muted-50 placeholder:text-muted-400 mt-2 rounded-2xl border border-white/10 px-4 py-3 outline-none focus:border-primary-300/40 focus:ring-2 focus:ring-primary-300/30",
+  label: "text-muted-200 text-sm font-medium",
+  button:
+    "btn-primary box-shadow-[0_4px_20px_rgba(255,211,0,0.25)] hover:brightness-95 " +
+    "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2 ",
+  // NEW: native select styled + dark popup/options
+  select:
+    // base look matching inputs
+    "bg-muted-900/70 text-muted-50 placeholder:text-muted-400 mt-2 h-12 w-full rounded-2xl " +
+    "border border-white/10 px-4 pr-10 outline-none focus:border-primary-300/40 focus:ring-2 focus:ring-primary-300/30 " +
+    // render the UA dropdown in dark mode (modern browsers)
+    "[color-scheme:dark] " +
+    // darken rows where supported (Chromium/Firefox respect option styling)
+    "[&>option]:bg-[#0b0b0b] [&>option]:text-[#e5e7eb] " +
+    "[&>optgroup]:bg-[#0b0b0b] [&>optgroup]:text-[#9ca3af]",
+
+  ...classes,
+};
+
+const iconWrap =
+  "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-400/10 ring-1 ring-primary-300/20";
+const icon = "h-5 w-5 text-primary-300";
+---
+
+<section class={ui.section} aria-labelledby="contact-heading">
+  <div class={ui.grid}>
+    <!-- LEFT: Info panel -->
+    <div class={ui.left}>
+      <div class={ui.leftInner}>
+        <h2 class="text-5xl font-extrabold tracking-tight">
+          {content?.info?.title}
+        </h2>
+        {
+          content?.info?.intro && (
+            <p class="text-muted-200 text-md mt-3 max-w-prose">
+              {content.info.intro}
+            </p>
+          )
+        }
+
+        <ul class="mt-8 space-y-6">
+          {
+            content?.info?.addressLine1 && (
+              <li class="flex items-start gap-4">
+                <span class={iconWrap} aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class={icon}>
+                    <path
+                      fill="currentColor"
+                      d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-muted-100 font-semibold">
+                    {content?.info?.locationLabel || "Location"}
+                  </p>
+                  <div class="flex flex-wrap gap-1">
+                    <p class="text-muted-300">{content.info.addressLine1},</p>
+                    {content?.info?.addressLine2 && (
+                      <p class="text-muted-300">{content.info.addressLine2}</p>
+                    )}
+                  </div>
+                </div>
+              </li>
+            )
+          }
+
+          {
+            content?.info?.phoneValue && (
+              <li class="flex items-start gap-4">
+                <span class={iconWrap} aria-hidden="true">
+                  <svg viewBox="0 0 24 24" class={icon}>
+                    <path
+                      fill="currentColor"
+                      d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.31.57 3.58.57a1 1 0 0 1 1 1v3.49a1 1 0 0 1-1 1C10.29 22 2 13.71 2 3.99a1 1 0 0 1 1-1H6.5a1 1 0 0 1 1 1c0 1.27.2 2.47.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.21Z"
+                    />
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-muted-100 font-semibold">
+                    {content?.info?.phoneLabel || "Phone"}
+                  </p>
+                  <a
+                    href={`tel:${content.info.phoneValue}`}
+                    class="text-muted-300 transition-colors duration-300 ease-in-out hover:text-primary-400!"
+                  >
+                    {content.info.phoneValue}
+                  </a>
+                </div>
+              </li>
+            )
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class={ui.right}>
+      {
+        content?.eyebrow && (
+          <p class={ui.eyebrow}>
+            <span class="size-1.5 rounded-full bg-primary-400/90" />
+            {content.eyebrow}
+          </p>
+        )
+      }
+      {
+        content?.heading && (
+          <h2 id="contact-heading" class={ui.h2}>
+            {content.heading}
+          </h2>
+        )
+      }
+      {content?.subheading && <p class={ui.sub}>{content.subheading}</p>}
+
+      <form
+        id="page-form"
+        class="mt-8 space-y-6"
+        method={content?.form?.method || "post"}
+        action={content?.form?.action || "#"}
+      >
+        <!-- Dynamic fields -->
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {
+            content.form.fields
+              ?.filter((f: Field) => f.row === 1)
+              .map((f: Field) => (
+                <div
+                  class={
+                    f.colSpan === 2
+                      ? "flex flex-col md:col-span-2"
+                      : "flex flex-col"
+                  }
+                >
+                  <label for={f.id} class={ui.label}>
+                    {f.label}
+                    {f.required && <span class="text-primary-300">*</span>}
+                  </label>
+                  {f.type !== "textarea" && f.type !== "select" ? (
+                    <input
+                      id={f.id}
+                      name={f.name || f.id}
+                      type={(f.type || "text") as any}
+                      required={f.required}
+                      placeholder={f.placeholder}
+                      class={ui.input}
+                      pattern={f.pattern}
+                      inputmode={f.inputmode as any}
+                      list={f.datalistId}
+                      step={f.step}
+                      min={f.min}
+                      max={f.max}
+                    />
+                  ) : null}
+                  {f.type === "select" ? (
+                    <select
+                      id={f.id}
+                      name={f.name || f.id}
+                      required={f.required}
+                      class={ui.select}
+                    >
+                      {(f.options || []).map((o: FieldOption) => (
+                        <option
+                          value={o.value}
+                          selected={o.selected}
+                          disabled={o.disabled}
+                          hidden={o.hidden}
+                        >
+                          {o.label}
+                        </option>
+                      ))}
+                    </select>
+                  ) : null}
+                  {f.type === "textarea" ? (
+                    <textarea
+                      id={f.id}
+                      name={f.name || f.id}
+                      rows={f.rows || 6}
+                      required={f.required}
+                      placeholder={f.placeholder}
+                      class={ui.textarea}
+                    />
+                  ) : null}
+                </div>
+              ))
+          }
+        </div>
+
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {
+            content.form.fields
+              ?.filter((f: Field) => f.row === 2)
+              .map((f: Field) => (
+                <div
+                  class={
+                    f.colSpan === 2
+                      ? "flex flex-col md:col-span-2"
+                      : "flex flex-col"
+                  }
+                >
+                  <label for={f.id} class={ui.label}>
+                    {f.label}
+                    {f.required && <span class="text-primary-300">*</span>}
+                  </label>
+                  {f.type !== "textarea" && f.type !== "select" ? (
+                    <input
+                      id={f.id}
+                      name={f.name || f.id}
+                      type={(f.type || "text") as any}
+                      required={f.required}
+                      placeholder={f.placeholder}
+                      class={ui.input}
+                      pattern={f.pattern}
+                      inputmode={f.inputmode as any}
+                      step={f.step}
+                      min={f.min}
+                      max={f.max}
+                    />
+                  ) : null}
+                  {f.type === "select" ? (
+                    <select
+                      id={f.id}
+                      name={f.name || f.id}
+                      required={f.required}
+                      class={ui.select}
+                    >
+                      {(f.options || []).map((o: FieldOption) => (
+                        <option
+                          value={o.value}
+                          selected={o.selected}
+                          disabled={o.disabled}
+                          hidden={o.hidden}
+                        >
+                          {o.label}
+                        </option>
+                      ))}
+                    </select>
+                  ) : null}
+                  {f.type === "textarea" ? (
+                    <textarea
+                      id={f.id}
+                      name={f.name || f.id}
+                      rows={f.rows || 6}
+                      required={f.required}
+                      placeholder={f.placeholder}
+                      class={ui.textarea}
+                    />
+                  ) : null}
+                </div>
+              ))
+          }
+        </div>
+
+        <!-- Any fields placed on row 3+ take full width -->
+        {
+          content.form.fields
+            ?.filter((f: Field) => (f.row || 3) >= 3)
+            .map((f: Field) => (
+              <div class="flex flex-col">
+                <label for={f.id} class={ui.label}>
+                  {f.label}
+                  {f.required && <span class="text-primary-300">*</span>}
+                </label>
+                {f.type === "textarea" ? (
+                  <textarea
+                    id={f.id}
+                    name={f.name || f.id}
+                    rows={f.rows || 6}
+                    required={f.required}
+                    placeholder={f.placeholder}
+                    class={ui.textarea}
+                  />
+                ) : f.type === "select" ? (
+                  <select
+                    id={f.id}
+                    name={f.name || f.id}
+                    required={f.required}
+                    class={ui.select}
+                  >
+                    {(f.options || []).map((o: FieldOption) => (
+                      <option
+                        value={o.value}
+                        selected={o.selected}
+                        disabled={o.disabled}
+                        hidden={o.hidden}
+                      >
+                        {o.label}
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  <input
+                    id={f.id}
+                    name={f.name || f.id}
+                    type={(f.type || "text") as any}
+                    required={f.required}
+                    placeholder={f.placeholder}
+                    class={ui.input}
+                    pattern={f.pattern}
+                    inputmode={f.inputmode as any}
+                    step={f.step}
+                    min={f.min}
+                    max={f.max}
+                  />
+                )}
+              </div>
+            ))
+        }
+
+        <!-- CTA -->
+        <div class="space-y-4 pt-2">
+          <!-- Terms + SMS checkbox -->
+          <div class="flex items-start">
+            <input
+              id="accept"
+              name="accept"
+              type="checkbox"
+              class="bg-muted-900/70 mt-1 h-5 w-5 rounded border-white/20 text-primary-400 focus:ring-primary-300"
+              required
+            />
+            <label for="accept" class="text-muted-200 ml-3 text-sm">
+              I agree to the
+              <a
+                href="/privacy-policy-and-terms-of-service"
+                target="_blank"
+                rel="noopener"
+                class="underline hover:text-primary-300"
+                >Terms &amp; Conditions</a
+              >
+              and consent to receive SMS communications from Vegas Aviation Education.
+            </label>
+          </div>
+
+          <button id="submitBtn" type="submit" class={ui.button} disabled>
+            {content?.form?.cta || "Submit"}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script
+  define:vars={{
+    FORM_WEBHOOK_URL,
+    PORTAL_API_KEY,
+    PORTAL_ACCOUNT_ID,
+    campaign,
+    redirect,
+  }}
+>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("page-form");
+    const submitBtn = document.getElementById("submitBtn");
+    const accept = document.getElementById("accept");
+
+    if (!form || !submitBtn || !accept) {
+      console.error("Form, submit button, or accept checkbox not found.");
+      return;
+    }
+
+    const updateDisabled = () => {
+      // Only enable when T&C checked AND form fields meet HTML validation
+      const ok = accept.checked && form.checkValidity();
+      submitBtn.disabled = !ok;
+    };
+
+    // Initialize and keep in sync
+    updateDisabled();
+    accept.addEventListener("change", updateDisabled);
+    form.addEventListener("input", updateDisabled);
+
+    // ---- helpers -----------------------------------------------------------
+    const getFirstNonEmpty = (fd, keys) => {
+      for (const k of keys) {
+        const v = fd.get(k);
+        if (typeof v === "string" && v.trim()) return v.trim();
+      }
+      return "";
+    };
+
+    const normalizePhone = (value) => {
+      if (!value) return "";
+      const cleaned = value.replace(/(?!^\+)[^\d]/g, "");
+      return cleaned === "+" ? "" : cleaned;
+    };
+
+    const toUrlEncoded = (fd) => new URLSearchParams(fd).toString();
+
+    const showFail = (msg) => {
+      console.error(msg);
+      alert("Sorry, we couldn't submit your request. Please try again.");
+    };
+
+    // ---- submission --------------------------------------------------------
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      // stop if still disabled (extra safety)
+      if (submitBtn.disabled) return;
+
+      const formData = new FormData(form);
+      const confirmEmail = formData.get("confirm-email")?.trim?.();
+      if (confirmEmail) return; // honeypot
+
+      const webhookURL = FORM_WEBHOOK_URL;
+      const apiKey = PORTAL_API_KEY;
+      const accId = PORTAL_ACCOUNT_ID;
+      const campaignName = campaign || "general";
+      const redirectUrl = redirect || "/contact-confirmation";
+
+      if (!webhookURL) {
+        return showFail("Missing submission configuration (webhook).");
+      }
+      if (!apiKey) {
+        return showFail("Missing submission configuration (apiKey).");
+      }
+      if (!accId) {
+        return showFail("Missing submission configuration (accountId).");
+      }
+
+      const firstName = getFirstNonEmpty(formData, [
+        "first-name",
+        "first_name",
+        "given-name",
+        "fname",
+        "first",
+      ]);
+      const lastName = getFirstNonEmpty(formData, [
+        "last-name",
+        "last_name",
+        "family-name",
+        "lname",
+        "last",
+      ]);
+      const email = getFirstNonEmpty(formData, [
+        "email",
+        "email_address",
+        "mail",
+      ]);
+      const phoneRaw = getFirstNonEmpty(formData, [
+        "phone",
+        "phone_number",
+        "tel",
+        "mobile",
+      ]);
+      const phone = normalizePhone(phoneRaw);
+
+      const exclude = new Set([
+        "first-name",
+        "first_name",
+        "given-name",
+        "fname",
+        "first",
+        "last-name",
+        "last_name",
+        "family-name",
+        "lname",
+        "last",
+        "email",
+        "email_address",
+        "mail",
+        "phone",
+        "phone_number",
+        "tel",
+        "mobile",
+        "confirm-email",
+      ]);
+
+      const metadata = {};
+      for (const [key, value] of formData.entries()) {
+        if (!exclude.has(key)) {
+          metadata[key] = typeof value === "string" ? value.trim() : value;
+        }
+      }
+
+      const urlEncodedBody = toUrlEncoded(formData);
+      const jsonBody = {
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        phone,
+        campaign: campaignName,
+        account_random_id: "ac_mjcex5w6",
+        metadata,
+      };
+
+      // Prevent double-submit
+      submitBtn.disabled = true;
+
+      try {
+        const [ghlRes, portalRes] = await Promise.all([
+          fetch(webhookURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: urlEncodedBody,
+          }),
+          fetch("https://portal.rightruddermarketing.com/api/leads", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              "x-api-key": apiKey,
+            },
+            body: JSON.stringify(jsonBody),
+          }),
+        ]);
+
+        if (ghlRes.ok && portalRes.ok) {
+          window.location.href = redirectUrl;
+        } else {
+          console.error("Submission failed", {
+            ghlStatus: ghlRes.status,
+            portalStatus: portalRes.status,
+          });
+          showFail("Submission failed.");
+          updateDisabled(); // re-enable if the form is valid & checked
+        }
+      } catch (err) {
+        console.error("Submission error:", err);
+        showFail("Network error.");
+        updateDisabled();
+      }
+    });
+  });
+</script>
+
+<style>
+  .ohno {
+    @apply hidden;
+  }
+
+  .translate-x-3.5 {
+    transform: translateX(0.875rem); /* Tailwind's 3.5 = 14px */
+  }
+</style>
+
+<!-- Optional: extra safety for dark options on some engines -->
+<style is:global>
+  /* only affect selects that set color-scheme: dark via the class above */
+  select[class*="[color-scheme:dark]"] option,
+  select[class*="[color-scheme:dark]"] optgroup {
+    background-color: #0b0b0b;
+    color: #e5e7eb;
+  }
+  #submitBtn:disabled {
+    background-color: rgb(63 63 70) !important; /* ~gray-700 */
+    color: rgb(203 213 225) !important; /* ~slate-300 */
+    box-shadow: none !important;
+    cursor: not-allowed !important;
+    filter: none !important; /* cancels hover brighten */
+  }
+  #submitBtn:disabled:hover {
+    filter: none !important;
+  }
+</style>

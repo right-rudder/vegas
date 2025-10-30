@@ -1,0 +1,112 @@
+---
+import ImageComp from "./ImageComp.astro";
+import { FaArrowRight } from "react-icons/fa";
+
+const data = {
+  eyebrow: "About Us",
+  title: "A personalized pathway for every student.",
+  quote:
+    "Vegas Aviation Education is a community built around safety, service, and mentorship. Led by one experienced instructor, Marty Marino, we are dedicated to helping aspiring pilots achieve their dreams with world-class training and unwavering support.",
+  statValue: "37.3K+",
+  statLabel: "Followers & Alumni Worldwide",
+  body: "From your first flight lesson to earning your pilot's license and beyond, Vegas Aviation Education is with you every step of the way.",
+  ctaLabel: "Schedule a Discovery Flight",
+  ctaHref: "/",
+  rightImage: {
+    src: "/src/assets/mcfly-education-flight-school-student.webp",
+    alt: "Inside a commercial cockpit",
+  },
+};
+---
+
+<section class="bg-accent-950 relative isolate z-0 overflow-hidden text-white">
+  {/* soft radial glow */}
+  <div
+    class="from-primary-950/50 pointer-events-none absolute inset-0 -z-10 bg-radial-[at_20%_40%] to-transparent to-60%"
+  >
+  </div>
+
+  <div class="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20">
+    <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+      {/* LEFT: Headline, quote, stat */}
+      <div>
+        <p
+          class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-[11px] tracking-widest uppercase"
+        >
+          <span class="size-1.5 rounded-full bg-primary-400/90"></span>
+          {data.eyebrow}
+        </p>
+
+        <h1
+          class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]"
+        >
+          {data.title}
+        </h1>
+
+        {/* Quote card (narrowed) */}
+        <div
+          class="mt-6 max-w-md rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6"
+        >
+          <div class="flex items-start gap-3">
+            <p class="text-sm/6 text-gray-200 md:text-base/7">{data.quote}</p>
+          </div>
+        </div>
+
+        {/* Stat (narrowed) */}
+        <div class="mt-7 flex max-w-md items-center gap-5">
+          <span
+            class="text-shadow-primary-/40 text-6xl font-extrabold text-primary-400 text-shadow-md sm:text-7xl"
+          >
+            {data.statValue}
+          </span>
+          <div class="pb-2">
+            <p class="text-sm tracking-widest text-gray-400 uppercase">
+              {data.statLabel}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT: Big image, body, CTA */}
+      <div class="lg:pl-4">
+        <figure class="relative">
+          <!-- <ImageComp
+            src={data.rightImage.src}
+            alt={data.rightImage.alt}
+            class="aspect-[4/3] w-full rounded-[32px] object-cover shadow-[0_20px_60px_rgba(0,0,0,0.45)] ring-1 ring-white/10 md:aspect-[5/4]"
+          /> -->
+        </figure>
+
+        <p class="mt-6 text-gray-300 md:text-lg/8">
+          From your <a
+            href="/first-time-pilots"
+            class="text-primary-400 underline hover:text-primary-300"
+            >first flight lesson</a
+          > to earning your <a
+            href="/trainings/private-pilot"
+            class="text-primary-400 underline hover:text-primary-300"
+            >pilot's license</a
+          > and beyond, Vegas Aviation Education is with you every step of the way. Whether
+          you're pursuing an <a
+            href="/trainings/instrument-rating"
+            class="text-primary-400 underline hover:text-primary-300"
+            >instrument rating</a
+          > or becoming a <a
+            href="/trainings/flight-instructor"
+            class="text-primary-400 underline hover:text-primary-300"
+            >certified flight instructor</a
+          >, we provide personalized training at <a
+            href="/about"
+            class="text-primary-400 underline hover:text-primary-300"
+            >Cable Airport</a
+          >.
+        </p>
+
+        <a href={data.ctaHref} class="btn-transparent mt-5 w-fit">
+          {data.ctaLabel}
+          <FaArrowRight />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
