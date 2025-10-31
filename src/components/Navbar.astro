@@ -162,6 +162,51 @@ export const menu: MenuItem[] = [
   },
 ];
 
+export const footerMenu: MenuItem[] = [
+  {
+    label: "Quick Links",
+    url: "/",
+    children: [
+      { label: "New to Flying", url: "/" },
+      { label: "Discovery Flight", url: "/" },
+      { label: "Aircraft Maintenance", url: "/" },
+      { label: "Aircraft Rental", url: "/" },
+      { label: "FAQ", url: "/" },
+      { label: "Contact Us", url: "/" },
+    ],
+  },
+  {
+    label: "Pilot Training",
+    url: "/",
+    children: [
+      {
+        label: "Private Pilot",
+        url: "/",
+      },
+      {
+        label: "Commercial Pilot",
+        url: "/",
+      },
+      {
+        label: "Instrument Rating",
+        url: "/",
+      },
+      {
+        label: "Certified Flight Instructor",
+        url: "/",
+      },
+      {
+        label: "Multi Engine",
+        url: "/",
+      },
+      {
+        label: "Flight Simulation",
+        url: "/",
+      },
+    ],
+  },
+];
+
 const { pathname } = Astro.props;
 ---
 

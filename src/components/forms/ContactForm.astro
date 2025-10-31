@@ -324,7 +324,7 @@ const icon = "h-10 w-10 text-primary-400";
                 rel="noopener"
                 class="underline hover:text-primary-300">Terms &amp; Conditions</a
               >
-              and consent to receive SMS communications from Vegas Aviation Education.
+              and consent to receive SMS communications from Vegas Aviation.
             </label>
           </div>
 
@@ -339,13 +339,13 @@ const icon = "h-10 w-10 text-primary-400";
 
 <script
   define:vars={{
-    FORM_WEBHOOK_URL,
-    PORTAL_API_KEY,
-    PORTAL_ACCOUNT_ID,
-    campaign,
-    redirect,
   }}
 >
+  /* FORM_WEBHOOK_URL,
+  PORTAL_API_KEY,
+  PORTAL_ACCOUNT_ID,
+  campaign,
+  redirect, */
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("page-form");
     const submitBtn = document.getElementById("submitBtn");
@@ -393,7 +393,9 @@ const icon = "h-10 w-10 text-primary-400";
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      // stop if still disabled (extra safety)
+      alert("This form is not currently available");
+
+      /*// stop if still disabled (extra safety)
       if (submitBtn.disabled) return;
 
       const formData = new FormData(form);
@@ -496,20 +498,10 @@ const icon = "h-10 w-10 text-primary-400";
         console.error("Submission error:", err);
         showFail("Network error.");
         updateDisabled();
-      }
+      } */
     });
   });
 </script>
-
-<style>
-  .ohno {
-    @apply hidden;
-  }
-
-  .translate-x-3.5 {
-    transform: translateX(0.875rem); /* Tailwind's 3.5 = 14px */
-  }
-</style>
 
 <!-- Optional: extra safety for dark options on some engines -->
 <style is:global>
