@@ -9,12 +9,14 @@ import ImageComp from "../components/ImageComp.astro";
 import ContactForm from "../components/forms/ContactForm.astro";
 import TestimonialsCarousel from "../components/TestimonialsCarousel.jsx";
 import CTAIntroFlight from "../components/CTAIntroFlight.astro";
+import FAQs from "../components/FAQs.astro";
+import { faq } from "../data/faqs";
 
 import contactData from "../data/forms/contact.js";
 ---
 
 <BaseLayout>
-  <div class="relative min-h-[115vh] overflow-hidden">
+  <div class="relative min-h-[80vh] overflow-hidden">
     <ImageComp
       src="/src/assets/vegas-aviation-cessna-las-vegas-flight-training.jpg"
       alt="Vegas Aviation Cessna Airplane"
@@ -30,7 +32,7 @@ import contactData from "../data/forms/contact.js";
           title: "Flying Lessons in North Las Vegas Airport",
           paragraph:
             "With flexible scheduling, more hands-on control, and a people-first approach, you'll learn faster and build confidence from the very first lesson",
-          styling: "relative min-h-[60vh] overflow-hidden flex flex-row items-end pt-20 lg:pt-40",
+          styling: "relative min-h-[40vh] overflow-hidden flex flex-row items-end pt-10 lg:pt-20",
         }}
       />
       <HeroCards />
@@ -47,6 +49,11 @@ import contactData from "../data/forms/contact.js";
     className="from-primary-400/20 to-accent-50 bg-linear-to-b px-5 py-16 text-accent-900 md:px-8 md:py-20 lg:px-10 lg:py-24"
     client:load
   />
+
   <ContactForm content={contactData} />
+
   <CTAIntroFlight />
+
+  <FAQs faqs={faq.categories[0].items} />
+
 </BaseLayout>

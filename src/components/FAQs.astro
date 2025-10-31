@@ -1,0 +1,285 @@
+---
+class FAQsClass {
+  question: string;
+  answer: string;
+
+  constructor() {
+    this.question = "";
+    this.answer = "";
+  }
+}
+
+const { faqs = FAQsClass, type, showTitle = true } = Astro.props;
+---
+
+<script>
+  class Accordion {
+    el;
+    summary;
+    content;
+    animation: Animation;
+    isClosing;
+    isExpanding;
+
+    constructor(el: any) {
+      // Store the <details> element
+      this.el = el;
+      // Store the <summary> element
+      this.summary = el.querySelector("summary");
+      // Store the <div class="content"> element
+      this.content = el.querySelector("div");
+
+      // Store the animation object (so we can cancel it if needed)
+      this.animation = new Animation();
+      // Store if the element is closing
+      this.isClosing = false;
+      // Store if the element is expanding
+      this.isExpanding = false;
+      // Detect user clicks on the summary element
+      this.summary?.addEventListener("click", (e: any) => this.onClick(e));
+
+      this.el.accordionObj = this;
+    }
+
+    onClick(e: MouseEvent) {
+      // Stop default behaviour from the browser
+      e.preventDefault();
+      // Add an overflow on the <details> to avoid content overflowing
+      this.el.style.overflow = "hidden";
+      // Check if the element is being closed or is already closed
+      if (this.isClosing || !this.el.open) {
+        this.open();
+        // Check if the element is being openned or is already open
+      } else if (this.isExpanding || this.el.open) {
+        this.shrink();
+      }
+    }
+
+    shrink() {
+      // Set the element as "being closed"
+      this.isClosing = true;
+
+      // Store the current height of the element
+      const startHeight = `${this.el.offsetHeight}px`;
+      // Calculate the height of the summary
+      const endHeight = `${this.summary?.offsetHeight}px`;
+
+      // If there is already an animation running
+      if (this.animation) {
+        // Cancel the current animation
+        this.animation.cancel();
+      }
+
+      // Start a WAAPI animation
+      this.animation = this.el.animate(
+        {
+          // Set the keyframes from the startHeight to endHeight
+          height: [startHeight, endHeight],
+        },
+        {
+          duration: 400,
+          easing: "ease-out",
+        }
+      );
+
+      // When the animation is complete, call onAnimationFinish()
+      this.animation.onfinish = () => this.onAnimationFinish(false);
+      // If the animation is cancelled, isClosing variable is set to false
+      this.animation.oncancel = () => (this.isClosing = false);
+    }
+
+    open() {
+      // Apply a fixed height on the element
+      this.el.style.height = `${this.el.offsetHeight}px`;
+      // Force the [open] attribute on the details element
+      this.el.open = true;
+      // Wait for the next frame to call the expand function
+      window.requestAnimationFrame(() => this.expand());
+    }
+
+    expand() {
+      // Set the element as "being expanding"
+      this.isExpanding = true;
+      // Get the current fixed height of the element
+      const startHeight = `${this.el.offsetHeight}px`;
+      // Calculate the open height of the element (summary height + content height)
+      const summaryHeight = this.summary?.offsetHeight || 0;
+      const contentHeight = this.content?.offsetHeight || 0;
+
+      const endHeight = `${summaryHeight + contentHeight}px`;
+
+      // If there is already an animation running
+      if (this.animation) {
+        // Cancel the current animation
+        this.animation.cancel();
+      }
+
+      // Start a WAAPI animation
+      this.animation = this.el.animate(
+        {
+          // Set the keyframes from the startHeight to endHeight
+          height: [startHeight, endHeight],
+        },
+        {
+          duration: 400,
+          easing: "ease-out",
+        }
+      );
+      // When the animation is complete, call onAnimationFinish()
+      this.animation.onfinish = () => this.onAnimationFinish(true);
+      // If the animation is cancelled, isExpanding variable is set to false
+      this.animation.oncancel = () => (this.isExpanding = false);
+    }
+
+    onAnimationFinish(open: boolean) {
+      // Set the open attribute based on the parameter
+      this.el.open = open;
+      // Clear the stored animation
+      this.animation = new Animation();
+      // Reset isClosing & isExpanding
+      this.isClosing = false;
+      this.isExpanding = false;
+      // Remove the overflow hidden and the fixed height
+      this.el.style.height = this.el.style.overflow = "";
+    }
+  }
+
+  document.querySelectorAll("details").forEach((el) => {
+    new Accordion(el);
+  });
+</script>
+
+<style>
+  details > summary {
+    height: 100%;
+    position: relative;
+  }
+
+  details[open] > summary {
+    height: auto;
+  }
+
+  /* summary:before {
+    content: "";
+    border-width: 0.4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent oklch(0.75019 0.21579 135.347);
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: rotate(0) translateY(-50%);
+    transform-origin: left top;
+    transition: 0.25s transform ease;
+  } */
+
+  /* summary:before {
+    content: " ";
+    
+  } */
+
+  /* details[open] > summary:before {
+    animation: stripes 2s linear 1 forwards;
+  } */
+
+  details[open] > summary:focus {
+    outline-style: none !important;
+  }
+
+  details > summary > span {
+    position: relative;
+    display: inline-block;
+    color: oklch(0.21 0.034 264.665);
+    overflow: hidden;
+    background: linear-gradient(to right, oklch(0.75019 0.21579 135.347), oklch(0.75019 0.21579 135.347) 50%, oklch(0.21 0.034 264.665) 50%);
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position .3s ease;
+  }
+
+  details[open] > summary > span {
+    background-position: 0 100%;
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
+
+<div style={{ backgroundColor: "#ffffff" }}>
+  <div
+    style={{
+      margin: "0 auto",
+      textAlign: "center",
+    }}
+    class="flex flex-col items-center justify-center max-w-7xl p-8 px-4 lg:px-0"
+  >
+    <div
+      style={{
+        maxWidth: "80rem",
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      class="w-full"
+    >
+      {
+        showTitle && (
+          <h2
+            style={{
+              marginTop: "0.75rem",
+              marginBottom: "0.75rem",
+              fontSize: "2.25rem", // text-4xl
+              lineHeight: "2.5rem",
+              fontFamily: '"Kanit", sans-serif',
+              fontWeight: "700",
+              textAlign: "center",
+              letterSpacing: "0.05em",
+              maxWidth: "768px",
+              marginLeft: "auto",
+              marginRight: "auto",
+              textTransform: "uppercase",
+            }}
+            class="text-primary-400"
+          >
+            Frequently Asked Questions
+          </h2>
+        )
+      }
+
+      <dl
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.5rem",
+          marginTop: "1.5rem",
+          width: "100%",
+          justifyContent: "stretch",
+          alignItems: "stretch",
+        }}
+      >
+        {
+          faqs.map((faq: FAQsClass) => (
+            <details class="w-full">
+              <summary class="p-1 pl-4 flex bg-accent-50 text-accent-900 border-l-8 border-l-primary-400 font-semibold cursor-pointer rounded-sm text-left relative list-none focus:outline-2 focus:outline-primary-400">
+                <span>{faq.question}</span>
+              </summary>
+              <div class="text-accent-900 w-full text-left mt-0.5" set:html={faq.answer} />
+            </details>
+          ))
+        }
+      </dl>
+    </div>
+    <small class="text-gray-700 mt-2"
+      >Got more any more questions? <a
+        href="/contact"
+        class="text-primary-400 hover:text-accent-900 font-semibold transition-all duration-300">Contact Us</a
+      >
+    </small>
+  </div>
+</div>

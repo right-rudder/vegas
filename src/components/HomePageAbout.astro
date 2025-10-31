@@ -5,8 +5,9 @@ import { FaArrowRight } from "react-icons/fa";
 const data = {
   eyebrow: "About Us",
   title: "A personalized pathway for every student",
-  quote:
-    "Vegas Aviation is a community built around safety, service, and mentorship. Led by experienced instructors, we are dedicated to helping aspiring pilots achieve their dreams with world-class training and unwavering support.",
+  quote: `
+    Where quality flight training meets safety and support. Our fun family culture enhances top-notch instruction and meticulous aircraft maintenance.
+    Since its inception, Vegas Aviation has continuously grown and adapted, enriching its offerings and facilities to align with the dynamic demands of the aviation sector.`,
   statValue: "+200",
   statLabel: "Five star reviews",
   body: "From your first flight lesson to earning your pilot's license and beyond, Vegas Aviation is with you every step of the way.",
@@ -30,33 +31,25 @@ const data = {
     <div class="grid items-start gap-10 text-center sm:text-left lg:grid-cols-2 lg:gap-14">
       {/* LEFT: Headline, quote, stat */}
       <div>
-        <p
-          class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-[11px] tracking-widest uppercase"
-        >
+        <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-[11px] tracking-widest uppercase">
           <span class="size-1.5 rounded-full bg-primary-400/90"></span>
           {data.eyebrow}
         </p>
 
-        <h1
-          class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]"
-        >
+        <h1 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">
           {data.title}
         </h1>
 
         {/* Quote card (narrowed) */}
-        <div
-          class="mt-6 rounded-2xl border border-white/10 bg-white/5"
-        >
+        <div class="mt-6 rounded-2xl border border-white/10 bg-white/5">
           <div class="flex items-start gap-3">
-            <p class="text-lg text-accent-900 md:text-base/7">{data.quote}</p>
+            <p class="text-lg text-accent-900 whitespace-pre-line">{data.quote}</p>
           </div>
         </div>
 
         {/* Stat (narrowed) */}
         <div class="mt-7 flex items-center justify-center gap-5 sm:justify-start">
-          <span
-            class="text-shadow-primary-/40 text-6xl font-extrabold text-primary-400 text-shadow-md sm:text-7xl"
-          >
+          <span class="text-shadow-primary-/40 text-6xl font-extrabold text-primary-400 text-shadow-md sm:text-7xl">
             {data.statValue}
           </span>
           <p class="text-md tracking-widest text-accent-700 uppercase text-left">
@@ -84,8 +77,7 @@ const data = {
             href="/"
             class="text-primary-400 underline transition-colors duration-300 ease-in-out hover:text-primary-300"
             >pilot's license</a
-          > and beyond, Vegas Aviation is with you every step of the way. Whether
-          you're pursuing an <a
+          > and beyond, Vegas Aviation is with you every step of the way. Whether you're pursuing an <a
             href="/"
             class="text-primary-400 underline transition-colors duration-300 ease-in-out hover:text-primary-300"
             >instrument rating</a

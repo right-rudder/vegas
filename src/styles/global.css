@@ -99,6 +99,18 @@ body {
   line-height: 1.7;
 }
 
+a:focus {
+  @apply outline-2 outline-primary-400;
+}
+
+button:focus {
+  @apply outline-2 outline-primary-400;
+}
+
+input:focus {
+  @apply outline-2 outline-primary-400;
+}
+
 h1,
 h2,
 h3,
