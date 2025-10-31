@@ -182,8 +182,14 @@ const { pathname } = Astro.props;
               <ul class="sub-menu">
                 {item.children.map((child) => (
                   <li>
-                    <a href={child.url}>
-                      {/* class={child.url === pathname || child.url + "/" === pathname ? "menu-link-hover" : ""} */}
+                    <a
+                      href={child.url}
+                      class={
+                        (child.url === pathname || child.url + "/" === pathname) && child.url !== "/"
+                          ? "menu-link-hover"
+                          : ""
+                      }
+                    >
                       {child.label}
                     </a>
                   </li>
@@ -250,7 +256,7 @@ const { pathname } = Astro.props;
                   <li>
                     <a
                       href={child.url}
-                      class={child.url === pathname || child.url + "/" === pathname ? "menu-link-hover" : ""}
+                      class={(child.url === pathname || child.url + "/" === pathname) && (child.url !== "/") ? "menu-link-hover" : ""}
                     >
                       {child.label}
                     </a>
@@ -281,9 +287,7 @@ const { pathname } = Astro.props;
     display: flex;
     justify-content: center;
     transition: all 0.5s ease;
-  }
-  .navbar.scrolled {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   }
@@ -310,7 +314,7 @@ const { pathname } = Astro.props;
     font-weight: 500;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    color: white;
+    color: #101828;
   }
   .menu-item a:hover {
     color: oklch(0.75019 0.21579 135.347);
@@ -549,7 +553,7 @@ const { pathname } = Astro.props;
     }
     a:has(+ .mobile-submenu.open),
     a:has(+ .mobile-submenu .menu-link-hover) {
-      color: #ff8904;
+      color: oklch(0.75019 0.21579 135.347);
     }
     .mobile-submenu li a {
       display: block;
@@ -558,13 +562,13 @@ const { pathname } = Astro.props;
       color: #374151;
     }
     .mobile-submenu li a:hover {
-      background: #ff8904;
+      background: oklch(0.75019 0.21579 135.347);
       color: white;
       font-weight: bold;
     }
 
     .mobile-submenu li a.menu-link-hover {
-      background: #ff8904;
+      background: oklch(0.75019 0.21579 135.347);
       color: white;
       font-weight: bold;
     }
@@ -579,7 +583,7 @@ const { pathname } = Astro.props;
     }
     .mobile-buttons a {
       width: 100%;
-      display: block;
+      display: flex;
       text-align: center;
     }
   }

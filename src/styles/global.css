@@ -54,7 +54,11 @@
 }
 
 .btn-primary {
-  @apply bg-primary-400 text-white font-semibold rounded-full px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-white hover:text-accent-900;
+  @apply bg-primary-400 text-white font-semibold rounded-full px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-white hover:text-primary-400;
+}
+
+.btn-primary-outline {
+  @apply bg-primary-400 text-white font-semibold rounded-full px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer border border-transparent hover:border-primary-400 hover:bg-transparent hover:text-primary-400;
 }
 
 .btn-secondary {
@@ -62,11 +66,19 @@
 }
 
 .btn-transparent {
-  @apply bg-primary-400/20 text-accent-50 border border-primary-400 rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-primary-400 hover:text-black transition font-semibold cursor-pointer;
+  @apply bg-primary-400/20 text-accent-50 border border-primary-400 rounded-full px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-400;
+}
+
+.btn-transparent-dark {
+  @apply bg-primary-800/20 text-accent-50 border border-primary-800 rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-primary-800 transition font-semibold cursor-pointer;
 }
 
 .eyebrow {
   @apply font-semibold text-primary-400 uppercase border-b-2 border-l-2 border-r-2 border-t border-primary-400 mb-2 rounded-full px-3 py-1 w-fit text-sm;
+}
+
+.eyebrow-light {
+  @apply bg-white text-primary-400 font-semibold uppercase px-3 py-1 w-fit rounded-full text-sm;
 }
 
 .eyebrow-dark {
@@ -93,7 +105,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 0.5rem 0;
+  /* margin: 0 0 0.5rem 0; */
   /* color: rgb(var(--black)); */
   line-height: 1.2;
 }
@@ -121,18 +133,6 @@ h5 {
 strong,
 b {
   font-weight: 700;
-}
-
-a {
-  color: var(--accent);
-}
-
-a:hover {
-  color: var(--accent);
-}
-
-p {
-  margin-bottom: 1em;
 }
 
 .prose p {

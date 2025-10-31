@@ -19,7 +19,7 @@ import contactData from "../data/forms/contact.js";
     <ImageComp
       src="/src/assets/vegas-aviation-cessna-las-vegas-flight-training.jpg"
       alt="Vegas Aviation Cessna Airplane"
-      class="absolute inset-0 h-full w-full object-cover animate-slow-zoom"
+      class="absolute inset-0 h-full w-full object-cover brightness-50 animate-slow-zoom"
       loading="eager"
       quality={100}
     />
@@ -40,10 +40,15 @@ import contactData from "../data/forms/contact.js";
   <HomePageAbout />
   <ProgramsList />
   <CTAWhyUs />
+
+  <!-- TODO : Currently unused -->
   <InstagramFeed />
+
+  <!-- TODO : Add FAQ? -->
+
   <TestimonialsCarousel
     items={[]}
-    className="from-accent-950 via-accent-950/80 to-accent-950 bg-linear-to-b px-5 py-16 text-white md:px-8 md:py-20 lg:px-10 lg:py-24"
+    className="from-primary-400/20 to-accent-50 bg-linear-to-b px-5 py-16 text-accent-900 md:px-8 md:py-20 lg:px-10 lg:py-24"
     client:load
   />
   <ContactForm content={contactData} />

@@ -13,7 +13,7 @@ const data = {
 };
 ---
 
-<section class="relative isolate overflow-hidden text-white">
+<section class="relative isolate overflow-hidden text-accent-900">
   {/* Background image */}
   <div class="pointer-events-none absolute inset-0 -z-30" aria-hidden="true">
     <ImageComp
@@ -27,7 +27,7 @@ const data = {
 
   {/* Dark overlay on image */}
   <div
-    class="from-accent-950 pointer-events-none absolute inset-0 -z-20 bg-linear-to-b via-transparent to-accent-950"
+    class="from-accent-50 pointer-events-none absolute inset-0 -z-20 bg-linear-to-b via-transparent to-accent-50"
     aria-hidden="true"
   >
   </div>
@@ -35,9 +35,9 @@ const data = {
   <div
     class="relative grid items-center gap-6 px-6 py-16 sm:px-10 lg:grid-cols-2 lg:gap-10 lg:px-16 lg:py-24"
   >
-    <div class="max-w-xl">
+    <div class="max-w-xl text-center sm:text-left">
       <p
-        class="eyebrow text-primary-200/80 mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] tracking-widest uppercase"
+        class="eyebrow-dark text-primary-200/80 mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] tracking-widest uppercase mx-auto"
       >
         <span class="size-1.5 rounded-full bg-primary-400/90"></span>
         {data.eyebrow}
@@ -47,14 +47,14 @@ const data = {
       >
         {data.heading}
       </h1>
-      <p class="mt-5 max-w-lg text-base text-white/80 sm:text-lg">
+      <p class="mt-5 max-w-lg text-base sm:text-lg">
         {data.description}
       </p>
 
       <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:gap-6">
         <a
           href={data.primary.href}
-          class="btn-primary box-shadow-[0_4px_20px_rgba(255,211,0,0.25)] hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
+          class="btn-primary-outline box-shadow-[0_4px_20px_rgba(255,211,0,0.25)] hover:brightness-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2"
           >{data.primary.label}</a
         >
       </div>

@@ -90,7 +90,7 @@ export default function TestimonialsCarousel({
 
       <div className="mx-auto w-full max-w-5xl">
         <div className="relative flex w-full flex-col items-center justify-start overflow-hidden rounded-2xl">
-          <BiSolidQuoteLeft className="text-primary-500 size-10" />
+          <BiSolidQuoteLeft className="text-primary-400 size-10" />
 
           <figure className="flex w-full flex-col items-center px-4 text-center md:px-6">
             <blockquote className="mt-4 text-xl leading-relaxed text-ellipsis text-balance whitespace-pre-line md:text-2xl">
@@ -98,7 +98,7 @@ export default function TestimonialsCarousel({
             </blockquote>
             <figcaption className="mt-6 shrink-0">
               <div className="text-center">
-                <div className="text-primary-500! text-lg font-semibold">
+                <div className="text-primary-400 text-lg font-semibold">
                   {current.author}
                 </div>
                 <div className="text-muted-500! text-sm">
@@ -113,7 +113,7 @@ export default function TestimonialsCarousel({
       <div className="mt-10 flex items-center justify-center gap-4">
         <button
           type="button"
-          className="ring-primary-500/30 inline-flex items-center justify-center rounded-full p-3 ring-1 ring-inset text-primary-500 text-lg hover:bg-primary-500 hover:text-black transition-all duration-300 cursor-pointer"
+          className="ring-primary-400/30 inline-flex items-center justify-center rounded-full p-3 ring-1 ring-inset text-primary-400 text-lg hover:bg-primary-400 hover:text-white transition-all duration-300 cursor-pointer"
           aria-label="Previous testimonial"
           onClick={prev}
         >
@@ -134,15 +134,15 @@ export default function TestimonialsCarousel({
               className={
                 "h-2.5 w-2.5 rounded-full transition-all " +
                 (index === i
-                  ? "bg-primary-500 w-6"
-                  : "bg-primary-500/20 hover:bg-black/30")
+                  ? "bg-primary-400 w-6"
+                  : "bg-primary-400/20 hover:bg-black/30")
               }
             />
           ))}
         </nav>
         <button
           type="button"
-          className="ring-primary-500/30 inline-flex items-center justify-center rounded-full p-3 ring-1 ring-inset text-primary-500 text-lg hover:bg-primary-500 hover:text-black transition-all duration-300 cursor-pointer"
+          className="ring-primary-400/30 inline-flex items-center justify-center rounded-full p-3 ring-1 ring-inset text-primary-400 text-lg hover:bg-primary-400 hover:text-white transition-all duration-300 cursor-pointer"
           aria-label="Next testimonial"
           onClick={next}
         >

@@ -22,7 +22,7 @@ const data = {
 
 ---
 
-<section class="relative isolate overflow-hidden bg-primary-800 text-white">
+<section class="relative isolate overflow-hidden bg-primary-400/20 text-accent-900">
   <div class="mx-auto max-w-7xl px-5 md:px-10 lg:px-16 py-16 lg:py-24">
     <div class="grid items-center gap-10 lg:grid-cols-2">
       <!-- LEFT: image -->
@@ -37,26 +37,26 @@ const data = {
       </figure>
 
       <!-- RIGHT: content -->
-      <div class="max-w-2xl lg:max-w-none">
+      <div class="max-w-2xl text-center sm:text-left lg:max-w-none">
         <!-- eyebrow -->
         <p
           class="eyebrow inline-flex items-center gap-2 px-3 py-1 tracking-widest"
         >
-          <span class="size-1.5 rounded-full bg-primary-500"></span>
+          <span class="size-1.5 rounded-full bg-primary-400"></span>
           {data.eyebrow}
         </p>
 
         <!-- title -->
-        <h2 class="mt-4 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+        <h2 class="mt-4 text-4xl text-left font-extrabold leading-tight tracking-tight sm:text-5xl">
           {data.title}
         </h2>
 
         <!-- bullets -->
-        <ul class="mt-6 space-y-4 text-base/7">
+        <ul class="mt-6 space-y-4 text-base text-left">
           {data.bullets.map((item) => (
-            <li class="flex items-start gap-3 font-medium">
-              <FaCheckCircle />
-              <span>{item}</span>
+            <li class="flex items-center gap-3 font-medium">
+              <FaCheckCircle className="size-4 flex-1 max-w-4" />
+              <span class="flex-1">{item}</span>
             </li>
           ))}
         </ul>
@@ -67,7 +67,7 @@ const data = {
         </p>
 
         <!-- CTA -->
-        <a href={data.ctaHref} class="btn-transparent w-fit">
+        <a href={data.ctaHref} class="mt-2 btn-primary-outline w-fit mx-auto sm:mx-0">
           {data.ctaLabel}
           <FaArrowRight />
         </a>
