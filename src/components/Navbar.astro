@@ -211,7 +211,7 @@ const { pathname } = Astro.props;
 ---
 
 <nav id="navbar" class="navbar">
-  <div class="container bg-white md:bg-transparent">
+  <div class="container bg-white lg:bg-transparent">
     <!-- Logo -->
     <a href="/" class="logo object-contain w-36 md:w-52 h-auto">
       <ImageComp src="/src/assets/vegas-logo.png" alt="Vegas Aviation Logo" />
@@ -471,17 +471,6 @@ const { pathname } = Astro.props;
     background: oklch(0.75019 0.21579 135.347);
     color: #fff;
     transform: scale(1.05);
-  }
-
-  .buttons a {
-    margin-left: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 1.5rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  .buttons a:hover {
-    filter: brightness(1.1);
   }
 
   .container .hamburger .hamburger-menu-x,

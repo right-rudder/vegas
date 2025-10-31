@@ -54,35 +54,35 @@
 }
 
 .btn-primary {
-  @apply bg-primary-400 text-white font-semibold rounded-full px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-white hover:text-primary-400;
+  @apply bg-primary-400 text-white font-semibold rounded-md px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-white hover:text-primary-400;
 }
 
 .btn-primary-outline {
-  @apply bg-primary-400 text-white font-semibold rounded-full px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer border border-transparent hover:border-primary-400 hover:bg-transparent hover:text-primary-400;
+  @apply bg-primary-400 text-white font-semibold rounded-md px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer border border-transparent hover:border-primary-400 hover:bg-transparent hover:text-primary-400;
 }
 
 .btn-secondary {
-  @apply bg-accent-500 text-white rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-accent-600 transition cursor-pointer;
+  @apply bg-accent-500 text-white rounded-md px-4 py-2 flex items-center justify-center gap-2 hover:bg-accent-600 transition cursor-pointer;
 }
 
 .btn-transparent {
-  @apply bg-primary-400/20 text-accent-50 border border-primary-400 rounded-full px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-400;
+  @apply bg-primary-400/20 text-accent-50 border border-primary-400 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-400;
 }
 
 .btn-transparent-dark {
-  @apply bg-primary-800/20 text-accent-50 border border-primary-800 rounded-full px-4 py-2 flex items-center justify-center gap-2 hover:bg-primary-800 transition font-semibold cursor-pointer;
+  @apply bg-primary-800/20 text-accent-50 border border-primary-800 rounded-md px-4 py-2 flex items-center justify-center gap-2 hover:bg-primary-800 transition font-semibold cursor-pointer;
 }
 
 .eyebrow {
-  @apply font-semibold text-primary-400 uppercase border-b-2 border-l-2 border-r-2 border-t border-primary-400 mb-2 rounded-full px-3 py-1 w-fit text-sm;
+  @apply font-semibold text-primary-400 uppercase border-b-2 border-l-2 border-r-2 border-t border-primary-400 mb-2 rounded-md px-3 py-1 w-fit text-sm;
 }
 
 .eyebrow-light {
-  @apply bg-white text-primary-400 font-semibold uppercase px-3 py-1 w-fit rounded-full text-sm;
+  @apply bg-white text-primary-400 font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm;
 }
 
 .eyebrow-dark {
-  @apply bg-accent-950 text-primary-400 font-semibold uppercase px-3 py-1 w-fit rounded-full text-sm;
+  @apply bg-accent-950 text-primary-400 font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm;
 }
 
 body {
