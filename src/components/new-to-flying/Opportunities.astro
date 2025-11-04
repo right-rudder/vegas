@@ -1,0 +1,49 @@
+---
+import ImageComp from "../ImageComp.astro";
+
+const { data } = Astro.props;
+---
+
+<section class="bg-accent-900 relative isolate z-0 overflow-hidden text-white text-center">
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 from-primary-300/30 bg-radial-[at_20%_40%] to-transparent to-60%"
+  >
+  </div>
+  <ImageComp
+    src={data.bgImage.src}
+    alt={data.bgImage.alt}
+    class="pointer-events-none absolute inset-0 -z-10 blur-xs size-full object-contain object-bottom"
+  />
+
+  <div class="mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-20">
+    <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
+      {data.eyebrow}
+    </p>
+
+    <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl">
+      {data.title}
+    </h2>
+
+    <h3 class="text-2xl leading-tight font-thin tracking-tight text-primary-400 max-w-2xl mx-auto">
+      {data.subTitle}
+    </h3>
+
+    <div class="grid grid-cols-1 justify-stretch items-stretch gap-6 my-16 relative xl:grid-cols-2">
+      {
+        data.data.map((item: any, index: number) => (
+          <div class={`flex flex-col gap-6 bg-accent-900/75 rounded-lg p-6 justify-center transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-400/70 ${index === data.data.length-1 ? "xl:col-span-2" : ""}`}>
+            <p class="font-bold text-3xl">{item.title}</p>
+            <span class="text-shadow-primary-400/40 text-5xl font-extrabold text-primary-400 text-shadow-md sm:text-7xl">
+              {item.stat}
+            </span>
+            {item.suffix && <p class="font-bold text-3xl">{item.suffix}</p>}
+          </div>
+        ))
+      }
+    </div>
+
+    <a href={data.cta.url} class="btn-primary mt-5 w-fit mx-auto uppercase">
+      {data.cta.text}
+    </a>
+  </div>
+</section>
