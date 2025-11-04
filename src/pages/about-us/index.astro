@@ -5,24 +5,13 @@ import Banner from "../../components/Banner.astro";
 import { FaArrowRight } from "react-icons/fa";
 import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
 
-const data = {
-  image: {
-    src: "/src/assets/about-us-cfi-team-vegas-aviation-flight-lessons.jpg",
-    alt: "Vegas Aviation CFI team in front of a plane",
-  },
-  eyebrow: "About Us",
-  title: "Learn more about Vegas Aviation",
-  subTitle:
-    "We're excited to get to know you, if you have any questions or want to get to know us more closely, please contact us and schedule a visit or discovery flight",
-  cta: {
-    url: "/contact",
-    text: "Contact Us",
-  },
-};
+import { data } from "../../data/about-us";
 ---
-
-<BaseLayout>
-  <Banner data={data} />
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  siteKeywords={data.siteKeywords}>
+  <Banner data={data.header} />
 
   <section class="bg-accent-50 relative isolate z-0 overflow-hidden text-accent-900">
     {/* soft radial glow */}
@@ -35,7 +24,7 @@ const data = {
       <div class="grid items-start gap-10 text-center sm:text-left lg:grid-cols-2 lg:gap-14">
         {/* LEFT: Headline, quote, stat */}
         <div>
-          <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-[11px] tracking-widest uppercase">
+          <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
             <span class="size-1.5 rounded-full bg-primary-400/90"></span>
             About Us
           </p>
@@ -43,7 +32,7 @@ const data = {
           <h1 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">Get to Know Us</h1>
 
           {/* Quote card (narrowed) */}
-          <div class="mt-4 rounded-2xl border border-white/10 bg-white/5">
+          <div class="mt-4 rounded-lg border border-white/10 bg-white/5">
             <div class="flex items-start gap-3">
               <p class="text-lg text-accent-900 whitespace-pre-line">
                 Where quality flight training meets safety and support. Our fun family culture enhances top-notch
@@ -66,7 +55,7 @@ const data = {
             <ImageComp
               src="/src/assets/about-us-cfi-team-vegas-aviation-discovery-flight.jpg"
               alt="Vegas Aviation CFI team"
-              class="aspect-4/3 w-full rounded-4xl object-cover object-bottom md:aspect-5/4"
+              class="aspect-4/3 w-full rounded-lg object-cover object-bottom md:aspect-5/4"
             />
           </figure>
         </div>
@@ -83,14 +72,14 @@ const data = {
             <ImageComp
               src="/src/assets/team-vegas-aviation-zero-to-hero-aviation.png"
               alt="Vegas Aviation CFI team"
-              class="aspect-4/3 w-full rounded-4xl object-cover object-bottom md:aspect-5/4"
+              class="aspect-4/3 w-full rounded-lg object-cover object-bottom md:aspect-5/4"
             />
           </figure>
         </div>
 
         {/* Right: Headline, quote, stat */}
         <div>
-          <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-[11px] tracking-widest uppercase">
+          <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
             <span class="size-1.5 rounded-full bg-primary-400/90"></span>
             Our Pilots
           </p>
@@ -98,7 +87,7 @@ const data = {
           <h1 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">Meet the Team</h1>
 
           {/* Quote card (narrowed) */}
-          <div class="mt-4 rounded-2xl border border-white/10 bg-white/5">
+          <div class="mt-4 rounded-lg border border-white/10 bg-white/5">
             <div class="flex items-start gap-3">
               <p class="text-lg text-accent-900 whitespace-pre-line">
                 At Vegas Aviation, our success stems from our exceptional FAA Certified Flight Instructors. They offer
@@ -124,7 +113,7 @@ const data = {
       <div class="grid items-start gap-10 text-center sm:text-left lg:grid-cols-2 lg:gap-14">
         {/* Left: Headline, quote, stat */}
         <div>
-          <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-[11px] tracking-widest uppercase">
+          <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
             <span class="size-1.5 rounded-full bg-primary-400/90"></span>
             Why Us
           </p>
@@ -153,7 +142,7 @@ const data = {
             <ImageComp
               src="/src/assets/students-vegas-aviation-pilot-training.jpg"
               alt="Vegas Aviation CFI team"
-              class="aspect-4/3 w-full rounded-4xl object-cover object-bottom md:aspect-5/4"
+              class="aspect-4/3 w-full rounded-lg object-cover object-bottom md:aspect-5/4"
             />
           </figure>
         </div>

@@ -43,28 +43,28 @@ type Field = {
 };
 
 const ui = {
-  section: "bg-accent-50 px-4 py-12 sm:px-6 lg:px-8 lg:py-20",
+  section: "bg-accent-900 px-4 py-12 sm:px-6 lg:px-8 lg:py-20",
   grid: "grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 max-w-7xl mx-auto",
-  left: "relative overflow-hidden rounded-3xl text-accent-900",
-  leftInner: "tfext-accent-900 p-6 sm:p-8 lg:p-10",
+  left: "relative overflow-hidden rounded-lg text-white",
+  leftInner: "text-white p-6 sm:p-8 lg:p-10",
   /* TODO : Update form color to a darker green tone or make it black */
-  right: "bg-primary-400 rounded-lg p-6 ring-1 ring-primary-400/70 sm:p-8 lg:p-10 text-white font-semibold",
-  eyebrow: "eyebrow-light inline-flex items-center gap-2 px-3 py-1 text-[11px] tracking-widest uppercase",
+  right: "bg-primary-900 rounded-lg p-6 ring-1 ring-primary-700 sm:p-8 lg:p-10 text-white font-semibold",
+  eyebrow: "eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase",
   h2: "mt-2 text-4xl font-extrabold lg:text-5xl",
   sub: "text-white mt-4 max-w-prose",
   input:
-    "bg-white text-primary-400 placeholder:text-accent-500 mt-2 h-12 rounded-md border border-white/10 px-4 outline-none focus:border-primary-300/40 focus:ring-2 focus:ring-primary-900",
+    "bg-white text-accent-900 placeholder:text-accent-500 mt-2 h-12 rounded-md border border-white/10 px-4 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-400",
   textarea:
-    "bg-white text-primary-400 placeholder:text-accent-500 mt-2 rounded-md border border-white/10 px-4 py-3 outline-none focus:border-primary-300/40 focus:ring-2 focus:ring-primary-900",
+    "bg-white text-accent-900 placeholder:text-accent-500 mt-2 rounded-md border border-white/10 px-4 py-3 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-400",
   label: "text-white text-sm font-medium",
   button:
-    "btn-transparent-dark box-shadow-[0_4px_20px_rgba(255,211,0,0.25)] hover:brightness-95 " +
+    "btn-transparent box-shadow-[0_4px_20px_rgba(255,211,0,0.25)] hover:brightness-95 " +
     "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2 ",
   // NEW: native select styled + dark popup/options
   select:
     // base look matching inputs
-    "bg-white text-primary-400 placeholder:text-accent-500 mt-2 h-12 w-full rounded-md " +
-    "border border-white/10 px-4 pr-10 outline-none focus:border-primary-300/40 focus:ring-2 focus:ring-primary-900 " +
+    "bg-white text-accent-900 placeholder:text-accent-500 mt-2 h-12 w-full rounded-md " +
+    "border border-white/10 px-4 pr-10 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-400 " +
     // render the UA dropdown in dark mode (modern browsers)
     "[color-scheme:dark] " +
     // darken rows where supported (Chromium/Firefox respect option styling)
@@ -514,6 +514,7 @@ const icon = "h-10 w-10 text-primary-400";
   }
   #submitBtn:disabled {
     background-color: rgb(63 63 70) !important; /* ~gray-700 */
+    border-color: rgb(63 63 70) !important; /* ~gray-700 */
     color: rgb(203 213 225) !important; /* ~slate-300 */
     box-shadow: none !important;
     cursor: not-allowed !important;

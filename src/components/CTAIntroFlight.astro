@@ -5,7 +5,7 @@ const data = {
   eyebrow: "YOUR PILOT CAREER START HERE",
   heading: "Take Off with Vegas Aviation",
   description: "Experience personalized flight training with our instructors, they are passionate people dedicated to your success. Whether you're starting your first lesson or advancing your skills, Vegas Aviation offers a supportive community and expert guidance every step of the way.",
-  primary: { label: "Book an Intro Flight", href: "/" },
+  primary: { label: "Book a Discovery Flight", href: "/discovery-flight" },
   image: {
     src: "/src/assets/stock/airplane-takeoff-view-below-clouds-above-vegas-aviation-henderson-flight-school.jpg",
     alt: "View from below of an airplane taking off",
@@ -13,13 +13,13 @@ const data = {
 };
 ---
 
-<section class="relative isolate overflow-hidden text-accent-900">
+<section class="relative isolate overflow-hidden text-white">
   {/* Background image */}
   <div class="pointer-events-none absolute inset-0 -z-30" aria-hidden="true">
     <ImageComp
       src={data.image.src}
       alt={data.image.alt}
-      class="h-full w-full object-cover brightness-75"
+      class="h-full w-full object-cover brightness-50"
       loading="lazy"
       decoding="async"
     />
@@ -27,7 +27,7 @@ const data = {
 
   {/* Dark overlay on image */}
   <div
-    class="from-accent-50 pointer-events-none absolute inset-0 -z-20 bg-linear-to-b via-transparent to-accent-50"
+    class="pointer-events-none absolute inset-0 -z-20 bg-linear-to-b from-accent-900 via-transparent to-accent-900"
     aria-hidden="true"
   >
   </div>
@@ -37,7 +37,7 @@ const data = {
   >
     <div class="max-w-xl text-center sm:text-left">
       <p
-        class="eyebrow-dark text-primary-200/80 mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] tracking-widest uppercase mx-auto"
+        class="eyebrow text-primary-200/80 mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm tracking-widest uppercase mx-auto"
       >
         <span class="size-1.5 rounded-full bg-primary-400/90"></span>
         {data.eyebrow}
