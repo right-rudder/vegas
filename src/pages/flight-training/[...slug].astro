@@ -1,0 +1,36 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Banner from "../../components/Banner.astro";
+import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
+import FAQs from "../../components/FAQs.astro";
+import CenteredSection from "../../components/flight-training.astro/CenteredSection.astro";
+
+export async function getStaticPaths() {
+  const programs = await getCollection("flight-training");
+  return programs.map((program) => ({
+    params: { slug: program.id },
+    props: program,
+  }));
+}
+
+type Props = CollectionEntry<"flight-training">;
+
+const program = Astro.props;
+---
+
+<BaseLayout
+  siteTitle={program.data.siteTitle}
+  siteDescription={program.data.siteDescription}
+  siteKeywords={program.data.siteKeywords}
+>
+  <Banner data={program.data.header} slot="hero" />
+
+  <!-- TODO : Add Cost -->
+
+  {program.data.sections.map((item: any) => <CenteredSection data={item} />)}
+
+  {program.data.faqs && <FAQs faqs={program.data.faqs} />}
+
+  <CTAIntroFlight />
+</BaseLayout>
