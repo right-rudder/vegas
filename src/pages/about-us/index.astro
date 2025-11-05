@@ -11,7 +11,7 @@ import { data } from "../../data/about-us";
   siteTitle={data.siteTitle}
   siteDescription={data.siteDescription}
   siteKeywords={data.siteKeywords}>
-  <Banner data={data.header} />
+  <Banner data={data.header} slot="hero" />
 
   <section class="bg-accent-50 relative isolate z-0 overflow-hidden text-accent-900">
     {/* soft radial glow */}
@@ -29,7 +29,7 @@ import { data } from "../../data/about-us";
             About Us
           </p>
 
-          <h1 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">Get to Know Us</h1>
+          <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">Get to Know Us</h2>
 
           {/* Quote card (narrowed) */}
           <div class="mt-4 rounded-lg border border-white/10 bg-white/5">
@@ -84,7 +84,7 @@ import { data } from "../../data/about-us";
             Our Pilots
           </p>
 
-          <h1 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">Meet the Team</h1>
+          <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">Meet the Team</h2>
 
           {/* Quote card (narrowed) */}
           <div class="mt-4 rounded-lg border border-white/10 bg-white/5">
@@ -118,9 +118,9 @@ import { data } from "../../data/about-us";
             Why Us
           </p>
 
-          <h1 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">
+          <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">
             We strive to give you the best value
-          </h1>
+          </h2>
 
           {/* Stat (narrowed) */}
           <div class="mt-7 flex items-center justify-center gap-5 sm:justify-start">

@@ -20,7 +20,7 @@ export const data = {
       desc: "Foundation training for aspiring aviators",
       href: "/flight-training/private-pilot/",
       img: {
-        src: "/src/assets/private-pilot-vegas-avitation-pilot-career.jpg",
+        src: "/src/assets/pilot-flying-over-city-vegas-aviation-summerlin-become-a-pilot.jpg",
         alt: "Pilot inside cockpit flying airplane above city",
       },
       data: {
