@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Banner from "../../components/Banner.astro";
+import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
+import Courses from "../../components/flight-training.astro/Courses.astro";
+
+import { data } from "../../data/flight-training";
+---
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  siteKeywords={data.siteKeywords}>
+
+  <Banner data={data.header} slot="hero" />
+
+  <Courses data={data.courses} />
+
+  <CTAIntroFlight />
+</BaseLayout>
