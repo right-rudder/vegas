@@ -68,7 +68,7 @@ faqs:
         <li><b>Knowledge Test:</b> Pass a written knowledge exam with a minimum score of 70%.</li>
         <li><b>Practical Test:</b> Pass an oral exam and a practical flight test (commonly known as the check ride) administered by an authorized FAA examiner.</li>
       </ul>
-cost:
+costs:
   eyebrow: "The Cost You Can Expect"
   title: "Average Investment"
   courses:

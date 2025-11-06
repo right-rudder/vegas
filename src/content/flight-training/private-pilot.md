@@ -78,7 +78,7 @@ faqs:
   - question: "Do I need to have some previous flying experience?"
     answer: |
       No, our flight school welcomes students with any level of experience, from total beginners to those with prior flying experience.
-cost:
+costs:
   eyebrow: "The Cost You Can Expect"
   title: "Average Investment"
   subTitle: "FAA minimum requirement is 40hrs"
