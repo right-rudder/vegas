@@ -68,4 +68,29 @@ faqs:
         <li><b>Knowledge Test:</b> Pass a written knowledge exam with a minimum score of 70%.</li>
         <li><b>Practical Test:</b> Pass an oral exam and a practical flight test (commonly known as the check ride) administered by an authorized FAA examiner.</li>
       </ul>
+cost:
+  eyebrow: "The Cost You Can Expect"
+  title: "Average Investment"
+  courses:
+    - bullets:
+      - title: "25 Hours Dual Instruction"
+        cost: "$ 5,875"
+      - title: "40 Hours Cross Country / Time Building (1/2)"
+        cost: "$ 3,500"
+      - title: "10 Hours AATD Simulator with CFI"
+        cost: "$ 1,350"
+      - title: "15 Hours Private Ground Instruction"
+        cost: "$ 900"
+      - title: "Cessna On-line Instrument Flight Course"
+        cost: "$ 374"
+      - title: "Aircraft Rental for Check Ride (2 Hours)"
+        cost: "$ 350"
+      - title: "Checkride with FAA Designated Pilot Examiner (DPE)"
+        cost: "$ 1,200"
+      total:
+        title: "TOTAL INSTRUMENT RATING 67 Airplane + 10 Sim Hours"
+        cost: "$ 13,549"
+  cta:
+    url: "/contact"
+    text: "Contact Us"
 ---

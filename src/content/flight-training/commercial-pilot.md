@@ -90,4 +90,31 @@ faqs:
         <li><b>Knowledge Test:</b> Pass a written knowledge exam.</li>
         <li><b>Practical Test:</b> Pass an oral exam and a practical flight test administered by an FAA-designated examiner.</li>
       </ul>
+cost:
+  eyebrow: "The Cost You Can Expect"
+  title: "Average Investment"
+  courses:
+    - bullets:
+      - title: "25 Hours Dual Instruction"
+        cost: "$ 5,875"
+      - title: "10 Hours Solo Practice"
+        cost: "$ 1,750"
+      - title: "65 Time Building (1/2)"
+        cost: "$ 5,688"
+      - title: "10 Hours AATD Flight Simulator Solo"
+        cost: "$ 750"
+      - title: "20 Hours Private Ground Instruction"
+        cost: "$ 1,200"
+      - title: "Cessna On-line Commercial Pilot Course"
+        cost: "$ 374"
+      - title: "Aircraft Rental for Check Ride (2 Hours)"
+        cost: "$ 350"
+      - title: "Checkride with FAA Designated Pilot Examiner"
+        cost: "$ 1,200"
+      total:
+        title: "TOTAL COMMERCIAL PILOT CERTIFICATE 102 Airplane + 10 Sim Hours "
+        cost: "$ 17,187"
+  cta:
+    url: "/contact"
+    text: "Contact Us"
 ---

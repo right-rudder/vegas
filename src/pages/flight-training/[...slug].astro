@@ -4,7 +4,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Banner from "../../components/Banner.astro";
 import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
 import FAQs from "../../components/FAQs.astro";
-import CenteredSection from "../../components/flight-training.astro/CenteredSection.astro";
+import CenteredSection from "../../components/flight-training/CenteredSection.astro";
+import CostSection from "../../components/flight-training/CostSection.astro";
 
 export async function getStaticPaths() {
   const programs = await getCollection("flight-training");
@@ -31,6 +32,8 @@ const program = Astro.props;
   {program.data.sections.map((item: any) => <CenteredSection data={item} />)}
 
   {program.data.faqs && <FAQs faqs={program.data.faqs} />}
+
+  {program.data.costs && <CostSection data={program.data.costs} />}
 
   <CTAIntroFlight />
 </BaseLayout>

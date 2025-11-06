@@ -65,4 +65,39 @@ faqs:
         <li><b>Knowledge Test:</b> Pass a written knowledge exam covering flight instruction principles, regulations, and teaching methods.</li>
         <li><b>Practical Test:</b> Pass an oral exam and a practical flight test.  Your practical flight test will consist of you providing mock instruction to a Designated Pilot Examiner (DPE) to demonstrate teaching proficiency.</li>
       </ul>
+costs:
+  eyebrow: "The Cost You Can Expect"
+  title: "Average Investment"
+  courses:
+    - title: "Certified Flight Instructor (CFI)"
+      bullets:
+      - title: "15 Hours Dual Instruction"
+        cost: "$ 3,525"
+      - title: "5 Hours Solo Practice"
+        cost: "$ 875"
+      - title: "40 Hours Ground Instruction"
+        cost: "$ 2,400"
+      - title: "Aircraft Rental for Check Ride (2 Hours)"
+        cost: "$ 350"
+      - title: "Checkride with FAA Designated Pilot Examiner"
+        cost: "$ 1,600"
+      total:
+        title: "TOTAL CFI 22 Airplane Hours "
+        cost: "$ 8,750"
+    - title: "Certified Flight Instructor, Instrument (CFII)"
+      bullets:
+      - title: "10 Hours Dual Instruction"
+        cost: "$ 2,350"
+      - title: "10 Hours Ground Instruction"
+        cost: "$ 600"
+      - title: "Aircraft Rental for Check Ride (2 Hours)"
+        cost: "$ 350"
+      - title: "Checkride with FAA Designated Pilot Examiner"
+        cost: "$ 1,200"
+      total:
+        title: "TOTAL CFII 12 Airplane Hours "
+        cost: "$ 4,500"
+  cta:
+    url: "/contact"
+    text: "Contact Us"
 ---

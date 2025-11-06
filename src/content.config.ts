@@ -49,23 +49,47 @@ const flightTraining = defineCollection({
         z.object({
           eyebrow: z.string(),
           title: z.string(),
-					subTitle: z.string(),
-					img: z.object({
-						src: z.string(),
-						alt: z.string(),
-					}),
+          subTitle: z.string(),
+          img: z.object({
+            src: z.string(),
+            alt: z.string(),
+          }),
           description: z.string().optional(),
-					bullets: z.array(z.string()).optional(),
-					cta: z.object({
-						url: z.string(),
-						text: z.string(),
-					}),
+          bullets: z.array(z.string()).optional(),
+          cta: z.object({
+            url: z.string(),
+            text: z.string(),
+          }),
         })
       ),
-			faqs: z.array(z.object({
-				question: z.string(),
-				answer: z.string(),
-			})).optional(),
+      faqs: z
+        .array(
+          z.object({
+            question: z.string(),
+            answer: z.string(),
+          })
+        )
+        .optional(),
+      costs: z.object({
+        eyebrow: z.string(),
+        title: z.string(),
+        subTitle: z.string().optional(),
+        courses: z.array(z.object({
+          title: z.string().optional(),
+          bullets: z.array(z.object({
+            title: z.string(),
+            cost: z.string(),
+          })).optional(),
+          total: z.object({
+            title: z.string(),
+            cost: z.string(),
+          }).optional(),
+        })),
+        cta: z.object({
+          url: z.string(),
+          text: z.string(),
+        }),
+      }).optional(),
     }),
 });
 

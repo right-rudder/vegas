@@ -78,4 +78,30 @@ faqs:
   - question: "Do I need to have some previous flying experience?"
     answer: |
       No, our flight school welcomes students with any level of experience, from total beginners to those with prior flying experience.
+cost:
+  eyebrow: "The Cost You Can Expect"
+  title: "Average Investment"
+  subTitle: "FAA minimum requirement is 40hrs"
+  courses:
+    - bullets:
+      - title: "50 Hours Dual Instruction"
+        cost: "$ 11,750"
+      - title: "10 Hours Solo Practice"
+        cost: "$ 1,750"
+      - title: "2 Hours Simulator with Instructor – Introduction"
+        cost: "$ 270"
+      - title: "20 Hours Private Ground Instruction"
+        cost: "$ 1,200"
+      - title: "Pilot Onboarding Kit (Incl. Cessna On-line Private Pilot Course)"
+        cost: "$ 765"
+      - title: "Aircraft Rental for Check Ride (2 Hours)"
+        cost: "$ 350"
+      - title: "Check Ride with FAA Designated Pilot Examiner (DPE)"
+        cost: "$ 1,200"
+      total:
+        title: "TOTAL PRIVATE PILOT CERTIFICATE 62 Airplane + 2 Sim Hours"
+        cost: "$ 17,285"
+  cta:
+    url: "/contact"
+    text: "Contact Us"
 ---

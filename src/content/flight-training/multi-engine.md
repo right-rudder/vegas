@@ -89,4 +89,37 @@ faqs:
         </li>
         <li><b>Practical Test:</b> Successfully pass the MEI practical test with an FAA-designated examiner or an authorized flight instructor.</li>
       </ul>
+costs:
+  eyebrow: "The Cost You Can Expect"
+  title: "Average Investment"
+  courses:
+    - title: "Multi-Engine Commercial Add-On"
+      bullets:
+      - title: "12 Hours Dual Instruction"
+        cost: "$ 5,820"
+      - title: "4 Hours Ground Instruction"
+        cost: "$ 240"
+      - title: "Aircraft Rental for Check Ride (2 Hours)"
+        cost: "$ 850"
+      - title: "Checkride with FAA Designated Pilot Examiner"
+        cost: "$ 1,200"
+      total:
+        title: "TOTAL MULTI-ENGINE COMMERCIAL ADD-ON 14 ME Airplane Hours "
+        cost: "$ 8,110"
+    - title: "Multi-Engine Instructor (MEI)"
+      bullets:
+      - title: "14 Hours Dual Instruction"
+        cost: "$ 6,790"
+      - title: "4 Hours Ground Instruction"
+        cost: "$ 240"
+      - title: "Aircraft Rental for Check Ride (2 Hours)"
+        cost: "$ 850"
+      - title: "Checkride with FAA Designated Pilot Examiner (incl aircraft rental)"
+        cost: "$ 1,200"
+      total:
+        title: "TOTAL MULTI-ENGINE INSTRUCTOR 16 Airplane Hours "
+        cost: "$ 9,080"
+  cta:
+    url: "/contact"
+    text: "Contact Us"
 ---
