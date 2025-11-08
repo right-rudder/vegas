@@ -38,10 +38,12 @@ const flightTraining = defineCollection({
         title: z.string(),
         subTitle: z.string(),
         cta: z
-          .object({
-            url: z.string(),
-            text: z.string(),
-          })
+          .array(
+            z.object({
+              url: z.string(),
+              text: z.string(),
+            })
+          )
           .optional(),
         heroCards: z.boolean().optional(),
       }),
@@ -70,26 +72,36 @@ const flightTraining = defineCollection({
           })
         )
         .optional(),
-      costs: z.object({
-        eyebrow: z.string(),
-        title: z.string(),
-        subTitle: z.string().optional(),
-        courses: z.array(z.object({
-          title: z.string().optional(),
-          bullets: z.array(z.object({
-            title: z.string(),
-            cost: z.string(),
-          })).optional(),
-          total: z.object({
-            title: z.string(),
-            cost: z.string(),
-          }).optional(),
-        })),
-        cta: z.object({
-          url: z.string(),
-          text: z.string(),
-        }),
-      }).optional(),
+      costs: z
+        .object({
+          eyebrow: z.string(),
+          title: z.string(),
+          subTitle: z.string().optional(),
+          courses: z.array(
+            z.object({
+              title: z.string().optional(),
+              bullets: z
+                .array(
+                  z.object({
+                    title: z.string(),
+                    cost: z.string(),
+                  })
+                )
+                .optional(),
+              total: z
+                .object({
+                  title: z.string(),
+                  cost: z.string(),
+                })
+                .optional(),
+            })
+          ),
+          cta: z.object({
+            url: z.string(),
+            text: z.string(),
+          }),
+        })
+        .optional(),
     }),
 });
 

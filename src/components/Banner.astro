@@ -3,6 +3,11 @@ import ImageComp from "./ImageComp.astro";
 import HeroHomepage from "./HeroHomepage.astro";
 import HeroCards from "./HeroCards.astro";
 
+interface ctaProp {
+  url: string;
+  text: string;
+}
+
 interface Props {
   data: {
     image: {
@@ -12,10 +17,7 @@ interface Props {
     eyebrow: string;
     title: string;
     subTitle: string;
-    cta?: {
-      url: string;
-      text: string;
-    };
+    cta?: ctaProp[];
     heroCards?: boolean;
   };
 }
@@ -43,12 +45,14 @@ const { data } = Astro.props;
 
     {
       data.cta && (
-        <div class="my-6 mx-auto flex justify-center bottom-0 text-center absolute left-0.5 right-0.5 sm:left-1/2 sm:-translate-x-1/2">
-          <a href={data.cta.url} class="btn-primary-outline text-2xl group w-fit">
-            <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-400"></span>
-            {data.cta.text}
-            <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-400"></span>
-          </a>
+        <div class="my-6 mx-auto flex gap-4 flex-col justify-center bottom-0 text-center absolute left-0.5 right-0.5 sm:flex-row sm:left-1/2 sm:-translate-x-1/2">
+          {data.cta.map((item) => (
+            <a href={item.url} class="btn-primary-outline text-2xl group w-fit">
+              <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-400"></span>
+              {item.text}
+              <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-400"></span>
+            </a>
+          ))}
         </div>
       )
     }

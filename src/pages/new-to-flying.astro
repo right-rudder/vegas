@@ -4,7 +4,7 @@ import Banner from "../components/Banner.astro";
 import CTAIntroFlight from "../components/CTAIntroFlight.astro";
 import Opportunities from "../components/new-to-flying/Opportunities.astro";
 import CTAWhyUs from "../components/CTAWhyUs.astro";
-import ProgramsList from "../components/new-to-flying/ProgramsListTimeline.astro";
+import ProgramsList from "../components/ProgramsList.astro";
 import TestimonialsCarousel from "../components/TestimonialsCarousel";
 
 import { data } from "../data/new-to-flying";
@@ -21,7 +21,7 @@ import { testimonials } from "../data/testimonials";
 
   <CTAWhyUs />
 
-  <ProgramsList />
+  <ProgramsList isTimeline={true} />
 
   <TestimonialsCarousel 
     items={testimonials.slice(3)}

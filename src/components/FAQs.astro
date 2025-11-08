@@ -250,7 +250,7 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
         {
           faqs.map((faq: FAQsClass) => (
             <details class="w-full relative">
-              <summary class="p-1 pl-12 flex bg-accent-700 text-white font-semibold cursor-pointer rounded-sm overflow-hidden text-left relative list-none focus:outline-2 focus:outline-primary-400">
+              <summary class="p-1 pl-12 flex bg-accent-700 text-white font-semibold cursor-pointer rounded-sm overflow-hidden text-left relative list-none focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-primary-900">
                 <span>{faq.question}</span>
               </summary>
               <div class="text-white w-full text-left mt-0.5" set:html={faq.answer} />

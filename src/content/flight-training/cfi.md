@@ -15,8 +15,8 @@ header:
   title: "Commercial Pilot Training"
   subTitle: "Inspire the next generation of aviators with Vegas Aviation’s Certified Flight Instructor (CFI) course. Tailored for pilots seeking to share their passion for flight, our comprehensive program prepares you to become a proficient and knowledgeable instructor"
   cta:
-    url: "/enroll"
-    text: "Become a CFI"
+    - url: "/enroll"
+      text: "Become a CFI"
 sections:
   - eyebrow: "Get Started"
     title: "Become a Certified Flight Instructor (CFI)"

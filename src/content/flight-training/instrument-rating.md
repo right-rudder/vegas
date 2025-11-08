@@ -15,8 +15,8 @@ header:
   title: "Instrument Rating"
   subTitle: "Prepare to navigate the skies with precision and confidence through Vegas Aviation’s Instrument Rating Course. Designed to enhance your piloting skills and expand your capabilities, our comprehensive program covers advanced instrument flight techniques, navigation procedures, and proficiency in adverse weather conditions"
   cta:
-    url: "/enroll"
-    text: "Get Started Today"
+    - url: "/enroll"
+      text: "Get Started Today"
 sections:
   - eyebrow: "Get Started"
     title: "What Is an Instrument Rating?"

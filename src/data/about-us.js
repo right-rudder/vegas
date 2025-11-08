@@ -13,9 +13,11 @@ export const data = {
     title: "Learn more about Vegas Aviation",
     subTitle:
       "We're excited to get to know you, if you have any questions or want to get to know us more closely, please contact us and schedule a visit or discovery flight",
-    cta: {
-      url: "/contact",
-      text: "Contact Us",
-    },
+    cta: [
+      {
+        url: "/contact",
+        text: "Contact Us",
+      },
+    ],
   },
 };

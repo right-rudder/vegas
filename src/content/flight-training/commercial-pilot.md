@@ -15,8 +15,8 @@ header:
   title: "Commercial Pilot License"
   subTitle: "Designed for aspiring pilots seeking professional excellence, our comprehensive curriculum covers advanced flight maneuvers, aeronautical decision-making, and commercial flight operations. Led by experienced instructors and supported by state-of-the-art facilities, our program ensures you graduate with the skills, confidence, and qualifications to succeed in the dynamic world of commercial aviation"
   cta:
-    url: "/enroll"
-    text: "Get Started Today"
+    - url: "/enroll"
+      text: "Get Started Today"
 sections:
   - eyebrow: "Get Started"
     title: "Earn Your Commercial Pilot License"

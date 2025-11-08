@@ -66,7 +66,7 @@
 }
 
 .btn-transparent {
-  @apply bg-primary-400/20 text-accent-50 border border-primary-400 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-900 hover:border-primary-900 hover:text-primary-400;
+  @apply bg-primary-400/20 text-accent-50 border border-primary-400 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-400 hover:border-primary-400 hover:text-accent-900;
 }
 
 .btn-transparent-dark {
@@ -100,15 +100,22 @@ body {
 }
 
 a:focus {
-  @apply outline-2 outline-primary-400;
+  /* @apply outline-2 outline-primary-100; */
+  @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-primary-900;
 }
 
 button:focus {
-  @apply outline-2 outline-primary-400;
+  /* @apply outline-2 outline-primary-100; */
+  @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-primary-900;
 }
 
 input:focus {
-  @apply outline-2 outline-primary-400;
+  /* @apply outline-2 outline-primary-100; */
+  @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-primary-900;
+}
+
+textarea:focus {
+  @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-primary-900;
 }
 
 strong,

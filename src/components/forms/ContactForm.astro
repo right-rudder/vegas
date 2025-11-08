@@ -47,24 +47,21 @@ const ui = {
   grid: "grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 max-w-7xl mx-auto",
   left: "relative overflow-hidden rounded-lg text-white",
   leftInner: "text-white p-6 sm:p-8 lg:p-10",
-  /* TODO : Update form color to a darker green tone or make it black */
   right: "bg-primary-900 rounded-lg p-6 ring-1 ring-primary-700 sm:p-8 lg:p-10 text-white font-semibold",
   eyebrow: "eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase",
   h2: "mt-2 text-4xl font-extrabold lg:text-5xl",
   sub: "text-white mt-4 max-w-prose",
   input:
-    "bg-white text-accent-900 placeholder:text-accent-500 mt-2 h-12 rounded-md border border-white/10 px-4 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-400",
+    "bg-white text-accent-900 placeholder:text-accent-500 mt-2 h-12 rounded-md border border-white/10 px-4",
   textarea:
-    "bg-white text-accent-900 placeholder:text-accent-500 mt-2 rounded-md border border-white/10 px-4 py-3 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-400",
+    "bg-white text-accent-900 placeholder:text-accent-500 mt-2 rounded-md border border-white/10 px-4 py-3",
   label: "text-white text-sm font-medium",
   button:
-    "btn-transparent box-shadow-[0_4px_20px_rgba(255,211,0,0.25)] hover:brightness-95 " +
-    "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2 ",
-  // NEW: native select styled + dark popup/options
+    "btn-primary-outline",
   select:
     // base look matching inputs
     "bg-white text-accent-900 placeholder:text-accent-500 mt-2 h-12 w-full rounded-md " +
-    "border border-white/10 px-4 pr-10 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-400 " +
+    "border border-white/10 px-4 pr-10 outline-none " +
     // render the UA dropdown in dark mode (modern browsers)
     "[color-scheme:dark] " +
     // darken rows where supported (Chromium/Firefox respect option styling)
@@ -314,7 +311,7 @@ const icon = "h-10 w-10 text-primary-400";
               id="accept"
               name="accept"
               type="checkbox"
-              class="bg-muted-900/70 mt-1 h-5 w-5 rounded border-white/20 text-primary-400 focus:outline-2! focus:outline-primary-900!"
+              class="bg-muted-900/70 mt-1 h-5 w-5 rounded border-white/20 text-primary-400"
               required
             />
             <label for="accept" class="text-muted-200 ml-3 text-sm">
@@ -323,7 +320,7 @@ const icon = "h-10 w-10 text-primary-400";
                 href="/privacy-policy-and-terms-of-service"
                 target="_blank"
                 rel="noopener"
-                class="underline hover:text-primary-300 focus:outline-2! focus:outline-primary-900!">Terms &amp; Conditions</a
+                class="underline hover:text-primary-300">Terms &amp; Conditions</a
               >
               and consent to receive SMS communications from Vegas Aviation.
             </label>

@@ -15,8 +15,8 @@ header:
   title: "Private Pilot License"
   subTitle: "The Private Pilot Certificate, internationally referred to as the Private Pilot License, allows students to obtain the foundational knowledge and skills for all future aircraft pilot training. Earning your private pilot's license is your first step into the world of flight"
   cta:
-    url: "/enroll"
-    text: "Take Off Now"
+    - url: "/enroll"
+      text: "Take Off Now"
 sections:
   - eyebrow: "Get Started"
     title: "Getting Your Private Pilot License"

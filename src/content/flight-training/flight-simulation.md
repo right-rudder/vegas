@@ -15,8 +15,8 @@ header:
   title: "Flight Simulator"
   subTitle: "Unlock Your Potential with Our AATD Flight Simulator: Realistic, Safe, and Cost-Effective Training. Accelerate Your Progress in any kind of weather"
   cta:
-    url: "/enroll"
-    text: "Start Training No Matter the Weather"
+    - url: "/enroll"
+      text: "Start Training No Matter the Weather"
 sections:
   - eyebrow: "Get Started"
     title: "The Simulator"

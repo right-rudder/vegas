@@ -6,6 +6,7 @@ import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
 import FAQs from "../../components/FAQs.astro";
 import CenteredSection from "../../components/flight-training/CenteredSection.astro";
 import CostSection from "../../components/flight-training/CostSection.astro";
+import SectionDivider from "../../components/flight-training/SectionDivider.astro";
 
 export async function getStaticPaths() {
   const programs = await getCollection("flight-training");
@@ -20,6 +21,8 @@ type Props = CollectionEntry<"flight-training">;
 const program = Astro.props;
 ---
 
+<!-- TODO : Define which section divider structure to use -->
+
 <BaseLayout
   siteTitle={program.data.siteTitle}
   siteDescription={program.data.siteDescription}
@@ -27,13 +30,23 @@ const program = Astro.props;
 >
   <Banner data={program.data.header} slot="hero" />
 
-  <!-- TODO : Add Cost -->
+  <div class="bg-accent-900">
+    {program.data.sections.map((item: any) => (
+      <CenteredSection data={item} />
+      <SectionDivider />
+    ))}
+  
+    {program.data.faqs && (
+      <FAQs faqs={program.data.faqs} />
+    )}
+    <!-- <SectionDivider />  -->
+  
+    {program.data.costs && (
+      <CostSection data={program.data.costs} />
+    )}
+    <!-- <SectionDivider /> -->
+  
+    <CTAIntroFlight />
+  </div>
 
-  {program.data.sections.map((item: any) => <CenteredSection data={item} />)}
-
-  {program.data.faqs && <FAQs faqs={program.data.faqs} />}
-
-  {program.data.costs && <CostSection data={program.data.costs} />}
-
-  <CTAIntroFlight />
 </BaseLayout>

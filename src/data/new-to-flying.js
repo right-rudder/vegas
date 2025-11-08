@@ -13,10 +13,12 @@ export const data = {
     title: "Why Become a Pilot?",
     subTitle:
       "With the expected shortage of pilots in the near future there will be a need for over <b>600,000</b> new pilots in the next <b>20 years</b>, this is your opportunity to become one of them",
-    cta: {
-      url: "/enroll",
-      text: "Enroll Now",
-    },
+    cta: [
+      {
+        url: "/enroll",
+        text: "Enroll Now",
+      },
+    ],
   },
   opportunity: {
     eyebrow: "Why",
@@ -24,7 +26,7 @@ export const data = {
     subTitle: "The aviation industry needs pilots more than ever, and your timing couldn't be better",
     bgImage: {
       src: "/src/assets/stock/bar-chart-background-vegas-aviation-pilot-career.png",
-      alt: "Bar chart increasing from left to right"
+      alt: "Bar chart increasing from left to right",
     },
     data: [
       {
@@ -53,6 +55,6 @@ export const data = {
     cta: {
       url: "/enroll",
       text: "Start Your Career",
-    }
-  }
+    },
+  },
 };

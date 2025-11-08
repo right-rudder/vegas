@@ -10,7 +10,7 @@ const AirplaneTakingOffSVG = `
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256">
     <path fill="currentColor" d="M176 216a8 8 0 0 1-8 8H24a8 8 0 0 1 0-16h144a8 8 0 0 1 8 8m70.31-129.24l-18.64-23.89l-.12-.15a39.82 39.82 0 0 0-51.28-9.12L124.7 84.38L70.76 64.54a8 8 0 0 0-5.59 0L58 67.27l-.32.13a16 16 0 0 0-4.53 26.47L75 115.06l-20.17 12.2l-28.26-9.54a8 8 0 0 0-6.08.4l-3 1.47A16 16 0 0 0 13 145.8l36 35.27l.12.12a39.78 39.78 0 0 0 27.28 10.87a40.2 40.2 0 0 0 20.26-5.52l147.41-88a8 8 0 0 0 2.21-11.78Z"/>
   </svg>
-`
+`;
 
 const BookSVG = `
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -49,10 +49,12 @@ export const data = {
     title: "Discover a Clear Path for Your Pilot Career",
     subTitle:
       "Join Vegas Aviation for premier flight training programs. Our expert instructors and cutting-edge facilities ensure top-tier instruction. Whether you're aiming for a private pilot license or advancing to commercial ratings, we offer comprehensive training for confident flying",
-    cta: {
-      url: "/enroll",
-      text: "Start Flying Now",
-    },
+    cta: [
+      {
+        url: "/enroll",
+        text: "Start Flying Now",
+      },
+    ],
   },
   courses: [
     {
@@ -74,8 +76,7 @@ export const data = {
       icon: AirplaneTakingOffSVG,
       title: "Commercial Pilot License",
       subTitle: "Advanced skills for professional pilots",
-      content:
-        `Crafted for aspiring aviators aiming to transform their passion for flying into a fulfilling career, our curriculum blends rigorous training with practical experience. Led by seasoned instructors and industry experts, you'll gain the skills, knowledge, and confidence needed to thrive in commercial aviation.
+      content: `Crafted for aspiring aviators aiming to transform their passion for flying into a fulfilling career, our curriculum blends rigorous training with practical experience. Led by seasoned instructors and industry experts, you'll gain the skills, knowledge, and confidence needed to thrive in commercial aviation.
 
         From advanced maneuvers to aeronautical expertise, our program ensures you're prepared to navigate the skies with precision and professionalism.`,
       img: {
@@ -91,8 +92,7 @@ export const data = {
       icon: BookSVG,
       title: "Instrument Rating",
       subTitle: "Master precise navigation in any weather",
-      content:
-        `Soar higher with our Instrument Rating program. Tailored for pilots aiming to enhance their skills, our comprehensive curriculum ensures you navigate the skies with precision, rain or shine. Led by experienced instructors and bolstered by modern mechanics, you'll master instrument flight intricacies, from precision approaches to advanced navigation.`,
+      content: `Soar higher with our Instrument Rating program. Tailored for pilots aiming to enhance their skills, our comprehensive curriculum ensures you navigate the skies with precision, rain or shine. Led by experienced instructors and bolstered by modern mechanics, you'll master instrument flight intricacies, from precision approaches to advanced navigation.`,
       img: {
         src: "/src/assets/flight-training/cfi-student-side-plane-vegas-aviation-instrument-rating.jpg",
         alt: "CFI and student to the right side of a plane",
@@ -106,8 +106,7 @@ export const data = {
       icon: TeacherSVG,
       title: "Certified Flight Instructor (CFI / CFII)",
       subTitle: "Learn how to teach others",
-      content:
-        `Tailored for pilots eager to inspire and mentor future aviators, our Certified Flight Instructor course provides the skills and confidence to excel in this role.
+      content: `Tailored for pilots eager to inspire and mentor future aviators, our Certified Flight Instructor course provides the skills and confidence to excel in this role.
 
         With comprehensive ground school and hands-on flight training, you'll be equipped to impart invaluable knowledge with precision and professionalism.`,
       img: {
@@ -123,8 +122,7 @@ export const data = {
       icon: EngineSVG,
       title: "Multi Engine (ME / MEI)",
       subTitle: "Fly advanced complex twin engine aircraft",
-      content:
-        `Master the complexities of twin-engine aircraft with seasoned instructors, conquering diverse environments with confidence. Elevate further by becoming a certified multi-engine flight instructor, mentoring aspiring pilots.
+      content: `Master the complexities of twin-engine aircraft with seasoned instructors, conquering diverse environments with confidence. Elevate further by becoming a certified multi-engine flight instructor, mentoring aspiring pilots.
 
         Whether advancing your career or sharing your aviation passion, our programs offer essential training and support.`,
       img: {
@@ -140,8 +138,7 @@ export const data = {
       icon: SimulationSVG,
       title: "Flight Simulation",
       subTitle: "Experience advanced aircraft simulation",
-      content:
-        `Step into the virtual cockpit and experience the thrill of flight with our Flight Simulation Rental service. Whether you're a seasoned pilot honing your skills or a beginner taking your first flight, our state-of-the-art Advanced Aviation training Device (AATD) simulators offer realistic and immersive experiences.
+      content: `Step into the virtual cockpit and experience the thrill of flight with our Flight Simulation Rental service. Whether you're a seasoned pilot honing your skills or a beginner taking your first flight, our state-of-the-art Advanced Aviation training Device (AATD) simulators offer realistic and immersive experiences.
 
         With a range of scenarios and aircraft to choose from, you can perfect your maneuvers, practice emergency procedures, and prepare for real-world flights with confidence.`,
       img: {
