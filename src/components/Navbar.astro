@@ -458,6 +458,12 @@ const { pathname } = Astro.props;
 
   /* ===== MOBILE-ONLY CHANGES BELOW ===== */
   @media (max-width: 1024px) {
+    .navbar {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
     .nav,
     .buttons {
       display: none;
