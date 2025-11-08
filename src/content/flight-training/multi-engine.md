@@ -16,7 +16,7 @@ header:
   subTitle: "Vegas Aviation’s Multi-Engine Land Add-on and Multi-Engine Instructor Rating course is designed for pilots aiming to expand their expertise. Our comprehensive programs cover advanced multi-engine flight techniques, systems management, and instruction methods"
   cta:
     - url: "/enroll"
-      text: "Get Your Multi-Engine Rating"
+      text: "Enroll Now"
 sections:
   - eyebrow: "Get Started"
     title: "Unlock New Horizons: Multi-Engine Land (MEL) Add-On Rating"

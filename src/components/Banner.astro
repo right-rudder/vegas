@@ -45,7 +45,7 @@ const { data } = Astro.props;
 
     {
       data.cta && (
-        <div class="my-6 mx-auto flex gap-4 flex-col justify-center bottom-0 text-center absolute left-0.5 right-0.5 sm:flex-row sm:left-1/2 sm:-translate-x-1/2">
+        <div class="my-6 mx-auto flex gap-4 flex-col justify-center items-center bottom-0 text-center absolute left-0.5 right-0.5 sm:flex-row sm:left-1/2 sm:-translate-x-1/2">
           {data.cta.map((item) => (
             <a href={item.url} class="btn-primary-outline text-2xl group w-fit">
               <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-400"></span>
