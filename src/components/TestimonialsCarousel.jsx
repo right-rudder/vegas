@@ -3,7 +3,9 @@ import { BiSolidQuoteLeft } from "react-icons/bi";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { testimonials } from "../data/testimonials";
 
-export default function TestimonialsCarousel({ items, autoPlayMs = 0 /* 6000 */, className = "" }) {
+/* TODO : Allow height change on mobile */
+
+export default function TestimonialsCarousel({ items, autoPlayMs = 6000, className = "" }) {
   const data = useMemo(
     () =>
       (items?.length ? items : testimonials.slice(0, 3)).map((t, i) => ({

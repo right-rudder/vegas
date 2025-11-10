@@ -21,8 +21,6 @@ type Props = CollectionEntry<"flight-training">;
 const program = Astro.props;
 ---
 
-<!-- TODO : Define which section divider structure to use -->
-
 <BaseLayout
   siteTitle={program.data.siteTitle}
   siteDescription={program.data.siteDescription}
@@ -31,20 +29,22 @@ const program = Astro.props;
   <Banner data={program.data.header} slot="hero" />
 
   <div class="bg-accent-900">
-    {program.data.sections.map((item: any) => (
-      <CenteredSection data={item} />
-      <SectionDivider />
+    {program.data.sections.map((item: any, index: number) => (
+      <div>
+        { index > 0 ? <SectionDivider /> : ""} 
+        <CenteredSection data={item} />
+      </div>
     ))}
   
     {program.data.faqs && (
       <FAQs faqs={program.data.faqs} />
     )}
-    <!-- <SectionDivider />  -->
   
     {program.data.costs && (
       <CostSection data={program.data.costs} />
     )}
-    <!-- <SectionDivider /> -->
+
+    {!program.data.faqs && !program.data.costs ? <SectionDivider /> : ""}
   
     <CTAIntroFlight />
   </div>

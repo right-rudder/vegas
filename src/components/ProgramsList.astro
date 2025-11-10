@@ -1,7 +1,6 @@
 ---
 import ImageComp from "./ImageComp.astro";
 import { FaArrowRight } from "react-icons/fa";
-// import ProgramTimeline from "./ProgramTimeline.astro";
 import ZeroToHeroBG from "./ZeroToHeroBG.astro";
 
 import { data } from "../data/program-list";
@@ -9,18 +8,7 @@ import { data } from "../data/program-list";
 const { isTimeline = false } = Astro.props;
 ---
 
-<!-- TODO : Remove? -->
-<!-- {
-  isTimeline &&
-  (<style>
-    #program-list > div:first-child {
-      background: url('/images/ZeroToHeroBGSquare.svg');
-    }
-  </style>)
-} -->
-
 <section id="program-list" class="relative isolate bg-accent-900 text-white">
-  <!-- <div class="absolute size-full opacity-30 blur-xs -z-10" ></div> -->
   {isTimeline && <ZeroToHeroBG />}
 
   <div class="mx-auto max-w-7xl px-5 md:px-8 lg:px-10 py-12 md:py-16 lg:py-20">
@@ -46,9 +34,6 @@ const { isTimeline = false } = Astro.props;
 
     <!-- Cards -->
     <div class="mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 relative">
-      <!-- TODO : Remove? -->
-      <!-- {isTimeline && <ProgramTimeline />} -->
-
       {
         data.items.map((item) => (
           <a href={item.href} class="group relative overflow-hidden rounded-lg">

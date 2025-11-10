@@ -90,11 +90,9 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  /* background: linear-gradient(var(--gray-gradient)) no-repeat; */
-  /* background-size: 100% 600px; */
+  background: #101828;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  /* color: rgb(var(--gray-dark)); */
   font-size: 20px;
   line-height: 1.7;
 }
