@@ -9,17 +9,19 @@ import { data } from "../data/program-list";
 const { isTimeline = false } = Astro.props;
 ---
 
-{
+<!-- TODO : Remove? -->
+<!-- {
   isTimeline &&
   (<style>
-    #program-list {
-      background: url('/images/ZeroToHeroBGSquare.svg'), #101828;
+    #program-list > div:first-child {
+      background: url('/images/ZeroToHeroBGSquare.svg');
     }
   </style>)
-}
+} -->
 
 <section id="program-list" class="relative isolate bg-accent-900 text-white">
-  <!-- {isTimeline && <ZeroToHeroBG />} -->
+  <!-- <div class="absolute size-full opacity-30 blur-xs -z-10" ></div> -->
+  {isTimeline && <ZeroToHeroBG />}
 
   <div class="mx-auto max-w-7xl px-5 md:px-8 lg:px-10 py-12 md:py-16 lg:py-20">
     <div class="flex flex-col gap-6 text-center sm:text-left xl:gap-4 xl:flex-row xl:items-start xl:justify-between">
