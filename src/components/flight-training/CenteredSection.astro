@@ -1,0 +1,65 @@
+---
+import ImageComp from "../ImageComp.astro";
+import { FaCheckCircle } from "react-icons/fa";
+
+const { data } = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden text-accent-50">
+  {/* Background image */}
+  <div class="pointer-events-none absolute inset-0 -z-30" aria-hidden="true">
+    <ImageComp
+      src={data.img.src}
+      alt={data.img.alt}
+      class="h-full w-full object-cover brightness-50"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  {/* Dark overlay on image */}
+  <div
+    class="pointer-events-none absolute inset-0 -z-20 bg-linear-to-b from-accent-900 via-accent-800/50 to-accent-900"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative px-6 py-16 sm:px-10 lg:grid-cols-2 lg:gap-10 lg:px-16 lg:py-24">
+    <div class="max-w-7xl text-center mx-auto">
+      <p
+        class="eyebrow text-primary-200/80 mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm tracking-widest uppercase mx-auto"
+      >
+        {data.eyebrow}
+      </p>
+      <h2 class="mt-3 text-4xl leading-tight font-extrabold sm:text-5xl lg:text-6xl">
+        {data.title}
+      </h2>
+      <h3 class="mt-3 text-xl leading-tight font-semibold text-primary-400 sm:text-3xl lg:text-4xl">
+        {data.subTitle}
+      </h3>
+      <div class="mt-5 mx-auto max-w-3xl text-base text-left sm:text-lg">
+        {data.description && <p class="text-center mb-5 text-lg font-medium" set:html={data.description}></p>}
+
+        {
+          data.bullets && (
+            <ul class="flex flex-col gap-5">
+              {data.bullets.map((item: string) => (
+                <li class="flex gap-6 items-center">
+                  <FaCheckCircle className="size-6 shrink-0" />
+                  <span set:html={item} />
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
+      <p></p>
+
+      <a
+        href={data.cta.url}
+        class="btn-primary-outline mt-5 mx-auto max-w-fit"
+        >{data.cta.text}</a
+      >
+    </div>
+  </div>
+</section>

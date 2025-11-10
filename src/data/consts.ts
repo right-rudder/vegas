@@ -108,6 +108,7 @@ export const LOCATIONS = [
     phone: "(888) 235-9834",
     forwardPhone: "(888) 235-9834",
     fullAddress: "#103-2634 Airport Dr. North Las Vegas, NV 89032",
+    fullAddressLineBreak: "#103-2634 Airport Dr. North\nLas Vegas, NV 89032",
   },
 ];
 

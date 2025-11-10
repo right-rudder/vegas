@@ -1,7 +1,12 @@
 ---
 import ImageComp from "./ImageComp.astro";
 import HeroHomepage from "./HeroHomepage.astro";
-import { date } from "astro:schema";
+import HeroCards from "./HeroCards.astro";
+
+interface ctaProp {
+  url: string;
+  text: string;
+}
 
 interface Props {
   data: {
@@ -12,41 +17,49 @@ interface Props {
     eyebrow: string;
     title: string;
     subTitle: string;
-    cta?: {
-      url: string;
-      text: string;
-    };
+    cta?: ctaProp[];
+    heroCards?: boolean;
   };
 }
 
 const { data } = Astro.props;
 ---
 
-<div class="relative min-h-[115vh] overflow-hidden">
+<div class="relative min-h-[80vh] overflow-hidden">
   <ImageComp
     src={data.image.src}
     alt={data.image.alt}
-    class="absolute inset-0 h-full w-full object-cover brightness-50 animate-slow-zoom"
+    class="absolute inset-0 h-full w-full object-cover brightness-40 animate-slow-zoom"
     loading="eager"
     quality={100}
   />
-  <div class="relative z-30 container mx-auto flex h-full w-full max-w-392 flex-col justify-center px-6 md:px-20">
-    <!-- Hero section -->
+  <div class=`container mx-auto flex min-h-full w-full max-w-392 flex-col justify-center px-6 ${data.cta ? "pb-[98px]" : ""} md:px-20`>
     <HeroHomepage
       data={{
         eyebrow: data.eyebrow,
         title: data.title,
         paragraph: data.subTitle,
-        styling: "relative min-h-[60vh] overflow-hidden flex flex-row items-end pt-20 lg:pt-40",
+        styling: "relative min-h-[40vh] overflow-hidden flex flex-row items-end pt-20 lg:pt-40",
       }}
     />
+
     {
       data.cta && (
-        <div class="mt-6 flex justify-start">
-          <a href={data.cta.url} class="btn-transparent text-lg">
-            {data.cta.text}
-          </a>
+        <div class="my-6 mx-auto flex gap-4 flex-col justify-center items-center bottom-0 text-center absolute left-0.5 right-0.5 sm:flex-row sm:left-1/2 sm:-translate-x-1/2">
+          {data.cta.map((item) => (
+            <a href={item.url} class="btn-primary-outline text-2xl group w-fit">
+              <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-400"></span>
+              {item.text}
+              <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-400"></span>
+            </a>
+          ))}
         </div>
+      )
+    }
+
+    {
+      data.heroCards && (
+        <HeroCards />
       )
     }
   </div>

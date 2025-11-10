@@ -1,0 +1,130 @@
+---
+import ImageComp from "../ImageComp.astro";
+import { FaPlusCircle } from "react-icons/fa";
+
+const { data } = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden bg-accent-900 text-accent-50">
+  {/* Background image */}
+  <div class="pointer-events-none absolute inset-0 -z-30" aria-hidden="true">
+    <ImageComp
+      src="/src/assets/stock/money-vegas-aviation-budet-flight-training-financing-summerlin.jpg"
+      alt="Top view of money piled on the ground"
+      class="h-full w-full object-cover grayscale brightness-[0.25]"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <div class="relative px-4 py-16 sm:px-10 lg:grid-cols-2 lg:gap-10 lg:px-16 lg:py-24">
+    <div class="max-w-7xl text-center mx-auto">
+      <p
+        class="eyebrow text-primary-200/80 mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm tracking-widest uppercase mx-auto"
+      >
+        {data.eyebrow}
+      </p>
+
+      <h2 class="mt-3 text-4xl leading-tight font-extrabold sm:text-5xl lg:text-6xl">
+        {data.title}
+      </h2>
+
+      {
+        data.subTitle && (
+          <h3 class="mt-3 text-xl leading-tight font-semibold text-primary-400 sm:text-3xl lg:text-4xl">
+            {data.subTitle}
+          </h3>
+        )
+      }
+
+      <div class="flex flex-col gap-12 max-w-3xl mx-auto">
+        {
+          data.courses.map((item: any) => (
+            <div class="mt-5 text-base text-left sm:text-lg">
+              {item.title && (
+                <h3
+                  class="text-center mb-5 text-xl font-medium text-primary-400 sm:text-3xl lg:text-4xl"
+                  set:html={item.title}
+                />
+              )}
+
+              {
+                <ul class="flex flex-col gap-5">
+                  {item.bullets.map((item: any) => (
+                    <li class="flex gap-6 items-center justify-between">
+                      <div class="flex gap-6 items-center">
+                        <FaPlusCircle className="size-6 shrink-0" />
+                        <span set:html={item.title} />
+                      </div>
+                      <span class="whitespace-nowrap" set:html={item.cost} />
+                    </li>
+                  ))}
+                </ul>
+              }
+
+              <div class="w-full h-1 bg-white rounded-lg my-6" />
+
+              {
+                <ul class="flex flex-col gap-5">
+                  <li class="flex gap-6 items-center justify-between">
+                    <div class="flex gap-6 items-center">
+                      <FaPlusCircle className="size-6 shrink-0 invisible" />
+                      <span class="font-extrabold" set:html={item.total.title} />
+                    </div>
+                    <span class="font-extrabold whitespace-nowrap" set:html={item.total.cost} />
+                  </li>
+                </ul>
+              }
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-col gap-6 max-w-3xl mx-auto rounded-lg bg-accent-900/60 backdrop-blur-sm p-4 mt-12 sm:p-12">
+        <div>
+          <h3 class="mb-2 text-xl leading-tight font-semibold text-primary-400 sm:text-3xl lg:text-4xl">Notes</h3>
+
+          <p>
+            While we follow a flexible curriculum, everyone learns differently, so your investment may be more or less
+            than the average shown.
+            <br />
+            If you have any questions, please{" "}
+            <a
+              href="/contact"
+              class="font-semibold transition-colors duration-300 ease-in-out text-primary-400 hover:text-white"
+            >
+              contact us
+            </a>
+            .
+          </p>
+        </div>
+
+        <p class="text-xl leading-tight font-semibold text-primary-400 sm:text-3xl lg:text-4xl">
+          Key Factors in Determining Cost
+        </p>
+
+        <ul class="text-left list-decimal pl-5 flex flex-col gap-6">
+          <li>
+            <b>Students' Commitment to Disciplined Study Before and After Lessons.</b> The more prepared you are for the
+            lesson, the more effective the learning will be.
+          </li>
+          <li>
+            <b>Aviation Aptitude.</b> Any previous experience or exposure to aviation helps.
+          </li>
+          <li>
+            <b>Frequency of Flight.</b> Students that fly more frequently tend to retain the key learning objectives for
+            each lesson better. We recommend that students try to fly a minimum of 2-3 times per week if at all possible.
+            This also shortens the overall time and cost required to obtain the certificate or rating.
+          </li>
+        </ul>
+
+        <a
+          href={data.cta.url}
+          class="btn-primary-outline mt-5 mx-auto max-w-fit"
+        >
+          {data.cta.text}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

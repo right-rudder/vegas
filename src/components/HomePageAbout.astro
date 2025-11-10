@@ -20,7 +20,7 @@ const data = {
 };
 ---
 
-<section class="bg-accent-50 relative isolate z-0 overflow-hidden text-accent-900">
+<section class="bg-accent-900 relative isolate z-0 overflow-hidden text-white">
   {/* soft radial glow */}
   <div
     class="from-primary-300/30 pointer-events-none absolute inset-0 -z-10 bg-radial-[at_20%_40%] to-transparent to-60%"
@@ -31,19 +31,19 @@ const data = {
     <div class="grid items-start gap-10 text-center sm:text-left lg:grid-cols-2 lg:gap-14">
       {/* LEFT: Headline, quote, stat */}
       <div>
-        <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-[11px] tracking-widest uppercase">
+        <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
           <span class="size-1.5 rounded-full bg-primary-400/90"></span>
           {data.eyebrow}
         </p>
 
-        <h1 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">
+        <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">
           {data.title}
-        </h1>
+        </h2>
 
         {/* Quote card (narrowed) */}
-        <div class="mt-6 rounded-2xl border border-white/10 bg-white/5">
+        <div class="mt-6">
           <div class="flex items-start gap-3">
-            <p class="text-lg text-accent-900 whitespace-pre-line">{data.quote}</p>
+            <p class="text-lg text-white whitespace-pre-line">{data.quote}</p>
           </div>
         </div>
 
@@ -52,7 +52,7 @@ const data = {
           <span class="text-shadow-primary-/40 text-6xl font-extrabold text-primary-400 text-shadow-md sm:text-7xl">
             {data.statValue}
           </span>
-          <p class="text-md tracking-widest text-accent-700 uppercase text-left">
+          <p class="text-md tracking-widest text-white uppercase text-left">
             {data.statLabel}
           </p>
         </div>
@@ -64,11 +64,11 @@ const data = {
           <ImageComp
             src={data.rightImage.src}
             alt={data.rightImage.alt}
-            class="aspect-4/3 w-full rounded-4xl object-cover md:aspect-5/4"
+            class="aspect-4/3 w-full rounded-lg object-cover md:aspect-5/4"
           />
         </figure>
 
-        <p class="mt-6 text-accent-900 md:text-lg">
+        <p class="mt-6 text-white md:text-lg">
           From your <a
             href="/"
             class="text-primary-400 underline transition-colors duration-300 ease-in-out hover:text-primary-300"

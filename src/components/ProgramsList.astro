@@ -1,136 +1,81 @@
 ---
 import ImageComp from "./ImageComp.astro";
 import { FaArrowRight } from "react-icons/fa";
+import ZeroToHeroBG from "./ZeroToHeroBG.astro";
 
-const data = {
-  eyebrow: "OUR PROGRAMS",
-  heading: "From First Flight to Career Pilot",
-  subheading: "Whether you're brand new to flying or working toward professional advancement, Vegas Aviation offers a clear and focused training path.",
-  moreLabel: "See Our Programs",
-  moreHref: "/",
-  items: [
-    {
-      title: "Private Pilot",
-      desc: "Foundation training for aspiring aviators",
-      href: "/",
-      img: {
-        src: "/src/assets/private-pilot-vegas-avitation-pilot-career.jpg",
-        alt: "Pilot inside cockpit flying airplane above city",
-      },
-    },
-    {
-      title: "Commercial Pilot",
-      desc: "Advanced skills for professional pilots",
-      href: "/",
-      img: {
-        src: "/src/assets/airplane-sideview-vegas-aviation-flight-instruction.jpg",
-        alt: "Airplane sideview grounded",
-      },
-    },
-    {
-      title: "Instrument Rating",
-      desc: "Master precise navigation in any weather",
-      href: "/",
-      img: {
-        src: "/src/assets/aricraft-cockpit-instruments-panel-vegas-aviation-instrument-rating.jpg",
-        alt: "Aricraft cockpit instrument panel",
-      },
-    },
-    {
-      title: "Certified Flight Instructor",
-      desc: "Learn how to teach others",
-      href: "/",
-      img: {
-        src: "/src/assets/certified-flight-instructor-vegas-aviation-cfi.jpg",
-        alt: "Two pilots in the cockpit",
-      },
-    },
-    {
-      title: "Multi Engine",
-      desc: "Fly advanced complex twin engine aircraft",
-      href: "/",
-      img: {
-        src: "/src/assets/duchess-vegas-aviation-flight-training.jpg",
-        alt: "Duchess Aricraft",
-      },
-    },
-    {
-      title: "Flight Simulation",
-      desc: "Experience advanced aircraft simulation",
-      href: "/",
-      img: {
-        src: "/src/assets/stock/cockpit-panel-vegas-aviation-flight-simulation.jpg",
-        alt: "Aircraft cockpit panel",
-      },
-    },
-  ],
-}
+import { data } from "../data/program-list";
+
+const { isTimeline = false } = Astro.props;
 ---
 
-<section class="relative isolate bg-white text-accent-900">
+<section id="program-list" class="relative isolate bg-accent-900 text-white">
+  {isTimeline && <ZeroToHeroBG />}
+
   <div class="mx-auto max-w-7xl px-5 md:px-8 lg:px-10 py-12 md:py-16 lg:py-20">
-    <!-- Header -->
     <div class="flex flex-col gap-6 text-center sm:text-left xl:gap-4 xl:flex-row xl:items-start xl:justify-between">
       <div class="max-w-3xl">
-        <p class="eyebrow inline-flex items-center gap-2 text-[11px] tracking-widest uppercase text-primary-200/80 bg-white/5 border border-white/10 rounded-full px-3 py-1 mb-3">
+        <p
+          class="eyebrow inline-flex items-center gap-2 text-sm tracking-widest uppercase text-primary-200/80 bg-white/5 border border-white/10 rounded-full px-3 py-1 mb-3"
+        >
           <span class="size-1.5 rounded-full bg-primary-400/90"></span>
           {data.eyebrow}
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-[56px] font-extrabold leading-tight tracking-tight">
           {data.heading}
         </h2>
-        <p class="mt-4 text-accent-900 md:text-lg/8">{data.subheading}</p>
+        <p class="mt-4 text-white md:text-lg/8">{data.subheading}</p>
       </div>
 
-      <a
-        href={data.moreHref}
-        class="self-start btn-primary-outline mx-auto sm:ml-0 sm:mr-auto md:self-center xl:mx-0"
-      >
+      <a href={data.moreHref} class="self-start btn-primary-outline mx-auto sm:ml-0 sm:mr-auto md:self-center xl:mx-0">
         {data.moreLabel}
         <FaArrowRight />
       </a>
     </div>
 
     <!-- Cards -->
-    <div class="mt-10 grid gap-6 sm:gap-7 md:gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
-      {data.items.map((item) => (
-        <a href={item.href} class="group relative overflow-hidden rounded-lg ring-1 ring-white/10 bg-white/5 focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2">
-          <ImageComp
-            src={item.img.src}
-            alt={item.img.alt}
-            quality={30}
-            class="h-64 sm:h-72 md:h-80 w-full object-cover transition duration-500 group-hover:scale-[1.03] group-hover:brightness-110 group-hover:contrast-105"
-          />
-          <!-- top gradient (lightens on hover) -->
-            <div class="pointer-events-none absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/60 transition-colors duration-300 group-hover:from-black/25 group-hover:via-black/10 group-hover:to-black/40"></div>
+    <div class="mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 relative">
+      {
+        data.items.map((item) => (
+          <a href={item.href} class="group relative overflow-hidden rounded-lg">
+            <ImageComp
+              src={item.img.src}
+              alt={item.img.alt}
+              quality={70}
+              class="h-64 sm:h-72 md:h-80 w-full object-cover transition duration-500 group-hover:scale-[1.03] group-hover:brightness-110 group-hover:contrast-105"
+            />
 
-          <!-- corner arrow -->
-          <div class="absolute top-4 right-4">
-            <div class="flex items-center justify-center rounded-full text-primary-400 bg-white/10 backdrop-blur px-2 py-2 border border-white/15 transition group-hover:bg-white/20 group-hover:border-white/25">
-              <FaArrowRight />
+            <div class="pointer-events-none absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/60 transition-colors duration-300 group-hover:from-black/25 group-hover:via-black/10 group-hover:to-black/40" />
+
+            {isTimeline && item.data && (
+              <div class="absolute top-4 left-4 right-4 flex flex-col gap-2">
+                <span class="font-bold text-xl text-primary-400">{item.data.cost}</span>
+                <span class="font-thin text-lg text-accent-50">{item.data.duration}</span>
+              </div>
+            )}
+
+            <div class="absolute top-4 right-4">
+              <div class="flex items-center justify-center rounded-full text-primary-400 bg-white/10 backdrop-blur px-2 py-2 border border-white/15 transition group-hover:bg-white/20 group-hover:border-white/25">
+                <FaArrowRight />
+              </div>
             </div>
-          </div>
 
-          <!-- text overlay bottom (flex to keep uniform baseline) -->
-          <div class="absolute inset-0 flex flex-col justify-end p-5">
-            <h3 class="text-lg sm:text-xl font-extrabold drop-shadow [text-shadow:_0_1px_1px_rgba(0,0,0,.45)] min-h-7">
-              <span class="text-primary-400">{item.title}</span>
-            </h3>
-            <p class="mt-1 text-sm text-gray-200/90 max-w-sm min-h-10 leading-snug">
-              {item.desc}
-            </p>
-          </div>
-
-          <!-- focus / hover ring -->
-          <span class="absolute inset-0 rounded-[22px] ring-1 ring-white/10 group-hover:ring-white/30 transition" aria-hidden="true"></span>
-        </a>
-      ))}
+            <div class="absolute inset-0 flex flex-col justify-end p-5">
+              <h3 class="text-lg sm:text-xl font-extrabold drop-shadow [text-shadow:0_1px_1px_rgba(0,0,0,.45)] min-h-7">
+                <span class="text-primary-400">{item.title}</span>
+              </h3>
+              <p class="mt-1 text-sm text-accent-50 max-w-sm min-h-10 leading-snug">{item.desc}</p>
+            </div>
+          </a>
+        ))
+      }
     </div>
 
-    <!-- Footer hint (optional) -->
-    <div class="mt-10 text-center text-md text-accent-900">
+    <div class="mt-10 text-center text-md text-white">
       Your Aviation Career Starts Here
-      <a href="/" class="inline-flex items-center gap-1 font-semibold transition-colors duration-300 ease-in-out text-primary-400 hover:text-accent-900">
+      <a
+        href="/enroll"
+        class="inline-flex items-center gap-1 font-semibold transition-colors duration-300 ease-in-out text-primary-400 hover:text-white"
+      >
         Register Now
         <FaArrowRight />
       </a>

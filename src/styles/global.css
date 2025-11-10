@@ -54,11 +54,11 @@
 }
 
 .btn-primary {
-  @apply bg-primary-400 text-white font-semibold rounded-md px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-white hover:text-primary-400;
+  @apply bg-primary-400 text-accent-900 font-semibold rounded-md px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-accent-900 hover:text-primary-400;
 }
 
 .btn-primary-outline {
-  @apply bg-primary-400 text-white font-semibold rounded-md px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer border border-transparent hover:border-primary-400 hover:bg-transparent hover:text-primary-400;
+  @apply bg-primary-400 text-accent-900 font-semibold rounded-md px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer border border-transparent hover:border-primary-400 hover:bg-transparent hover:text-primary-400;
 }
 
 .btn-secondary {
@@ -66,7 +66,7 @@
 }
 
 .btn-transparent {
-  @apply bg-primary-400/20 text-accent-50 border border-primary-400 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-400;
+  @apply bg-primary-400/20 text-accent-50 border border-primary-400 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-400 hover:border-primary-400 hover:text-accent-900;
 }
 
 .btn-transparent-dark {
@@ -90,56 +90,30 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  /* background: linear-gradient(var(--gray-gradient)) no-repeat; */
-  /* background-size: 100% 600px; */
+  background: #101828;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  /* color: rgb(var(--gray-dark)); */
   font-size: 20px;
   line-height: 1.7;
 }
 
 a:focus {
-  @apply outline-2 outline-primary-400;
+  /* @apply outline-2 outline-primary-100; */
+  @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-primary-900;
 }
 
 button:focus {
-  @apply outline-2 outline-primary-400;
+  /* @apply outline-2 outline-primary-100; */
+  @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-primary-900;
 }
 
 input:focus {
-  @apply outline-2 outline-primary-400;
+  /* @apply outline-2 outline-primary-100; */
+  @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-primary-900;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  /* margin: 0 0 0.5rem 0; */
-  /* color: rgb(var(--black)); */
-  line-height: 1.2;
-}
-
-h1 {
-  font-size: 3.052em;
-}
-
-h2 {
-  font-size: 2.441em;
-}
-
-h3 {
-  font-size: 1.953em;
-}
-
-h4 {
-  font-size: 1.563em;
-}
-
-h5 {
-  font-size: 1.25em;
+textarea:focus {
+  @apply outline-none ring-2 ring-primary-400 ring-offset-2 ring-offset-primary-900;
 }
 
 strong,

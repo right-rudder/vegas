@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Banner from "../components/Banner.astro";
+import CTAIntroFlight from "../components/CTAIntroFlight.astro";
+import Opportunities from "../components/new-to-flying/Opportunities.astro";
+import CTAWhyUs from "../components/CTAWhyUs.astro";
+import ProgramsList from "../components/ProgramsList.astro";
+import TestimonialsCarousel from "../components/TestimonialsCarousel";
+
+import { data } from "../data/new-to-flying";
+import { testimonials } from "../data/testimonials";
+
+---
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  siteKeywords={data.siteKeywords}>
+  <Banner data={data.header} slot="hero" />
+
+  <Opportunities data={data.opportunity} />
+
+  <CTAWhyUs />
+
+  <ProgramsList isTimeline={true} />
+
+  <TestimonialsCarousel 
+    items={testimonials.slice(3)}
+    className="from-accent-900 via-primary-900/80 to-accent-900 bg-linear-to-b px-5 py-16 text-white md:px-8 md:py-20 lg:px-10 lg:py-24"
+    client:load
+  />
+
+  <CTAIntroFlight />
+</BaseLayout>

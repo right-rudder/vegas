@@ -9,7 +9,7 @@ class FAQsClass {
   }
 }
 
-const { faqs = FAQsClass, type, showTitle = true } = Astro.props;
+const { faqs = FAQsClass, showTitle = true } = Astro.props;
 ---
 
 <script>
@@ -98,49 +98,80 @@ const { faqs = FAQsClass, type, showTitle = true } = Astro.props;
     }
 
     expand() {
-      // Set the element as "being expanding"
-      this.isExpanding = true;
-      // Get the current fixed height of the element
+      // // Set the element as "being expanding"
+      // this.isExpanding = true;
+      // // Get the current fixed height of the element
+      // const startHeight = `${this.el.offsetHeight}px`;
+      // // Calculate the open height of the element (summary height + content height)
+      // const summaryHeight = this.summary?.offsetHeight || 0;
+      // const contentHeight = this.content?.offsetHeight || 0;
+
+      // const endHeight = `${summaryHeight + contentHeight}px`;
+
+      // // If there is already an animation running
+      // if (this.animation) {
+      //   // Cancel the current animation
+      //   this.animation.cancel();
+      // }
+
+      // // Start a WAAPI animation
+      // this.animation = this.el.animate(
+      //   {
+      //     // Set the keyframes from the startHeight to endHeight
+      //     height: [startHeight, endHeight],
+      //   },
+      //   {
+      //     duration: 400,
+      //     easing: "ease-out",
+      //   }
+      // );
+      // // When the animation is complete, call onAnimationFinish()
+      // this.animation.onfinish = () => this.onAnimationFinish(true);
+      // // If the animation is cancelled, isExpanding variable is set to false
+      // this.animation.oncancel = () => (this.isExpanding = false);
+
+      // Apply fixed height before opening
+      this.el.style.height = `${this.el.offsetHeight}px`;
+
+      // Temporarily keep it closed so the browser doesn’t jump
+      this.el.open = true;
+      this.content.style.display = "block"; // ensure content is measurable
+
       const startHeight = `${this.el.offsetHeight}px`;
-      // Calculate the open height of the element (summary height + content height)
+
+      // Measure expanded height (while content is visible)
       const summaryHeight = this.summary?.offsetHeight || 0;
       const contentHeight = this.content?.offsetHeight || 0;
-
       const endHeight = `${summaryHeight + contentHeight}px`;
 
-      // If there is already an animation running
-      if (this.animation) {
-        // Cancel the current animation
-        this.animation.cancel();
-      }
+      // Animate expansion
+      if (this.animation) this.animation.cancel();
 
-      // Start a WAAPI animation
-      this.animation = this.el.animate(
-        {
-          // Set the keyframes from the startHeight to endHeight
-          height: [startHeight, endHeight],
-        },
-        {
-          duration: 400,
-          easing: "ease-out",
-        }
-      );
-      // When the animation is complete, call onAnimationFinish()
+      this.animation = this.el.animate({ height: [startHeight, endHeight] }, { duration: 400, easing: "ease-out" });
+
+      this.isExpanding = true;
+
       this.animation.onfinish = () => this.onAnimationFinish(true);
-      // If the animation is cancelled, isExpanding variable is set to false
       this.animation.oncancel = () => (this.isExpanding = false);
     }
 
     onAnimationFinish(open: boolean) {
-      // Set the open attribute based on the parameter
+      // // Set the open attribute based on the parameter
+      // this.el.open = open;
+      // // Clear the stored animation
+      // this.animation = new Animation();
+      // // Reset isClosing & isExpanding
+      // this.isClosing = false;
+      // this.isExpanding = false;
+      // // Remove the overflow hidden and the fixed height
+      // this.el.style.height = this.el.style.overflow = "";
+
       this.el.open = open;
-      // Clear the stored animation
       this.animation = new Animation();
-      // Reset isClosing & isExpanding
       this.isClosing = false;
       this.isExpanding = false;
-      // Remove the overflow hidden and the fixed height
-      this.el.style.height = this.el.style.overflow = "";
+      this.el.style.height = "";
+      this.el.style.overflow = "";
     }
   }
 
@@ -155,31 +186,21 @@ const { faqs = FAQsClass, type, showTitle = true } = Astro.props;
     position: relative;
   }
 
+  details > summary::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2rem; /* w-8 */
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    background: oklch(0.75019 0.21579 135.347); /* bg-primary-400 */
+    pointer-events: none;
+  }
+
   details[open] > summary {
     height: auto;
   }
-
-  /* summary:before {
-    content: "";
-    border-width: 0.4rem;
-    border-style: solid;
-    border-color: transparent transparent transparent oklch(0.75019 0.21579 135.347);
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: rotate(0) translateY(-50%);
-    transform-origin: left top;
-    transition: 0.25s transform ease;
-  } */
-
-  /* summary:before {
-    content: " ";
-    
-  } */
-
-  /* details[open] > summary:before {
-    animation: stripes 2s linear 1 forwards;
-  } */
 
   details[open] > summary:focus {
     outline-style: none !important;
@@ -188,16 +209,21 @@ const { faqs = FAQsClass, type, showTitle = true } = Astro.props;
   details > summary > span {
     position: relative;
     display: inline-block;
-    color: oklch(0.21 0.034 264.665);
+    color: white;
     overflow: hidden;
-    background: linear-gradient(to right, oklch(0.75019 0.21579 135.347), oklch(0.75019 0.21579 135.347) 50%, oklch(0.21 0.034 264.665) 50%);
+    background: linear-gradient(
+      to right,
+      oklch(0.75019 0.21579 135.347),
+      oklch(0.75019 0.21579 135.347) 50%,
+      white 50%
+    );
 
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 100%;
     background-position: 100%;
-    transition: background-position .3s ease;
+    transition: background-position 0.3s ease;
   }
 
   details[open] > summary > span {
@@ -209,76 +235,34 @@ const { faqs = FAQsClass, type, showTitle = true } = Astro.props;
   }
 </style>
 
-<div style={{ backgroundColor: "#ffffff" }}>
-  <div
-    style={{
-      margin: "0 auto",
-      textAlign: "center",
-    }}
-    class="flex flex-col items-center justify-center max-w-7xl p-8 px-4 lg:px-0"
-  >
-    <div
-      style={{
-        maxWidth: "80rem",
-        margin: "0 auto",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-      class="w-full"
-    >
+<div class="bg-accent-900">
+  <div class="mx-auto text-center flex flex-col items-center justify-center max-w-7xl p-8 px-4 lg:px-0">
+    <div class="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
       {
         showTitle && (
-          <h2
-            style={{
-              marginTop: "0.75rem",
-              marginBottom: "0.75rem",
-              fontSize: "2.25rem", // text-4xl
-              lineHeight: "2.5rem",
-              fontFamily: '"Kanit", sans-serif',
-              fontWeight: "700",
-              textAlign: "center",
-              letterSpacing: "0.05em",
-              maxWidth: "768px",
-              marginLeft: "auto",
-              marginRight: "auto",
-              textTransform: "uppercase",
-            }}
-            class="text-primary-400"
-          >
+          <h2 class="text-primary-400 my-3 text-4xl font-bold text-center max-w-5xl mx-auto uppercase">
             Frequently Asked Questions
           </h2>
         )
       }
 
-      <dl
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.5rem",
-          marginTop: "1.5rem",
-          width: "100%",
-          justifyContent: "stretch",
-          alignItems: "stretch",
-        }}
-      >
+      <dl class="flex flex-col gap-2 mt-6 w-full justify-stretch items-stretch">
         {
           faqs.map((faq: FAQsClass) => (
-            <details class="w-full">
-              <summary class="p-1 pl-4 flex bg-accent-50 text-accent-900 border-l-8 border-l-primary-400 font-semibold cursor-pointer rounded-sm text-left relative list-none focus:outline-2 focus:outline-primary-400">
+            <details class="w-full relative">
+              <summary class="p-1 pl-12 flex bg-accent-700 text-white font-semibold cursor-pointer rounded-sm overflow-hidden text-left relative list-none focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-primary-900">
                 <span>{faq.question}</span>
               </summary>
-              <div class="text-accent-900 w-full text-left mt-0.5" set:html={faq.answer} />
+              <div class="text-white w-full text-left mt-0.5" set:html={faq.answer} />
             </details>
           ))
         }
       </dl>
     </div>
-    <small class="text-gray-700 mt-2"
-      >Got more any more questions? <a
+    <small class="text-white mt-2"
+      >Got any more questions? <a
         href="/contact"
-        class="text-primary-400 hover:text-accent-900 font-semibold transition-all duration-300">Contact Us</a
+        class="text-primary-400 hover:text-white font-semibold transition-all duration-300">Contact Us</a
       >
     </small>
   </div>

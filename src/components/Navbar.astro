@@ -2,8 +2,6 @@
 import ImageComp from "./ImageComp.astro";
 import { IoIosAirplane } from "react-icons/io";
 
-// Add selected page styling
-
 export type MenuItem = {
   label: string;
   url: string;
@@ -16,7 +14,7 @@ export type NavbarButton = {
   style: string;
 };
 
-/* export const menu: MenuItem[] = [
+export const menu: MenuItem[] = [
   {
     label: "Start Here",
     url: "/new-to-flying",
@@ -87,121 +85,46 @@ export type NavbarButton = {
   },
 ];
 
-export const buttons: NavbarButton[] = [
-  { text: "Enroll Now", href: "/enrollment-form", style: "btn-primary text-lg!" },
-]; */
-
-export const menu: MenuItem[] = [
-  {
-    label: "Start Here",
-    url: "/",
-    children: [
-      { label: "New to Flying", url: "/" },
-      { label: "Discovery Flight", url: "/" },
-    ],
-  },
-  {
-    label: "Pilot Training",
-    url: "/",
-    children: [
-      {
-        label: "Private Pilot",
-        url: "/",
-      },
-      {
-        label: "Commercial Pilot",
-        url: "/",
-      },
-      {
-        label: "Instrument Rating",
-        url: "/",
-      },
-      {
-        label: "Certified Flight Instructor",
-        url: "/",
-      },
-      {
-        label: "Multi Engine",
-        url: "/",
-      },
-      {
-        label: "Flight Simulation",
-        url: "/",
-      },
-    ],
-  },
-  {
-    label: "Services",
-    url: "/",
-    children: [
-      { label: "Aircraft Maintenance", url: "/" },
-      { label: "Aircraft Rental", url: "/" },
-    ],
-  },
-  {
-    label: "Resources",
-    url: "/",
-    children: [
-      { label: "Partners", url: "/" },
-      { label: "Insurance", url: "/" },
-      { label: "Financing", url: "/" },
-      { label: "Scholarships", url: "/" },
-    ],
-  },
-  {
-    label: "About Us",
-    url: "/",
-    children: [
-      { label: "About Us", url: "/" },
-      { label: "Our Team", url: "/" },
-      { label: "Our Fleet", url: "/" },
-      { label: "FAQ", url: "/" },
-      { label: "Blog", url: "/" },
-      { label: "Contact Us", url: "/" },
-    ],
-  },
-];
-
 export const footerMenu: MenuItem[] = [
   {
     label: "Quick Links",
     url: "/",
     children: [
-      { label: "New to Flying", url: "/" },
-      { label: "Discovery Flight", url: "/" },
-      { label: "Aircraft Maintenance", url: "/" },
-      { label: "Aircraft Rental", url: "/" },
-      { label: "FAQ", url: "/" },
-      { label: "Contact Us", url: "/" },
+      { label: "New to Flying", url: "/new-to-flying/" },
+      { label: "Discovery Flight", url: "/discovery-flight/" },
+      { label: "Aircraft Maintenance", url: "/service/aircraft-maintenance/" },
+      { label: "Aircraft Rental", url: "/service/aircraft-rental/" },
+      { label: "FAQ", url: "/about-us/faq/" },
+      { label: "Contact Us", url: "/contact/" },
     ],
   },
   {
     label: "Pilot Training",
-    url: "/",
+    url: "/flight-training/",
     children: [
       {
         label: "Private Pilot",
-        url: "/",
+        url: "/flight-training/private-pilot/",
       },
       {
         label: "Commercial Pilot",
-        url: "/",
+        url: "/flight-training/commercial-pilot/",
       },
       {
         label: "Instrument Rating",
-        url: "/",
+        url: "/flight-training/instrument-rating/",
       },
       {
         label: "Certified Flight Instructor",
-        url: "/",
+        url: "/flight-training/cfi/",
       },
       {
         label: "Multi Engine",
-        url: "/",
+        url: "/flight-training/multi-engine/",
       },
       {
         label: "Flight Simulation",
-        url: "/",
+        url: "/flight-training/flight-simulation/",
       },
     ],
   },
@@ -211,7 +134,7 @@ const { pathname } = Astro.props;
 ---
 
 <nav id="navbar" class="navbar">
-  <div class="container bg-white lg:bg-transparent">
+  <div class="container bg-accent-900 lg:bg-transparent">
     <!-- Logo -->
     <a href="/" class="logo object-contain w-36 md:w-52 h-auto">
       <ImageComp src="/src/assets/vegas-logo.png" alt="Vegas Aviation Logo" />
@@ -248,7 +171,7 @@ const { pathname } = Astro.props;
 
     <!-- Buttons -->
     <div class="buttons">
-      <a href="/" class="btn-primary text-lg!">
+      <a href="/enroll" class="btn-primary-outline text-lg!">
         <IoIosAirplane className="size-6" />
         Enroll Now
       </a>
@@ -301,7 +224,11 @@ const { pathname } = Astro.props;
                   <li>
                     <a
                       href={child.url}
-                      class={(child.url === pathname || child.url + "/" === pathname) && (child.url !== "/") ? "menu-link-hover" : ""}
+                      class={
+                        (child.url === pathname || child.url + "/" === pathname) && child.url !== "/"
+                          ? "menu-link-hover"
+                          : ""
+                      }
                     >
                       {child.label}
                     </a>
@@ -315,7 +242,7 @@ const { pathname } = Astro.props;
     </ul>
 
     <div class="mobile-buttons">
-      <a href="/" class="btn-primary text-lg!">
+      <a href="/enroll" class="btn-primary-outline text-lg!">
         <IoIosAirplane className="size-6" />
         Enroll Now
       </a>
@@ -325,16 +252,10 @@ const { pathname } = Astro.props;
 
 <style>
   .navbar {
-    position: fixed;
-    top: 0;
     width: 100%;
-    z-index: 50;
     display: flex;
     justify-content: center;
     transition: all 0.5s ease;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   }
 
   .container {
@@ -346,27 +267,35 @@ const { pathname } = Astro.props;
     padding: 0.5rem 1rem;
   }
 
+  .navbar.scrolled {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+
   .nav {
     display: flex;
     gap: 0.75rem;
     list-style: none;
   }
+
   .menu-item {
     position: relative;
     transition: color 0.3s ease;
   }
+
   .menu-item a {
     font-weight: 500;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    color: #101828;
+    color: white;
   }
+
   .menu-item a:hover {
     color: oklch(0.75019 0.21579 135.347);
   }
+
   .menu-item a:has(+ ul > li > a.menu-link-hover) {
-    text-decoration: underline;
-    text-underline-offset: 2px;
     color: oklch(0.75019 0.21579 135.347);
   }
 
@@ -375,7 +304,7 @@ const { pathname } = Astro.props;
   }
 
   .navbar.scrolled .nav > .menu-item > a.menu-link-hover {
-    color: #e06900;
+    color: oklch(0.75019 0.21579 135.347);
   }
 
   .navbar.scrolled .sub-menu li a.menu-link-hover {
@@ -394,6 +323,7 @@ const { pathname } = Astro.props;
     border: 1px solid #ddd;
     list-style: none;
     padding: 0.5rem 0;
+    border-radius: 0.25rem;
 
     /* no display:none — use visibility + opacity to avoid hover gaps */
     visibility: hidden;
@@ -446,6 +376,7 @@ const { pathname } = Astro.props;
       transform 0.3s ease;
     position: relative;
   }
+
   .sub-menu li a:before {
     content: " ";
     display: block;
@@ -458,19 +389,16 @@ const { pathname } = Astro.props;
     transition: all 0.3s ease-in-out;
     transform: skewX(-15deg) scale(1);
   }
-  .sub-menu li a:hover {
-    /* background: oklch(0.75019 0.21579 135.347);
-    transform: scale(1.05); */
+
+  .sub-menu li a:hover,
+  .sub-menu li a.menu-link-hover {
     color: white;
   }
-  .sub-menu li a:hover:before {
+
+  .sub-menu li a:hover:before,
+  .sub-menu li a.menu-link-hover:before {
     width: 100%;
     transform: skewX(-15deg) scale(1.05);
-  }
-  .sub-menu li a.menu-link-hover {
-    background: oklch(0.75019 0.21579 135.347);
-    color: #fff;
-    transform: scale(1.05);
   }
 
   .container .hamburger .hamburger-menu-x,
@@ -490,7 +418,7 @@ const { pathname } = Astro.props;
     background: none;
     border: none;
     cursor: pointer;
-    color: #374151;
+    color: white;
   }
 
   /* Mobile sheet (base) */
@@ -501,7 +429,7 @@ const { pathname } = Astro.props;
     top: 100%;
     left: 0;
     width: 100%;
-    background: #fff;
+    background: oklch(0.21 0.034 264.665);
     padding: 0 1rem;
     max-height: 0;
     overflow: hidden;
@@ -530,6 +458,12 @@ const { pathname } = Astro.props;
 
   /* ===== MOBILE-ONLY CHANGES BELOW ===== */
   @media (max-width: 1024px) {
+    .navbar {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
     .nav,
     .buttons {
       display: none;
@@ -540,23 +474,13 @@ const { pathname } = Astro.props;
 
     /* Closed state: no vertical padding, zero height */
     .mobile-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: #fff;
-      padding: 0 16px; /* was 12px 16px -> remove vertical padding */
-      max-height: 0; /* keep collapsed */
-      overflow: hidden; /* hide content */
-      transition:
-        max-height 0.5s ease,
-        padding 0.3s ease;
+      padding: 0 16px;
     }
 
     /* Open state: add vertical padding + usable height */
     .mobile-menu.open {
-      padding-top: 12px; /* only when open */
-      padding-bottom: 14px; /* only when open */
+      padding-top: 12px;
+      padding-bottom: 14px;
       max-height: calc(100vh - 64px);
       overflow: auto;
     }
@@ -568,10 +492,10 @@ const { pathname } = Astro.props;
       justify-content: space-between;
       padding: 12px 4px;
       font-weight: 600;
-      color: #111827;
+      color: white;
     }
     .mobile-item > a::after {
-      content: "▸";
+      content: "⟫";
       margin-left: 0.5rem;
       transition: transform 0.25s ease;
     }
@@ -593,7 +517,7 @@ const { pathname } = Astro.props;
       display: block;
       padding: 10px 12px 10px 24px;
       border-radius: 6px;
-      color: #374151;
+      color: white;
     }
     .mobile-submenu li a:hover {
       background: oklch(0.75019 0.21579 135.347);
@@ -609,9 +533,9 @@ const { pathname } = Astro.props;
 
     /* Sticky full-width CTA */
     .mobile-buttons {
+      background-color: oklch(0.21 0.034 264.665);
       position: sticky;
       bottom: 0;
-      background: #fff;
       padding: 12px 0 14px;
       border-top: 1px solid #e5e7eb;
     }
@@ -637,20 +561,15 @@ const { pathname } = Astro.props;
 
   const logo = document.getElementById("logo-default");
 
-  // Switch between the black and white logo and the default logo depending on the dimensions and scroll
-  // This maintains a high contrast between the logo and the background
   function UpdateLogo() {
     if ((window.scrollY > 40 || window.outerWidth <= 767) && !navbar.classList.contains("scrolled")) {
       navbar.classList.add("scrolled");
-      /* logo.classList.remove("hidden", "block", "md:hidden", "md:block"); */
 
       return;
     }
 
     if (window.scrollY <= 40 && window.outerWidth > 767 && navbar.classList.contains("scrolled")) {
       navbar.classList.remove("scrolled");
-      /* logo.classList.add("hidden");
-      logo.classList.remove("md:hidden", "md:block"); */
     }
   }
 

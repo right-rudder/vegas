@@ -17,23 +17,23 @@ const data = {
   imageSrc: "/src/assets/cfi-group-airplane-vegas-aviation-las-vegas-flight-instructor.jpg",
   imageAlt: "Vegas Aviation Certified Flight Instructors",
   ctaLabel: "Learn About Our Programs",
-  ctaHref: "/",
+  ctaHref: "/flight-training/",
 };
 
 ---
 
-<section class="relative isolate overflow-hidden bg-primary-400/20 text-accent-900">
-  <div class="mx-auto max-w-7xl px-5 md:px-10 lg:px-16 py-16 lg:py-24">
+<section class="relative isolate overflow-hidden bg-primary-900/80 text-white">
+  <div class="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
     <div class="grid items-center gap-10 lg:grid-cols-2">
       <!-- LEFT: image -->
       <figure class="relative">
         <ImageComp
           src={data.imageSrc}
           alt={data.imageAlt}
-          class="h-72 w-full rounded-3xl object-cover object-bottom -2xl md:h-96 lg:h-112"
+          class="h-72 w-full rounded-lg object-cover object-bottom md:h-96 lg:h-112"
         />
         <!-- soft inner vignette -->
-        <div class="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-white/10 shadow-inner"></div>
+        <div class="pointer-events-none absolute z-10 inset-0 rounded-lg inset-shadow-sm inset-shadow-accent-900/60"></div>
       </figure>
 
       <!-- RIGHT: content -->
