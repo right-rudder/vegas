@@ -194,7 +194,7 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
     bottom: 0;
     width: 2rem; /* w-8 */
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-    background: oklch(0.75019 0.21579 135.347); /* bg-primary-400 */
+    background: oklch(0.75019 0.21579 135.347); /* bg-primary-500 */
     pointer-events: none;
   }
 
@@ -235,12 +235,12 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
   }
 </style>
 
-<div class="bg-accent-900">
+<div class="bg-accent-100">
   <div class="mx-auto text-center flex flex-col items-center justify-center max-w-7xl p-8 px-4 lg:px-0">
     <div class="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
       {
         showTitle && (
-          <h2 class="text-primary-400 my-3 text-4xl font-bold text-center max-w-5xl mx-auto uppercase">
+          <h2 class="text-primary-500 my-3 text-4xl font-bold text-center max-w-5xl mx-auto uppercase">
             Frequently Asked Questions
           </h2>
         )
@@ -250,19 +250,19 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
         {
           faqs.map((faq: FAQsClass) => (
             <details class="w-full relative">
-              <summary class="p-1 pl-12 flex bg-accent-700 text-white font-semibold cursor-pointer rounded-sm overflow-hidden text-left relative list-none focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-primary-900">
+              <summary class="p-1 pl-12 flex bg-accent-900 text-white font-semibold cursor-pointer rounded-sm overflow-hidden text-left relative list-none focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-primary-900">
                 <span>{faq.question}</span>
               </summary>
-              <div class="text-white w-full text-left mt-0.5" set:html={faq.answer} />
+              <div class="w-full text-left mt-0.5" set:html={faq.answer} />
             </details>
           ))
         }
       </dl>
     </div>
-    <small class="text-white mt-2"
+    <small class="mt-2"
       >Got any more questions? <a
         href="/contact"
-        class="text-primary-400 hover:text-white font-semibold transition-all duration-300">Contact Us</a
+        class="text-primary-500 hover:text-accent-900 font-semibold transition-all duration-300">Contact Us</a
       >
     </small>
   </div>

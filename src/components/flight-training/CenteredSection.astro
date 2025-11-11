@@ -5,8 +5,8 @@ import { FaCheckCircle } from "react-icons/fa";
 const { data } = Astro.props;
 ---
 
-<section class="relative isolate overflow-hidden text-accent-50">
-  {/* Background image */}
+<section class="relative isolate overflow-hidden text-accent-900">
+  <!-- {/* Background image */}
   <div class="pointer-events-none absolute inset-0 -z-30" aria-hidden="true">
     <ImageComp
       src={data.img.src}
@@ -15,11 +15,11 @@ const { data } = Astro.props;
       loading="lazy"
       decoding="async"
     />
-  </div>
+  </div> -->
 
   {/* Dark overlay on image */}
   <div
-    class="pointer-events-none absolute inset-0 -z-20 bg-linear-to-b from-accent-900 via-accent-800/50 to-accent-900"
+    class="pointer-events-none absolute inset-0 -z-20 bg-linear-to-b from-accent-200 via-accent-100 to-accent-200"
     aria-hidden="true"
   >
   </div>
@@ -27,14 +27,14 @@ const { data } = Astro.props;
   <div class="relative px-6 py-16 sm:px-10 lg:grid-cols-2 lg:gap-10 lg:px-16 lg:py-24">
     <div class="max-w-7xl text-center mx-auto">
       <p
-        class="eyebrow text-primary-200/80 mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm tracking-widest uppercase mx-auto"
+        class="eyebrow-dark inline-flex items-center gap-2tracking-widest"
       >
         {data.eyebrow}
       </p>
       <h2 class="mt-3 text-4xl leading-tight font-extrabold sm:text-5xl lg:text-6xl">
         {data.title}
       </h2>
-      <h3 class="mt-3 text-xl leading-tight font-semibold text-primary-400 sm:text-3xl lg:text-4xl">
+      <h3 class="mt-3 text-xl leading-tight font-semibold text-primary-600 sm:text-3xl lg:text-4xl">
         {data.subTitle}
       </h3>
       <div class="mt-5 mx-auto max-w-3xl text-base text-left sm:text-lg">
@@ -57,7 +57,7 @@ const { data } = Astro.props;
 
       <a
         href={data.cta.url}
-        class="btn-primary-outline mt-5 mx-auto max-w-fit"
+        class="btn-primary mt-5 mx-auto max-w-fit"
         >{data.cta.text}</a
       >
     </div>

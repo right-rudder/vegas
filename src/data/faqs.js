@@ -10,7 +10,7 @@ export const faq = {
     { name: "FAQ", url: "/about-us/faq" },
   ],
   header: {
-    title: `<strong class="text-primary-400">Frequent Asked Questions</strong>`,
+    title: `<strong class="text-primary-500">Frequent Asked Questions</strong>`,
     description: "Clear any queries you might have",
     buttons: [{ text: "Start Training", href: "/contact", style: "btn-transparent" }],
   },

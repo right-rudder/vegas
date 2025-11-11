@@ -134,7 +134,7 @@ const { pathname } = Astro.props;
 ---
 
 <nav id="navbar" class="navbar">
-  <div class="container bg-accent-100 lg:bg-transparent">
+  <div class="container">
     <!-- Logo -->
     <a href="/" class="object-contain w-36 md:w-52 h-auto">
       <ImageComp class="logo-white" src="/src/assets/vegas-logo.png" alt="Vegas Aviation Logo" />
@@ -172,7 +172,7 @@ const { pathname } = Astro.props;
 
     <!-- Buttons -->
     <div class="buttons">
-      <a href="/enroll" class="btn-primary-outline text-lg!">
+      <a href="/enroll" class="btn-primary text-lg!">
         <IoIosAirplane className="size-6" />
         Contact Us
       </a>
@@ -243,7 +243,7 @@ const { pathname } = Astro.props;
     </ul>
 
     <div class="mobile-buttons">
-      <a href="/enroll" class="btn-primary-outline text-lg!">
+      <a href="/enroll" class="btn-primary text-lg!">
         <IoIosAirplane className="size-6" />
         Contact Us
       </a>
@@ -279,6 +279,16 @@ const { pathname } = Astro.props;
     gap: 0.75rem;
     list-style: none;
   }
+
+  /* .navbar .menu-item {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .navbar.scrolled .menu-item {
+    opacity: 1;
+    pointer-events: unset;
+  } */
 
   .menu-item {
     position: relative;
@@ -466,9 +476,13 @@ const { pathname } = Astro.props;
   }
 
   /* ===== MOBILE-ONLY CHANGES BELOW ===== */
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
+    .container {
+      background: #f3f4f6;
+    }
+
     .navbar {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(8px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     }
@@ -571,7 +585,7 @@ const { pathname } = Astro.props;
   const logoBlack = document.querySelector(".logo-black");
 
   function UpdateLogo() {
-    if ((window.scrollY > 40 || window.outerWidth <= 767) && !navbar.classList.contains("scrolled")) {
+    if ((window.scrollY > 40 || window.innerWidth <= 1023) && !navbar.classList.contains("scrolled")) {
       navbar.classList.add("scrolled");
       logoWhite.classList.add("hidden");
       logoBlack.classList.remove("hidden");
@@ -579,7 +593,7 @@ const { pathname } = Astro.props;
       return;
     }
 
-    if (window.scrollY <= 40 && window.outerWidth > 767 && navbar.classList.contains("scrolled")) {
+    if (window.scrollY <= 40 && window.innerWidth > 1023 && navbar.classList.contains("scrolled")) {
       navbar.classList.remove("scrolled");
       logoWhite.classList.remove("hidden");
       logoBlack.classList.add("hidden");

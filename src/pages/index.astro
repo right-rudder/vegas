@@ -7,7 +7,7 @@ import ContactForm from "../components/forms/ContactForm.astro";
 import TestimonialsCarousel from "../components/TestimonialsCarousel.jsx";
 import CTAIntroFlight from "../components/CTAIntroFlight.astro";
 import FAQs from "../components/FAQs.astro";
-import Banner from "../components/Banner.astro";
+import BannerHomepage from "../components/BannerHomepage.astro";
 
 import { faq } from "../data/faqs";
 import contactData from "../data/forms/contact.js";
@@ -17,22 +17,26 @@ const data = {
     src: "/src/assets/stock/aircraft-flying-horizon-vegas-aviation-nevada-career-pilot.jpg",
     alt: "Aircraft flying horizon in the background",
   },
-  eyebrow: "Fly with Vegas Aviation",
-  title: "Realize the dream of becoming a career pilot",
-  subTitle:
-    "<b>600,000</b> pilots needed over the next <b>20 years</b>, will you be the next one?",
-  heroCards: true,
+  eyebrow: "Premier Flight Training in Las Vegas",
+  title: "<b>Become a Pilot</b></br>Make Your Dream Come True",
+  heroCards: false,
+  cta: [
+    {
+      url: "/contact",
+      text: "Start Flying",
+    }
+  ],
 };
 ---
 
 <BaseLayout>
-  <Banner data={data} />
+  <BannerHomepage data={data} />
   <HomePageAbout />
   <ProgramsList />
   <CTAWhyUs />
   <TestimonialsCarousel
     items={[]}
-    className="from-primary-900/80 to-accent-900 bg-linear-to-b px-5 py-16 text-white md:px-8 md:py-20 lg:px-10 lg:py-24"
+    className="from-primary-100/90 to-accent-100 bg-linear-to-b px-5 py-16 text-accent-900 md:px-8 md:py-20 lg:px-10 lg:py-24"
     client:load
   />
   <ContactForm content={contactData} />

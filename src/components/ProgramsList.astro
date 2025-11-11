@@ -8,25 +8,23 @@ import { data } from "../data/program-list";
 const { isTimeline = false } = Astro.props;
 ---
 
-<section id="program-list" class="relative isolate bg-accent-900 text-white">
+<section id="program-list" class=`relative isolate text-accent-900 ${isTimeline ? "bg-primary-100/90" : "bg-accent-100" }`>
   {isTimeline && <ZeroToHeroBG />}
 
   <div class="mx-auto max-w-7xl px-5 md:px-8 lg:px-10 py-12 md:py-16 lg:py-20">
     <div class="flex flex-col gap-6 text-center sm:text-left xl:gap-4 xl:flex-row xl:items-start xl:justify-between">
       <div class="max-w-3xl">
-        <p
-          class="eyebrow inline-flex items-center gap-2 text-sm tracking-widest uppercase text-primary-200/80 bg-white/5 border border-white/10 rounded-full px-3 py-1 mb-3"
-        >
-          <span class="size-1.5 rounded-full bg-primary-400/90"></span>
+        <p class="eyebrow-dark inline-flex items-center gap-2 tracking-widest">
+          <span class="size-1.5 rounded-full bg-primary-500"></span>
           {data.eyebrow}
         </p>
         <h2 class="text-4xl sm:text-5xl lg:text-[56px] font-extrabold leading-tight tracking-tight">
           {data.heading}
         </h2>
-        <p class="mt-4 text-white md:text-lg/8">{data.subheading}</p>
+        <p class="mt-4 md:text-lg/8">{data.subheading}</p>
       </div>
 
-      <a href={data.moreHref} class="self-start btn-primary-outline mx-auto sm:ml-0 sm:mr-auto md:self-center xl:mx-0">
+      <a href={data.moreHref} class="self-start btn-primary mx-auto sm:ml-0 sm:mr-auto md:self-center xl:mx-0">
         {data.moreLabel}
         <FaArrowRight />
       </a>
@@ -48,20 +46,20 @@ const { isTimeline = false } = Astro.props;
 
             {isTimeline && item.data && (
               <div class="absolute top-4 left-4 right-4 flex flex-col gap-2">
-                <span class="font-bold text-xl text-primary-400">{item.data.cost}</span>
+                <span class="font-bold text-xl text-primary-500">{item.data.cost}</span>
                 <span class="font-thin text-lg text-accent-50">{item.data.duration}</span>
               </div>
             )}
 
             <div class="absolute top-4 right-4">
-              <div class="flex items-center justify-center rounded-full text-primary-400 bg-white/10 backdrop-blur px-2 py-2 border border-white/15 transition group-hover:bg-white/20 group-hover:border-white/25">
+              <div class="flex items-center justify-center rounded-full text-primary-500 bg-white/10 backdrop-blur px-2 py-2 border border-white/15 transition group-hover:bg-white/20 group-hover:border-white/25">
                 <FaArrowRight />
               </div>
             </div>
 
             <div class="absolute inset-0 flex flex-col justify-end p-5">
               <h3 class="text-lg sm:text-xl font-extrabold drop-shadow [text-shadow:0_1px_1px_rgba(0,0,0,.45)] min-h-7">
-                <span class="text-primary-400">{item.title}</span>
+                <span class="text-primary-500">{item.title}</span>
               </h3>
               <p class="mt-1 text-sm text-accent-50 max-w-sm min-h-10 leading-snug">{item.desc}</p>
             </div>
@@ -70,11 +68,11 @@ const { isTimeline = false } = Astro.props;
       }
     </div>
 
-    <div class="mt-10 text-center text-md text-white">
+    <div class="mt-10 text-center text-md">
       Your Aviation Career Starts Here
       <a
         href="/enroll"
-        class="inline-flex items-center gap-1 font-semibold transition-colors duration-300 ease-in-out text-primary-400 hover:text-white"
+        class="inline-flex items-center gap-1 font-semibold transition-colors duration-300 ease-in-out text-primary-700 hover:text-primary-500"
       >
         Register Now
         <FaArrowRight />

@@ -4,9 +4,9 @@ import ImageComp from "../ImageComp.astro";
 const { data } = Astro.props;
 ---
 
-<section class="bg-accent-900 relative isolate z-0 overflow-hidden text-white text-center">
+<section class="bg-accent-100 relative isolate z-0 overflow-hidden text-accent-900 text-center">
   <div
-    class="pointer-events-none absolute inset-0 -z-10 from-primary-300/30 bg-radial-[at_20%_40%] to-transparent to-60%"
+    class="pointer-events-none absolute inset-0 -z-10 from-primary-200/50 bg-radial-[at_20%_40%] to-transparent to-60%"
   >
   </div>
   <ImageComp
@@ -24,16 +24,16 @@ const { data } = Astro.props;
       {data.title}
     </h2>
 
-    <h3 class="text-2xl leading-tight font-thin tracking-tight text-primary-400 max-w-2xl mx-auto">
+    <h3 class="text-2xl leading-tight font-thin tracking-tight text-primary-600 max-w-2xl mx-auto">
       {data.subTitle}
     </h3>
 
     <div class="grid grid-cols-1 justify-stretch items-stretch gap-6 my-16 relative xl:grid-cols-2">
       {
         data.data.map((item: any, index: number) => (
-          <div class={`flex flex-col gap-6 bg-accent-900/75 rounded-lg p-6 justify-center transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-400/70 ${index === data.data.length-1 ? "xl:col-span-2" : ""}`}>
+          <div class={`flex flex-col gap-6 bg-accent-100/75 rounded-lg p-6 justify-center transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-500/70 ${index === data.data.length-1 ? "xl:col-span-2" : ""}`}>
             <p class="font-bold text-3xl">{item.title}</p>
-            <span class="text-shadow-primary-400/40 text-5xl font-extrabold text-primary-400 text-shadow-md sm:text-7xl">
+            <span class="text-shadow-primary-800/40 text-5xl font-extrabold text-primary-600 text-shadow-md sm:text-7xl">
               {item.stat}
             </span>
             {item.suffix && <p class="font-bold text-3xl">{item.suffix}</p>}

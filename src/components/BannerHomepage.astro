@@ -1,0 +1,62 @@
+---
+import ImageComp from "./ImageComp.astro";
+import HeroCards from "./HeroCards.astro";
+
+interface ctaProp {
+  url: string;
+  text: string;
+}
+
+interface Props {
+  data: {
+    image: {
+      src: string;
+      alt: string;
+    };
+    eyebrow: string;
+    title: string;
+    subTitle?: string;
+    cta?: ctaProp[];
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="relative overflow-hidden text-accent-100">
+  <ImageComp
+    src={data.image.src}
+    alt={data.image.alt}
+    class="absolute inset-0 h-full w-full object-cover brightness-40 animate-slow-zoom -z-10"
+    loading="eager"
+    quality={100}
+  />
+
+  <div
+    class=`container mx-auto flex min-h-full w-full max-w-392 flex-col justify-center px-4 pb-4 text-center md:pb-20 md:px-20`
+  >
+    <div class="mt-30 lg:mt-40">
+      <div class="max-w-4xl mx-auto pt-4 flex flex-col items-center gap-6 lg:gap-8">
+        <p class="eyebrow font-semibold uppercase mb-0! lg:text-base">
+          {data.eyebrow}
+        </p>
+        <h1 class="max-w-4xl text-4xl md:text-6xl md:leading-20 lg:leading-18" set:html={data.title} />
+        {data.subTitle && <p class="text-2xl font-thin" set:html={data.subTitle} />}
+      </div>
+
+      {
+        data.cta && (
+          <div class="my-8 flex flex-col gap-4 items-center justify-center sm:flex-row sm:my-12">
+            {data.cta.map((item) => (
+              <a href={item.url} class="btn-primary-outline text-lg group w-fit md:text-2xl">
+                <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-500" />
+                {item.text}
+                <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-500" />
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</div>

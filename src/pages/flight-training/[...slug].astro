@@ -28,7 +28,7 @@ const program = Astro.props;
 >
   <Banner data={program.data.header} slot="hero" />
 
-  <div class="bg-accent-900">
+  <div class="bg-accent-200">
     {program.data.sections.map((item: any, index: number) => (
       <div>
         { index > 0 ? <SectionDivider /> : ""} 

@@ -43,12 +43,12 @@ type Field = {
 };
 
 const ui = {
-  section: "bg-accent-900 px-4 py-12 sm:px-6 lg:px-8 lg:py-20",
+  section: "bg-accent-100 px-4 py-12 sm:px-6 lg:px-8 lg:py-20",
   grid: "grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 max-w-7xl mx-auto",
-  left: "relative overflow-hidden rounded-lg text-white",
-  leftInner: "text-white p-6 sm:p-8 lg:p-10",
-  right: "bg-primary-900 rounded-lg p-6 ring-1 ring-primary-700 sm:p-8 lg:p-10 text-white font-semibold",
-  eyebrow: "eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase",
+  left: "relative overflow-hidden rounded-lg text-accent-900",
+  leftInner: "text-accent-900 p-6 sm:p-8 lg:p-10",
+  right: "bg-primary-950 rounded-lg p-6 ring-1 ring-primary-900 sm:p-8 lg:p-10 text-white font-semibold",
+  eyebrow: "eyebrow-light inline-flex items-center gap-2 tracking-widest",
   h2: "mt-2 text-4xl font-extrabold lg:text-5xl",
   sub: "text-white mt-4 max-w-prose",
   input:
@@ -71,7 +71,7 @@ const ui = {
   ...classes,
 };
 
-const icon = "h-10 w-10 text-primary-400";
+const icon = "h-10 w-10 text-primary-500";
 ---
 
 <section class={ui.section} aria-labelledby="contact-heading">
@@ -118,7 +118,7 @@ const icon = "h-10 w-10 text-primary-400";
                   <p class="text-muted-100 font-semibold">{content?.info?.phoneLabel || "Phone"}</p>
                   <a
                     href={`tel:${content.info.phoneValue}`}
-                    class="text-muted-300 transition-colors duration-300 ease-in-out hover:text-primary-400!"
+                    class="text-muted-300 transition-colors duration-300 ease-in-out hover:text-primary-500!"
                   >
                     {content.info.phoneValue}
                   </a>
@@ -135,7 +135,7 @@ const icon = "h-10 w-10 text-primary-400";
       {
         content?.eyebrow && (
           <p class={ui.eyebrow}>
-            <span class="size-1.5 rounded-full bg-primary-400/90" />
+            <span class="size-1.5 rounded-full bg-primary-900" />
             {content.eyebrow}
           </p>
         )
@@ -311,7 +311,7 @@ const icon = "h-10 w-10 text-primary-400";
               id="accept"
               name="accept"
               type="checkbox"
-              class="bg-muted-900/70 mt-1 h-5 w-5 rounded border-white/20 text-primary-400"
+              class="bg-muted-900/70 mt-1 h-5 w-5 rounded border-white/20 text-primary-500"
               required
             />
             <label for="accept" class="text-muted-200 ml-3 text-sm">

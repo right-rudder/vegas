@@ -1,25 +1,25 @@
 ---
-import { FACEBOOK_URL, INSTAGRAM_URL, PHONE_NUMBER, ADDRESS_CITY, ADDRESS_STATE, AIRPORT } from "../data/consts";
+import { FACEBOOK_URL, INSTAGRAM_URL, PHONE_NUMBER_HEADER, ADDRESS_CITY, ADDRESS_STATE } from "../data/consts";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 ---
 
-<div class="w-full bg-linear-to-br from-accent-50 to-accent-100 z-0 h-12 px-4 lg:px-0 text-accent-900">
+<div class="w-full bg-linear-to-br from-accent-50 to-accent-100 z-0 h-12 px-4 text-accent-900 lg:px-0">
   <div
     class="mx-auto font-bebas flex items-center align-middle h-full justify-between"
   >
     <p class="ml-5 font-bebas tracking-widest text-xl hidden lg:block">
-      Flight Training in {AIRPORT}, {ADDRESS_CITY}, {ADDRESS_STATE}
+      Flight Training in {ADDRESS_CITY}, {ADDRESS_STATE}
     </p>
     <div class="flex gap-3 w-full lg:w-auto">
       <div
-        class="lg:flex items-center justify-center align-middle gap-x-3 hidden"
+        class="items-center justify-center align-middle gap-x-3 hidden lg:flex"
       >
         <a
           href={INSTAGRAM_URL}
           target="_blank"
           aria-label="Instagram"
           title="Instagram"
-          class="hover:text-primary-400 transition-all duration-300 ease-in-out"
+          class="hover:text-primary-500 transition-all duration-300 ease-in-out"
         >
           <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
             <circle cx="15" cy="15" r="4"></circle>
@@ -33,7 +33,7 @@ import { FaPhoneSquareAlt } from "react-icons/fa";
           target="_blank"
           aria-label="Facebook"
           title="Facebook"
-          class="hover:text-primary-400 transition-all duration-300 ease-in-out"
+          class="hover:text-primary-500 transition-all duration-300 ease-in-out"
         >
           <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
             <path
@@ -42,15 +42,16 @@ import { FaPhoneSquareAlt } from "react-icons/fa";
           </svg>
         </a>
       </div>
+
       <a
-        href=`tel:${PHONE_NUMBER}`
+        href=`tel:${PHONE_NUMBER_HEADER}`
         aria-labelledby="Call Us Now"
         title="Call Us Now"
-        class="lg:mr-5 flex align-middle tracking-widest ml-auto lg:ml-0 items-center text-right text-lg lg:text-xl font-bold hover:text-primary-400 transition-all duration-300 ease-in-out"
+        class="flex align-middle tracking-widest ml-auto items-center text-right text-lg font-bold transition-all duration-300 ease-in-out hover:text-primary-500 lg:ml-0 lg:mr-5 lg:text-xl"
         aria-label="Call telephone Link"
       >
         <FaPhoneSquareAlt className="mr-2 text-xl lg:text-2xl" />
-        {PHONE_NUMBER}</a
+        {PHONE_NUMBER_HEADER}</a
       >
     </div>
   </div>
