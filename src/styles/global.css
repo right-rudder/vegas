@@ -85,6 +85,33 @@
   @apply bg-accent-950 text-primary-400 font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm;
 }
 
+/* TODO : Remover */
+/* body {
+  --color-primary-50: oklch(0.984 0.21579 135.347);
+  --color-primary-100: oklch(0.968 0.21579 135.347);
+  --color-primary-200: oklch(0.929 0.21579 135.347);
+  --color-primary-300: oklch(0.869 0.21579 135.347);
+  --color-primary-400: oklch(0.75019 0.21579 135.347);
+  --color-primary-500: oklch(0.554 0.21579 135.347);
+  --color-primary-600: oklch(0.446 0.21579 135.347);
+  --color-primary-700: oklch(0.372 0.21579 135.347);
+  --color-primary-800: oklch(0.279 0.21579 135.347);
+  --color-primary-900: oklch(0.208 0.21579 135.347);
+  --color-primary-950: oklch(0.129 0.21579 135.347);
+
+  --color-accent-50: oklch(0.985 0.002 247.839);
+  --color-accent-100: oklch(0.967 0.003 264.542);
+  --color-accent-200: oklch(0.928 0.006 264.531);
+  --color-accent-300: oklch(0.872 0.01 258.338);
+  --color-accent-400: oklch(0.707 0.022 261.325);
+  --color-accent-500: oklch(0.551 0.027 264.364);
+  --color-accent-600: oklch(0.446 0.03 256.802);
+  --color-accent-700: oklch(0.373 0.034 259.733);
+  --color-accent-800: oklch(0.278 0.033 256.848);
+  --color-accent-900: oklch(0.21 0.034 264.665);
+  --color-accent-950: oklch(0.13 0.028 261.692);
+} */
+
 body {
   font-family: "Atkinson", sans-serif;
   margin: 0;
