@@ -23,20 +23,20 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<div class="relative overflow-hidden text-accent-100">
+<div class="relative overflow-hidden flex items-center text-accent-100 min-h-[90vh]">
   <ImageComp
     src={data.image.src}
     alt={data.image.alt}
-    class="absolute inset-0 h-full w-full object-cover brightness-130 animate-slow-zoom -z-20"
+    class="absolute object-right lg:inset-0 h-full w-full object-cover brightness-130 animate-slow-zoom -z-20"
     loading="eager"
     quality={100}
   />
-  <div class="absolute inset-0 h-full w-full bg-linear-to-r from-slate-950/80 via-slate-950/80 to-transparent -z-10" />
+  <div class="absolute inset-0 h-full w-full bg-linear-to-b lg:bg-linear-to-r from-slate-950/80 via-slate-950/80 to-transparent -z-10" />
 
   <div
     class=`flex min-h-full w-full max-w-392 flex-col justify-start px-4 pb-4 text-left md:pb-20 md:px-20`
   >
-    <div class="mt-30 lg:mt-40">
+    <div class="h-full w-full flex flex-col justify-between items-start">
       <div class="max-w-5xl pt-4 flex flex-col items-start gap-6 lg:gap-8">
         <p class="eyebrow font-semibold uppercase mb-0! lg:text-base">
           {data.eyebrow}
