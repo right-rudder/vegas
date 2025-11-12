@@ -27,16 +27,17 @@ const { data } = Astro.props;
   <ImageComp
     src={data.image.src}
     alt={data.image.alt}
-    class="absolute inset-0 h-full w-full object-cover brightness-40 animate-slow-zoom -z-10"
+    class="absolute inset-0 h-full w-full object-cover brightness-110 animate-slow-zoom -z-20"
     loading="eager"
     quality={100}
   />
+  <div class="absolute inset-0 h-full w-full bg-linear-to-r from-slate-950/80 via-slate-950/80 to-transparent -z-10" />
 
   <div
-    class=`container mx-auto flex min-h-full w-full max-w-392 flex-col justify-center px-4 pb-4 text-center md:pb-20 md:px-20`
+    class=`flex min-h-full w-full max-w-392 flex-col justify-start px-4 pb-4 text-left md:pb-20 md:px-20`
   >
     <div class="mt-30 lg:mt-40">
-      <div class="max-w-4xl mx-auto pt-4 flex flex-col items-center gap-6 lg:gap-8">
+      <div class="max-w-4xl pt-4 flex flex-col items-start gap-6 lg:gap-8">
         <p class="eyebrow font-semibold uppercase mb-0! lg:text-base">
           {data.eyebrow}
         </p>
@@ -46,7 +47,7 @@ const { data } = Astro.props;
 
       {
         data.cta && (
-          <div class="my-8 flex flex-col gap-4 items-center justify-center sm:flex-row sm:my-12">
+          <div class="my-8 flex flex-col gap-4 items-center justify-start sm:flex-row sm:my-12">
             {data.cta.map((item) => (
               <a href={item.url} class="btn-primary-outline text-lg group w-fit md:text-2xl">
                 <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-500" />
