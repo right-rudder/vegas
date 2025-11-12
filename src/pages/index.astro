@@ -8,6 +8,8 @@ import TestimonialsCarousel from "../components/TestimonialsCarousel.jsx";
 import CTAIntroFlight from "../components/CTAIntroFlight.astro";
 import FAQs from "../components/FAQs.astro";
 import BannerHomepage from "../components/BannerHomepage.astro";
+import { PHONE_NUMBER } from "../data/consts";
+
 
 import { faq } from "../data/faqs";
 import contactData from "../data/forms/contact.js";
@@ -17,14 +19,19 @@ const data = {
     src: "/src/assets/las-vegas-nevada-flight-school-pilot-training-flying-lessons-learn-to-fly-vegas-aviation.webp",
     alt: "Aircraft flying horizon in the background",
   },
-  eyebrow: "Premier Flight Training in Las Vegas",
-  title: "<b>Become a Pilot with Vegas Aviation</b></br>Make Your Dreams Come True",
+  eyebrow: `Call Us: <a href:"tel:${PHONE_NUMBER}">${PHONE_NUMBER}</a>`,
+  title: "<b>Become a Pilot at Vegas Aviation</b>",
+  subTitle: "30,000 new Airline Pilots needed every year. Why not you?",
   heroCards: false,
   cta: [
     {
       url: "/enroll",
       text: "Start Flying",
-    }
+    },
+    {
+      url: "/flight-training/#programs",
+      text: "Training Process",
+    },
   ],
 };
 ---
@@ -36,7 +43,7 @@ const data = {
   <CTAWhyUs />
   <TestimonialsCarousel
     items={[]}
-    className="from-primary-100/90 to-accent-100 bg-linear-to-b px-5 py-16 text-accent-900 md:px-8 md:py-20 lg:px-10 lg:py-24"
+    className="from-sky-900/30 to-accent-100 bg-linear-to-b px-5 py-16 text-accent-900 md:px-8 md:py-20 lg:px-10 lg:py-24"
     client:load
   />
   <ContactForm content={contactData} />
