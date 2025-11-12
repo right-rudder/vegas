@@ -70,7 +70,7 @@
 }
 
 .btn-primary-outline {
-  @apply bg-primary-600 text-accent-900 font-semibold rounded-md px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer border border-transparent hover:border-primary-500 hover:bg-transparent hover:text-primary-500;
+  @apply bg-primary-600 text-accent-900 font-semibold rounded-md px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer border border-transparent hover:border-primary-700 hover:bg-accent-200 hover:text-primary-700;
 }
 
 .btn-secondary {
@@ -86,7 +86,7 @@
 }
 
 .eyebrow {
-  @apply text-primary-500 font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm mb-2 border-b-2 border-l-2 border-r-2 border-t border-primary-500;
+  @apply text-accent-300 font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm mb-2 border-b-2 border-l-2 border-r-2 border-t border-accent-500;
 }
 
 .eyebrow-light {
@@ -94,7 +94,7 @@
 }
 
 .eyebrow-dark {
-  @apply bg-accent-950 text-primary-500 font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm mb-2;
+  @apply bg-accent-600 text-primary-100 font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm mb-2;
 }
 
 /* TODO : Remover */
