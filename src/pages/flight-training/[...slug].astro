@@ -36,15 +36,15 @@ const program = Astro.props;
       </div>
     ))}
   
-    {program.data.faqs && (
-      <FAQs faqs={program.data.faqs} />
-    )}
-  
     {program.data.costs && (
       <CostSection data={program.data.costs} />
     )}
 
     {!program.data.faqs && !program.data.costs ? <SectionDivider /> : ""}
+  
+    {program.data.faqs && (
+      <FAQs faqs={program.data.faqs} />
+    )}
   
     <CTAIntroFlight />
   </div>
