@@ -31,13 +31,13 @@ const { data } = Astro.props;
     loading="eager"
     quality={100}
   />
-  <div class="absolute inset-0 h-full w-full bg-linear-to-b lg:bg-linear-to-r from-slate-950/80 via-slate-950/80 to-transparent -z-10" />
+  <div class="absolute inset-0 h-full w-full bg-linear-to-b lg:bg-linear-to-r from-slate-950/80 lg:via-slate-950/80 to-transparent -z-10" />
 
   <div
-    class=`flex min-h-full w-full max-w-392 flex-col justify-start px-4 pb-4 text-left md:pb-20 md:px-20`
+    class=`flex min-h-[90vh] lg:min-h-[80vh] w-full max-w-392 flex-col justify-start pt-16 px-4 pb-4 text-left md:pb-20 md:px-20`
   >
-    <div class="h-full w-full flex flex-col justify-between items-start">
-      <div class="max-w-5xl pt-4 flex flex-col items-start gap-6 lg:gap-8">
+    <div class="min-h-[80vh] lg:h-full w-full flex flex-col justify-between lg:justify-center items-start">
+      <div class="max-w-5xl pt-4 flex flex-col items-start gap-2 lg:gap-8">
         <p class="eyebrow font-semibold uppercase mb-0! lg:text-base">
           {data.eyebrow}
         </p>
@@ -47,7 +47,7 @@ const { data } = Astro.props;
 
       {
         data.cta && (
-          <div class="my-8 flex flex-col gap-4 items-center justify-start sm:flex-row sm:my-12">
+          <div class="my-8 flex flex-col gap-4 items-center justify-start sm:flex-row sm:my-12 mx-auto lg:mx-0">
             {data.cta.map((item) => (
               <a href={item.url} class="btn-primary-outline text-lg group w-fit md:text-2xl">
                 <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-500" />
