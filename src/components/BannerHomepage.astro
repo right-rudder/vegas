@@ -23,7 +23,7 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<div class="relative overflow-hidden flex items-center text-accent-100 min-h-[90vh]">
+<div class="relative overflow-hidden flex justify-center items-center text-accent-100 min-h-[90vh]">
   <ImageComp
     src={data.image.src}
     alt={data.image.alt}
@@ -34,15 +34,14 @@ const { data } = Astro.props;
   <div class="absolute inset-0 h-full w-full bg-linear-to-b lg:bg-linear-to-r from-slate-950/80 lg:via-slate-950/80 to-transparent -z-10" />
 
   <div
-    class=`flex min-h-[90vh] lg:min-h-[80vh] w-full max-w-392 flex-col justify-start pt-16 px-4 pb-4 text-left md:pb-20 md:px-20`
+    class=`flex min-h-[90vh] lg:min-h-[80vh] w-full flex-col justify-start lg:items-end pt-16 px-4 pb-4 text-left md:pb-20 md:px-20`
   >
     <div class="min-h-[80vh] lg:h-full w-full flex flex-col justify-between lg:justify-center items-start">
-      <div class="max-w-5xl pt-4 flex flex-col items-start gap-2 lg:gap-8">
-        <p class="eyebrow font-semibold uppercase mb-0! lg:text-base">
-          {data.eyebrow}
+      <div class="max-w-6xl pt-4 flex flex-col items-start gap-2 lg:gap-8">
+        <p class="eyebrow font-semibold uppercase mb-0! lg:text-base" set:html={data.eyebrow}>
         </p>
-        <h1 class="text-4xl md:text-6xl md:leading-20 lg:leading-18" set:html={data.title} />
-        {data.subTitle && <p class="text-2xl font-thin" set:html={data.subTitle} />}
+        <h1 class="text-4xl md:text-6xl md:leading-20 lg:leading-18 uppercase" set:html={data.title} />
+        {data.subTitle && <h2 class="text-3xl" set:html={data.subTitle} />}
       </div>
 
       {
