@@ -268,3 +268,9 @@ hr {
   /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
   white-space: nowrap;
 }
+
+.gradient-border-image {
+  border-style: solid;
+  border-image: linear-gradient(to right, oklch(0.967 0.003 264.542), oklch(75.019% 0.21579 135.347), oklch(0.967 0.003 264.542) ) 2;
+  /* The '1' is border-image-slice, indicating a single slice for the border image. */
+}
