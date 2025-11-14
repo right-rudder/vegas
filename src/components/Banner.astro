@@ -22,40 +22,47 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<div class="relative min-h-[80vh] overflow-hidden">
+<div class="relative overflow-hidden flex justify-center items-center lg:items-end lg:pb-24 text-accent-100 min-h-[90vh]">
   <ImageComp
     src={data.image.src}
     alt={data.image.alt}
-    class="absolute inset-0 h-full w-full object-cover brightness-40 animate-slow-zoom"
+    class="absolute object-center lg:inset-0 h-full w-full object-cover brightness-130 animate-slow-zoom -z-20"
     loading="eager"
     quality={100}
   />
-  
-  <div class=`container mx-auto flex min-h-full w-full max-w-392 flex-col justify-center px-6 ${data.cta ? "pb-[98px]" : ""} md:px-20`>
-    <div class="relative min-h-[40vh] overflow-hidden flex flex-row items-end pt-20 lg:pt-40">
-      <div class="max-w-4xl text-center text-accent-100 pt-4 md:text-left">
-        <div class="flex flex-col items-center gap-6 md:items-start lg:gap-8">
-          <p class="eyebrow font-semibold uppercase lg:text-base">
-            {data.eyebrow}
-          </p>
-          <h1 class="max-w-4xl text-4xl font-bold md:text-6xl md:leading-20 lg:leading-18" set:html={data.title} />
-          {data.subTitle && <p class="text-2xl font-thin" set:html={data.subTitle} />}
-        </div>
+  <div
+    class="absolute inset-0 h-full w-full bg-linear-to-b lg:bg-linear-to-br from-slate-950/95 lg:via-slate-900/50 to-transparent -z-10"
+  />
+  <div class=`max-w-7xl flex w-full flex-col justify-center items-center lg:items-start py-28 px-5 md:px-8 lg:px-10 text-center lg:text-left`>
+    <div class="flex flex-col justify-center items-center lg:justify-center lg:items-start">
+      <div class="flex flex-col items-center lg:items-start gap-y-6 text-center lg:text-left px-5 md:px-8 lg:px-0">
+        <p
+          class="eyebrow"
+        >
+          {data.eyebrow}
+        </p>
+        <h1 class="max-w-3xl text-5xl/12 md:text-6xl/14 uppercase font-bold" set:html={data.title} />
+        {
+          data.subTitle && (
+            <h2 class="text-xl/6 font-light max-w-2xl" set:html={data.subTitle} />
+          )
+        }
       </div>
-    </div>
 
-    {
-      data.cta && (
-        <div class="my-6 mx-auto flex gap-4 flex-col justify-center items-center bottom-0 text-center absolute left-0.5 right-0.5 sm:flex-row sm:left-1/2 sm:-translate-x-1/2">
-          {data.cta.map((item) => (
-            <a href={item.url} class="btn-primary-outline text-2xl group w-fit">
-              <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-500"></span>
-              {item.text}
-              <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-500"></span>
-            </a>
-          ))}
-        </div>
-      )
-    }
+      {
+        data.cta && (
+          <div class="my-8 flex flex-col gap-4 items-center justify-start sm:flex-row sm:my-12 mx-auto lg:mx-0">
+            {data.cta.map((item) => (
+              <a
+                href={item.url}
+                class="btn-primary text-lg group w-fit md:text-2xl"
+              >
+                {item.text}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
   </div>
 </div>

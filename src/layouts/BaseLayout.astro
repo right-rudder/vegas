@@ -145,9 +145,9 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
       <Navbar pathname={pathname}></Navbar>
     </header>
     
-    <main>
+    <main class="mt-0 pt-0 font">
       <slot name="hero" />
-
+      <slot />
       <!-- Breadcrumb Navigation -->
       {breadcrumbs.length > 1 && (
         <nav aria-label="Breadcrumb" class="bg-accent-100 border-b border-accent-200 text-accent-900">
@@ -178,8 +178,6 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
           </div>
         </nav>
       )}
-
-      <slot />
     </main>
     <Footer />
   </body>

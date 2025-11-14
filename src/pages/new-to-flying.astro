@@ -6,6 +6,8 @@ import Opportunities from "../components/new-to-flying/Opportunities.astro";
 import CTAWhyUs from "../components/CTAWhyUs.astro";
 import ProgramsList from "../components/ProgramsList.astro";
 import TestimonialsCarousel from "../components/TestimonialsCarousel";
+import HowToBecomePilot from "../components/HowToBecomePilot.astro";
+
 
 import { data } from "../data/new-to-flying";
 import { testimonials } from "../data/testimonials";
@@ -17,7 +19,9 @@ import { testimonials } from "../data/testimonials";
   siteKeywords={data.siteKeywords}>
   <Banner data={data.header} slot="hero" />
 
-  <Opportunities data={data.opportunity} />
+  <HowToBecomePilot />
+
+  <!-- <Opportunities data={data.opportunity} /> -->
 
   <CTAWhyUs />
 

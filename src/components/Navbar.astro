@@ -134,11 +134,11 @@ const { pathname } = Astro.props;
 ---
 
 <nav id="navbar" class="navbar">
-  <div class="container">
+  <div class="container px-4 md:px-0">
     <!-- Logo -->
-    <a href="/" class="object-contain w-36 md:w-52 h-auto">
+    <a href="/" class="object-contain h-auto">
       <ImageComp class="logo-white" src="/src/assets/vegas-logo.png" alt="Vegas Aviation Logo" />
-      <ImageComp class="logo-black hidden" src="/src/assets/vegas-logo-black.png" alt="Vegas Aviation Logo" />
+      <ImageComp class="logo-black w-36 md:w-52 hidden" src="/src/assets/vegas-logo-black.png" alt="Vegas Aviation Logo" />
     </a>
 
     <!-- Desktop Menu -->
@@ -257,15 +257,13 @@ const { pathname } = Astro.props;
     display: flex;
     justify-content: center;
     transition: all 0.5s ease;
+    padding: 16px 0
   }
 
   .container {
-    max-width: 80rem;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 1rem;
   }
 
   .navbar.scrolled {
@@ -406,18 +404,16 @@ const { pathname } = Astro.props;
     z-index: -1;
     background: oklch(0.278 0.033 256.848); /* primary-400 */
     transition: all 0.3s ease-in-out;
-    transform: skewX(-15deg) scale(1);
   }
 
   .sub-menu li a:hover,
   .sub-menu li a.menu-link-hover {
-    color: white;
+    color: oklch(89.056% 0.19115 131.459);
   }
 
   .sub-menu li a:hover:before,
   .sub-menu li a.menu-link-hover:before {
     width: 100%;
-    transform: skewX(-15deg) scale(1.05);
   }
 
   .container .hamburger .hamburger-menu-x,
@@ -477,10 +473,6 @@ const { pathname } = Astro.props;
 
   /* ===== MOBILE-ONLY CHANGES BELOW ===== */
   @media (max-width: 1023px) {
-    .container {
-      background: #f3f4f6;
-    }
-
     .navbar {
       background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(8px);

@@ -8,20 +8,20 @@ import TestimonialsCarousel from "../components/TestimonialsCarousel.jsx";
 import CTAIntroFlight from "../components/CTAIntroFlight.astro";
 import FAQs from "../components/FAQs.astro";
 import BannerHomepage from "../components/BannerHomepage.astro";
+import BecomePilotSummary from "../components/BecomePilotSummary.astro";
 import { PHONE_NUMBER } from "../data/consts";
-
 
 import { faq } from "../data/faqs";
 import contactData from "../data/forms/contact.js";
 
 const data = {
   image: {
-    src: "/src/assets/las-vegas-nevada-flight-school-pilot-training-flying-lessons-learn-to-fly-vegas-aviation.webp",
+    src: "/src/assets/las-vegas-nevada-flight-school-pilot-training-flying-lessons-learn-to-fly-vegas-aviation-copy.webp",
     alt: "Aircraft flying horizon in the background",
   },
-  eyebrow: `Call Us: <a href:"tel:${PHONE_NUMBER}">${PHONE_NUMBER}</a>`,
-  title: "<b>Become a Pilot at Vegas Aviation</b>",
-  subTitle: "30,000 new Airline Pilots needed every year. Why not you?",
+  eyebrow: `Call Us:`,
+  title: "<b>Become a Pilot<br>at Vegas Aviation</b>",
+  subTitle: "30,000 new airline pilots needed every year.<br>Why not you?",
   heroCards: false,
   cta: [
     {
@@ -38,12 +38,13 @@ const data = {
 
 <BaseLayout>
   <BannerHomepage data={data} />
-  <HomePageAbout />
+  <BecomePilotSummary />
   <ProgramsList />
+  <HomePageAbout />
   <CTAWhyUs />
   <TestimonialsCarousel
     items={[]}
-    className="from-sky-900/30 to-accent-100 bg-linear-to-b px-5 py-16 text-accent-900 md:px-8 md:py-20 lg:px-10 lg:py-24"
+    className="from-sky-900/30 to-accent-50 bg-linear-to-b px-5 py-16 text-accent-900 md:px-8 md:py-20 lg:px-10 lg:py-24"
     client:load
   />
   <ContactForm content={contactData} />
