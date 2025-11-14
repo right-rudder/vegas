@@ -1,8 +1,11 @@
 const imageData = [
+  // ctas
   {
     img: "/src/assets/old-website/cta-1-vegas_aviation_16.jpg",
     alt: "Vegas Aviation airplane flying over Las Vegas landscape",
   },
+
+  // discovery
   {
     img: "/src/assets/old-website/discovery-flight-1-Heather-Great-Wingtip-Wednesday-photo-1024x768.jpg",
     alt: "Heather enjoying a discovery flight during Wingtip Wednesday",
@@ -15,6 +18,8 @@ const imageData = [
     img: "/src/assets/old-website/discovery-flight-Heather-Great-Wingtip-Wednesday-photo-1024x768.jpg",
     alt: "Heather at the controls during Wingtip Wednesday discovery flight",
   },
+
+  // maintenance
   {
     img: "/src/assets/old-website/maintenance-1-vegas_aviation_7.jpg",
     alt: "Aircraft maintenance and inspection in hangar",
@@ -39,6 +44,8 @@ const imageData = [
     img: "/src/assets/old-website/maintenance-6Taylor-mechanics-websize-1024x683.jpg",
     alt: "Taylor the aircraft mechanic performing maintenance",
   },
+
+  // rental
   {
     img: "/src/assets/old-website/rental_fleet.png",
     alt: "Vegas Aviation rental aircraft fleet overview",
@@ -87,6 +94,8 @@ const imageData = [
     img: "/src/assets/old-website/rental-11-vegas_aviation_35.jpg",
     alt: "Rental aircraft flying at sunset over Las Vegas",
   },
+
+  // services
   {
     img: "/src/assets/old-website/services-1-vegas_aviation_12.jpg",
     alt: "Vegas Aviation services and flight training overview",
