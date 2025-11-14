@@ -5,6 +5,8 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, KEYWORDS, OG_IMAGE } from "../data/consts";
 import Navbar from "../components/Navbar.astro";
 import HeaderContact from "../components/HeaderContact.astro";
+import '@fontsource-variable/atkinson-hyperlegible-mono';
+import '@fontsource-variable/roboto';
 
 const { pathname } = Astro.url;
 const { siteTitle, siteDescription, siteImage, siteKeywords, customBreadcrumbs } = Astro.props;
@@ -148,24 +150,24 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
 
       <!-- Breadcrumb Navigation -->
       {breadcrumbs.length > 1 && (
-        <nav aria-label="Breadcrumb" class="bg-accent-800 border-b border-accent-900">
+        <nav aria-label="Breadcrumb" class="bg-accent-100 border-b border-accent-200 text-accent-900">
           <div class="max-w-7xl mx-auto px-5 md:px-10 lg:px-20 py-3">
             <ol class="flex items-center space-x-2 text-sm">
               {breadcrumbs.map((crumb, index) => (
                 <li class="flex items-center">
                   {index > 0 && (
-                    <svg class="w-4 h-4 text-white mx-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                     </svg>
                   )}
                   {index === breadcrumbs.length - 1 ? (
-                    <span class="text-white font-medium" aria-current="page">
+                    <span class="font-medium" aria-current="page">
                       {crumb.name}
                     </span>
                   ) : (
                     <a
                       href={crumb.url}
-                      class="text-white hover:text-primary-400 transition-colors duration-200 font-medium"
+                      class="hover:text-primary-600 transition-colors duration-200 font-medium"
                     >
                       {crumb.name}
                     </a>

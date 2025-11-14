@@ -4,8 +4,8 @@ export const testimonials = [
       `At the age of 43 I walked into Vegas Aviation and asked the nice lady at the front desk if I could go for an airplane ride.
       Thanks to GEO the greatest flight instructor a few months later I am a licensed private pilot!
       My personal circumstances are definitely abnormal but Geo and the staff at Vegas Aviation were absolutely fantastic at accommodating my busy schedule and helping make a lifelong dream come true!
-      Thank you Vegas Aviation and CFI Geo!!!!!",
-    author: "Anchor Brand Ranch`,
+      Thank you Vegas Aviation and CFI Geo!!!!!`,
+    author: "Anchor Brand Ranch",
     role: "Student Pilot",
   },
   {

@@ -79,6 +79,7 @@ export const COMPANY_NICKNAME = "Vegas Aviation";
 export const LOGO_PRIMARY = "/vegas-aviation-logo.png";
 export const LOGO_SECONDARY = "/vegas-aviation-logo.png";
 export const PHONE_NUMBER = "(888) 235-9834";
+export const PHONE_NUMBER_HEADER = "(888) 2Fly-Vegas";
 export const ADDRESS_LINE_1 = "2634 Airport Drive #103";
 export const ADDRESS_LINE_2 = "North Las Vegas, NV 89032";
 export const AIRPORT = "North Las Vegas Airport";

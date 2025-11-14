@@ -6,13 +6,13 @@ import { COMPANY_NAME, FACEBOOK_URL, INSTAGRAM_URL, LOCATIONS, PHONE_NUMBER } fr
 const today = new Date();
 ---
 
-<footer class="pt-8 px-4 pb-24 bg-accent-900 text-white sm:px-8">
+<footer class="pt-8 px-4 pb-24 bg-accent-100 text-accent-900 sm:px-8">
   <div class="relative z-10 pt-24 mx-auto border-b border-gray-500 sm:max-w-xl md:max-w-full lg:max-w-7xl">
     <div class="flex flex-col gap-10 justify-between pb-10 lg:text-left lg:pb-16 lg:gap-20 xl:flex-row">
       <!-- Column 1: Logo + Tagline + Social -->
       <div class="flex flex-col items-center lg:flex-1 lg:text-left">
         <a href="/" class="flex items-center justify-center mb-4 w-full h-auto md:1/2 lg:w-full">
-          <ImageComp src="/src/assets/vegas-logo.png" alt="Vegas Aviation Logo" />
+          <ImageComp src="/src/assets/vegas-logo-black.png" alt="Vegas Aviation Logo" />
         </a>
 
         <p class="text-sm text-justify mb-4 font-medium">
@@ -25,7 +25,7 @@ const today = new Date();
 
         <!-- Social icons -->
         <div class="flex items-start align-middle gap-4">
-          <a href={INSTAGRAM_URL} target="_blank" class="transition-colors duration-200 ease-in-out hover:text-primary-400">
+          <a href={INSTAGRAM_URL} target="_blank" class="transition-colors duration-200 ease-in-out hover:text-primary-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
@@ -33,7 +33,7 @@ const today = new Date();
               ></path>
             </svg>
           </a>
-          <a href={FACEBOOK_URL} target="_blank" class="transition-colors duration-200 ease-in-out hover:text-primary-400">
+          <a href={FACEBOOK_URL} target="_blank" class="transition-colors duration-200 ease-in-out hover:text-primary-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
@@ -51,7 +51,7 @@ const today = new Date();
         {
           footerMenu.map((item) => (
             <div class="min-w-40">
-              <a class="font-bold text-lg transition-colors duration-200 ease-in-out hover:text-primary-400" href={item.url}>
+              <a class="font-bold text-lg transition-colors duration-200 ease-in-out hover:text-primary-600" href={item.url}>
                 {item.label}
               </a>
               <ul class="mt-2 space-y-2">
@@ -60,7 +60,7 @@ const today = new Date();
                     <li>
                       <a
                         href={item.url}
-                        class="transition-colors duration-200 ease-in-out hover:text-primary-400"
+                        class="transition-colors duration-200 ease-in-out hover:text-primary-600"
                       >
                         {item.label}
                       </a>
@@ -77,9 +77,9 @@ const today = new Date();
         <a
           href={LOCATIONS[0].gMaps}
           target="_blank"
-          class="mt-1 flex items-center text-sm gap-2 font-semibold justify-center transition-colors duration-200 ease-in-out md:justify-normal hover:text-primary-400"
+          class="mt-1 flex items-center text-sm gap-2 font-semibold justify-center transition-colors duration-200 ease-in-out md:justify-normal hover:text-primary-600"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-primary-400"
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-primary-600"
             ><path
               fill="currentColor"
               d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7"
@@ -92,9 +92,9 @@ const today = new Date();
 
         <a
           href=`tel:${PHONE_NUMBER}`
-          class="mt-1 flex items-center text-sm gap-2 font-semibold justify-center transition-colors duration-200 ease-in-out md:justify-normal hover:text-primary-400"
+          class="mt-1 flex items-center text-sm gap-2 font-semibold justify-center transition-colors duration-200 ease-in-out md:justify-normal hover:text-primary-600"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-primary-400"
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="text-primary-600"
             ><path
               fill="currentColor"
               d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.28-.28.67-.36 1.02-.25c1.12.37 2.32.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02z"
@@ -110,7 +110,7 @@ const today = new Date();
     <div class="w-full mb-6">
       <span class="inline-block w-full text-center">
         Powered by
-        <a href="https://rightruddermarketing.com/" target="_blank" class="font-medium transition-colors druation-200 ease-in-out hover:text-primary-400">
+        <a href="https://rightruddermarketing.com/" target="_blank" class="font-medium transition-colors druation-200 ease-in-out hover:text-primary-600">
           More Right Rudder
         </a>
       </span>
@@ -122,9 +122,9 @@ const today = new Date();
       &copy; Copyright {today.getFullYear()} • {COMPANY_NAME} • All rights reserved.
     </p>
     <p>
-      <a href="/privacy-policy" class="transition-colors duration-200 hover:text-primary-400">Privacy Policy</a>
+      <a href="/privacy-policy" class="transition-colors duration-200 hover:text-primary-600">Privacy Policy</a>
       •
-      <a href="/terms-of-service" class="transition-colors duration-200 hover:text-primary-400">Terms of Service</a>
+      <a href="/terms-of-service" class="transition-colors duration-200 hover:text-primary-600">Terms of Service</a>
     </p>
   </div>
 </footer>

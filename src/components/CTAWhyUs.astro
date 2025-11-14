@@ -22,7 +22,7 @@ const data = {
 
 ---
 
-<section class="relative isolate overflow-hidden bg-primary-900/80 text-white">
+<section class="relative isolate overflow-hidden bg-linear-to-b from-accent-100 to-sky-900/30 text-accent-900">
   <div class="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
     <div class="grid items-center gap-10 lg:grid-cols-2">
       <!-- LEFT: image -->
@@ -30,19 +30,19 @@ const data = {
         <ImageComp
           src={data.imageSrc}
           alt={data.imageAlt}
-          class="h-72 w-full rounded-lg object-cover object-bottom md:h-96 lg:h-112"
+          class="h-72 w-full rounded-lg object-cover object-bottom md:h-96 lg:h-112 drop-shadow-2xl"
         />
         <!-- soft inner vignette -->
-        <div class="pointer-events-none absolute z-10 inset-0 rounded-lg inset-shadow-sm inset-shadow-accent-900/60"></div>
+        <!-- <div class="pointer-events-none absolute z-10 inset-0 rounded-lg inset-shadow-sm inset-shadow-accent-900/60"></div> -->
       </figure>
 
       <!-- RIGHT: content -->
       <div class="max-w-2xl text-center sm:text-left lg:max-w-none">
         <!-- eyebrow -->
         <p
-          class="eyebrow inline-flex items-center gap-2 px-3 py-1 tracking-widest"
+          class="eyebrow-dark inline-flex items-center gap-2 tracking-widest"
         >
-          <span class="size-1.5 rounded-full bg-primary-400"></span>
+          <span class="size-1.5 rounded-full bg-primary-500"></span>
           {data.eyebrow}
         </p>
 
@@ -67,7 +67,7 @@ const data = {
         </p>
 
         <!-- CTA -->
-        <a href={data.ctaHref} class="mt-2 btn-primary-outline w-fit mx-auto sm:mx-0">
+        <a href={data.ctaHref} class="mt-2 btn-primary w-fit mx-auto sm:mx-0">
           {data.ctaLabel}
           <FaArrowRight />
         </a>

@@ -4,7 +4,8 @@ import ImageComp from "./ImageComp.astro";
 const data = {
   eyebrow: "YOUR PILOT CAREER STARTS HERE",
   heading: "Take Off with Vegas Aviation",
-  description: "Experience personalized flight training with our instructors, they are passionate people dedicated to your success. Whether you're starting your first lesson or advancing your skills, Vegas Aviation offers a supportive community and expert guidance every step of the way.",
+  description:
+    "Experience personalized flight training with our instructors, they are passionate people dedicated to your success. Whether you're starting your first lesson or advancing your skills, Vegas Aviation offers a supportive community and expert guidance every step of the way.",
   primary: { label: "Book a Discovery Flight", href: "/discovery-flight" },
   image: {
     src: "/src/assets/stock/airplane-takeoff-view-below-clouds-above-vegas-aviation-henderson-flight-school.jpg",
@@ -13,38 +14,32 @@ const data = {
 };
 ---
 
-<section class="relative isolate overflow-hidden text-white">
+<section class="relative isolate overflow-hidden text-accent-900">
   {/* Background image */}
   <div class="pointer-events-none absolute inset-0 -z-30" aria-hidden="true">
     <ImageComp
       src={data.image.src}
       alt={data.image.alt}
-      class="h-full w-full object-cover brightness-50"
+      class="h-full w-full object-cover"
       loading="lazy"
       decoding="async"
     />
   </div>
 
-  {/* Dark overlay on image */}
+  {/* Light overlay on image */}
   <div
-    class="pointer-events-none absolute inset-0 -z-20 bg-linear-to-b from-accent-900 via-transparent to-accent-900"
+    class="pointer-events-none absolute inset-0 -z-20 bg-linear-to-b from-accent-100 via-transparent to-accent-100"
     aria-hidden="true"
   >
   </div>
 
-  <div
-    class="relative grid items-center gap-6 px-6 py-16 sm:px-10 lg:grid-cols-2 lg:gap-10 lg:px-16 lg:py-24"
-  >
+  <div class="relative grid items-center gap-6 px-6 py-16 sm:px-10 lg:grid-cols-2 lg:gap-10 lg:px-16 lg:py-24">
     <div class="max-w-xl text-center sm:text-left">
-      <p
-        class="eyebrow text-primary-200/80 mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm tracking-widest uppercase mx-auto"
-      >
-        <span class="size-1.5 rounded-full bg-primary-400/90"></span>
+      <p class="eyebrow-dark inline-flex items-center gap-2 tracking-widest">
+        <span class="size-1.5 rounded-full bg-primary-500/90"></span>
         {data.eyebrow}
       </p>
-      <h2
-        class="mt-3 text-4xl leading-tight font-extrabold sm:text-5xl lg:text-6xl"
-      >
+      <h2 class="mt-3 text-4xl leading-tight font-extrabold sm:text-5xl lg:text-6xl">
         {data.heading}
       </h2>
       <p class="mt-5 max-w-lg text-base sm:text-lg">
@@ -52,11 +47,7 @@ const data = {
       </p>
 
       <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:gap-6">
-        <a
-          href={data.primary.href}
-          class="btn-primary-outline"
-          >{data.primary.label}</a
-        >
+        <a href={data.primary.href} class="btn-primary">{data.primary.label}</a>
       </div>
     </div>
   </div>

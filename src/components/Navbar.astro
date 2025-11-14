@@ -134,10 +134,11 @@ const { pathname } = Astro.props;
 ---
 
 <nav id="navbar" class="navbar">
-  <div class="container bg-accent-900 lg:bg-transparent">
+  <div class="container">
     <!-- Logo -->
-    <a href="/" class="logo object-contain w-36 md:w-52 h-auto">
-      <ImageComp src="/src/assets/vegas-logo.png" alt="Vegas Aviation Logo" />
+    <a href="/" class="object-contain w-36 md:w-52 h-auto">
+      <ImageComp class="logo-white" src="/src/assets/vegas-logo.png" alt="Vegas Aviation Logo" />
+      <ImageComp class="logo-black hidden" src="/src/assets/vegas-logo-black.png" alt="Vegas Aviation Logo" />
     </a>
 
     <!-- Desktop Menu -->
@@ -171,9 +172,9 @@ const { pathname } = Astro.props;
 
     <!-- Buttons -->
     <div class="buttons">
-      <a href="/enroll" class="btn-primary-outline text-lg!">
+      <a href="/enroll" class="btn-primary text-lg!">
         <IoIosAirplane className="size-6" />
-        Enroll Now
+        Contact Us
       </a>
     </div>
 
@@ -242,9 +243,9 @@ const { pathname } = Astro.props;
     </ul>
 
     <div class="mobile-buttons">
-      <a href="/enroll" class="btn-primary-outline text-lg!">
+      <a href="/enroll" class="btn-primary text-lg!">
         <IoIosAirplane className="size-6" />
-        Enroll Now
+        Contact Us
       </a>
     </div>
   </div>
@@ -268,7 +269,7 @@ const { pathname } = Astro.props;
   }
 
   .navbar.scrolled {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   }
@@ -277,6 +278,16 @@ const { pathname } = Astro.props;
     display: flex;
     gap: 0.75rem;
     list-style: none;
+  }
+
+  .navbar .menu-item {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .navbar.scrolled .menu-item {
+    opacity: 1;
+    pointer-events: unset;
   }
 
   .menu-item {
@@ -291,24 +302,32 @@ const { pathname } = Astro.props;
     color: white;
   }
 
-  .menu-item a:hover {
-    color: oklch(0.75019 0.21579 135.347);
-  }
-
+  .menu-item a:hover,
   .menu-item a:has(+ ul > li > a.menu-link-hover) {
-    color: oklch(0.75019 0.21579 135.347);
+    color: oklch(75.019% 0.21579 135.347); /* primary-400 */
   }
 
-  .navbar.scrolled .sub-menu li a:hover {
-    background: oklch(0.75019 0.21579 135.347);
+  .navbar.scrolled .sub-menu li a:hover,
+  .navbar.scrolled .sub-menu li a.menu-link-hover {
+    background: oklch(0.278 0.033 256.848); /* primary-400 */
   }
 
-  .navbar.scrolled .nav > .menu-item > a.menu-link-hover {
-    color: oklch(0.75019 0.21579 135.347);
+  .navbar.scrolled .nav > .menu-item > a {
+    color: #101828; /* accent-900 */
+  }
+
+  .navbar.scrolled .nav > .menu-item > a:hover,
+  .navbar.scrolled .nav > .menu-item > a.menu-link-hover,
+  .navbar.scrolled .nav > .menu-item a:has(+ ul > li > a.menu-link-hover) {
+    color: #298b00; /* primary-500 */
+  }
+
+   {
+    color: oklch(75.019% 0.21579 135.347); /* primary-400 */
   }
 
   .navbar.scrolled .sub-menu li a.menu-link-hover {
-    background: oklch(0.75019 0.21579 135.347);
+    background: oklch(0.278 0.033 256.848); /* primary-400 */
   }
 
   /* Dropdown (desktop) */
@@ -385,7 +404,7 @@ const { pathname } = Astro.props;
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: oklch(0.75019 0.21579 135.347);
+    background: oklch(0.278 0.033 256.848); /* primary-400 */
     transition: all 0.3s ease-in-out;
     transform: skewX(-15deg) scale(1);
   }
@@ -418,7 +437,7 @@ const { pathname } = Astro.props;
     background: none;
     border: none;
     cursor: pointer;
-    color: white;
+    color: #101828; /* accent-900 */
   }
 
   /* Mobile sheet (base) */
@@ -429,7 +448,7 @@ const { pathname } = Astro.props;
     top: 100%;
     left: 0;
     width: 100%;
-    background: oklch(0.21 0.034 264.665);
+    background: #f3f4f6;
     padding: 0 1rem;
     max-height: 0;
     overflow: hidden;
@@ -457,9 +476,13 @@ const { pathname } = Astro.props;
   }
 
   /* ===== MOBILE-ONLY CHANGES BELOW ===== */
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
+    .container {
+      background: #f3f4f6;
+    }
+
     .navbar {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(255, 255, 255, 0.7);
       backdrop-filter: blur(8px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     }
@@ -492,7 +515,7 @@ const { pathname } = Astro.props;
       justify-content: space-between;
       padding: 12px 4px;
       font-weight: 600;
-      color: white;
+      color: #101828; /* accent-900 */
     }
     .mobile-item > a::after {
       content: "⟫";
@@ -505,39 +528,39 @@ const { pathname } = Astro.props;
 
     /* Submenu styling */
     .mobile-submenu {
-      border-left: 2px solid #e5e7eb;
+      border-left: 2px solid #101828; /* accent-900 */
       margin-left: 10px;
       padding-left: 6px;
     }
     a:has(+ .mobile-submenu.open),
     a:has(+ .mobile-submenu .menu-link-hover) {
-      color: oklch(0.75019 0.21579 135.347);
+      color: oklch(75.019% 0.21579 135.347); /* primary-400 */
     }
     .mobile-submenu li a {
       display: block;
       padding: 10px 12px 10px 24px;
       border-radius: 6px;
-      color: white;
+      color: #101828; /* accent-900 */
     }
     .mobile-submenu li a:hover {
-      background: oklch(0.75019 0.21579 135.347);
-      color: white;
+      background: oklch(0.278 0.033 256.848); /* primary-400 */
+      color: #101828; /* accent-900 */
       font-weight: bold;
     }
 
     .mobile-submenu li a.menu-link-hover {
-      background: oklch(0.75019 0.21579 135.347);
-      color: white;
+      background: oklch(0.278 0.033 256.848); /* primary-400 */
+      color: #101828; /* accent-900 */
       font-weight: bold;
     }
 
     /* Sticky full-width CTA */
     .mobile-buttons {
-      background-color: oklch(0.21 0.034 264.665);
+      background-color: #f3f4f6;
       position: sticky;
       bottom: 0;
       padding: 12px 0 14px;
-      border-top: 1px solid #e5e7eb;
+      border-top: 1px solid #101828; /* accent-900 */
     }
     .mobile-buttons a {
       width: 100%;
@@ -558,18 +581,22 @@ const { pathname } = Astro.props;
   const mobileToggle = document.getElementById("mobile-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
   const menuHeaderContainer = document.querySelector("#navbar > .container");
-
-  const logo = document.getElementById("logo-default");
+  const logoWhite = document.querySelector(".logo-white");
+  const logoBlack = document.querySelector(".logo-black");
 
   function UpdateLogo() {
-    if ((window.scrollY > 40 || window.outerWidth <= 767) && !navbar.classList.contains("scrolled")) {
+    if ((window.scrollY > 40 || window.innerWidth <= 1023) && !navbar.classList.contains("scrolled")) {
       navbar.classList.add("scrolled");
+      logoWhite.classList.add("hidden");
+      logoBlack.classList.remove("hidden");
 
       return;
     }
 
-    if (window.scrollY <= 40 && window.outerWidth > 767 && navbar.classList.contains("scrolled")) {
+    if (window.scrollY <= 40 && window.innerWidth > 1023 && navbar.classList.contains("scrolled")) {
       navbar.classList.remove("scrolled");
+      logoWhite.classList.remove("hidden");
+      logoBlack.classList.add("hidden");
     }
   }
 
@@ -581,11 +608,14 @@ const { pathname } = Astro.props;
 
     setTimeout(UpdateLogo, 200);
   });
+
   window.addEventListener("resize", () => {
     clearTimeout(resizeDebounceTimer);
 
     setTimeout(UpdateLogo, 200);
   });
+
+  document.addEventListener("DOMContentLoaded", UpdateLogo);
 
   // Mobile menu open/close
   mobileToggle?.addEventListener("click", () => {

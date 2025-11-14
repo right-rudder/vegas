@@ -51,7 +51,7 @@ sections:
       src: "/src/assets/flight-training/flight-simulation-vegas-aviation-pilot-training-southern-nevada.png"
       alt: "Flight simulator"
     description:
-      "Up to <b>2.5 hours</b> of AATD flight simulator time can be credited toward Private Pilot requirements, up to <b>20 hours</b> toward an Instrument rating, and up to <b>50 hours</b> toward a Commercial Pilot certificate, resulting in significant savings when used to supplement in aircraft flight training.<br/><br/><span class=\"text-primary-400 font-extrabold text-4xl\">$75hr</span>"
+      "Up to <b>2.5 hours</b> of AATD flight simulator time can be credited toward Private Pilot requirements, up to <b>20 hours</b> toward an Instrument rating, and up to <b>50 hours</b> toward a Commercial Pilot certificate, resulting in significant savings when used to supplement in aircraft flight training.<br/><br/><span class=\"text-primary-500 font-extrabold text-4xl\">$75hr</span>"
     cta:
       url: "/contact"
       text: "Contact Us"
