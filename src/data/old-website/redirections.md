@@ -111,3 +111,85 @@
     https://vegasaviation.com/author/lydiatrotter/
 
     https://vegasaviation.com/author/johcreative/
+
+NAVBAR
+
+1. FLIGHT TRAINING
+
+URL: https://vegasaviation.com/flight-training/
+
+Dropdown Items
+
+PRIVATE PILOT
+https://vegasaviation.com/private-pilot/
+
+INSTRUMENT RATING
+https://vegasaviation.com/instrument-rating/
+
+COMMERCIAL PILOT TRAINING
+https://vegasaviation.com/commercial-pilot/
+
+CERTIFIED FLIGHT INSTRUCTOR
+https://vegasaviation.com/certified-flight-instructor/
+
+MULTI ENGINE
+https://vegasaviation.com/multi-engine-add-on/
+
+FLIGHT SIMULATION
+https://vegasaviation.com/flight-simulation/
+
+2. AIRCRAFT SERVICES
+
+URL: https://vegasaviation.com/aircraft-services/
+
+Dropdown Items
+
+AIRCRAFT MAINTENANCE
+https://vegasaviation.com/aircraft-maintenance/
+
+AIRCRAFT RENTAL
+https://vegasaviation.com/aircraft-rental/
+
+DISCOVERY FLIGHT
+https://vegasaviation.com/discovery-flight/
+
+3. ACADEMIC PARTNERSHIPS
+
+URL: https://vegasaviation.com/academic-partnerships/
+
+Dropdown Items
+
+PURDUE GLOBAL
+https://vegasaviation.com/updates/vegas-aviation-partnership-with-purdue-global/
+
+CSN AVIATION PROGRAM
+https://vegasaviation.com/flight-training/csn-aviation-program/
+
+RANCHO HIGH SCHOOL
+https://vegasaviation.com/flight-training/rancho-h-s-aviation-magnet/
+
+OTHER
+https://vegasaviation.com/flight-training/discounts-for-military-and-university-of-las-vegas-unlv-rotc/
+
+4. PILOT RESOURCES
+
+URL: https://vegasaviation.com/resources/
+
+Dropdown Items
+
+INSURANCE REQUIREMENTS
+https://vegasaviation.com/insurance-requirements-for-students-and-renters/
+
+FINANCING
+https://vegasaviation.com/updates/vegas-aviation-partnership-with-stratus-financial/
+
+SCHOLARSHIPS
+https://vegasaviation.com/scholarships/
+
+BLOG
+https://vegasaviation.com/blog/
+
+5. CONTACT
+
+URL:
+https://vegasaviation.com/contact-us/
