@@ -1,0 +1,77 @@
+---
+import ImageComp from "../ImageComp.astro";
+
+const priceCard = {
+    title: "Cessna 172N/P",
+    tag: "$175/hr",
+    description:
+        "The Cessna 172N is a versatile and reliable single-engine aircraft ideal for training, recreational flights, and aerial photography.",
+    
+    prices: [
+        {
+            prefix: "$",
+            value: "175",
+            suffix: "/hr",
+        },
+    ],
+
+    button: {
+        title: "Book Now",
+        url: "/contact", // or the booking URL you want
+    },
+
+    bullets: [
+        "Dual Garmin G5 PFD + MFD",
+        "Garmin 430W GPS",
+        "Garmin GTX 335",
+        "Dual G5",
+        "GNX 375",
+        "GNC 255A",
+    ],
+
+    image: {
+    src: "/src/assets/old-website/rental-1-green_lights.png",
+    alt: "Aircraft cockpit with green instrument panel lights",
+    },
+};
+
+const { content = priceCard } = Astro.props;
+---
+
+<div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+    <div  class="group/tier rounded-3xl p-8 ring-1 ring-gray-200 hover:ring-2 hover:ring-primary-600 xl:p-10">
+        <div class="flex items-center justify-between gap-x-4">
+            <h3 id="tier-tier-startup" class="text-lg/8 font-semibold text-gray-900 group-hover/tier:text-primary-600">{content.title}</h3>
+            <p class="rounded-full bg-primary-600/10 px-2.5 py-1 text-xs/5 font-semibold text-primary-600 ">{content.tag}</p>
+        </div>
+        
+        <ImageComp 
+            src={content.image.src}
+            alt={content.image.alt}
+            class="object-cover w-full my-12"
+        />
+        <p class="mt-4 text-sm/6 text-gray-600">{content.description}</p>
+    
+        {content.prices.map((price:any) => (
+            <p class="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden">
+                <span class="text-4xl font-semibold tracking-tight text-gray-900">{price.prefix} {price.value}</span>
+                <span class="text-sm/6 font-semibold text-gray-600">{price.suffix}</span>
+            </p>
+        ))}
+
+        <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600 xl:mt-10">
+            {content.bullets && content.bullets.map((bullet:any) => (
+                <li class="flex gap-x-3">
+                    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="h-6 w-5 flex-none text-primary-600">
+                        <path d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" fill-rule="evenodd" />
+                    </svg>
+                    {bullet}
+                </li>
+            ))}
+        </ul>
+        { content.button &&
+         <a href={content.button.link} aria-describedby="tier-startup" class="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-primary-600 inset-ring-1 inset-ring-primary-200 group-hover/tier:bg-primary-600 group-hover/tier:text-white group-hover/tier:shadow-xs group-hover/tier:inset-ring-0 hover:inset-ring-primary-300 group-hover/tier:hover:bg-primary-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600">
+            {content.button.title}
+        </a>}
+    </div>
+</div>
