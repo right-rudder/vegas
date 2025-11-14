@@ -5,6 +5,7 @@ import Banner from "../../components/Banner.astro";
 import { FaArrowRight } from "react-icons/fa";
 import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
 import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
+import CTALeft from "../../components/CTAs/CTALeft.astro";
 
 const data = {
     siteTitle: "Aircraft Services | Vegas Aviation",
@@ -13,8 +14,8 @@ const data = {
 
     header: {
         image: {
-            src: "/src/assets/aircraft-services-vegas-aviation.jpg",
-            alt: "Vegas Aviation aircraft services team",
+    src: "/src/assets/old-website/services-1-vegas_aviation_12.jpg",
+    alt: "Vegas Aviation services and flight training overview",
         },
         eyebrow: "Aircraft Services",
         title: "Comprehensive Aircraft Services at Vegas Aviation",
@@ -28,8 +29,8 @@ const data = {
         description:
             "Vegas Aviation offers a full suite of aircraft services tailored to students, renters, and aviation enthusiasts. Our certified technicians, well-maintained fleet, and experienced instructors ensure every pilot receives unmatched reliability, performance, and support—both on the ground and in the air.",
         image: {
-            src: "/src/assets/vegas-aviation-aircraft-services.jpg",
-            alt: "Vegas Aviation aircraft maintenance team",
+    src: "/src/assets/old-website/services-1-vegas_aviation_12.jpg",
+    alt: "Vegas Aviation services and flight training overview",
         },
         button: {
             title: "Contact Us",
@@ -100,6 +101,6 @@ const data = {
   siteDescription={data.siteDescription}
   siteKeywords={data.siteKeywords}>
   <Banner data={data.header} slot="hero" />
-
+  <CTALeft content={data.aboutSection} />
   <CTAIntroFlight />
 </BaseLayout>

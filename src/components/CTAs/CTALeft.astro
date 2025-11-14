@@ -47,10 +47,10 @@ const { content = example } = Astro.props;
             </div>
           </div>
 
-          <a href={content.button.link} class="btn-primary-outline mt-5 w-fit mx-auto sm:mx-0">
+          {content.button && (<a href={content.button.link} class="btn-primary-outline mt-5 w-fit mx-auto sm:mx-0">
             {content.button.title}
             <FaArrowRight />
-          </a>
+          </a>)}
         </div>
 
         {/* RIGHT: Big image, body, CTA */}
