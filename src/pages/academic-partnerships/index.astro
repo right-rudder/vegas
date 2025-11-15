@@ -60,15 +60,11 @@ const data = {
   ],
 };
 
-export default data;
-
-
 ---
 <BaseLayout
   siteTitle={data.siteTitle}
   siteDescription={data.siteDescription}
   siteKeywords={data.siteKeywords}>
   <Banner data={data.header} slot="hero" />
-  <CTALeft content={data.introSection} />
   <CTAIntroFlight />
 </BaseLayout>
