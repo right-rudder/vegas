@@ -1,11 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ImageComp from "../components/ImageComp.astro";
 import Banner from "../components/Banner.astro";
-import { FaArrowRight } from "react-icons/fa";
 import CTAIntroFlight from "../components/CTAIntroFlight.astro";
 import { SITE_DESCRIPTION, KEYWORDS } from "../data/consts";
-import CTALeft from "../components/CTAs/CTALeft.astro";
+import CTASimple from "../components/CTAs/CTASimple.astro";
 import DiscoveryFlightForm from "../components/forms/DiscoveryFlightForm.astro";
 
 const data = {
@@ -98,7 +96,7 @@ const data = {
   siteKeywords={data.siteKeywords}>
   <Banner data={data.header} slot="hero" />
 
-  <CTALeft content={data.whatIsSection} />
+  <CTASimple content={data.whatIsSection} />
 
   <DiscoveryFlightForm /> 
 

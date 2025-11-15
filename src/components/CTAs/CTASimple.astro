@@ -15,6 +15,7 @@ const example = {
     title: "Contact Us",
     link: "/contact",
   },
+  orientation: "left",
 };
 
 const { content = example } = Astro.props;
@@ -22,15 +23,15 @@ const { content = example } = Astro.props;
 
 <section class="bg-accent-100 relative isolate z-0 overflow-hidden text-accent-900">
   <div class="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20">
-    <div class="grid items-start gap-10 text-center sm:text-left lg:grid-cols-2 lg:gap-14">
+    <div class={`flex items-start gap-10 text-center sm:text-left lg:gap-14 ${content.orientation === "left" ? "flex-col lg:flex-row" : "flex-col-reverse lg:flex-row-reverse"}`}>
       {/* LEFT: Headline, quote, stat */}
-      <div>
+      <div class="flex-1">
         <p class="eyebrow-dark inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
           <span class="size-1.5 rounded-full bg-primary-500/90"></span>
           {content.underHeader}
         </p>
 
-        <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">{content.title}</h2>
+        <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-6xl">{content.title}</h2>
 
         {/* Quote card (narrowed) */}
         <div class="mt-4 rounded-lg border border-white/10 bg-white/5">
@@ -52,7 +53,7 @@ const { content = example } = Astro.props;
       </div>
 
       {/* RIGHT: Big image, body, CTA */}
-      <div class="lg:pl-4">
+      <div class="flex-1 lg:pl-4">
         <figure class="relative">
           <ImageComp
             src={content.image.src}

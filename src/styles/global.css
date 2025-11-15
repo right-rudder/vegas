@@ -68,13 +68,7 @@ h6 {
 
 .btn-primary:disabled {
   @apply bg-gray-700! border-gray-700! text-gray-400! cursor-not-allowed!;
-  /* box-shadow: none !important;
-  filter: none !important; */
 }
-
-/* .btn-primary:disabled:hover {
-  filter: none !important;
-} */
 
 .btn-primary-outline {
   @apply bg-primary-600 text-accent-900 font-semibold rounded-md px-4 py-2 flex items-center justify-center gap-2 transition cursor-pointer border border-transparent hover:border-primary-700 hover:bg-accent-200 hover:text-primary-700;
@@ -93,6 +87,10 @@ h6 {
 }
 
 .eyebrow {
+  @apply text-primary-600 bg-primary-900 lg:bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base;
+}
+
+a.eyebrow {
   @apply text-primary-600 bg-primary-900 lg:bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base hover:bg-primary-600 hover:text-slate-900 duration-300 ease-in-out;
 }
 
