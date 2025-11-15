@@ -1,6 +1,7 @@
 ---
 import ImageComp from "./ImageComp.astro";
 import HeroCards from "./HeroCards.astro";
+import { PHONE_NUMBER } from "../data/consts";
 
 interface ctaProp {
   url: string;
@@ -23,35 +24,47 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<div class="relative overflow-hidden flex justify-center items-center text-accent-100 min-h-[90vh]">
+<div
+  class="relative overflow-hidden flex justify-center items-center lg:items-end lg:pb-24 text-accent-100 min-h-[90vh]"
+>
   <ImageComp
     src={data.image.src}
     alt={data.image.alt}
-    class="absolute object-right lg:inset-0 h-full w-full object-cover brightness-130 animate-slow-zoom -z-20"
+    class="absolute object-right lg:object-center lg:inset-0 h-full w-full object-cover brightness-130 animate-slow-zoom -z-20"
     loading="eager"
     quality={100}
   />
-  <div class="absolute inset-0 h-full w-full bg-linear-to-b lg:bg-linear-to-r from-slate-950/80 lg:via-slate-950/80 to-transparent -z-10" />
-
   <div
-    class=`flex min-h-[90vh] lg:min-h-[80vh] w-full flex-col justify-start lg:items-end pt-16 px-4 pb-4 text-left md:pb-20 md:px-20`
-  >
-    <div class="min-h-[80vh] lg:h-full w-full flex flex-col justify-between lg:justify-center items-start">
-      <div class="max-w-6xl pt-4 flex flex-col items-start gap-2 lg:gap-8">
-        <p class="eyebrow font-semibold uppercase mb-0! lg:text-base" set:html={data.eyebrow}>
-        </p>
-        <h1 class="text-4xl md:text-6xl md:leading-20 lg:leading-18 uppercase" set:html={data.title} />
-        {data.subTitle && <h2 class="text-3xl" set:html={data.subTitle} />}
+    class="absolute inset-0 h-full w-full bg-linear-to-b lg:bg-linear-to-br from-slate-950/95 lg:via-slate-950/30 to-transparent -z-10"
+  />
+
+  <div class=`max-w-7xl flex w-full flex-col justify-center items-center lg:items-start py-28 px-5 md:px-8 lg:px-10 text-center lg:text-left`>
+    <div class="flex flex-col justify-center items-center lg:justify-center lg:items-start">
+      <div class="flex flex-col items-center lg:items-start gap-y-6 text-center lg:text-left px-5 md:px-8 lg:px-0">
+        <a
+          class="eyebrow"
+          href={`tel:${PHONE_NUMBER}`}
+        >
+          {data.eyebrow}
+          {PHONE_NUMBER}
+        </a>
+        <h1 class="max-w-3xl text-5xl/12 md:text-6xl/14 uppercase font-bold" set:html={data.title} />
+        {
+          data.subTitle && (
+            <h2 class="text-xl/6 font-light drop-shadow-md" set:html={data.subTitle} />
+          )
+        }
       </div>
 
       {
         data.cta && (
           <div class="my-8 flex flex-col gap-4 items-center justify-start sm:flex-row sm:my-12 mx-auto lg:mx-0">
             {data.cta.map((item) => (
-              <a href={item.url} class="btn-primary-outline text-lg group w-fit md:text-2xl">
-                <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-500" />
+              <a
+                href={item.url}
+                class="btn-primary text-lg group w-fit md:text-2xl"
+              >
                 {item.text}
-                <span class="size-1.5 rounded-full bg-accent-900 transition group-hover:bg-primary-500" />
               </a>
             ))}
           </div>
