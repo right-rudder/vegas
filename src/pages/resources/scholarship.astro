@@ -1,0 +1,135 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ImageComp from "../../components/ImageComp.astro";
+import Banner from "../../components/Banner.astro";
+import { FaArrowRight } from "react-icons/fa";
+import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
+import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
+import CTALeft from "../../components/CTAs/CTALeft.astro";
+
+const data = {
+    siteTitle: "Flight Training Scholarships | Vegas Aviation",
+    siteDescription: SITE_DESCRIPTION,
+    siteKeywords: KEYWORDS,
+
+    header: {
+        image: {
+            src: "/src/assets/cfi-group-airplane-vegas-aviation-las-vegas-flight-instructor.webp",
+            alt: "Student pilot celebrating scholarship award",
+        },
+        eyebrow: "Flight Training Scholarships",
+        title: "Turn Your Aviation Dreams Into Reality",
+        subTitle:
+            "Finances shouldn’t stand between you and the cockpit. Explore scholarship opportunities to support your journey to the skies.",
+    },
+
+    introSection: {
+        title: "Financial Barriers Shouldn’t Ground Your Dreams",
+        description:
+            "At Vegas Aviation, we believe anyone with the passion to fly deserves the chance to soar. That’s why we actively help students discover scholarship opportunities—from national aviation organizations to local community foundations—that can support your flight training.",
+        image: {
+            src: "/src/assets/cfi-group-airplane-vegas-aviation-las-vegas-flight-instructor.webp",
+            alt: "Student pilot studying aviation materials",
+        },
+    },
+
+    opportunitiesSection: {
+        header: "Where to Find Scholarships",
+        title: "Explore Thousands of Opportunities",
+        description:
+            "We regularly post scholarship listings and local aviation funding opportunities on our Front Desk News Board. Check it often—new programs and deadlines appear throughout the year. Beyond aviation-specific scholarships, many students find support through community groups, nonprofits, and professional organizations.",
+
+        aviationSpecific: {
+            title: "Aviation-Specific Scholarships",
+            items: [
+                "AOPA – Up to $14,000 for flight students",
+                "EAA – Private pilot and post-solo scholarships",
+                "AVFUEL – Maintenance and pilot funding",
+                "Sheltair Aviation – Flight and aviation program support",
+                "JSFirm Aviation Scholarship Directory – Comprehensive aviation listings",
+            ],
+        },
+
+        womenInAviation: {
+            title: "Women in Aviation",
+            items: [
+                "Women in Aviation International (WAI) – Over $1M awarded annually",
+                "The Ninety-Nines – Scholarships for women pilots at all levels",
+                "Fly Foundation – Fly Girl Scholarship & mentorship",
+                "Latinas in Aviation Foundation – Scholarships for Latinas pursuing flight",
+            ],
+            images: [
+                {
+                    src: "/src/assets/old-website/wai_winner_1.jpg",
+                    alt: "Student pilot receiving Women in Aviation scholarship",
+                },
+                {
+                    src: "/src/assets/old-website/wai_winner_2.jpg",
+                    alt: "Las Vegas Rancho High School student pilot awarded scholarship",
+                },
+            ],
+        },
+
+        diversitySection: {
+            title: "Diversity & Inclusion",
+            items: [
+                "OBAP – Organization of Black Aerospace Professionals",
+                "NGPA – National Gay Pilots Association",
+                "Red Tail Scholarship Foundation – Honoring the Tuskegee Airmen legacy",
+            ],
+        },
+
+        careerPathways: {
+            title: "Career Pathway Programs",
+            items: [
+                "American Airlines Cadet Academy – Full pathway with financing options",
+                "RAA (Regional Airline Association) – Support for commercial pilot training",
+            ],
+        },
+
+        beyondAviation: {
+            title: "Beyond Aviation: Expand Your Search",
+            items: [
+                "Rotary Clubs & Lions Clubs – Leadership and service-based scholarships",
+                "Chambers of Commerce – Business community educational grants",
+                "Soroptimist International – Scholarships for women and girls advancing education",
+                "Veterans’ Groups – Support through American Legion, VFW, and state programs",
+                "Community Foundations – Local scholarships by county or residence",
+                "Workforce Development Boards – Funding for technical and career transitions",
+            ],
+        },
+    },
+
+    tipsSection: {
+        header: "Scholarship Application Tips",
+        title: "Boost Your Chances of Getting Funded",
+        tips: [
+            "Apply Early & Apply Often – Don’t wait for the perfect opportunity.",
+            "Personalize Your Essays – Share your aviation story and long-term goals.",
+            "Ask for Strong Recommendations – CFIs, teachers, and mentors help your application stand out.",
+            "Stay Organized – Track deadlines and requirements with a spreadsheet.",
+        ],
+    },
+
+    CTASection: {
+        title: "Need Support?",
+        subTitle:
+            "Our instructors and front desk team are here to help you navigate scholarship options and build a winning application.",
+        button: {
+            title: "Contact Us",
+            link: "/contact",
+        },
+    },
+};
+
+
+
+---
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  siteKeywords={data.siteKeywords}>
+  <Banner data={data.header} slot="hero" />
+  <CTALeft content={data.introSection} />
+  <CTAIntroFlight />
+</BaseLayout>
