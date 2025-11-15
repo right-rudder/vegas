@@ -1,0 +1,60 @@
+---
+import type { Field, FieldOption } from "../utils/types";
+
+interface Props {
+  f: Field;
+}
+
+const { f } = Astro.props;
+---
+{
+  (
+    <div class={`flex flex-col${f.colSpan ? " col-span-" + f.colSpan : ""}`}>
+      <label for={f.id} class="text-primary-100 text-sm font-medium">
+        {f.label}
+        {f.required && <span class="text-white">*</span>}
+      </label>
+      {f.type !== "textarea" && f.type !== "select" ? (
+        <input
+          id={f.id}
+          name={f.name || f.id}
+          type={(f.type || "text") as any}
+          required={f.required}
+          placeholder={f.placeholder}
+          class={`bg-white text-accent-500 font-light mt-2 h-12 rounded-md border border-white/10 px-4 text-base valid:text-accent-900 valid:font-bold placeholder:text-accent-500`}
+          pattern={f.pattern}
+          inputmode={f.inputmode as any}
+          list={f.datalistId}
+          step={f.step}
+          min={f.min}
+          max={f.max}
+          autocomplete={f.autocomplete}
+        />
+      ) : null}
+      {f.type === "select" ? (
+        <select
+          id={f.id}
+          name={f.name || f.id}
+          required={f.required}
+          class={`bg-white text-accent-500 mt-2 h-12 w-full rounded-md border border-white/10 px-4 pr-10 outline-none text-base valid:text-accent-900 valid:font-bold [&>option]:bg-white [&>option]:text-accent-500 [&>optgroup]:bg-white [&>optgroup]:text-accent-400`}
+        >
+          {(f.options || []).map((o: FieldOption) => (
+            <option value={o.value} selected={o.selected} disabled={o.disabled} hidden={o.hidden}>
+              {o.label}
+            </option>
+          ))}
+        </select>
+      ) : null}
+      {f.type === "textarea" ? (
+        <textarea
+          id={f.id}
+          name={f.name || f.id}
+          rows={f.rows || 6}
+          required={f.required}
+          placeholder={f.placeholder}
+          class={`bg-white text-accent-500 font-light text-base mt-2 rounded-md border border-white/10 px-4 py-3 valid:text-accent-900 valid:font-bold`}
+        />
+      ) : null}
+    </div>
+  )
+}

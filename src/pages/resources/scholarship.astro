@@ -5,7 +5,7 @@ import Banner from "../../components/Banner.astro";
 import { FaArrowRight } from "react-icons/fa";
 import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
 import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
-import CTALeft from "../../components/CTAs/CTALeft.astro";
+import CTASimple from "../../components/CTAs/CTASimple.astro";
 
 const data = {
     siteTitle: "Flight Training Scholarships | Vegas Aviation",
@@ -130,6 +130,6 @@ const data = {
   siteDescription={data.siteDescription}
   siteKeywords={data.siteKeywords}>
   <Banner data={data.header} slot="hero" />
-  <CTALeft content={data.introSection} />
+  <CTASimple content={data.introSection} />
   <CTAIntroFlight />
 </BaseLayout>

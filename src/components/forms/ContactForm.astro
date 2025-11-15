@@ -1,94 +1,30 @@
 ---
-/**
- * Reusable contact/enroll/intro form component.
- * Props:
- * - content: object with { eyebrow, heading, subheading, info:{...}, form:{labels, placeholders, fields[], cta} }
- * - classes: optional class overrides (see defaults below)
- */
 import contactData from "../../data/forms/contact.js";
+import type { Field } from "../../components/utils/types";
+import FormField from "./FormField.astro";
 
-const { content = contactData, classes = {}, webhook, cpApi, accId, campaign, redirect } = Astro.props;
-
-const FORM_WEBHOOK_URL = webhook;
-const PORTAL_API_KEY = cpApi;
-const PORTAL_ACCOUNT_ID = accId;
-
-// Types for dynamic form fields
-type FieldOption = {
-  label: string;
-  value: string | number;
-  selected?: boolean;
-  disabled?: boolean;
-  hidden?: boolean;
-};
-
-type Field = {
-  id: string;
-  name?: string;
-  label: string;
-  type?: string;
-  required?: boolean;
-  placeholder?: string;
-  pattern?: string;
-  inputmode?: string;
-  datalistId?: string;
-  rows?: number;
-  options?: FieldOption[];
-  colSpan?: number;
-  row?: number;
-  step?: number | string;
-  min?: string;
-  max?: string;
-  autocomplete?: string;
-};
-
-const ui = {
-  section: "bg-accent-100 px-4 py-12 sm:px-6 lg:px-8 lg:py-20",
-  grid: "flex flex-wrap gap-8 lg:gap-12 max-w-7xl mx-auto lg:flex-nowrap",
-  left: "relative w-full lg:w-1/2 overflow-hidden rounded-lg text-accent-900 sticky top-28 lg:self-start",
-  leftInner: "text-accent-900 p-6 sm:p-8 lg:p-10",
-  right: "bg-primary-700 rounded-lg p-6 ring-1 ring-primary-900 sm:p-8 lg:p-10 text-white font-semibold",
-  eyebrow: "eyebrow-light inline-flex items-center gap-2 tracking-widest",
-  h2: "mt-4 text-4xl text-slate-950 font-extrabold lg:text-5xl",
-  sub: "text-slate-100 font-light mt-1 max-w-prose",
-  input:
-    "bg-white text-accent-900 placeholder:text-accent-500 placeholder:font-light mt-2 h-12 rounded-md border border-white/10 px-4",
-  textarea:
-    "bg-white text-accent-900 placeholder:text-accent-500 placeholder:font-light mt-2 rounded-md border border-white/10 px-4 py-3",
-  label: "text-primary-100 text-sm font-medium",
-  button:
-    "btn-primary-outline",
-  select:
-    // base look matching inputs
-    "bg-white text-accent-900 placeholder:text-accent-500 mt-2 h-12 w-full rounded-md " +
-    "border border-white/10 px-4 pr-10 outline-none " +
-    // render the UA dropdown in dark mode (modern browsers)
-    "[color-scheme:dark] " +
-    // darken rows where supported (Chromium/Firefox respect option styling)
-    "[&>option]:bg-[#0b0b0b] [&>option]:text-[#e5e7eb] " +
-    "[&>optgroup]:bg-[#0b0b0b] [&>optgroup]:text-[#9ca3af]",
-
-  ...classes,
-};
-
-const icon = "h-10 w-10 text-primary-500";
+const { content = contactData } = Astro.props;
 ---
 
-<section class={ui.section} aria-labelledby="contact-heading">
-  <div class={ui.grid}>
-    <!-- LEFT: Info panel -->
-    <div class={ui.left}>
-      <div class={ui.leftInner}>
+<section class="bg-accent-100 px-4 py-12 sm:px-6 lg:px-8 lg:py-20" aria-labelledby="contact-heading">
+  <div class="flex flex-wrap gap-8 lg:gap-12 max-w-7xl mx-auto lg:flex-nowrap">
+    {/* LEFT: Info panel */}
+    <div class="w-full overflow-hidden rounded-lg text-accent-900 top-28 lg:w-1/2 lg:self-start lg:sticky">
+      <div class="text-accent-900 p-6 sm:p-8 lg:p-10">
         <h2 class="text-5xl font-extrabold text-slate-950">
           {content?.info?.title}
         </h2>
-        {content?.info?.intro && <p class="text-muted-200 text-xl/5 font-light mt-6 max-w-prose">{content.info.intro}</p>}
+        {
+          content?.info?.intro && (
+            <p class="text-muted-200 text-xl/5 font-light mt-6 max-w-prose">{content.info.intro}</p>
+          )
+        }
 
         <ul class="mt-12 space-y-6">
           {
             content?.info?.addressLine1 && (
               <li class="flex items-center gap-4">
-                <svg viewBox="0 0 24 24" class={icon}>
+                <svg viewBox="0 0 24 24" class="h-10 w-10 text-primary-500">
                   <path
                     fill="currentColor"
                     d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
@@ -108,7 +44,7 @@ const icon = "h-10 w-10 text-primary-500";
           {
             content?.info?.phoneValue && (
               <li class="flex items-center gap-4">
-                <svg viewBox="0 0 24 24" class={icon}>
+                <svg viewBox="0 0 24 24" class="h-10 w-10 text-primary-500">
                   <path
                     fill="currentColor"
                     d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.31.57 3.58.57a1 1 0 0 1 1 1v3.49a1 1 0 0 1-1 1C10.29 22 2 13.71 2 3.99a1 1 0 0 1 1-1H6.5a1 1 0 0 1 1 1c0 1.27.2 2.47.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.21Z"
@@ -130,11 +66,16 @@ const icon = "h-10 w-10 text-primary-500";
       </div>
     </div>
 
-    <!-- RIGHT: Form -->
-    <div class={ui.right}>
+    {/* RIGHT: Form */}
+    <div class="bg-primary-700 rounded-lg p-6 ring-1 ring-primary-900 text-white font-semibold sm:p-8 lg:p-10">
+      {/* HoneyPot */}
+      <p class="hidden">
+        <label>Don't fill this out if you're human: <input name="confirm_email" /></label>
+      </p>
+
       {
         content?.eyebrow && (
-          <p class={ui.eyebrow}>
+          <p class="eyebrow-light inline-flex items-center gap-2 tracking-widest">
             <span class="size-1.5 rounded-full bg-primary-900" />
             {content.eyebrow}
           </p>
@@ -142,12 +83,12 @@ const icon = "h-10 w-10 text-primary-500";
       }
       {
         content?.heading && (
-          <h2 id="contact-heading" class={ui.h2}>
+          <h2 id="contact-heading" class="mt-4 text-4xl text-slate-950 font-extrabold lg:text-5xl">
             {content.heading}
           </h2>
         )
       }
-      {content?.subheading && <p class={ui.sub}>{content.subheading}</p>}
+      {content?.subheading && <p class="text-slate-100 font-light mt-1 max-w-prose">{content.subheading}</p>}
 
       <form
         id="page-form"
@@ -155,178 +96,32 @@ const icon = "h-10 w-10 text-primary-500";
         method={content?.form?.method || "post"}
         action={content?.form?.action || "#"}
       >
-        <!-- Dynamic fields -->
+        {/* Dynamic fields */}
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {
-            content.form.fields
-              ?.filter((f: Field) => f.row === 1)
-              .map((f: Field) => (
-                <div class={f.colSpan === 2 ? "flex flex-col md:col-span-2" : "flex flex-col"}>
-                  <label for={f.id} class={ui.label}>
-                    {f.label}
-                    {f.required && <span class="text-white">*</span>}
-                  </label>
-                  {f.type !== "textarea" && f.type !== "select" ? (
-                    <input
-                      id={f.id}
-                      name={f.name || f.id}
-                      type={(f.type || "text") as any}
-                      required={f.required}
-                      placeholder={f.placeholder}
-                      class={ui.input}
-                      pattern={f.pattern}
-                      inputmode={f.inputmode as any}
-                      list={f.datalistId}
-                      step={f.step}
-                      min={f.min}
-                      max={f.max}
-                      autocomplete={f.autocomplete}
-                    />
-                  ) : null}
-                  {f.type === "select" ? (
-                    <select id={f.id} name={f.name || f.id} required={f.required} class={ui.select}>
-                      {(f.options || []).map((o: FieldOption) => (
-                        <option value={o.value} selected={o.selected} disabled={o.disabled} hidden={o.hidden}>
-                          {o.label}
-                        </option>
-                      ))}
-                    </select>
-                  ) : null}
-                  {f.type === "textarea" ? (
-                    <textarea
-                      id={f.id}
-                      name={f.name || f.id}
-                      rows={f.rows || 6}
-                      required={f.required}
-                      placeholder={f.placeholder}
-                      class={ui.textarea}
-                    />
-                  ) : null}
-                </div>
-              ))
-          }
+          {content.form.fields?.map((f: Field) => <FormField f={f} />)}
         </div>
 
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {
-            content.form.fields
-              ?.filter((f: Field) => f.row === 2)
-              .map((f: Field) => (
-                <div class={f.colSpan === 2 ? "flex flex-col md:col-span-2" : "flex flex-col"}>
-                  <label for={f.id} class={ui.label}>
-                    {f.label}
-                    {f.required && <span class="text-white">*</span>}
-                  </label>
-                  {f.type !== "textarea" && f.type !== "select" ? (
-                    <input
-                      id={f.id}
-                      name={f.name || f.id}
-                      type={(f.type || "text") as any}
-                      required={f.required}
-                      placeholder={f.placeholder}
-                      class={ui.input}
-                      pattern={f.pattern}
-                      inputmode={f.inputmode as any}
-                      step={f.step}
-                      min={f.min}
-                      max={f.max}
-                      autocomplete={f.autocomplete}
-                    />
-                  ) : null}
-                  {f.type === "select" ? (
-                    <select id={f.id} name={f.name || f.id} required={f.required} class={ui.select}>
-                      {(f.options || []).map((o: FieldOption) => (
-                        <option value={o.value} selected={o.selected} disabled={o.disabled} hidden={o.hidden}>
-                          {o.label}
-                        </option>
-                      ))}
-                    </select>
-                  ) : null}
-                  {f.type === "textarea" ? (
-                    <textarea
-                      id={f.id}
-                      name={f.name || f.id}
-                      rows={f.rows || 6}
-                      required={f.required}
-                      placeholder={f.placeholder}
-                      class={ui.textarea}
-                    />
-                  ) : null}
-                </div>
-              ))
-          }
-        </div>
-
-        <!-- Any fields placed on row 3+ take full width -->
-        {
-          content.form.fields
-            ?.filter((f: Field) => (f.row || 3) >= 3)
-            .map((f: Field) => (
-              <div class="flex flex-col">
-                <label for={f.id} class={ui.label}>
-                  {f.label}
-                  {f.required && <span class="text-white">*</span>}
-                </label>
-                {f.type === "textarea" ? (
-                  <textarea
-                    id={f.id}
-                    name={f.name || f.id}
-                    rows={f.rows || 6}
-                    required={f.required}
-                    placeholder={f.placeholder}
-                    class={ui.textarea}
-                  />
-                ) : f.type === "select" ? (
-                  <select id={f.id} name={f.name || f.id} required={f.required} class={ui.select}>
-                    {(f.options || []).map((o: FieldOption) => (
-                      <option value={o.value} selected={o.selected} disabled={o.disabled} hidden={o.hidden}>
-                        {o.label}
-                      </option>
-                    ))}
-                  </select>
-                ) : (
-                  <input
-                    id={f.id}
-                    name={f.name || f.id}
-                    type={(f.type || "text") as any}
-                    required={f.required}
-                    placeholder={f.placeholder}
-                    class={ui.input}
-                    pattern={f.pattern}
-                    inputmode={f.inputmode as any}
-                    step={f.step}
-                    min={f.min}
-                    max={f.max}
-                  />
-                )}
-              </div>
-            ))
-        }
-
-        <!-- CTA -->
         <div class="space-y-4 pt-2">
-          <!-- Terms + SMS checkbox -->
+          {/* Terms */}
           <div class="flex items-start">
             <input
-              id="accept"
-              name="accept"
+              id="agree_to_terms_and_conditions"
+              name="agree_to_terms_and_conditions"
               type="checkbox"
               class="bg-muted-900/70 mt-1 h-5 w-5 rounded border-white/20 text-primary-500"
               required
             />
-            <label for="accept" class="text-muted-200 font-light ml-3 text-sm">
+            <label for="agree_to_terms_and_conditions" class="text-muted-200 font-light ml-3 text-sm">
               I agree to the
-              <a
-                href="/privacy-policy-and-terms-of-service"
-                target="_blank"
-                rel="noopener"
-                class="underline hover:text-primary-300">Terms &amp; Conditions</a
-              >
-              and consent to receive SMS communications from Vegas Aviation.
+              <a href="/privacy-policy" target="_blank" rel="noopener" class="underline hover:text-primary-300"
+                >Privacy Policy</a
+              > and <a href="/terms-of-service" target="_blank" rel="noopener" class="underline hover:text-primary-300"
+                >Terms of Service</a
+              > provided by the company. By providing my phone number, I agree to receive text messages from the business.
             </label>
           </div>
 
-          <button id="submitBtn" type="submit" class={ui.button} disabled>
+          <button id="submitBtn" type="submit" class="btn-primary" disabled>
             {content?.form?.cta || "Submit"}
           </button>
         </div>
@@ -335,189 +130,103 @@ const icon = "h-10 w-10 text-primary-500";
   </div>
 </section>
 
-<script
-  define:vars={{
-  }}
->
-  /* FORM_WEBHOOK_URL,
-  PORTAL_API_KEY,
-  PORTAL_ACCOUNT_ID,
-  campaign,
-  redirect, */
+<script>
+  import { CONTACT_US_WEBHOOK_URL, PORTAL_API_KEY, PORTAL_URL } from "astro:env/client";
+  import { generatePortalPostBody, updateSubmitButtonState } from "../utils/utils";
+
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("page-form");
-    const submitBtn = document.getElementById("submitBtn");
-    const accept = document.getElementById("accept");
+    const form: any = document.getElementById("page-form");
+    const submitBtn: any = document.getElementById("submitBtn");
+    const accept: any = document.getElementById("agree_to_terms_and_conditions");
+    const cooldownSeconds = 10;
+    let isSubmitting = false;
 
     if (!form || !submitBtn || !accept) {
       console.error("Form, submit button, or accept checkbox not found.");
       return;
     }
 
-    const updateDisabled = () => {
-      // Only enable when T&C checked AND form fields meet HTML validation
-      const ok = accept.checked && form.checkValidity();
-      submitBtn.disabled = !ok;
-    };
-
     // Initialize and keep in sync
-    updateDisabled();
-    accept.addEventListener("change", updateDisabled);
-    form.addEventListener("input", updateDisabled);
+    updateSubmitButtonState(submitBtn, accept.checked && form.checkValidity(), "");
 
-    // ---- helpers -----------------------------------------------------------
-    const getFirstNonEmpty = (fd, keys) => {
-      for (const k of keys) {
-        const v = fd.get(k);
-        if (typeof v === "string" && v.trim()) return v.trim();
-      }
-      return "";
-    };
+    accept.addEventListener("change", () => {
+      updateSubmitButtonState(submitBtn, accept.checked && form.checkValidity(), "");
+    });
 
-    const normalizePhone = (value) => {
-      if (!value) return "";
-      const cleaned = value.replace(/(?!^\+)[^\d]/g, "");
-      return cleaned === "+" ? "" : cleaned;
-    };
+    form.addEventListener("input", () => {
+      updateSubmitButtonState(submitBtn, accept.checked && form.checkValidity(), "");
+    });
 
-    const toUrlEncoded = (fd) => new URLSearchParams(fd).toString();
-
-    const showFail = (msg) => {
-      console.error(msg);
-      alert("Sorry, we couldn't submit your request. Please try again.");
-    };
-
-    // ---- submission --------------------------------------------------------
-    form.addEventListener("submit", async (event) => {
+    form.addEventListener("submit", async (event: any) => {
       event.preventDefault();
 
-      alert("This form is not currently available");
-
-      /*// stop if still disabled (extra safety)
+      if (isSubmitting) return;
       if (submitBtn.disabled) return;
 
       const formData = new FormData(form);
-      const confirmEmail = formData.get("confirm-email")?.trim?.();
-      if (confirmEmail) return; // honeypot
+      const data = Object.fromEntries(formData.entries());
+      if (data["confirm_email"]) return; // honeypot
 
-      const webhookURL = FORM_WEBHOOK_URL;
+      const webhookURL = CONTACT_US_WEBHOOK_URL;
       const apiKey = PORTAL_API_KEY;
-      const accId = PORTAL_ACCOUNT_ID;
-      const campaignName = campaign || "general";
-      const redirectUrl = redirect || "/contact-confirmation";
 
       if (!webhookURL) {
-        return showFail("Missing submission configuration (webhook).");
+        return alert("Missing submission configuration (webhook).");
       }
+
       if (!apiKey) {
-        return showFail("Missing submission configuration (apiKey).");
-      }
-      if (!accId) {
-        return showFail("Missing submission configuration (accountId).");
+        return alert("Missing submission configuration (apiKey).");
       }
 
-      const firstName = getFirstNonEmpty(formData, ["first-name", "first_name", "given-name", "fname", "first"]);
-      const lastName = getFirstNonEmpty(formData, ["last-name", "last_name", "family-name", "lname", "last"]);
-      const email = getFirstNonEmpty(formData, ["email", "email_address", "mail"]);
-      const phoneRaw = getFirstNonEmpty(formData, ["phone", "phone_number", "tel", "mobile"]);
-      const phone = normalizePhone(phoneRaw);
-
-      const exclude = new Set([
-        "first-name",
-        "first_name",
-        "given-name",
-        "fname",
-        "first",
-        "last-name",
-        "last_name",
-        "family-name",
-        "lname",
-        "last",
-        "email",
-        "email_address",
-        "mail",
-        "phone",
-        "phone_number",
-        "tel",
-        "mobile",
-        "confirm-email",
-      ]);
-
-      const metadata = {};
-      for (const [key, value] of formData.entries()) {
-        if (!exclude.has(key)) {
-          metadata[key] = typeof value === "string" ? value.trim() : value;
-        }
-      }
-
-      const urlEncodedBody = toUrlEncoded(formData);
-      const jsonBody = {
-        first_name: firstName,
-        last_name: lastName,
-        email,
-        phone,
-        campaign: campaignName,
-        account_random_id: "ac_mjcex5w6",
-        metadata,
-      };
-
-      // Prevent double-submit
-      submitBtn.disabled = true;
+      const portalBody = generatePortalPostBody(data, "contact_us");
 
       try {
-        const [ghlRes, portalRes] = await Promise.all([
+        isSubmitting = true;
+        updateSubmitButtonState(submitBtn, true, "Submitting...");
+
+        const [crmResponse, portalResponse] = await Promise.all([
           fetch(webhookURL, {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: urlEncodedBody,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
           }),
-          fetch("https://portal.rightruddermarketing.com/api/leads", {
+          fetch(PORTAL_URL, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",
               "x-api-key": apiKey,
             },
-            body: JSON.stringify(jsonBody),
+            body: JSON.stringify(portalBody),
           }),
         ]);
 
-        if (ghlRes.ok && portalRes.ok) {
-          window.location.href = redirectUrl;
+        if (crmResponse.ok && portalResponse.ok) {
+          window.location.href = "/contact-confirmation";
         } else {
           console.error("Submission failed", {
-            ghlStatus: ghlRes.status,
-            portalStatus: portalRes.status,
+            crm: {
+              status: crmResponse.status,
+              body: await crmResponse.json(),
+            },
+            portal: {
+              status: portalResponse.status,
+              body: await portalResponse.json(),
+            },
           });
-          showFail("Submission failed.");
-          updateDisabled(); // re-enable if the form is valid & checked
+          alert("Submission failed.");
         }
+
+        updateSubmitButtonState(submitBtn, true, "Submit");
       } catch (err) {
         console.error("Submission error:", err);
-        showFail("Network error.");
-        updateDisabled();
-      } */
+        alert("Network error.");
+      } finally {
+        setTimeout(() => {
+          isSubmitting = false;
+          updateSubmitButtonState(submitBtn, true, "Submit");
+        }, cooldownSeconds * 1000);
+      }
     });
   });
 </script>
-
-<!-- Optional: extra safety for dark options on some engines -->
-<style is:global>
-  /* only affect selects that set color-scheme: dark via the class above */
-  select[class*="[color-scheme:dark]"] option,
-  select[class*="[color-scheme:dark]"] optgroup {
-    background-color: #0b0b0b;
-    color: #e5e7eb;
-  }
-  #submitBtn:disabled {
-    background-color: rgb(63 63 70) !important; /* ~gray-700 */
-    border-color: rgb(63 63 70) !important; /* ~gray-700 */
-    color: rgb(203 213 225) !important; /* ~slate-300 */
-    box-shadow: none !important;
-    cursor: not-allowed !important;
-    filter: none !important; /* cancels hover brighten */
-  }
-  #submitBtn:disabled:hover {
-    filter: none !important;
-  }
-</style>

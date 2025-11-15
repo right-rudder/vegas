@@ -7,8 +7,7 @@ const contactData = {
     "Contact our school today for expert guidance, program details, and professional advice to start your journey toward mastering the skies.",
   info: {
     title: "Give Us A Call Or Drop By Our Place",
-    intro:
-      "We're here to assist you with any questions or to help you get started on your aviation journey.",
+    intro: "We're here to assist you with any questions or to help you get started on your aviation journey.",
     locationLabel: "Our Location",
     addressLine1: ADDRESS_LINE_1,
     addressLine2: ADDRESS_LINE_2,
@@ -18,17 +17,50 @@ const contactData = {
   form: {
     method: "post",
     action: "#",
-    onsubmit:
-      "event.preventDefault(); alert('This is a demo form. Hook it up to your endpoint.');",
     fields: [
-      // row 1
-      { id: "fname", label: "First Name", placeholder: "John", required: true, type: "text", row: 1, autocomplete: "given-name" },
-      { id: "lname", label: "Last Name", placeholder: "Doe", required: true, type: "text", row: 1, autocomplete: "family-name" },
-      // row 2
-      { id: "email", label: "Email", placeholder: "example@yourmail.com", required: true, type: "email", row: 2, inputmode: "email", autocomplete: "email" },
-      { id: "phone", label: "Phone Number", placeholder: "+1 234 567 8910", required: true, type: "tel", row: 2, inputmode: "tel", autocomplete: "tel" },
-      // row 3
-      { id: "message", label: "Message", placeholder: "Write your message here...", required: true, type: "textarea", rows: 6, row: 3 },
+      {
+        id: "first_name",
+        label: "First Name",
+        placeholder: "John",
+        required: true,
+        type: "text",
+        autocomplete: "given-name",
+      },
+      {
+        id: "last_name",
+        label: "Last Name",
+        placeholder: "Doe",
+        required: true,
+        type: "text",
+        autocomplete: "family-name",
+      },
+      {
+        id: "email",
+        label: "Email",
+        placeholder: "example@yourmail.com",
+        required: true,
+        type: "email",
+        inputmode: "email",
+        autocomplete: "email",
+      },
+      {
+        id: "phone",
+        label: "Phone Number",
+        placeholder: "+1 234 567 8910",
+        required: true,
+        type: "tel",
+        inputmode: "tel",
+        autocomplete: "tel",
+      },
+      {
+        id: "message",
+        label: "Message",
+        placeholder: "Write your message here...",
+        required: true,
+        type: "textarea",
+        rows: 6,
+        colSpan: "full",
+      },
     ],
     cta: "Send Message",
   },

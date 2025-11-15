@@ -22,7 +22,9 @@ interface Props {
 const { data } = Astro.props;
 ---
 
-<div class="relative overflow-hidden flex justify-center items-center lg:items-end lg:pb-24 text-accent-100 min-h-[90vh]">
+<div
+  class="relative overflow-hidden flex justify-center items-center lg:items-end lg:pb-24 text-accent-100 min-h-[90vh]"
+>
   <ImageComp
     src={data.image.src}
     alt={data.image.alt}
@@ -32,31 +34,26 @@ const { data } = Astro.props;
   />
   <div
     class="absolute inset-0 h-full w-full bg-linear-to-b lg:bg-linear-to-br from-slate-950/95 lg:via-slate-900/50 to-transparent -z-10"
-  />
-  <div class=`max-w-7xl flex w-full flex-col justify-center items-center lg:items-start py-28 px-5 md:px-8 lg:px-10 text-center lg:text-left`>
+  >
+  </div>
+
+  <div
+    class=`max-w-7xl flex w-full flex-col justify-center items-center lg:items-start py-28 px-5 md:px-8 lg:px-10 text-center lg:text-left`
+  >
     <div class="flex flex-col justify-center items-center lg:justify-center lg:items-start">
       <div class="flex flex-col items-center lg:items-start gap-y-6 text-center lg:text-left px-5 md:px-8 lg:px-0">
-        <p
-          class="eyebrow"
-        >
+        <p class="eyebrow">
           {data.eyebrow}
         </p>
         <h1 class="max-w-3xl text-5xl/12 md:text-6xl/14 uppercase font-bold" set:html={data.title} />
-        {
-          data.subTitle && (
-            <h2 class="text-xl/6 font-light max-w-2xl" set:html={data.subTitle} />
-          )
-        }
+        {data.subTitle && <h2 class="text-xl/6 font-light max-w-2xl" set:html={data.subTitle} />}
       </div>
 
       {
         data.cta && (
           <div class="my-8 flex flex-col gap-4 items-center justify-start sm:flex-row sm:my-12 mx-auto lg:mx-0">
             {data.cta.map((item) => (
-              <a
-                href={item.url}
-                class="btn-primary text-lg group w-fit md:text-2xl"
-              >
+              <a href={item.url} class="btn-primary text-lg group w-fit md:text-2xl">
                 {item.text}
               </a>
             ))}
