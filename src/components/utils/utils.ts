@@ -44,4 +44,28 @@ function normalizePhone(value: string) {
   return cleaned === "+" ? "" : cleaned;
 }
 
-export {generatePortalPostBody, updateSubmitButtonState, normalizePhone};
+function checkFormValidity(form: any) {
+  if (!form.checkValidity()) {
+    return false;
+  }
+
+  const checkboxes: any = document.querySelectorAll(`#${form.id} fieldset:has(input[type="checkbox"])`);
+
+  let numberOfInvalid = 0;
+  
+  checkboxes.forEach((item: any) => {
+    if (!item.dataset.required) {
+      return;
+    }
+
+    const numberOfSelected = item.querySelectorAll(`input[type="checkbox"]:checked`).length;
+
+    if (numberOfSelected <= 0) {
+      numberOfInvalid++;
+    }
+  });
+
+  return numberOfInvalid <= 0;
+}
+
+export {generatePortalPostBody, updateSubmitButtonState, normalizePhone, checkFormValidity};

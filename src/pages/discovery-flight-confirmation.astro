@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Banner from "../components/Banner.astro";
+
+import { data } from "../data/discovery-flight-confirmation";
+---
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  siteKeywords={data.siteKeywords}>
+
+  <Banner data={data.header} slot="hero" />
+
+</BaseLayout>

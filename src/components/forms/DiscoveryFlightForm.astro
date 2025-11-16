@@ -96,6 +96,9 @@ const { content = discoveryData } = Astro.props;
         method={content?.form?.method || "post"}
         action={content?.form?.action || "#"}
       >
+        {/* TODO : Fix. For some reason Tailwind cannot resolve col-span-full on the FormField without this */}
+        <div class="hidden col-span-full"></div>
+
         {/* Dynamic fields */}
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
           {content.form.fields?.map((f: Field) => <FormField f={f} />)}
