@@ -28,6 +28,10 @@ export const menu: MenuItem[] = [
     url: "/flight-training",
     children: [
       {
+        label: "Pilot Training",
+        url: "/flight-training",
+      },
+      {
         label: "Private Pilot",
         url: "/flight-training/private-pilot",
       },
@@ -62,22 +66,13 @@ export const menu: MenuItem[] = [
     ],
   },
   {
-    label: "Resources",
-    url: "/resources",
-    children: [
-      { label: "Partners", url: "/resources/partners" },
-      { label: "Insurance", url: "/resources/insurance" },
-      { label: "Financing", url: "/resources/financing" },
-      { label: "Scholarships", url: "/resources/scholarships" },
-    ],
-  },
-  {
     label: "About Us",
     url: "/about-us",
     children: [
       { label: "About Us", url: "/about-us" },
       { label: "Our Team", url: "/about-us/team" },
       { label: "Our Fleet", url: "/about-us/fleet" },
+      { label: "Resources", url: "/resources", },
       { label: "FAQ", url: "/about-us/faq" },
       { label: "Blog", url: "/blog" },
       { label: "Contact Us", url: "/contact" },
@@ -474,10 +469,9 @@ const { pathname } = Astro.props;
 
   /* ===== MOBILE-ONLY CHANGES BELOW ===== */
   @media (max-width: 1023px) {
-    .navbar {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    .navbar,
+    .navbar.scrolled {
+      background: #f3f4f6;
     }
 
     .nav,
@@ -537,13 +531,13 @@ const { pathname } = Astro.props;
     }
     .mobile-submenu li a:hover {
       background: oklch(0.278 0.033 256.848); /* primary-400 */
-      color: #101828; /* accent-900 */
+      color: #f3f4f6;
       font-weight: bold;
     }
 
     .mobile-submenu li a.menu-link-hover {
       background: oklch(0.278 0.033 256.848); /* primary-400 */
-      color: #101828; /* accent-900 */
+      color: #f3f4f6;
       font-weight: bold;
     }
 
