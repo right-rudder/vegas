@@ -15,10 +15,11 @@ import { data } from "../../data/about-us/team";
 <BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription} siteKeywords={data.siteKeywords}>
   <Banner data={data.header} slot="hero" />
 
-  <!-- <CTASimple /> -->
-
   <LeadershipMembers content={data.leadershipTeam} />
-  <TeamMembers content={data.staffTeam} />
+
+  <TeamMembers content={data.cfi} />
+
+  <TeamMembers content={data.mechanics} />
 
   <CTAIntroFlight />
 </BaseLayout>

@@ -5,9 +5,13 @@ export const data = {
   siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
   siteKeywords: KEYWORDS /* TODO : Update? */,
   header: {
-    image: {
+    /* image: {
       src: "/src/assets/cfi-group-airplane-vegas-aviation-las-vegas-flight-instructor.webp",
       alt: "Vegas Aviation CFI team in front of a plane",
+    }, */
+    image: {
+      src: "/src/assets/team/team-vegas-aviation-flight-school-north-las-vegas.jpg",
+      alt: "Vegas Aviation team in office",
     },
     eyebrow: "Our Team",
     title: "Meet the People Behind Vegas Aviation",
@@ -22,98 +26,140 @@ export const data = {
   },
 
   leadershipTeam: {
-    upperHeading: "Meet Our Team",
     title: "Our Leadership",
     description:
       "Our leadership team brings years of aviation experience, safety-focused training philosophy, and a deep commitment to helping every student succeed. They guide Vegas Aviation with professionalism, integrity, and a passion for teaching.",
     team: [
       {
-        name: "John Joe",
+        name: "Lydia Trotter",
         description:
-          "With a strong background in aviation training and school development, John leads Vegas Aviation with a focus on safety, standardization, and student success.",
-        roles: "Founder & CEO",
+          "A dedicated aviation professional committed to operational excellence and delivering the highest-value training experience for every student.",
+        roles: "Founder",
         image: {
-          src: "/src/assets/placeholder-silhouette.png",
-          alt: "Vegas Aviation leadership member",
+          src: "/src/assets/team/lydia-trotter-vegas-aviation-flight-lessons-summerlin.jpg",
+          alt: "Lydia Trotter, Vegas Aviation leadership member",
         },
       },
       {
-        name: "John Joe",
+        name: "Tom Trotter",
         description:
-          "A dedicated aviation professional committed to operational excellence and delivering the highest-value training experience for every student.",
-        roles: "Chief Operating Officer",
+          "With a strong background in aviation training and school development, Tom leads Vegas Aviation with a focus on safety, standardization, and student success.",
+        roles: "Founder",
         image: {
-          src: "/src/assets/placeholder-silhouette.png",
-          alt: "Vegas Aviation leadership member",
+          src: "/src/assets/team/tom-trotter-vegas-aviation-flight-training-nevada.jpg",
+          alt: "Tom Trotter, Vegas Aviation leadership member",
         },
       },
     ],
   },
 
-  staffTeam: {
-    upperHeading: "Meet Our Team",
-    title: "Our Flight Instructors & Staff",
+  cfi: {
+    title: "Our\nCertified Flight Instructors",
     description:
-      "Our instructors and support staff are here to guide, mentor, and inspire you throughout your aviation journey. From your first discovery flight to advanced training, our team is committed to providing a safe, supportive, and professional experience.",
+      "Our instructors are here to guide, mentor, and inspire you throughout your aviation journey. From your first discovery flight to advanced training, our team is committed to providing a safe, supportive, and professional experience.",
     team: [
       {
         name: "John Joe",
-        description:
-          "A passionate instructor who creates a positive learning environment and helps students build confidence in every flight.",
-        roles: "Flight Instructor",
+        roles: "Certified Flight Instructor",
         image: {
-          src: "/src/assets/placeholder-silhouette.png",
-          alt: "Vegas Aviation team member",
+          src: "/src/assets/team/cfi-1.jpg",
+          alt: "Vegas Aviation Certified Flight Instructor",
         },
       },
       {
         name: "John Joe",
-        description:
-          "Known for clear communication and calm instruction, bringing real-world flying experience to every lesson.",
-        roles: "Flight Instructor",
+        roles: "Certified Flight Instructor",
         image: {
-          src: "/src/assets/placeholder-silhouette.png",
-          alt: "Vegas Aviation team member",
+          src: "/src/assets/team/cfi-2.jpg",
+          alt: "Vegas Aviation Certified Flight Instructor",
         },
       },
       {
         name: "John Joe",
-        description:
-          "Dedicated to helping students progress efficiently while emphasizing safety and mastery of fundamentals.",
-        roles: "Flight Instructor",
+        roles: "Certified Flight Instructor",
         image: {
-          src: "/src/assets/placeholder-silhouette.png",
-          alt: "Vegas Aviation team member",
+          src: "/src/assets/team/cfi-3.jpg",
+          alt: "Vegas Aviation Certified Flight Instructor",
         },
       },
       {
         name: "John Joe",
-        description:
-          "Supports students throughout their training journey and ensures every flight is safe, organized, and enjoyable.",
-        roles: "Operations Staff",
+        roles: "Certified Flight Instructor",
         image: {
-          src: "/src/assets/placeholder-silhouette.png",
-          alt: "Vegas Aviation team member",
+          src: "/src/assets/team/cfi-4.jpg",
+          alt: "Vegas Aviation Certified Flight Instructor",
         },
       },
       {
         name: "John Joe",
-        description:
-          "Focused on creating a welcoming, supportive environment and helping students stay on track with scheduling and resources.",
-        roles: "Student Support",
+        roles: "Certified Flight Instructor",
         image: {
-          src: "/src/assets/placeholder-silhouette.png",
-          alt: "Vegas Aviation team member",
+          src: "/src/assets/team/cfi-5.jpg",
+          alt: "Vegas Aviation Certified Flight Instructor",
         },
       },
       {
         name: "John Joe",
-        description:
-          "Works behind the scenes to keep aircraft, scheduling, and daily operations running smoothly for students and instructors.",
-        roles: "Administrative Staff",
+        roles: "Certified Flight Instructor",
         image: {
-          src: "/src/assets/placeholder-silhouette.png",
-          alt: "Vegas Aviation team member",
+          src: "/src/assets/team/cfi-6.jpg",
+          alt: "Vegas Aviation Certified Flight Instructor",
+        },
+      },
+      {
+        name: "John Joe",
+        roles: "Certified Flight Instructor",
+        image: {
+          src: "/src/assets/team/cfi-7.jpg",
+          alt: "Vegas Aviation Certified Flight Instructor",
+        },
+      },
+      {
+        name: "John Joe",
+        roles: "Certified Flight Instructor",
+        image: {
+          src: "/src/assets/team/cfi-8.jpg",
+          alt: "Vegas Aviation Certified Flight Instructor",
+        },
+      },
+      {
+        name: "John Joe",
+        roles: "Certified Flight Instructor",
+        image: {
+          src: "/src/assets/team/cfi-9.jpg",
+          alt: "Vegas Aviation Certified Flight Instructor",
+        },
+      },
+      {
+        name: "John Joe",
+        roles: "Certified Flight Instructor",
+        image: {
+          src: "/src/assets/team/cfi-10.jpg",
+          alt: "Vegas Aviation Certified Flight Instructor",
+        },
+      },
+    ],
+  },
+
+  mechanics: {
+    title: "Our\nMechanics",
+    description:
+      "Our skilled team of Certified A&P and IA mechanics is committed to maintaining your aircraft at peak performance, ensuring both safety and cost-effectiveness.",
+    team: [
+      {
+        name: "John Joe",
+        roles: "Mechanic",
+        image: {
+          src: "/src/assets/team/mechanic-1.jpg",
+          alt: "Vegas Aviation Mechanic",
+        },
+      },
+      {
+        name: "John Joe",
+        roles: "Mechanic",
+        image: {
+          src: "/src/assets/team/mechanic-2.jpg",
+          alt: "Vegas Aviation Mechanic",
         },
       },
     ],
