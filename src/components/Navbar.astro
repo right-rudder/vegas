@@ -125,14 +125,13 @@ export const footerMenu: MenuItem[] = [
   },
 ];
 
-const { pathname } = Astro.props;
+const { pathname, navBarBG = false } = Astro.props;
 ---
-
-<nav id="navbar" class="navbar">
+<nav id="navbar" class={`navbar ${navBarBG ? "force-navbar-bg" : ""}`}>
   <div class="container px-4 md:px-0">
     <!-- Logo -->
     <a href="/" class="object-contain h-auto">
-      <ImageComp class="logo-white" src="/src/assets/vegas-logo.png" alt="Vegas Aviation Logo" />
+      <ImageComp class="logo-white w-36 md:w-52" src="/src/assets/vegas-logo.png" alt="Vegas Aviation Logo" />
       <ImageComp class="logo-black w-36 md:w-52 hidden" src="/src/assets/vegas-logo-black.png" alt="Vegas Aviation Logo" />
     </a>
 
@@ -252,7 +251,7 @@ const { pathname } = Astro.props;
     display: flex;
     justify-content: center;
     transition: all 0.5s ease;
-    padding: 16px 0;
+    padding: 16px 16px;
   }
 
   .container {
@@ -261,7 +260,8 @@ const { pathname } = Astro.props;
     justify-content: space-between;
   }
 
-  .navbar.scrolled {
+  .navbar.scrolled,
+  .navbar.force-navbar-bg {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -278,7 +278,8 @@ const { pathname } = Astro.props;
     pointer-events: none;
   }
 
-  .navbar.scrolled .menu-item {
+  .navbar.scrolled .menu-item,
+  .navbar.force-navbar-bg .menu-item {
     opacity: 1;
     pointer-events: unset;
   }
@@ -301,26 +302,28 @@ const { pathname } = Astro.props;
   }
 
   .navbar.scrolled .sub-menu li a:hover,
-  .navbar.scrolled .sub-menu li a.menu-link-hover {
+  .navbar.scrolled .sub-menu li a.menu-link-hover,
+  .navbar.force-navbar-bg .sub-menu li a:hover,
+  .navbar.force-navbar-bg .sub-menu li a.menu-link-hover {
     background: oklch(0.278 0.033 256.848); /* primary-400 */
   }
 
-  .navbar.scrolled .nav > .menu-item > a {
+  .navbar.scrolled .nav > .menu-item > a,
+  .navbar.force-navbar-bg .nav > .menu-item > a {
     color: #101828; /* accent-900 */
   }
 
   .navbar.scrolled .nav > .menu-item > a:hover,
   .navbar.scrolled .nav > .menu-item > a.menu-link-hover,
-  .navbar.scrolled .nav > .menu-item a:has(+ ul > li > a.menu-link-hover) {
+  .navbar.scrolled .nav > .menu-item a:has(+ ul > li > a.menu-link-hover),
+  .navbar.force-navbar-bg .nav > .menu-item > a:hover,
+  .navbar.force-navbar-bg .nav > .menu-item > a.menu-link-hover,
+  .navbar.force-navbar-bg .nav > .menu-item a:has(+ ul > li > a.menu-link-hover) {
     color: #298b00; /* primary-500 */
   }
 
-  /* primary-400 */
-   /* {
-    color: oklch(75.019% 0.21579 135.347); 
-  } */
-
-  .navbar.scrolled .sub-menu li a.menu-link-hover {
+  .navbar.scrolled .sub-menu li a.menu-link-hover,
+  .navbar.force-navbar-bg .sub-menu li a.menu-link-hover {
     background: oklch(0.278 0.033 256.848); /* primary-400 */
   }
 
@@ -572,7 +575,7 @@ const { pathname } = Astro.props;
   const logoBlack = document.querySelector(".logo-black");
 
   function UpdateLogo() {
-    if ((window.scrollY > 40 || window.innerWidth <= 1023) && !navbar.classList.contains("scrolled")) {
+    if (((window.scrollY > 40 || window.innerWidth <= 1023) && !navbar.classList.contains("scrolled")) || navbar.classList.contains("force-navbar-bg")) {
       navbar.classList.add("scrolled");
       logoWhite.classList.add("hidden");
       logoBlack.classList.remove("hidden");

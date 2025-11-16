@@ -9,7 +9,7 @@ import '@fontsource-variable/atkinson-hyperlegible-mono';
 import '@fontsource-variable/roboto';
 
 const { pathname } = Astro.url;
-const { siteTitle, siteDescription, siteImage, siteKeywords, customBreadcrumbs } = Astro.props;
+const { siteTitle, siteDescription, siteImage, siteKeywords, customBreadcrumbs, navBarBG = false } = Astro.props;
 
 // Generate breadcrumbs based on URL path
 function generateBreadcrumbs(pathname: string, customBreadcrumbs?: Array<{name: string, url: string}>) {
@@ -142,7 +142,7 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
     <!-- End Google Tag Manager (noscript) -->
     <HeaderContact />
     <header class="sticky w-full h-0 inset-0 z-50">
-      <Navbar pathname={pathname}></Navbar>
+      <Navbar pathname={pathname} navBarBG={navBarBG}></Navbar>
     </header>
     
     <main class="mt-0 pt-0 font">

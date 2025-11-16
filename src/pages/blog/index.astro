@@ -1,36 +1,52 @@
 ---
+import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
 import ImageComp from "../../components/ImageComp.astro";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Banner from "../../components/Banner.astro";
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const data = {
+  header: {
+    image: {
+      src: "/src/assets/stock/airplane-takeoff-night-vegas-aviation-aircraft-rental-nevada.jpg",
+      alt: "Airplane taking off at night",
+    },
+    eyebrow: "Blog",
+    title: "The Latest News in Aviation",
+    subTitle:
+      "Learn more about the various topics of aviation to prepare for incoming changes or become aquainted with the requirements of your next certificate.",
+  },
+};
 ---
 
-<BaseLayout>
-  <main class="max-w-7xl mx-auto mt-32">
-    <section>
-      <ul class="flex gap-10 p-10">
-        {
-          posts.map((post) => (
-            <li class="rounded-lg overflow-hidden bg-accent-100">
-              <a href={`/blog/${post.id}/`}>
-                <ImageComp
-                  src={post.data.heroImage}
-                  alt={post.data.heroImageAlt}
-                  class="max-w-96 object-cover object-center"
-                />
-                <div class="p-4">
-                  <h4 class="title">{post.data.title}</h4>
-                  <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
-                </div>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-  </main>
+<BaseLayout siteTile="Blog | Vegas Aviation" siteDescription={SITE_DESCRIPTION} siteKeywords={KEYWORDS}>
+  <Banner data={data.header} />
+
+  <section class="max-w-7xl mx-auto">
+    <ul class="grid grid-cols-1 gap-6 px-4 py-12 md:grid-cols-2 lg:grid-cols-3">
+      {
+        posts.map((post) => (
+          <a
+            class="rounded-xl overflow-hidden bg-white border-2 border-primary-600 transition-all duration-300 ease-in-out hover:scale-105 hover:ring-2 hover:ring-primary-600"
+            href={`/blog/${post.id}/`}
+          >
+            <ImageComp
+              src={post.data.heroImage}
+              alt={post.data.heroImageAlt}
+              class="max-h-64 w-full object-cover object-center"
+            />
+            <div class="p-4">
+              <h4 class="font-bold mb-4 text-2xl">{post.data.title}</h4>
+              <p class="date">
+                <FormattedDate date={post.data.pubDate} />
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </ul>
+  </section>
 </BaseLayout>
