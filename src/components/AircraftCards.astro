@@ -1,0 +1,51 @@
+---
+import ImageComp from "./ImageComp.astro";
+import { FaCheckCircle } from "react-icons/fa";
+
+const { content } = Astro.props;
+---
+
+<section
+  class="relative isolate overflow-hidden bg-linear-to-b from-accent-100 via-white to-accent-100 text-accent-900"
+>
+  <div class="mx-auto max-w-7xl px-4 py-12 md:px-8 lg:px-10">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <p class="eyebrow-dark inline-flex items-center gap-2 tracking-widest">
+        {content.eyebrow}
+      </p>
+      <h2 class="mt-4 text-4xl font-extrabold leading-tight tracking-tight lg:text-6xl">
+        {content.title}
+      </h2>
+    </div>
+
+    <!-- Cards -->
+    <div class={`grid grid-cols-1 gap-6 mb-16 lg:grid-cols-2`}>
+      {
+        content.cards.map((item: any) => (
+          <div class="relative border-2 border-primary-600 bg-white rounded-xl overflow-hidden shadow-md text-center hover:shadow-xl hover:scale-105 duration-300">
+            <ImageComp class="w-full object-cover object-center" src={item.image.src} alt={item.image.alt} />
+            <div class="p-8 flex flex-col justify-between min-h-[512px]">
+              <p class="text-2xl font-bold text-accent-900">{item.title}</p>
+              <p class="text-2xl font-bold text-primary-600">{item.subTitle}</p>
+              <p class="text-lg text-accent-600 mt-2">{item.description}</p>
+              <div>
+                <ul class="grid grid-cols-1 gap-2 my-6 mx-auto text-base sm:grid-cols-2">
+                  {item.highlights.map((item: string) => (
+                    <li class="flex gap-4 items-center text-left my-1">
+                      <FaCheckCircle className="text-primary-600 size-5 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a href={item.cta.url} class="btn-primary mx-auto w-fit">
+                {item.cta.text}
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

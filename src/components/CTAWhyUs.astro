@@ -19,54 +19,39 @@ const data = {
   ctaLabel: "Learn About Our Programs",
   ctaHref: "/flight-training/",
 };
-
 ---
 
 <section class="relative isolate overflow-hidden bg-linear-to-b from-accent-50 to-sky-900/30 text-accent-900">
   <div class="mx-auto max-w-7xl px-4 py-16 lg:px-8 lg:py-24">
     <div class="flex flex-wrap items-center justify-center gap-10 lg:gap-16 xl:gap-24 lg:justify-between">
-      <!-- LEFT: image -->
       <figure class="w-full h-[70vh] lg:w-1/2 relative overflow-hidden rounded-lg shadow-lg">
-        <ImageComp
-          src={data.imageSrc}
-          alt={data.imageAlt}
-          class="h-full w-full object-cover object-center"
-        />
-        <!-- soft inner vignette -->
-        <!-- <div class="pointer-events-none absolute z-10 inset-0 rounded-lg inset-shadow-sm inset-shadow-accent-900/60"></div> -->
+        <ImageComp src={data.imageSrc} alt={data.imageAlt} class="h-full w-full object-cover object-center" />
       </figure>
 
-      <!-- RIGHT: content -->
       <div class="w-full lg:w-1/2 max-w-lg">
-        <!-- eyebrow -->
-        <p
-          class="eyebrow-dark inline-flex items-center gap-2 tracking-widest"
-        >
-          <span class="size-1.5 rounded-full bg-primary-500"></span>
+        <p class="eyebrow-dark inline-flex items-center gap-2 tracking-widest">
           {data.eyebrow}
         </p>
 
-        <!-- title -->
         <h2 class="mt-4 text-4xl text-left font-extrabold leading-tight tracking-tight sm:text-5xl">
           {data.title}
         </h2>
 
-        <!-- bullets -->
         <ul class="mt-6 space-y-4 text-base text-left">
-          {data.bullets.map((item) => (
-            <li class="flex items-center gap-3 font-medium">
-              <FaCheckCircle className="size-4 flex-1 max-w-4" />
-              <span class="flex-1">{item}</span>
-            </li>
-          ))}
+          {
+            data.bullets.map((item) => (
+              <li class="flex items-center gap-3 font-medium">
+                <FaCheckCircle className="size-4 flex-1 max-w-4" />
+                <span class="flex-1">{item}</span>
+              </li>
+            ))
+          }
         </ul>
 
-        <!-- blurb -->
         <p class="mt-6 font-medium">
           {data.blurb}
         </p>
 
-        <!-- CTA -->
         <a href={data.ctaHref} class="mt-2 btn-primary w-fit mx-auto sm:mx-0">
           {data.ctaLabel}
           <FaArrowRight />

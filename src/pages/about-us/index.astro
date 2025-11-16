@@ -6,6 +6,8 @@ import CTASimple from "../../components/CTAs/CTASimple.astro";
 import { FaStar } from "react-icons/fa";
 
 import { data } from "../../data/about-us/index";
+
+console.log(data.sections);
 ---
 
 <BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription} siteKeywords={data.siteKeywords}>
@@ -22,7 +24,6 @@ import { data } from "../../data/about-us/index";
 
     <div class="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20">
       <p class="eyebrow-dark inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
-        <span class="size-1.5 rounded-full bg-primary-500/90"></span>
         {data.whyUs.underHeader}
       </p>
 

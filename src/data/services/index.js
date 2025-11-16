@@ -22,12 +22,12 @@ export const data = {
 
   aboutSection: {
     underHeader: "Our Services",
-    title: "Explore Vegas Aviation’s Aircraft Service Options",
+    title: "Explore Vegas Aviation's Aircraft Service Options",
     description:
       "Vegas Aviation offers a full suite of aircraft services tailored to students, renters, and aviation enthusiasts. Our certified technicians, well-maintained fleet, and experienced instructors ensure every pilot receives unmatched reliability, performance, and support—both on the ground and in the air.",
     image: {
-      src: "/src/assets/old-website/services-1-vegas_aviation_12.jpg",
-      alt: "Vegas Aviation services and flight training overview",
+      src: "/src/assets/fleet/hangar-aircrafts-vegas-aviation-las-vegas-aircraft-rental.jpg",
+      alt: "Hangar with multiple aircrafts",
     },
     button: {
       title: "Contact Us",

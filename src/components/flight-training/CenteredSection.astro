@@ -14,9 +14,7 @@ const { data } = Astro.props;
 
   <div class="relative px-6 py-16 sm:px-10 lg:grid-cols-2 lg:gap-10 lg:px-16 lg:py-24">
     <div class="max-w-7xl text-center mx-auto">
-      <p
-        class="eyebrow-dark inline-flex items-center gap-2tracking-widest"
-      >
+      <p class="eyebrow-dark inline-flex items-center gap-2tracking-widest">
         {data.eyebrow}
       </p>
       <h2 class="mt-3 text-4xl leading-tight font-extrabold sm:text-5xl lg:text-6xl">
@@ -26,7 +24,7 @@ const { data } = Astro.props;
         {data.subTitle}
       </h3>
       <div class="mt-5 mx-auto max-w-3xl text-base text-left sm:text-lg">
-        {data.description && <p class="text-center mb-5 text-lg font-medium" set:html={data.description}></p>}
+        {data.description && <p class="text-center mb-5 text-lg font-medium" set:html={data.description} />}
 
         {
           data.bullets && (
@@ -43,11 +41,13 @@ const { data } = Astro.props;
       </div>
       <p></p>
 
-      <a
-        href={data.cta.url}
-        class="btn-primary mt-5 mx-auto max-w-fit"
-        >{data.cta.text}</a
-      >
+      {
+        data.cta && (
+          <a href={data.cta.url} class="btn-primary mt-5 mx-auto max-w-fit">
+            {data.cta.text}
+          </a>
+        )
+      }
     </div>
   </div>
 </section>
