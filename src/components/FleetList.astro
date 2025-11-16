@@ -1,0 +1,61 @@
+---
+import ImageComp from "./ImageComp.astro";
+
+const example = {
+  title: "Our Fleet",
+  fleet: [
+    {
+      id: "C1",
+      tail: "N1950F",
+      image:
+        "/src/assets/fleet/Fleet_C1-N1950F_Vegas-Aviation_Las-Vegas-Nevada_Flight-School_Pilot-Training_Aircraft-Rental.jpg",
+      type: "Cessna 172N",
+      summary: {
+        seats: 4,
+        engine: "Lycoming O-320 Series (Reciprocating)",
+        horsepower: 180,
+        weight: "<12,500 lbs",
+        speed: "105 mph",
+      },
+      details: {
+        owner: "ACE OF SPADES AVIATION LLC",
+        serialNumber: "17273040",
+        airworthinessClass: "Standard / Normal",
+        certificateIssueDate: "2019-09-04",
+        airworthinessDate: "1979-08-18",
+        lastActionDate: "2022-08-19",
+        expiration: "2025-09-30",
+        modeS: "050276434 / A17D1C",
+      },
+    },
+  ],
+};
+
+const { content = example } = Astro.props;
+---
+
+<section class="bg-accent-100 relative isolate z-0 overflow-hidden text-accent-900">
+  <div class="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20">
+    <h2 class="text-4xl leading-tight tracking-tight mb-12 text-center font-bold sm:text-5xl lg:text-6xl lg:mb-14">{content.title}</h2>
+
+    <div class={`grid grid-cols-1 gap-12 sm:grid-cols-2 lg:gap-14`}>
+      {
+        content.fleet.map((item: any) => (
+          <div class="group relative ring-2 ring-accent-300 rounded-xl overflow-hidden">
+            <div class="absolute top-0 bottom-0 w-full -translate-x-full transition-all duration-300 ease-in-out bg-primary-600/10 group-hover:translate-x-0" />
+
+            <h2 class="p-4 pb-0 text-2xl leading-tight font-medium tracking-tight">{`${item.type} - ${item.tail}`}</h2>
+
+            <div class="bg-primary-600 h-1 rounded-md w-1/3 mx-4 mt-2 mb-6 transition-all duration-300 ease-in-out group-hover:w-2/3" />
+
+            <ImageComp
+              src={item.image}
+              alt={`${item.type}, ${item.tail}`}
+              class={`h-96 w-full object-cover object-center`}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

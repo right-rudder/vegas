@@ -58,7 +58,7 @@ const { content = example } = Astro.props;
           <ImageComp
             src={content.image.src}
             alt={content.image.alt}
-            class="aspect-4/3 w-full rounded-lg object-cover object-bottom md:aspect-5/4"
+            class={`aspect-4/3 w-full rounded-lg object-cover md:aspect-5/4 ${content.image.position ? content.image.position : "object-bottom"}`}
           />
         </figure>
       </div>
