@@ -1,0 +1,228 @@
+---
+import Banner from "../../components/Banner.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { faq } from "../../data/faqs";
+import FAQs from "../../components/FAQs.astro";
+---
+
+<BaseLayout
+  siteTitle={faq.siteTitle}
+  siteDescription={faq.siteDescription}
+  keywords={faq.siteKeywords}
+  customBreadcrumbs={faq.customBreadcrumbs}
+>
+  <Banner data={faq.header} slot="hero" />
+
+  <section>
+    <div class="bg-accent-100 pt-16 px-0 sm:px-6">
+      <div class="max-w-6xl mx-auto">
+        <!-- <div class="px-4">
+          <input
+            type="text"
+            id="search-faq"
+            placeholder="Looking for something?"
+            class="mb-8 p-1 w-full border-b-2 border-accent-400 text-accent-400 rounded focus:border-primary-400 focus:text-[#0b326b] hover:border-accent-600 focus:outline-none"
+          />
+        </div> -->
+
+        <div>
+          <div class="grid grid-cols-1 px-4 sm:hidden">
+            <select
+              id="tabs"
+              aria-label="Select a tab"
+              class="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-2 pr-8 pl-3 text-base text-[#0b326b] outline-1 -outline-offset-1 outline-accent-300 focus:outline-2 focus:-outline-offset-2 focus:outline-primary-600"
+            >
+              <option value={faq.privatePilot.title} selected>{faq.privatePilot.title}</option>
+              <option value={faq.commercialPilot.title}>{faq.commercialPilot.title}</option>
+              <option value={faq.instrumentRating.title}>{faq.instrumentRating.title}</option>
+              <option value={faq.cfi.title}>{faq.cfi.title}</option>
+              <option value={faq.multiEngine.title}>{faq.multiEngine.title}</option>
+            </select>
+            <svg
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              data-slot="icon"
+              aria-hidden="true"
+              class="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end fill-accent-500"
+            >
+              <path
+                d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+                fill-rule="evenodd"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="border-b border-accent-200">
+              <nav aria-label="Tabs" class="-mb-px hidden sm:flex">
+                <a
+                  href="#"
+                  class="w-1/5 border-b-2 px-1 py-4 text-center text-sm font-medium text-primary-600 border-primary-500"
+                  data-target={faq.privatePilot.title}>{faq.privatePilot.title}</a
+                >
+                <a
+                  href="#"
+                  class="w-1/5 border-b-2 px-1 py-4 text-center text-sm font-medium text-accent-500 hover:border-accent-300 hover:text-accent-700 border-transparent"
+                  data-target={faq.commercialPilot.title}>{faq.commercialPilot.title}</a
+                >
+                <a
+                  href="#"
+                  class="w-1/5 border-b-2 px-1 py-4 text-center text-sm font-medium text-accent-500 hover:border-accent-300 hover:text-accent-700 border-transparent"
+                  data-target={faq.instrumentRating.title}>{faq.instrumentRating.title}</a
+                >
+                <a
+                  href="#"
+                  class="w-1/5 border-b-2 px-1 py-4 text-center text-sm font-medium text-accent-500 hover:border-accent-300 hover:text-accent-700 border-transparent"
+                  data-target={faq.cfi.title}>{faq.cfi.title}</a
+                >
+                <a
+                  href="#"
+                  class="w-1/5 border-b-2 px-1 py-4 text-center text-sm font-medium text-accent-500 hover:border-accent-300 hover:text-accent-700 border-transparent"
+                  data-target={faq.multiEngine.title}>{faq.multiEngine.title}</a
+                >
+              </nav>
+
+              <div data-value={faq.privatePilot.title}>
+                <FAQs faqs={faq.privatePilot.items} showTitle={false} />
+              </div>
+
+              <div data-value={faq.commercialPilot.title} class="hidden">
+                <FAQs faqs={faq.commercialPilot.items} showTitle={false} />
+              </div>
+
+              <div data-value={faq.instrumentRating.title} class="hidden">
+                <FAQs faqs={faq.instrumentRating.items} showTitle={false} />
+              </div>
+
+              <div data-value={faq.cfi.title} class="hidden">
+                <FAQs faqs={faq.cfi.items} showTitle={false} />
+              </div>
+
+              <div data-value={faq.multiEngine.title} class="hidden">
+                <FAQs faqs={faq.multiEngine.items} showTitle={false} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const select: any = document.querySelector("#tabs");
+    const tabs: any = document.querySelectorAll("[data-value]");
+    const links: any = document.querySelectorAll("a[data-target]");
+
+    if (select && tabs && links) {
+      select.addEventListener("change", (event: any) => {
+        tabs.forEach((tab: any) => {
+          if (tab.dataset.value === event.target.value) {
+            tab.classList.remove("hidden");
+          } else {
+            tab.classList.add("hidden");
+          }
+        });
+
+        links.forEach((link: any) => {
+          if (link.dataset.target === event.target.value) {
+            link.classList.add("text-primary-600", "border-primary-500");
+            link.classList.remove(
+              "text-accent-500",
+              "hover:border-accent-300",
+              "hover:text-accent-700",
+              "border-transparent"
+            );
+          } else {
+            link.classList.remove("text-primary-600", "border-primary-500");
+            link.classList.add(
+              "text-accent-500",
+              "hover:border-accent-300",
+              "hover:text-accent-700",
+              "border-transparent"
+            );
+          }
+        });
+      });
+
+      links.forEach((elem: any) => {
+        elem.addEventListener("click", (event: any) => {
+          event.preventDefault();
+
+          select.value = elem.dataset.target;
+          select.dispatchEvent(new Event("change"));
+        });
+      });
+    }
+
+    /* const searchFaq: any = document.querySelector("#search-faq");
+
+    const questions: any = Array.from(document.querySelectorAll("summary")).map(
+      (element: any) => {
+        return {
+          element: element,
+          text: element.innerHTML.trim().toLowerCase(),
+        };
+      }
+    );
+
+    const answers: any = Array.from(
+      document.querySelectorAll("summary+div")
+    ).map((element: any) => {
+      return {
+        element: element,
+        summary: element.previousElementSibling,
+        text: element.innerHTML.trim().toLowerCase(),
+      };
+    });
+
+    answers.forEach((answer: any) => {
+      for (const question of questions) {
+        if (question.element === answer.summary) {
+          question.answerText = answer.text;
+          question.answerElement = answer.element;
+        }
+      }
+    });
+
+    if (searchFaq) {
+      let debounceTimer: any;
+      searchFaq.addEventListener("input", () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function () {
+          if (searchFaq.value.length < 3) {
+            for (const question of questions) {
+              question.element.closest("details").classList.remove("hidden");
+              question.element.closest("details").accordionObj.shrink();
+            }
+
+            return;
+          }
+
+          const search = searchFaq.value.toLowerCase();
+
+          for (const question of questions) {
+            const details = question.element.closest("details");
+            if (
+              question.text.includes(search) ||
+              question.answerText.includes(search)
+            ) {
+              if (
+                details.accordionObj.isClosing ||
+                !details.accordionObj.el.open
+              ) {
+                details.classList.remove("hidden");
+                details.accordionObj.open();
+              }
+            } else {
+              if (
+                details.accordionObj.isExpanding ||
+                !details.accordionObj.el.open
+              ) {
+                details.classList.add("hidden");
+              }
+            }
+          }
+        }, 300);
+      });
+    } */
+  </script>
+</BaseLayout>
