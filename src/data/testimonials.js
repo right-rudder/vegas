@@ -25,6 +25,15 @@ export const testimonials = [
     role: "Student Pilot Father",
   },
   {
+    quote:`Hands down the best flight school in the area! Their flight instructors are experienced, knowledgeable, and truly passionate about aviation. They have a talent for breaking down complex concepts, making learning to fly both accessible and enjoyable.
+
+      They also have a wonderful maintenance crew that continually ensures every aircraft is in perfect condition. Knowing that the planes are meticulously maintained provides an extra layer of confidence when you're up in the air. Safety is clearly a priority here, and it shows.
+
+      Finally, the overall atmosphere at the school is incredibly supportive. From the office staff to the instructors and fellow students, everyone is positive and encouraging with a focus on helping each other succeed. I highly recommend Vegas Aviation to anyone aiming for a private pilots license or looking to start a career in aviation!`,
+    author: "Lauren Rosen",
+    role: "Student Pilot",
+  },
+  {
     quote:
       `I've used a variety of flight schools in the Las Vegas Area, and Vegas Aviation has definitely been the best one. My main concerns at the beginning of my flight training were the quality and availability of the planes and instructors, but none of that has been a problem for me during my time here. Another major concern of mine was pricing. I will say that rental prices are slightly higher than other flight schools in the area, but through getting my Private Pilot License I learned that you get what you pay for. If I could start my training all over again I would picked Vegas Aviation sooner to save more time and money in the long run.`,
     author: "Alexander Palmberg",
@@ -38,15 +47,6 @@ export const testimonials = [
       If anyone is reading this and is on the fence about flight schools, do yourself a favor and give VA a try! You will immediately feel like part of the family the moment you walk in the door.`,
     author: "Matt",
     role: "Student - Private Pilot",
-  },
-  {
-    quote:`Hands down the best flight school in the area! Their flight instructors are experienced, knowledgeable, and truly passionate about aviation. They have a talent for breaking down complex concepts, making learning to fly both accessible and enjoyable.
-
-      They also have a wonderful maintenance crew that continually ensures every aircraft is in perfect condition. Knowing that the planes are meticulously maintained provides an extra layer of confidence when you're up in the air. Safety is clearly a priority here, and it shows.
-
-      Finally, the overall atmosphere at the school is incredibly supportive. From the office staff to the instructors and fellow students, everyone is positive and encouraging with a focus on helping each other succeed. I highly recommend Vegas Aviation to anyone aiming for a private pilots license or looking to start a career in aviation!`,
-    author: "Lauren Rosen",
-    role: "Student Pilot",
   },
   {
     quote:`I started flight school at Vegas Aviation in June 2022. I got my PPL, Instrument, Commercial and multi engine ratings.
