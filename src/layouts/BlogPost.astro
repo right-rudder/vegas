@@ -10,13 +10,28 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, pubDate, updatedDate, heroImage, heroImageAlt } = Astro.props;
 ---
 
-<BaseLayout siteTile={title} siteDescription={SITE_DESCRIPTION} siteKeywords={KEYWORDS} navBarBG={true}>
-  <main class="max-w-7xl pt-[100px] mx-auto">
-    <article>
-      <div class="hero-image">
-        {heroImage && <ImageComp class="w-full object-center object-cover max-h-[80vh] xl:rounded-b-xl" src={heroImage} alt={heroImageAlt} />}
+<BaseLayout
+  siteTile={title}
+  siteDescription={SITE_DESCRIPTION}
+  siteKeywords={KEYWORDS}
+  navBarBG={true}
+>
+  <main class="bg-accent-100 min-h-screen pb-16">
+    <article
+      class="mt-36 max-w-4xl px-4 lg:px-12 mx-auto bg-white rounded-b-xl overflow-hidden"
+    >
+      <div class="hero-image w-auto relative overflow-hidden">
+        {
+          heroImage && (
+            <ImageComp
+              class="w-full h-full object-center object-cover"
+              src={heroImage}
+              alt={heroImageAlt}
+            />
+          )
+        }
       </div>
-      <div class="py-8 px-8 xl:px-0">
+      <div class="mt-12 py-8 px-8 xl:px-0">
         <div class="title">
           <div class="date">
             <FormattedDate date={pubDate} />
@@ -28,10 +43,12 @@ const { title, pubDate, updatedDate, heroImage, heroImageAlt } = Astro.props;
               )
             }
           </div>
-          <h1 class="text-4xl font-bold mb-8">{title}</h1>
-          <hr />
+          <h1 class="text-4xl lg:text-5xl font-bold mb-2">{title}</h1>
         </div>
-        <slot />
+        <hr />
+        <div class="prose prose-lg max-w-none mt-8">
+          <slot />
+        </div>
       </div>
     </article>
   </main>
