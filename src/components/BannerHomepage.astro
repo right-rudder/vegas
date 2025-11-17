@@ -54,8 +54,8 @@ const { data } = Astro.props;
       {
         data.cta && (
           <div class="my-8 flex flex-col gap-4 items-center justify-start sm:flex-row sm:my-12 mx-auto lg:mx-0">
-            {data.cta.map((item) => (
-              <a href={item.url} class="btn-primary text-lg group w-fit md:text-2xl">
+            {data.cta.map((item, index) => (
+              <a href={item.url} class={`${index === 0 ? "btn-primary" : "btn-transparent"} text-lg group w-fit md:text-2xl`}>
                 {item.text}
               </a>
             ))}
