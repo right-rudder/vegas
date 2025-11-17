@@ -4,7 +4,7 @@ description: "Join us Friday, October 31 at 12 PM at Vegas Aviation, North Las V
 author: Vegas Aviation Team
 authorImage: /src/assets/vegas-logo-icon-black.png
 authorImageAlt: Vegas Aviation Logo
-pubDate: "Oct 29 2025"
+pubDate: 2025-10-29T12:00:00
 heroImage: "/src/assets/blog/2025-oct-31-earn-your-degree-with-purdue-global.png"
 heroImageAlt: "Poster with information about a partnership with Purdue Global"
 readTime: 5

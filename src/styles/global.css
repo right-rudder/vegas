@@ -153,6 +153,10 @@ article#blog-post ul li {
   list-style: disc;
 }
 
+article#blog-post p > img {
+  @apply mx-auto
+}
+
 strong,
 b {
   font-weight: 700;
