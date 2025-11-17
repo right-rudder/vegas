@@ -1,5 +1,4 @@
 ---
-import { SITE_DESCRIPTION, KEYWORDS } from "../data/consts";
 import ImageComp from "../components/ImageComp.astro";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
@@ -7,44 +6,47 @@ import BaseLayout from "./BaseLayout.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, pubDate, updatedDate, heroImage, heroImageAlt } = Astro.props;
+const { title, pubDate, updatedDate, author, authorImage, authorImageAlt, heroImage, heroImageAlt, readTime, tags } =
+  Astro.props;
 ---
 
 <BaseLayout
   siteTile={title}
-  siteDescription={SITE_DESCRIPTION}
-  siteKeywords={KEYWORDS}
+  siteDescription={`Read ${title} on Vegas Aviation's blog`}
+  siteKeywords={tags.join(", ")}
   navBarBG={true}
 >
   <main class="bg-accent-100 min-h-screen pb-16">
-    <article
-      class="mt-36 max-w-4xl px-4 lg:px-12 mx-auto bg-white rounded-b-xl overflow-hidden"
-    >
+    <article id="blog-post" class="mt-36 max-w-4xl px-4 lg:px-12 mx-auto bg-white rounded-b-xl overflow-hidden">
       <div class="hero-image w-auto relative overflow-hidden">
-        {
-          heroImage && (
-            <ImageComp
-              class="w-full h-full object-center object-cover"
-              src={heroImage}
-              alt={heroImageAlt}
-            />
-          )
-        }
+        {heroImage && <ImageComp class="w-full h-full object-center object-cover" src={heroImage} alt={heroImageAlt} />}
       </div>
       <div class="mt-12 py-8 px-8 xl:px-0">
-        <div class="title">
-          <div class="date">
-            <FormattedDate date={pubDate} />
-            {
-              updatedDate && (
-                <div class="last-updated-on">
-                  Last updated on <FormattedDate date={updatedDate} />
-                </div>
-              )
-            }
+        <div class="flex gap-4 items-center mb-8">
+          <ImageComp src={authorImage} alt={authorImageAlt} class="object-center object-contain size-24" />
+          <div class="flex flex-col gap-2">
+            <p class="font-bold text-2xl">
+              {author}
+            </p>
+            <div>
+              <div class="flex gap-2 text-accent-600">
+                <FormattedDate date={pubDate} />
+                <span>•</span>
+                <span>
+                  {readTime} min read
+                </span>
+              </div>
+              {
+                updatedDate && (
+                  <div class="text-accent-600">
+                    Last updated on <FormattedDate date={updatedDate} />
+                  </div>
+                )
+              }
+            </div>
           </div>
-          <h1 class="text-4xl lg:text-5xl font-bold mb-2">{title}</h1>
         </div>
+        <h1 id="blog-title" class="text-4xl lg:text-5xl font-bold mb-2">{title}</h1>
         <hr />
         <div class="prose prose-lg max-w-none mt-8">
           <slot />
