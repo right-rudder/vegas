@@ -8,7 +8,7 @@ authorImageAlt: Vegas Aviation Logo
 pubDate: 2025-07-15T12:00:00
 heroImage: "/src/assets/blog/2025-may-15-college-of-north-nevada.webp"
 heroImageAlt: "College of North Nevada Sign"
-readTime: 5
+readTime: 1
 tags:
   [
     "flight training",
