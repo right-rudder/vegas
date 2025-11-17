@@ -24,7 +24,7 @@ The aviation industry is in the middle of an unprecedented hiring wave. From com
 
 # A Growing Industry
 
-![Pilots in the cockpit](/src/assets/blog/2025-oct-15-pilots-in-cockpit.jpg)
+![Pilots in the cockpit](/blog/2025-oct-15-pilots-in-cockpit.jpg)
 
 Private aviation and airlines alike are expanding rapidly, fueling demand for trained pilots worldwide.
 
@@ -36,7 +36,7 @@ This story is mirrored across the industry. Airlines, large and small, continue 
 
 # The Pilot Shortage
 
-![Airplane landed with an open door](/src/assets/blog/2025-oct-15-airplane-landed-open-door.jpg)
+![Airplane landed with an open door](/blog/2025-oct-15-airplane-landed-open-door.jpg)
 
 Demand for private aviation is climbing as fleets expand and more travelers turn to business jets.
 
@@ -46,7 +46,7 @@ This shortage is already driving competitive hiring and historic pay raises. For
 
 # Why Train in Las Vegas?
 
-![Pilots in the cockpit with a view of a mountain range](/src/assets/blog/2025-oct-15-pilots-in-cockpit-over-mountains.jpg)
+![Pilots in the cockpit with a view of a mountain range](/blog/2025-oct-15-pilots-in-cockpit-over-mountains.jpg)
 
 Las Vegas offers year-round flying weather and stunning training environments like Red Rock Canyon.
 
@@ -60,7 +60,7 @@ For those considering a career in aviation, training at Vegas Aviation offers a 
 
 Whether your dream is to fly for the airlines, corporate flight departments, or charter operators, the path has never been more promising. With demand soaring and opportunities multiplying, there has never been a better time to begin your training journey.
 
-![Pilot jumping at the side of a landed airplane](/src/assets/blog/2025-oct-15-pilot-jumping-at-the-side-of-a-plane-landed.jpg)
+![Pilot jumping at the side of a landed airplane](/blog/2025-oct-15-pilot-jumping-at-the-side-of-a-plane-landed.jpg)
 
 Graduating students at Vegas Aviation celebrate milestones on the path to becoming professional pilots.
 
@@ -85,6 +85,6 @@ A: Training time depends on each student’s pace, but many can earn key certifi
 
 A: Absolutely. Airlines focus on flight hours, certifications, and professionalism — not just where you trained. Vegas Aviation provides the foundation and support to help students succeed in this competitive field.
 
-![Woman pilot with a headset standing next to the door of a helicopter](/src/assets/blog/2025-oct-15-pilot-woman-with-headset-standing-next-to-helicopter-door.jpg)
+![Woman pilot with a headset standing next to the door of a helicopter](/blog/2025-oct-15-pilot-woman-with-headset-standing-next-to-helicopter-door.jpg)
 
 The next generation of aviators is diverse, motivated, and ready to lead the future of aviation.
