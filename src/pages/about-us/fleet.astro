@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Banner from "../../components/Banner.astro";
+import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
+import CTASimple from "../../components/CTAs/CTASimple.astro";
+import FleetList from "../../components/FleetList.astro";
+
+import { data } from "../../data/about-us/fleet";
+---
+
+<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription} siteKeywords={data.siteKeywords}>
+  <Banner data={data.header} slot="hero" />
+
+  <FleetList content={data.fleetData} />
+
+  <CTASimple content={data.fleetIntro} />
+
+  <CTASimple content={data.maintenanceSection} />
+
+  <CTAIntroFlight />
+</BaseLayout>

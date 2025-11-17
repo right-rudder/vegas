@@ -1,6 +1,16 @@
 export const testimonials = [
   {
     quote:
+      `I recently had the pleasure of completing a discovery flight with Vegas Aviation, and I can confidently say it was an unforgettable experience! From the moment I arrived, the warmth and friendliness of the owners and staff put me at ease. Their knowledge and passion for flying truly shine through.
+      
+      My instructor, Geo, took me up for the flight, and he was fantastic! His expertise and encouragement helped me feel comfortable right from the start. The scenery was breathtaking, and the thrill of being in the cockpit was exhilarating. Every moment was filled with excitement, and I couldn't have asked for a better introduction to flying.
+      
+      I left the experience feeling inspired and eager to begin my training to get my pilot's license. If you're considering a discovery flight or looking to start your aviation journey, I highly recommend Vegas Aviation. You won't be disappointed.`,
+    author: "Pierce Larkin",
+    role: "Student Pilot",
+  },
+  {
+    quote:
       `At the age of 43 I walked into Vegas Aviation and asked the nice lady at the front desk if I could go for an airplane ride.
       Thanks to GEO the greatest flight instructor a few months later I am a licensed private pilot!
       My personal circumstances are definitely abnormal but Geo and the staff at Vegas Aviation were absolutely fantastic at accommodating my busy schedule and helping make a lifelong dream come true!
@@ -13,16 +23,6 @@ export const testimonials = [
       `My son took his first discovery flight today. His instructor was Dorian, who was absolutely amazing. We were originally scheduled for a discovery flight two weeks ago and were second in line for takeoff when an incoming plane declared an emergency, And landed on its belly. That shut down the airport for 12 hours, but wow, what a first experience that we got to see firsthand as we were second in line for takeoff when it happened. Dorian went through all of the emergency procedures and exactly what was happening with the tower With the airplane. That experience alone probably weighed more than his first flight today. Today's flight was about 45 minutes and it was absolutely beautiful. My son had the controls for half the time, including for takeoff and landing. Dorian was cool as a cucumber and made my son feel very safe and gave absolutely incredible instruction! If you're looking for a flight school, I would not look anywhere else!`,
     author: "Daniel Burgess",
     role: "Student Pilot Father",
-  },
-  {
-    quote:
-      `I recently had the pleasure of completing a discovery flight with Vegas Aviation, and I can confidently say it was an unforgettable experience! From the moment I arrived, the warmth and friendliness of the owners and staff put me at ease. Their knowledge and passion for flying truly shine through.
-      
-      My instructor, Geo, took me up for the flight, and he was fantastic! His expertise and encouragement helped me feel comfortable right from the start. The scenery was breathtaking, and the thrill of being in the cockpit was exhilarating. Every moment was filled with excitement, and I couldn't have asked for a better introduction to flying.
-      
-      I left the experience feeling inspired and eager to begin my training to get my pilot's license. If you're considering a discovery flight or looking to start your aviation journey, I highly recommend Vegas Aviation. You won't be disappointed.`,
-    author: "Pierce Larkin",
-    role: "Student Pilot",
   },
   {
     quote:

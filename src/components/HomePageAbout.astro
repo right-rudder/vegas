@@ -2,7 +2,6 @@
 import ImageComp from "./ImageComp.astro";
 import { FaArrowRight } from "react-icons/fa";
 import { LOCATIONS } from "../data/consts";
-import { FaStar } from "react-icons/fa";
 
 const data = {
   eyebrow: "About Us",
@@ -23,13 +22,10 @@ const data = {
 ---
 
 <section class="bg-accent-100 relative isolate z-0 overflow-hidden text-accent-900">
-
   <div class="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20">
     <div class="flex flex-wrap items-center gap-y-10 lg:gap-y-0">
-      {/* LEFT: Headline, quote, stat */}
       <div class="w-full lg:w-1/2 lg:pr-18">
         <p class="eyebrow-dark inline-flex items-center gap-2 tracking-widest">
-          <span class="size-1.5 rounded-full bg-primary-500"></span>
           {data.eyebrow}
         </p>
 
@@ -37,14 +33,13 @@ const data = {
           {data.title}
         </h2>
 
-        {/* Quote card (narrowed) */}
         <div class="mt-6">
           <div class="flex items-start gap-3">
             <p class="text-lg whitespace-pre-line">{data.quote}</p>
           </div>
         </div>
 
-         <p class="mt-6 md:text-lg">
+        <p class="mt-6 md:text-lg">
           From your <a
             href="/new-to-flying"
             class="text-primary-900 font-bold transition-colors duration-300 ease-in-out hover:text-primary-600"
@@ -68,20 +63,20 @@ const data = {
           >.
         </p>
 
-        
-        <a href={data.ctaHref} class="btn-primary-outline mt-8 w-fit mx-auto sm:mx-0">
+        <a href={data.ctaHref} class="btn-primary mt-8 w-fit mx-auto sm:mx-0">
           {data.ctaLabel}
           <FaArrowRight />
         </a>
       </div>
 
-      {/* RIGHT: Big image, body, CTA */}
-      <div class="w-full lg:w-1/2 lg:h-[70vh] aspect-square lg:aspect-auto bg-black overflow-hidden rounded-md shadow-lg">
-          <ImageComp
-            src={data.rightImage.src}
-            alt={data.rightImage.alt}
-            class="w-full h-full object-cover object-center"
-          />
+      <div
+        class="w-full lg:w-1/2 lg:h-[70vh] aspect-square lg:aspect-auto bg-black overflow-hidden rounded-md shadow-lg"
+      >
+        <ImageComp
+          src={data.rightImage.src}
+          alt={data.rightImage.alt}
+          class="w-full h-full object-cover object-center"
+        />
       </div>
     </div>
   </div>

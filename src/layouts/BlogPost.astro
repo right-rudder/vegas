@@ -1,4 +1,5 @@
 ---
+import { SITE_DESCRIPTION, KEYWORDS } from "../data/consts";
 import ImageComp from "../components/ImageComp.astro";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
@@ -9,13 +10,13 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, pubDate, updatedDate, heroImage, heroImageAlt } = Astro.props;
 ---
 
-<BaseLayout>
-  <main class="max-w-7xl mx-auto" >
+<BaseLayout siteTile={title} siteDescription={SITE_DESCRIPTION} siteKeywords={KEYWORDS} navBarBG={true}>
+  <main class="max-w-7xl pt-[100px] mx-auto">
     <article>
       <div class="hero-image">
-        {heroImage && <ImageComp src={heroImage} alt={heroImageAlt} />}
+        {heroImage && <ImageComp class="w-full object-center object-cover max-h-[80vh] xl:rounded-b-xl" src={heroImage} alt={heroImageAlt} />}
       </div>
-      <div class="prose">
+      <div class="py-8 px-8 xl:px-0">
         <div class="title">
           <div class="date">
             <FormattedDate date={pubDate} />
@@ -27,7 +28,7 @@ const { title, pubDate, updatedDate, heroImage, heroImageAlt } = Astro.props;
               )
             }
           </div>
-          <h1>{title}</h1>
+          <h1 class="text-4xl font-bold mb-8">{title}</h1>
           <hr />
         </div>
         <slot />

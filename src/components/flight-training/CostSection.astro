@@ -1,22 +1,10 @@
 ---
-import ImageComp from "../ImageComp.astro";
 import { FaPlusCircle } from "react-icons/fa";
 
 const { data } = Astro.props;
 ---
 
 <section class="relative isolate overflow-hidden bg-linear-to-b from-accent-200 to-accent-100 text-accent-900">
-  <!-- {/* Background image */}
-  <div class="pointer-events-none absolute inset-0 -z-30" aria-hidden="true">
-    <ImageComp
-      src="/src/assets/stock/money-vegas-aviation-budet-flight-training-financing-summerlin.jpg"
-      alt="Top view of money piled on the ground"
-      class="h-full w-full object-cover grayscale brightness-[0.25]"
-      loading="lazy"
-      decoding="async"
-    />
-  </div> -->
-
   <div class="relative px-4 py-16 sm:px-10 lg:grid-cols-2 lg:gap-10 lg:px-16 lg:py-24">
     <div class="max-w-7xl text-center mx-auto">
       <p class="eyebrow-dark inline-flex items-center gap-2 tracking-widest">
@@ -116,7 +104,7 @@ const { data } = Astro.props;
           </li>
         </ul>
 
-        <a href={data.cta.url} class="btn-primary-outline mt-5 mx-auto max-w-fit">
+        <a href={data.cta.url} class="btn-transparent mt-5 mx-auto max-w-fit">
           {data.cta.text}
         </a>
       </div>

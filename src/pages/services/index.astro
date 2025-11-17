@@ -1,106 +1,22 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ImageComp from "../../components/ImageComp.astro";
 import Banner from "../../components/Banner.astro";
-import { FaArrowRight } from "react-icons/fa";
 import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
-import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
-import CTALeft from "../../components/CTAs/CTALeft.astro";
+import CTASimple from "../../components/CTAs/CTASimple.astro";
+import CardStats from "../../components/CardStats.astro";
+import CardList from "../../components/CardList.astro";
 
-const data = {
-    siteTitle: "Aircraft Services | Vegas Aviation",
-    siteDescription: SITE_DESCRIPTION,
-    siteKeywords: KEYWORDS,
-
-    header: {
-        image: {
-    src: "/src/assets/old-website/services-1-vegas_aviation_12.jpg",
-    alt: "Vegas Aviation services and flight training overview",
-        },
-        eyebrow: "Aircraft Services",
-        title: "Comprehensive Aircraft Services at Vegas Aviation",
-        subTitle:
-            "From maintenance and rentals to discovery flights and simulation, Vegas Aviation delivers safe, reliable, and expertly managed aircraft services for pilots at every level.",
-    },
-
-    aboutSection: {
-        underHeader: "Our Services",
-        title: "Explore Vegas Aviation’s Aircraft Service Options",
-        description:
-            "Vegas Aviation offers a full suite of aircraft services tailored to students, renters, and aviation enthusiasts. Our certified technicians, well-maintained fleet, and experienced instructors ensure every pilot receives unmatched reliability, performance, and support—both on the ground and in the air.",
-        image: {
-    src: "/src/assets/old-website/services-1-vegas_aviation_12.jpg",
-    alt: "Vegas Aviation services and flight training overview",
-        },
-        button: {
-            title: "Contact Us",
-            link: "/contact",
-        },
-    },
-
-    servicesSection: {
-        header: "What We Offer",
-        title: "Aircraft Services and Flight Experiences",
-        description:
-            "Whether you're maintaining your aircraft, renting for an adventure, or taking your first step into aviation, Vegas Aviation provides safe, professional, and reliable aviation services.",
-        services: [
-            {
-                name: "Aircraft Maintenance",
-                description:
-                    "Our certified technicians deliver meticulous, technology-driven aircraft maintenance to ensure your aircraft operates safely and at peak performance.",
-            },
-            {
-                name: "Aircraft Rental",
-                description:
-                    "Rent from our fleet of eight Cessna 172N and one Beechcraft Duchess—each maintained to the highest standards and ready for your next flight.",
-            },
-            {
-                name: "Discovery Flight",
-                description:
-                    "Fly with an experienced instructor and experience the thrill of taking the controls for the first time. A perfect introduction to aviation.",
-            },
-            {
-                name: "Flight Simulation",
-                description:
-                    "Train in a safe, controlled environment with our advanced simulation technology—ideal for procedural training, IFR practice, and skill development.",
-            },
-        ],
-    },
-
-    fleetSection: {
-        header: "Our Training Fleet",
-        title: "Reliable & Well-Equipped Training Aircraft",
-        description:
-            "Vegas Aviation operates a rigorously maintained fleet of aircraft designed to support student training, time-building, and advanced ratings with maximum safety and uptime.",
-        fleet: [
-            {
-                name: "Cessna 172 (N/P Models)",
-                price: "$175/hr",
-                description:
-                    "A fleet of 8 Cessna 172N/P aircraft equipped with Garmin G5 EFIS/EPFD + MFD displays, Garmin GTX 335 transponder, and Garmin 430W GPS.",
-            },
-            {
-                name: "Beechcraft Duchess",
-                price: "$425/hr",
-                description:
-                    "Our multi-engine Beechcraft Duchess offers competitive rates for commercial multi-engine training with reliable performance and IFR capabilities.",
-            },
-            {
-                name: "Flight Instruction",
-                price: "$55/hr",
-                description:
-                    "Professional, safety-focused flight instruction—billed in addition to the aircraft hourly rate. Ideal for student pilots and advanced training.",
-            },
-        ],
-    },
-};
-
+import { data } from "../../data/services/index";
 ---
-<BaseLayout
-  siteTitle={data.siteTitle}
-  siteDescription={data.siteDescription}
-  siteKeywords={data.siteKeywords}>
+
+<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription} siteKeywords={data.siteKeywords}>
   <Banner data={data.header} slot="hero" />
-  <CTALeft content={data.aboutSection} />
+
+  <CTASimple content={data.aboutSection} />
+
+  <CardStats content={data.servicesSection} />
+
+  <CardList content={data.fleetSection} />
+
   <CTAIntroFlight />
 </BaseLayout>

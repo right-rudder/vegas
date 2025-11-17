@@ -1,103 +1,18 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ImageComp from "../../components/ImageComp.astro";
 import Banner from "../../components/Banner.astro";
-import { FaArrowRight } from "react-icons/fa";
-import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
-import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
+import CTASimple from "../../components/CTAs/CTASimple.astro";
+import CardList from "../../components/CardList.astro";
 
-const data = {
-    siteTitle: "Aircraft Maintenance | Vegas Aviation",
-    siteDescription: SITE_DESCRIPTION,
-    siteKeywords: KEYWORDS,
-
-    header: {
-        image: {
-            src: "/src/assets/cfi-group-airplane-vegas-aviation-las-vegas-flight-instructor.webp",
-            alt: "Vegas Aviation aircraft mechanic working on an aircraft engine",
-        },
-        eyebrow: "Aircraft Maintenance",
-        title: "Professional Aircraft Maintenance You Can Trust",
-        subTitle:
-            "Your aircraft is a valuable investment—our certified mechanics and state-of-the-art facility ensure it stays safe, reliable, and performing at its best.",
-    },
-
-    aboutSection: {
-        underHeader: "Vegas Aviation Mechanic",
-        title: "If It Flies, We Can Fix It!",
-        description:
-            "Our skilled team of Certified A&P and IA mechanics is dedicated to keeping your aircraft in peak condition. Operating from a fully equipped maintenance facility, we provide comprehensive services for piston and jet-powered aircraft across all categories and classes. Whether you need routine inspections, advanced repairs, avionics upgrades, or damage restoration, we deliver safety, performance, and cost-effective results.",
-        listTitle: "We Offer:",
-        list: [
-            "Basic and advanced repairs and maintenance",
-            "Oil changes",
-            "100-hour inspections",
-            "Pre-purchase inspections",
-            "Annual inspections",
-            "Aircraft damage repairs",
-            "Avionics installations and upgrades",
-            "Upholstery and more",
-        ],
-        button: {
-            title: "Book a Service",
-            link: "/contact",
-        },
-        image: {
-            src: "/src/assets/vegas-aviation-mechanic.jpg",
-            alt: "Vegas Aviation certified mechanic servicing aircraft",
-        },
-    },
-
-    maintenanceRatesSection: {
-        header: "Our Maintenance Rates",
-        title: "Cost-Effective, High-Quality Aircraft Maintenance",
-        description:
-            "Vegas Aviation delivers reliable, efficient, and competitively priced maintenance—without compromising on safety or workmanship.",
-        rates: [
-            {
-                name: "Piston Aircraft",
-                price: "$110/hr",
-                description:
-                    "From routine oil changes and engine checks to structural inspections and avionics upgrades, we provide precise, end-to-end piston aircraft maintenance.",
-            },
-            {
-                name: "Turbine Aircraft",
-                price: "$130/hr",
-                description:
-                    "We conduct thorough inspections, fuel system checks, repairs, avionics upgrades, and structural assessments to optimize performance and extend your turbine aircraft’s lifespan.",
-            },
-            {
-                name: "Avionics",
-                price: "$120/hr",
-                description:
-                    "Our expert avionics team provides high-quality repairs, installations, updates, and performance upgrades to improve operational safety and efficiency.",
-            },
-            {
-                name: "Aircraft-on-Ground (AOG)",
-                price: "$130/hr",
-                description:
-                    "Swift, reliable AOG service delivered from our state-of-the-art facility—minimizing downtime and restoring aircraft to airworthy condition quickly.",
-            },
-        ],
-    },
-
-    CTASection: {
-        title: "Aircraft Maintenance",
-        subTitle: "Get in touch with our team for scheduling or service inquiries.",
-        button: {
-            title: "Contact Us",
-            link: "/contact",
-        },
-    },
-};
-
-
+import { data } from "../../data/services/aircraft-maintenance";
 ---
-<BaseLayout
-  siteTitle={data.siteTitle}
-  siteDescription={data.siteDescription}
-  siteKeywords={data.siteKeywords}>
+
+<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription} siteKeywords={data.siteKeywords}>
   <Banner data={data.header} slot="hero" />
 
-  <CTAIntroFlight />
+  <CTASimple content={data.aboutSection} />
+
+  <CardList content={data.maintenanceRatesSection} />
+
+  <CTASimple content={data.CTASection} />
 </BaseLayout>

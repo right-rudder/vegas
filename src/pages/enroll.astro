@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Banner from "../components/Banner.astro";
+import CTAIntroFlight from "../components/CTAIntroFlight.astro";
+import EnrollForm from "../components/forms/EnrollForm.astro";
+
+import { data } from "../data/enroll.js";
+---
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  siteKeywords={data.siteKeywords}>
+  <Banner data={data.header} slot="hero" />
+
+  <EnrollForm /> 
+
+  <CTAIntroFlight />
+</BaseLayout>

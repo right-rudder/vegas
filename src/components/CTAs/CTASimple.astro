@@ -1,0 +1,66 @@
+---
+import { FaArrowRight } from "react-icons/fa6";
+import ImageComp from "../ImageComp.astro";
+import { FaCheckCircle } from "react-icons/fa";
+
+const { content } = Astro.props;
+---
+
+<section class="bg-accent-100 relative isolate z-0 text-accent-900">
+  <div class="mx-auto max-w-7xl px-4 py-12 md:px-8 lg:px-10">
+    <div
+      class={`flex items-start gap-10 text-center sm:text-left lg:gap-14 ${content.orientation === "left" ? "flex-col lg:flex-row" : "flex-col-reverse lg:flex-row-reverse"}`}
+      >
+      <div class={`flex-1${content.sticky === "text" ? " top-28 lg:sticky" : ""}`}>
+        <p class="eyebrow-dark inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
+          {content.underHeader}
+        </p>
+
+        <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-6xl">{content.title}</h2>
+
+        <div class="mt-4 rounded-lg border border-white/10 bg-white/5">
+          <div class="flex items-start gap-3">
+            <p class="text-lg text-accent-900 whitespace-pre-line">
+              {content.description}
+            </p>
+          </div>
+        </div>
+
+        {
+          content.list && (
+            <div>
+              <p class="mt-2 font-semibold">{content.list.title}</p>
+              <ul>
+                {content.list.items.map((item: string) => (
+                  <li class="flex gap-4 items-center my-1">
+                    <FaCheckCircle className="text-primary-600 size-5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+
+        {
+          content.button && (
+            <a href={content.button.link} class="btn-primary mt-5 w-fit mx-auto sm:mx-0">
+              {content.button.title}
+              <FaArrowRight />
+            </a>
+          )
+        }
+      </div>
+
+      <div class={`flex-1 mx-auto${content.sticky === "image" ? " top-28 lg:sticky" : ""}`}>
+        <figure class="relative">
+          <ImageComp
+            src={content.image.src}
+            alt={content.image.alt}
+            class={`aspect-4/3 w-full rounded-lg object-cover md:aspect-5/4 ${content.image.position ? content.image.position : "object-bottom"}`}
+          />
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

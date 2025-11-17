@@ -1,18 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* --color-primary-50: oklch(0.984 0.21579 135.347);
-  --color-primary-100: oklch(0.968 0.21579 135.347);
-  --color-primary-200: oklch(0.929 0.21579 135.347);
-  --color-primary-300: oklch(0.869 0.21579 135.347);
-  --color-primary-400: oklch(0.75019 0.21579 135.347);
-  --color-primary-500: oklch(0.554 0.21579 135.347);
-  --color-primary-600: oklch(0.446 0.21579 135.347);
-  --color-primary-700: oklch(0.372 0.21579 135.347);
-  --color-primary-800: oklch(0.279 0.21579 135.347);
-  --color-primary-900: oklch(0.208 0.21579 135.347);
-  --color-primary-950: oklch(0.129 0.21579 135.347); */
-
   --color-primary-50: oklch(98.345% 0.03182 126.355);
   --color-primary-100: oklch(96.373% 0.07109 128.26);
   --color-primary-200: oklch(93.21% 0.1291 129.475);
@@ -65,12 +53,21 @@
   font-display: swap;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto Variable', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Variable", sans-serif;
 }
 
 .btn-primary {
   @apply bg-primary-600 text-white font-semibold rounded-md px-5 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-accent-900 hover:text-primary-500;
+}
+
+.btn-primary:disabled {
+  @apply bg-gray-700! border-gray-700! text-gray-400! cursor-not-allowed!;
 }
 
 .btn-primary-outline {
@@ -82,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-transparent {
-  @apply bg-primary-500/20 text-accent-50 border border-primary-500 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-500 hover:border-primary-500 hover:text-accent-900;
+  @apply bg-primary-500/20 text-accent-50 border border-primary-600 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-600 hover:border-primary-600 hover:text-accent-900;
 }
 
 .btn-transparent-dark {
@@ -90,7 +87,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .eyebrow {
-  @apply text-primary-600 bg-primary-900 lg:bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base hover:bg-primary-600 hover:text-slate-900 duration-300 ease-in-out;
+  @apply text-primary-600 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base;
+}
+
+a.eyebrow {
+  @apply text-primary-600 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base hover:bg-primary-600 hover:text-slate-900 duration-300 ease-in-out;
 }
 
 .eyebrow-light {
@@ -100,85 +101,6 @@ h1, h2, h3, h4, h5, h6 {
 .eyebrow-dark {
   @apply bg-accent-600 text-white font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm mb-2;
 }
-
-/* TODO : Remover */
-/* body {
-  --1: #45840c;
-  --2: #529b0f;
-  --3: #5eb311;
-  --4: #6aca13;
-  --5: #76e115;
-  --6: #83eb25;
-  --7: #90ed3d;
-
-  --color-lima-50: #f4fee7;
-  --color-lima-100: #e5fdca;
-  --color-lima-200: #cdfa9c;
-  --color-lima-300: #acf462;
-  --color-lima-400: #8de833;
-  --color-lima-500: #6aca13;
-  --color-lima-600: #51a50b;
-  --color-lima-700: #3e7e0d;
-  --color-lima-800: #346311;
-  --color-lima-900: #2e5413;
-  --color-lima-950: #142f04;
-  
-  --1: oklch(54.944% 0.15575 135.045);
-  --2: oklch(61.758% 0.17543 135.02);
-  --3: oklch(68.597% 0.19646 135.251);
-  --4: oklch(75.019% 0.21579 135.347);
-  --5: oklch(81.306% 0.23467 135.425);
-  --6: oklch(84.389% 0.23509 134.735);
-  --7: oklch(85.608% 0.22081 133.816);
-
-  --color-lima-50: oklch(98.345% 0.03182 126.355);
-  --color-lima-100: oklch(96.373% 0.07109 128.26);
-  --color-lima-200: oklch(93.21% 0.1291 129.475);
-  --color-lima-300: oklch(89.056% 0.19115 131.459);
-  --color-lima-400: oklch(84.2% 0.22139 133.38);
-  --color-lima-500: oklch(75.019% 0.21579 135.347);
-  --color-lima-600: oklch(64.347% 0.18838 136.095);
-  --color-lima-700: oklch(52.966% 0.15181 136.026);
-  --color-lima-800: oklch(44.91% 0.12115 135.357);
-  --color-lima-900: oklch(40.278% 0.10252 135.11);
-  --color-lima-950: oklch(27.332% 0.07523 136.264);
-
-  --color-lime-50: oklch(0.986 0.031 120.757);
-  --color-lime-100: oklch(0.967 0.067 122.328);
-  --color-lime-200: oklch(0.938 0.127 124.321);
-  --color-lime-300: oklch(0.897 0.196 126.665);
-  --color-lime-400: oklch(0.841 0.238 128.85);
-  --color-lime-500: oklch(0.768 0.233 130.85);
-  --color-lime-600: oklch(0.648 0.2 131.684);
-  --color-lime-700: oklch(0.532 0.157 131.589);
-  --color-lime-800: oklch(0.453 0.124 130.933);
-  --color-lime-900: oklch(0.405 0.101 131.063);
-  --color-lime-950: oklch(0.274 0.072 132.109);
-
-  --color-primary-50: oklch(0.984 0.21579 135.347);
-  --color-primary-100: oklch(0.968 0.21579 135.347);
-  --color-primary-200: oklch(0.929 0.21579 135.347);
-  --color-primary-300: oklch(0.869 0.21579 135.347);
-  --color-primary-400: oklch(75.019% 0.21579 135.347);
-  --color-primary-500: oklch(0.554 0.21579 135.347);
-  --color-primary-600: oklch(0.446 0.21579 135.347);
-  --color-primary-700: oklch(0.372 0.21579 135.347);
-  --color-primary-800: oklch(0.279 0.21579 135.347);
-  --color-primary-900: oklch(0.208 0.21579 135.347);
-  --color-primary-950: oklch(0.129 0.21579 135.347);
-
-  --color-accent-50: oklch(0.985 0.002 247.839);
-  --color-accent-100: oklch(0.967 0.003 264.542);
-  --color-accent-200: oklch(0.928 0.006 264.531);
-  --color-accent-300: oklch(0.872 0.01 258.338);
-  --color-accent-400: oklch(0.707 0.022 261.325);
-  --color-accent-500: oklch(0.551 0.027 264.364);
-  --color-accent-600: oklch(0.446 0.03 256.802);
-  --color-accent-700: oklch(0.373 0.034 259.733);
-  --color-accent-800: oklch(0.278 0.033 256.848);
-  --color-accent-900: oklch(0.21 0.034 264.665);
-  --color-accent-950: oklch(0.13 0.028 261.692);
-} */
 
 body {
   font-family: "Atkinson", sans-serif;
@@ -275,6 +197,12 @@ hr {
 
 .gradient-border-image {
   border-style: solid;
-  border-image: linear-gradient(to right, oklch(0.967 0.003 264.542), oklch(75.019% 0.21579 135.347), oklch(0.967 0.003 264.542) ) 2;
+  border-image: linear-gradient(
+      to right,
+      oklch(0.967 0.003 264.542),
+      oklch(75.019% 0.21579 135.347),
+      oklch(0.967 0.003 264.542)
+    )
+    2;
   /* The '1' is border-image-slice, indicating a single slice for the border image. */
 }

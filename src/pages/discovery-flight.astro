@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Banner from "../components/Banner.astro";
+import CTAIntroFlight from "../components/CTAIntroFlight.astro";
+import CTASimple from "../components/CTAs/CTASimple.astro";
+import DiscoveryFlightForm from "../components/forms/DiscoveryFlightForm.astro";
+
+import { data } from "../data/discovery-flight";
+---
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  siteKeywords={data.siteKeywords}>
+  <Banner data={data.header} slot="hero" />
+
+  <CTASimple content={data.whatIsSection} />
+
+  <DiscoveryFlightForm /> 
+
+  <CTAIntroFlight />
+</BaseLayout>

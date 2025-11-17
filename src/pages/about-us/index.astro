@@ -1,152 +1,54 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ImageComp from "../../components/ImageComp.astro";
 import Banner from "../../components/Banner.astro";
-import { FaArrowRight } from "react-icons/fa";
 import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
+import CTASimple from "../../components/CTAs/CTASimple.astro";
+import { FaStar } from "react-icons/fa";
 
-import { data } from "../../data/about-us";
+import { data } from "../../data/about-us/index";
+
+console.log(data.sections);
 ---
-<BaseLayout
-  siteTitle={data.siteTitle}
-  siteDescription={data.siteDescription}
-  siteKeywords={data.siteKeywords}>
+
+<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription} siteKeywords={data.siteKeywords}>
   <Banner data={data.header} slot="hero" />
 
-  <section class="bg-accent-50 relative isolate z-0 overflow-hidden text-accent-900">
+  {data.sections.map((item) => <CTASimple content={item} />)}
+
+  <section class="bg-accent-50 relative isolate z-0 overflow-hidden text-accent-900 text-center">
     {/* soft radial glow */}
     <div
-      class="from-primary-300/30 pointer-events-none absolute inset-0 -z-10 bg-radial-[at_20%_40%] to-transparent to-60%"
+      class="from-primary-200/40 pointer-events-none absolute -inset-24 -z-10 bg-radial-[at_50%_50%] to-transparent to-60%"
     >
     </div>
 
     <div class="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20">
-      <div class="grid items-start gap-10 text-center sm:text-left lg:grid-cols-2 lg:gap-14">
-        {/* LEFT: Headline, quote, stat */}
-        <div>
-          <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
-            <span class="size-1.5 rounded-full bg-primary-500/90"></span>
-            About Us
-          </p>
+      <p class="eyebrow-dark inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
+        {data.whyUs.underHeader}
+      </p>
 
-          <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">Get to Know Us</h2>
+      <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-6xl">
+        {data.whyUs.title}
+      </h2>
 
-          {/* Quote card (narrowed) */}
-          <div class="mt-4 rounded-lg border border-white/10 bg-white/5">
-            <div class="flex items-start gap-3">
-              <p class="text-lg text-accent-900 whitespace-pre-line">
-                Where quality flight training meets safety and support. Our fun family culture enhances top-notch
-                instruction and meticulous aircraft maintenance. Since its inception, Vegas Aviation has continuously
-                grown and adapted, enriching its offerings and facilities to align with the dynamic demands of the
-                aviation sector.
-              </p>
-            </div>
-          </div>
-
-          <a href="/contact" class="btn-primary-outline mt-5 w-fit mx-auto sm:mx-0">
-            Contact Us
-            <FaArrowRight />
-          </a>
+      {/* Stat (narrowed) */}
+      <div class="mt-7 flex flex-col items-center justify-center gap-4 sm:justify-start">
+        <div class="flex gap-8 text-primary-600 sm:gap-12">
+          <FaStar className="size-8 sm:size-12" />
+          <FaStar className="size-8 sm:size-12" />
+          <FaStar className="size-8 sm:size-12" />
+          <FaStar className="size-8 sm:size-12" />
+          <FaStar className="size-8 sm:size-12" />
         </div>
-
-        {/* RIGHT: Big image, body, CTA */}
-        <div class="lg:pl-4">
-          <figure class="relative">
-            <ImageComp
-              src="/src/assets/about-us-cfi-team-vegas-aviation-discovery-flight.jpg"
-              alt="Vegas Aviation CFI team"
-              class="aspect-4/3 w-full rounded-lg object-cover object-bottom md:aspect-5/4"
-            />
-          </figure>
-        </div>
+        <span class="text-8xl font-extrabold text-primary-600 text-shadow-md">
+          {data.whyUs.stat}
+        </span>
+        <p class="text-md tracking-widest text-accent-700 uppercase text-lg">5 star reviews</p>
       </div>
-    </div>
-  </section>
 
-  <section class="bg-white relative isolate z-0 overflow-hidden text-accent-900">
-    <div class="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20">
-      <div class="grid items-start gap-10 text-center sm:text-left lg:grid-cols-2 lg:gap-14">
-        {/* Left: Big image, body, CTA */}
-        <div class="lg:pr-4">
-          <figure class="relative">
-            <ImageComp
-              src="/src/assets/team-vegas-aviation-zero-to-hero-aviation.png"
-              alt="Vegas Aviation CFI team"
-              class="aspect-4/3 w-full rounded-lg object-cover object-bottom md:aspect-5/4"
-            />
-          </figure>
-        </div>
-
-        {/* Right: Headline, quote, stat */}
-        <div>
-          <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
-            <span class="size-1.5 rounded-full bg-primary-500/90"></span>
-            Our Pilots
-          </p>
-
-          <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">Meet the Team</h2>
-
-          {/* Quote card (narrowed) */}
-          <div class="mt-4 rounded-lg border border-white/10 bg-white/5">
-            <div class="flex items-start gap-3">
-              <p class="text-lg text-accent-900 whitespace-pre-line">
-                At Vegas Aviation, our success stems from our exceptional FAA Certified Flight Instructors. They offer
-                personalized, high-quality instruction tailored to each student's learning style and goals. With
-                dedication and passion, our CFIs mentor and guide students, instilling the skills, knowledge, and
-                confidence needed for success in the aviation industry. Our commitment to top-tier flight training
-                begins with our outstanding team of instructors.
-              </p>
-            </div>
-          </div>
-
-          <a href="/contact" class="btn-primary-outline mt-5 w-fit mx-auto sm:mx-0">
-            Contact Us
-            <FaArrowRight />
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-accent-50 relative isolate z-0 overflow-hidden text-accent-900">
-    <div class="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20">
-      <div class="grid items-start gap-10 text-center sm:text-left lg:grid-cols-2 lg:gap-14">
-        {/* Left: Headline, quote, stat */}
-        <div>
-          <p class="eyebrow inline-flex items-center gap-2 px-3 py-1 text-sm tracking-widest uppercase">
-            <span class="size-1.5 rounded-full bg-primary-500/90"></span>
-            Why Us
-          </p>
-
-          <h2 class="text-4xl leading-tight font-bold tracking-tight sm:text-5xl lg:text-[56px]">
-            We strive to give you the best value
-          </h2>
-
-          {/* Stat (narrowed) */}
-          <div class="mt-7 flex items-center justify-center gap-5 sm:justify-start">
-            <span class="text-shadow-primary-/40 text-6xl font-extrabold text-primary-500 text-shadow-md sm:text-7xl">
-              + 200.00
-            </span>
-            <p class="text-md tracking-widest text-accent-700 uppercase text-left">5 star reviews</p>
-          </div>
-
-          <a href="/contact" class="btn-primary-outline mt-7 w-fit mx-auto sm:mx-0">
-            Contact Us
-            <FaArrowRight />
-          </a>
-        </div>
-
-        {/* Right: Big image, body, CTA */}
-        <div class="lg:pr-4">
-          <figure class="relative">
-            <ImageComp
-              src="/src/assets/students-vegas-aviation-pilot-training.jpg"
-              alt="Vegas Aviation CFI team"
-              class="aspect-4/3 w-full rounded-lg object-cover object-bottom md:aspect-5/4"
-            />
-          </figure>
-        </div>
-      </div>
+      <a href="/contact" class="btn-primary mt-7 w-fit mx-auto">
+        Contact Us
+      </a>
     </div>
   </section>
 
