@@ -63,7 +63,7 @@ h6 {
 }
 
 .btn-primary {
-  @apply bg-primary-600 text-white font-semibold rounded-md px-5 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-accent-900 hover:text-primary-500;
+  @apply bg-primary-600 border border-primary-600 text-white font-semibold rounded-md px-5 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-accent-900 hover:border-accent-900 hover:text-primary-500;
 }
 
 .btn-primary:disabled {
@@ -79,7 +79,7 @@ h6 {
 }
 
 .btn-transparent {
-  @apply bg-primary-500/20 text-accent-50 border border-primary-600 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-600 hover:border-primary-600 hover:text-accent-900;
+  @apply bg-accent-900/40 text-accent-50 border border-primary-600 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-600 hover:border-primary-600 hover:text-accent-900;
 }
 
 .btn-transparent-dark {
@@ -91,7 +91,7 @@ h6 {
 }
 
 a.eyebrow {
-  @apply text-primary-600 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base hover:bg-primary-600 hover:text-slate-900 duration-300 ease-in-out;
+  @apply text-accent-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-primary-600 mb-0! lg:text-base hover:bg-primary-600 duration-300 ease-in-out;
 }
 
 .eyebrow-light {
@@ -129,13 +129,33 @@ textarea:focus {
   @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-primary-900;
 }
 
+article#blog-post h1:not(#blog-title) {
+  @apply text-2xl font-bold mt-8 mb-6;
+}
+
+article#blog-post h2 {
+  @apply text-xl font-bold mt-8 mb-6;
+}
+
+article#blog-post h3 {
+  @apply text-lg font-bold mt-8 mb-6;
+}
+
+article#blog-post .prose p {
+  @apply mb-4;
+}
+
+article#blog-post ul {
+  @apply ml-4 mb-2
+}
+
+article#blog-post ul li {
+  list-style: disc;
+}
+
 strong,
 b {
   font-weight: 700;
-}
-
-.prose p {
-  margin-bottom: 2em;
 }
 
 textarea {
