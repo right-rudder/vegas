@@ -22,4 +22,4 @@ tags:
   ]
 ---
 
-Vegas Aviation is offering discounts for students in the UNLV (University of Nevada, Las Vegas) ROTC.
+Vegas Aviation is offering discounts for students of the UNLV (University of Nevada, Las Vegas) ROTC.
