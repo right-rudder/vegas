@@ -5,6 +5,7 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Banner from "../../components/Banner.astro";
+import Author from "../../components/Author.astro";
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -39,10 +40,8 @@ const data = {
               class="max-h-64 w-full object-cover object-center"
             />
             <div class="p-4">
+              <Author data={post.data} small={true} />
               <h4 class="font-bold mb-4 text-2xl">{post.data.title}</h4>
-              <p class="date">
-                <FormattedDate date={post.data.pubDate} />
-              </p>
             </div>
           </a>
         ))

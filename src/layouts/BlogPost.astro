@@ -3,11 +3,21 @@ import ImageComp from "../components/ImageComp.astro";
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
+import Author from "../components/Author.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
 const { title, pubDate, updatedDate, author, authorImage, authorImageAlt, heroImage, heroImageAlt, readTime, tags } =
   Astro.props;
+
+const authorData = {
+  author,
+  authorImage,
+  authorImageAlt,
+  readTime,
+  pubDate,
+  updatedDate,
+}
 ---
 
 <BaseLayout
@@ -22,30 +32,7 @@ const { title, pubDate, updatedDate, author, authorImage, authorImageAlt, heroIm
         {heroImage && <ImageComp class="w-full h-full object-center object-cover" src={heroImage} alt={heroImageAlt} />}
       </div>
       <div class="mt-12 py-8 px-8 xl:px-0">
-        <div class="flex gap-4 items-center mb-8">
-          <ImageComp src={authorImage} alt={authorImageAlt} class="object-center object-contain size-24" />
-          <div class="flex flex-col gap-2">
-            <p class="font-bold text-2xl">
-              {author}
-            </p>
-            <div>
-              <div class="flex gap-2 text-accent-600">
-                <FormattedDate date={pubDate} />
-                <span>•</span>
-                <span>
-                  {readTime} min read
-                </span>
-              </div>
-              {
-                updatedDate && (
-                  <div class="text-accent-600">
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                )
-              }
-            </div>
-          </div>
-        </div>
+        <Author data={authorData} />
         <h1 id="blog-title" class="text-4xl lg:text-5xl font-bold mb-2">{title}</h1>
         <hr />
         <div class="prose prose-lg max-w-none mt-8">

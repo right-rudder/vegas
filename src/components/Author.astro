@@ -1,0 +1,31 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+import ImageComp from "./ImageComp.astro";
+
+const { data, small = false } = Astro.props;
+---
+
+<div class="flex gap-4 items-center mb-8">
+  <ImageComp src={data.authorImage} alt={data.authorImageAlt} class={`object-center object-contain ${small ? "size-16" : "size-24"}`} />
+  <div class={`flex flex-col ${small ? "gap-1" : "gap-2"}`}>
+    <p class={`font-bold ${small ? "text-xl" : "text-2xl"}`}>
+      {data.author}
+    </p>
+    <div>
+      <div class="flex gap-2 text-accent-600">
+        <FormattedDate date={data.pubDate} />
+        <span>•</span>
+        <span>
+          {data.readTime} min read
+        </span>
+      </div>
+      {
+        data.updatedDate && (
+          <div class="text-accent-600">
+            Last updated on <FormattedDate date={data.updatedDate} />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</div>
