@@ -8,7 +8,7 @@ authorImageAlt: Vegas Aviation Logo
 pubDate: 2024-08-21T12:00:00
 heroImage: "/src/assets/blog/2024-aug-21-two-new-group-ground-schools.jpg"
 heroImageAlt: "CFI with arms resting on a table paying attention to something"
-readTime: 5
+readTime: 1
 tags:
   [
     "updates",
