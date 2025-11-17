@@ -39,7 +39,7 @@ export const data = {
     },
     {
       underHeader: "Our Pilots",
-      title: "Meet the Team",
+      title: "Meet Our CFIs",
       description: `At Vegas Aviation, our success stems from our exceptional FAA Certified Flight Instructors. They offer personalized, high-quality instruction tailored to each student's learning style and goals.
         
         With dedication and passion, our CFIs mentor and guide students, instilling the skills, knowledge, and confidence needed for success in the aviation industry. Our commitment to top-tier flight training begins with our outstanding team of instructors.`,
@@ -55,7 +55,7 @@ export const data = {
     },
     {
       underHeader: "Our Mechanics",
-      title: "Meet the Team",
+      title: "Meet Our Mechanics",
       description: `At Vegas Aviation Services, our dedicated aircraft mechanics are available 7 days a week, ensuring safety and reliability with expert maintenance on every aircraft they handle.
   
         With unparalleled attention to detail, they maintain top-quality performance, providing assurance and peace of mind for all our flight students and maintenance customers.`,
@@ -88,7 +88,7 @@ export const data = {
   whyUs: {
     underHeader: "Why Us",
     title: "We Strive To Give You the Best Value",
-    stat: "+ 200",
+    stat: "200+",
     image: {
       src: "/src/assets/fleet/cessna-172-vegas-aviation-henderson-aircraft-rental.jpg",
       alt: "Cessna 172 landed",
