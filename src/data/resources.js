@@ -31,7 +31,7 @@ export const data = {
           alt: "Purdue Global Logo",
         },
         cta: {
-          url: "/blog/purdue-global-blog-post", /* TODO : Update */
+          url: "/blog/vegas-aviation-partnership-with-purdue-global/",
           text: "Learn More",
         },
       },
@@ -58,6 +58,10 @@ export const data = {
           src: "/src/assets/partners/education-rancho-highschool-logo-vegas-aviation-north-nevada-flight-training-scholarship.png",
           alt: "Rancho High School Logo",
         },
+        cta: {
+          url: "https://www.nntw.org/training/magnet-academy-of-aviation/",
+          text: "Learn More",
+        },
       },
     ],
   },
@@ -67,6 +71,20 @@ export const data = {
     description:
       "Don't let costs ground your dreams- affordable flight training is within reach. Explore loans, scholarships, and flexible payment plans to keep your aviation goals on track.",
     items: [
+      {
+        title: "Stratus Financial",
+        description: `Stratus Financial was founded by FAA Certificated Flight and Ground Instructors passionate about helping others achieve their aviation dreams.
+        
+        We know it's not just about achieving your dreams (because we looked up in the sky every time, we heard an airplane too!), but funding your family's dreams as well.  That's why Stratus was created, because with Stratus, the sky is no longer the limit.`,
+        logo: {
+          src: "/src/assets/partners/finance-stratus-financial-logo-vegas-aviation-pilot-training-summerlin.webp",
+          alt: "Stratus Financial Logo",
+        },
+        cta: {
+          url: "/blog/vegas-aviation-partnership-with-stratus-financial",
+          text: "Learn More",
+        },
+      },
       {
         title: "Flight Training Finance",
         description: `Flight Training Finance offers affordable financing for part-time flight training, including private pilot and instrument ratings—perfect for students training on a flexible schedule.`,
@@ -91,23 +109,9 @@ export const data = {
           text: "Learn More",
         },
       },
-      {
-        title: "Stratus Financial",
-        description: `Stratus Financial was founded by FAA Certificated Flight and Ground Instructors passionate about helping others achieve their aviation dreams.
-        
-        We know it's not just about achieving your dreams (because we looked up in the sky every time, we heard an airplane too!), but funding your family's dreams as well.  That's why Stratus was created, because with Stratus, the sky is no longer the limit.`,
-        logo: {
-          src: "/src/assets/partners/finance-stratus-financial-logo-vegas-aviation-pilot-training-summerlin.webp",
-          alt: "Stratus Financial Logo",
-        },
-        cta: {
-          url: "/blog/stratus-financial-blog-post", /* TODO : Update */
-          text: "Learn More",
-        },
-      },
     ],
   },
-  
+
   insurance: {
     title: "Insurance",
     description:

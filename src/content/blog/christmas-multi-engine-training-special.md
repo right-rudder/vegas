@@ -1,5 +1,6 @@
 ---
 title: "Christmas Special: Multi-Engine Training Discount, Save This Holiday Season!"
+subTitle: "Events, VA News"
 description: "Save on multi-engine training this Christmas with a discounted Beechcraft Duchess rate at Vegas Aviation. Offer ends December 31."
 author: Vegas Aviation Team
 authorImage: /src/assets/vegas-logo-icon-black.png
@@ -10,6 +11,7 @@ heroImageAlt: "Holiday-themed poster promoting multi-engine training discount"
 readTime: 5
 tags:
   [
+    "updates",
     "pilot training",
     "multi-engine",
     "flight training",

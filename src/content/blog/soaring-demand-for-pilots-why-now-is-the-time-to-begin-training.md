@@ -1,5 +1,6 @@
 ---
 title: "Soaring Demand for Pilots: Why Now is the Time to Begin Training"
+subTitle: "Flight Training"
 description: "The aviation industry is in the middle of an unprecedented hiring wave. From commercial airlines to private operators, the need for trained, qualified pilots has never been greater. For aspiring aviators, this moment represents an extraordinary opportunity."
 author: Vegas Aviation Team
 authorImage: /src/assets/vegas-logo-icon-black.png
@@ -10,11 +11,11 @@ heroImageAlt: "Plane taking off with the sky in the background"
 readTime: 5
 tags:
   [
+    "flight training",
     "pilot career",
     "aviation industry",
     "pilot demand",
     "pilot training",
-    "flight training",
     "vegas aviation",
     "las vegas",
   ]

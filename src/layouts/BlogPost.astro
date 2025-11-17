@@ -3,6 +3,7 @@ import ImageComp from "../components/ImageComp.astro";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import Author from "../components/Author.astro";
+import CTAIntroFlight from "../components/CTAIntroFlight.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -40,4 +41,6 @@ const authorData = {
       </div>
     </article>
   </main>
+
+  <CTAIntroFlight />
 </BaseLayout>
