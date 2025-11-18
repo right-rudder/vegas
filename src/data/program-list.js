@@ -7,15 +7,6 @@ export const data = {
   moreHref: "/flight-training/",
   items: [
     {
-      title: "Flight Simulation",
-      desc: "Experience advanced aircraft simulation",
-      href: "/flight-training/flight-simulation/",
-      img: {
-        src: "/src/assets/stock/cockpit-panel-vegas-aviation-flight-simulation.jpg",
-        alt: "Aircraft cockpit panel",
-      },
-    },
-    {
       title: "Private Pilot",
       desc: "Foundation training for aspiring aviators",
       href: "/flight-training/private-pilot/",
@@ -26,19 +17,6 @@ export const data = {
       data: {
         cost: "~ $17,285",
         duration: "62 Airplane + 2 Sim Hours",
-      },
-    },
-    {
-      title: "Commercial Pilot",
-      desc: "Advanced skills for professional pilots",
-      href: "/flight-training/commercial-pilot/",
-      img: {
-        src: "/src/assets/airplane-sideview-vegas-aviation-flight-instruction.jpg",
-        alt: "Airplane sideview grounded",
-      },
-      data: {
-        cost: "~ $17,187",
-        duration: "102 Airplane + 10 Sim Hours",
       },
     },
     {
@@ -55,16 +33,16 @@ export const data = {
       },
     },
     {
-      title: "Certified Flight Instructor",
-      desc: "Learn how to teach others",
-      href: "/flight-training/cfi/",
+      title: "Commercial Pilot",
+      desc: "Advanced skills for professional pilots",
+      href: "/flight-training/commercial-pilot/",
       img: {
-        src: "/src/assets/certified-flight-instructor-vegas-aviation-cfi.jpg",
-        alt: "Two pilots in the cockpit",
+        src: "/src/assets/airplane-sideview-vegas-aviation-flight-instruction.jpg",
+        alt: "Airplane sideview grounded",
       },
       data: {
-        cost: "~ $8,750",
-        duration: "22 Airplane Hours",
+        cost: "~ $17,187",
+        duration: "102 Airplane + 10 Sim Hours",
       },
     },
     {
@@ -78,6 +56,28 @@ export const data = {
       data: {
         cost: "~ $8,110",
         duration: "14 ME Airplane Hours",
+      },
+    },
+    {
+      title: "Certified Flight Instructor",
+      desc: "Learn how to teach others",
+      href: "/flight-training/cfi/",
+      img: {
+        src: "/src/assets/certified-flight-instructor-vegas-aviation-cfi.jpg",
+        alt: "Two pilots in the cockpit",
+      },
+      data: {
+        cost: "~ $8,750",
+        duration: "22 Airplane Hours",
+      },
+    },
+    {
+      title: "Flight Simulation",
+      desc: "Experience advanced aircraft simulation",
+      href: "/flight-training/flight-simulation/",
+      img: {
+        src: "/src/assets/flight-training/flight-simulation-vegas-aviation-flight-training-nevada.jpg",
+        alt: "Backview of two men using a flight simulator",
       },
     },
   ],

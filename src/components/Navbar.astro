@@ -36,20 +36,20 @@ export const menu: MenuItem[] = [
         url: "/flight-training/private-pilot",
       },
       {
-        label: "Commercial Pilot",
-        url: "/flight-training/commercial-pilot",
-      },
-      {
         label: "Instrument Rating",
         url: "/flight-training/instrument-rating",
       },
       {
-        label: "Certified Flight Instructor",
-        url: "/flight-training/cfi",
+        label: "Commercial Pilot",
+        url: "/flight-training/commercial-pilot",
       },
       {
         label: "Multi Engine",
         url: "/flight-training/multi-engine",
+      },
+      {
+        label: "Certified Flight Instructor",
+        url: "/flight-training/cfi",
       },
       {
         label: "Flight Simulation",
@@ -66,13 +66,38 @@ export const menu: MenuItem[] = [
     ],
   },
   {
+    label: "Resources",
+    url: "/resources",
+    children: [
+      {
+        label: "Resources",
+        url: "/resources",
+      },
+      {
+        label: "Education",
+        url: "/resources/education/",
+      },
+      {
+        label: "Financing",
+        url: "/resources/financing/",
+      },
+      {
+        label: "Insurance",
+        url: "/resources/insurance/",
+      },
+      {
+        label: "Scholarships",
+        url: "/resources/scholarships/",
+      },
+    ],
+  },
+  {
     label: "About Us",
     url: "/about-us",
     children: [
       { label: "About Us", url: "/about-us" },
       { label: "Our Team", url: "/about-us/team" },
       { label: "Our Fleet", url: "/about-us/fleet" },
-      { label: "Resources", url: "/resources", },
       { label: "FAQ", url: "/about-us/faq" },
       { label: "Blog", url: "/blog" },
       { label: "Contact Us", url: "/contact" },
@@ -87,8 +112,8 @@ export const footerMenu: MenuItem[] = [
     children: [
       { label: "New to Flying", url: "/new-to-flying/" },
       { label: "Discovery Flight", url: "/discovery-flight/" },
-      { label: "Aircraft Maintenance", url: "/service/aircraft-maintenance/" },
-      { label: "Aircraft Rental", url: "/service/aircraft-rental/" },
+      { label: "Aircraft Services", url: "/services/" },
+      { label: "Resources", url: "/resources/" },
       { label: "FAQ", url: "/about-us/faq/" },
       { label: "Contact Us", url: "/contact/" },
     ],
@@ -102,20 +127,20 @@ export const footerMenu: MenuItem[] = [
         url: "/flight-training/private-pilot/",
       },
       {
-        label: "Commercial Pilot",
-        url: "/flight-training/commercial-pilot/",
-      },
-      {
         label: "Instrument Rating",
         url: "/flight-training/instrument-rating/",
       },
       {
-        label: "Certified Flight Instructor",
-        url: "/flight-training/cfi/",
+        label: "Commercial Pilot",
+        url: "/flight-training/commercial-pilot/",
       },
       {
         label: "Multi Engine",
         url: "/flight-training/multi-engine/",
+      },
+      {
+        label: "Certified Flight Instructor",
+        url: "/flight-training/cfi/",
       },
       {
         label: "Flight Simulation",
@@ -127,12 +152,17 @@ export const footerMenu: MenuItem[] = [
 
 const { pathname, navBarBG = false } = Astro.props;
 ---
+
 <nav id="navbar" class={`navbar ${navBarBG ? "force-navbar-bg" : ""}`}>
   <div class="container px-4 md:px-0">
     <!-- Logo -->
     <a href="/" class="object-contain h-auto">
       <ImageComp class="logo-white w-36 md:w-52" src="/src/assets/vegas-logo.png" alt="Vegas Aviation Logo" />
-      <ImageComp class="logo-black w-36 md:w-52 hidden" src="/src/assets/vegas-logo-black.png" alt="Vegas Aviation Logo" />
+      <ImageComp
+        class="logo-black w-36 md:w-52 hidden"
+        src="/src/assets/vegas-logo-black.png"
+        alt="Vegas Aviation Logo"
+      />
     </a>
 
     <!-- Desktop Menu -->
@@ -575,7 +605,10 @@ const { pathname, navBarBG = false } = Astro.props;
   const logoBlack = document.querySelector(".logo-black");
 
   function UpdateLogo() {
-    if (((window.scrollY > 40 || window.innerWidth <= 1023) && !navbar.classList.contains("scrolled")) || navbar.classList.contains("force-navbar-bg")) {
+    if (
+      ((window.scrollY > 40 || window.innerWidth <= 1023) && !navbar.classList.contains("scrolled")) ||
+      navbar.classList.contains("force-navbar-bg")
+    ) {
       navbar.classList.add("scrolled");
       logoWhite.classList.add("hidden");
       logoBlack.classList.remove("hidden");

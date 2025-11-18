@@ -87,7 +87,7 @@ h6 {
 }
 
 .eyebrow {
-  @apply text-primary-600 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base;
+  @apply text-accent-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base;
 }
 
 a.eyebrow {

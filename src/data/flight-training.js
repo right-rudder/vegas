@@ -73,6 +73,20 @@ export const data = {
       },
     },
     {
+      icon: BookSVG,
+      title: "Instrument Rating",
+      subTitle: "Master precise navigation in any weather",
+      content: `Soar higher with our Instrument Rating program. Tailored for pilots aiming to enhance their skills, our comprehensive curriculum ensures you navigate the skies with precision, rain or shine. Led by experienced instructors and bolstered by modern mechanics, you'll master instrument flight intricacies, from precision approaches to advanced navigation.`,
+      img: {
+        src: "/src/assets/flight-training/cfi-student-side-plane-vegas-aviation-instrument-rating.jpg",
+        alt: "CFI and student to the right side of a plane",
+      },
+      cta: {
+        url: "/flight-training/instrument-rating/",
+        text: "Learn More",
+      },
+    },
+    {
       icon: AirplaneTakingOffSVG,
       title: "Commercial Pilot License",
       subTitle: "Advanced skills for professional pilots",
@@ -89,16 +103,18 @@ export const data = {
       },
     },
     {
-      icon: BookSVG,
-      title: "Instrument Rating",
-      subTitle: "Master precise navigation in any weather",
-      content: `Soar higher with our Instrument Rating program. Tailored for pilots aiming to enhance their skills, our comprehensive curriculum ensures you navigate the skies with precision, rain or shine. Led by experienced instructors and bolstered by modern mechanics, you'll master instrument flight intricacies, from precision approaches to advanced navigation.`,
+      icon: EngineSVG,
+      title: "Multi Engine (ME / MEI)",
+      subTitle: "Fly advanced complex twin engine aircraft",
+      content: `Master the complexities of twin-engine aircraft with seasoned instructors, conquering diverse environments with confidence. Elevate further by becoming a certified multi-engine flight instructor, mentoring aspiring pilots.
+
+        Whether advancing your career or sharing your aviation passion, our programs offer essential training and support.`,
       img: {
-        src: "/src/assets/flight-training/cfi-student-side-plane-vegas-aviation-instrument-rating.jpg",
-        alt: "CFI and student to the right side of a plane",
+        src: "/src/assets/flight-training/beachcraft-duchess-vegas-aviation-multi-engine-rating.jpg",
+        alt: "View from above of aircraft flying above farms",
       },
       cta: {
-        url: "/flight-training/instrument-rating/",
+        url: "/flight-training/multi-engine/",
         text: "Learn More",
       },
     },
@@ -115,22 +131,6 @@ export const data = {
       },
       cta: {
         url: "/flight-training/cfi/",
-        text: "Learn More",
-      },
-    },
-    {
-      icon: EngineSVG,
-      title: "Multi Engine (ME / MEI)",
-      subTitle: "Fly advanced complex twin engine aircraft",
-      content: `Master the complexities of twin-engine aircraft with seasoned instructors, conquering diverse environments with confidence. Elevate further by becoming a certified multi-engine flight instructor, mentoring aspiring pilots.
-
-        Whether advancing your career or sharing your aviation passion, our programs offer essential training and support.`,
-      img: {
-        src: "/src/assets/flight-training/beachcraft-duchess-vegas-aviation-multi-engine-rating.jpg",
-        alt: "View from above of aircraft flying above farms",
-      },
-      cta: {
-        url: "/flight-training/multi-engine/",
         text: "Learn More",
       },
     },
