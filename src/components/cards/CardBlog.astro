@@ -1,0 +1,90 @@
+---
+import ImageComp from "../ImageComp.astro";
+import Author from "../Author.astro";
+import type { CollectionEntry } from "astro:content";
+
+const { blogEntry, smallCard = false } = Astro.props;
+
+interface Props {
+  blogEntry: CollectionEntry<"blog">;
+  smallCard?: boolean;
+}
+---
+
+<a
+  class="rounded-xl overflow-hidden bg-white border-2 border-primary-600 transition-all duration-300 ease-in-out hover:scale-105 hover:ring-2 hover:ring-primary-600"
+  href={`/blog/${blogEntry.id}/`}
+>
+  <ImageComp
+    src={blogEntry.data.heroImage}
+    alt={blogEntry.data.heroImageAlt}
+    class="h-64 w-full object-cover object-center"
+  />
+  <div class="p-4">
+    <Author data={blogEntry.data} small={true} />
+    <h4 class="font-bold mb-2 text-xl text-primary-600 uppercase">{blogEntry.data.subTitle}</h4>
+    <h4 class="font-bold mb-4 text-2xl">{blogEntry.data.title}</h4>
+    <p class="text-accent-600 text-base">
+      {blogEntry.data.description.length < 200
+        ? blogEntry.data.description
+        : blogEntry.data.description.slice(0, 200).trim() + "..."}
+    </p>
+  </div>
+</a>
+
+<!-- <a
+  class={smallCard
+    ? "group block rounded-xl overflow-hidden outline-hidden border-gray-200 border-2 flex-1"
+    : "group block rounded-xl overflow-hidden outline-hidden shadow-lg shadow-gray-400 transition duration-300 hover:scale-105 focus-visible:scale-105"}
+  href={`/blog/${blogEntry.id}/`}
+  data-astro-prefetch
+>
+  {
+    !smallCard && (
+      <div class="relative h-[350px] w-full shrink-0 overflow-hidden">
+        <Image
+          class="size-full object-cover"
+          src={blogEntry.data.cardImage}
+          alt={blogEntry.data.cardImageAlt}
+          draggable={"false"}
+          loading={"eager"}
+          format={"avif"}
+        />
+      </div>
+    )
+  }
+
+  <div class="p-4 sm:p-6">
+    <div>
+      <div class="flex h-full flex-col mb-4 sm:mb-6">
+        <div class="flex items-center">
+          <AvatarBlog blogEntry={blogEntry} />
+
+          <div class="ms-2.5 sm:ms-4">
+            <h4 class="font-bold text-[#0b326b]">
+              {blogEntry.data.author}
+            </h4>
+            <p class="text-xs text-[#0b326b]">
+              {formatDate(blogEntry.data.pubDate)}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex h-full flex-col">
+        <h3
+          class={smallCard
+            ? "text-balance text-lg font-bold text-[#0b326b] transition-colors duration-300 group-hover:text-orange-400 sm:text-xl"
+            : "text-balance text-lg font-bold text-orange-400 sm:text-3xl"}
+        >
+          {blogEntry.data.title}
+        </h3>
+        <p class="mt-2 text-pretty text-[#0b326b]">
+          {blogEntry.data.description}
+        </p>
+      </div>
+    </div>
+  </div>
+</a> -->
