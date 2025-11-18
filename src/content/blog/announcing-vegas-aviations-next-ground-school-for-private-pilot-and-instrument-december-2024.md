@@ -11,7 +11,6 @@ heroImageAlt: "Promotional banner for ground school"
 readTime: 5
 tags:
   [
-    "events",
     "updates",
     "ground school",
     "private pilot",
