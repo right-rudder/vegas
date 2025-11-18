@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Banner from "../../components/Banner.astro";
+import CTAIntroFlight from "../../components/CTAs/CTAIntroFlight.astro";
+import CTASimple from "../../components/CTAs/CTASimple.astro";
+import Partners from "../../components/Partners.astro";
+import PartnerSection from "../../components/sections/PartnerSection.astro";
+
+import { data } from "../../data/resources";
+
+const newData = JSON.parse(JSON.stringify(data));
+
+newData.financing.items = newData.financing.items.splice(1, 2); /* Remove Stratus item, it has a whole section for it */
+newData.financing.title = "More of Our Partners";
+---
+
+<BaseLayout
+  siteTitle={newData.financing.siteTitle}
+  siteDescription={newData.siteDescription}
+  siteKeywords={newData.siteKeywords}
+>
+  <Banner data={newData.financing.header} slot="hero" />
+
+  <CTASimple content={newData.financing.introSection} />
+
+  <PartnerSection data={newData.financing.stratusFinancial} />
+
+  <section class="overflow-hidden bg-accent-100 text-accent-900">
+    <div class="max-w-7xl text-center mx-auto px-4 pt-12 sm:px-8 lg:px-16">
+      <Partners data={newData.financing} />
+    </div>
+  </section>
+
+  <CTAIntroFlight />
+</BaseLayout>

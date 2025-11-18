@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Banner from "../../components/Banner.astro";
+import CTASimple from "../../components/CTAs/CTASimple.astro";
+import PartnerSection from "../../components/sections/PartnerSection.astro";
+import Partners from "../../components/Partners.astro";
+
+import { data } from "../../data/resources";
+---
+
+<BaseLayout
+  siteTitle={data.scholarships.siteTitle}
+  siteDescription={data.siteDescription}
+  siteKeywords={data.siteKeywords}
+>
+  <Banner data={data.scholarships.header} slot="hero" />
+
+  <PartnerSection data={data.scholarships.dataSectionOne} />
+
+  <section class="overflow-hidden bg-accent-100 text-accent-900">
+    <div class="max-w-7xl text-center mx-auto grid grid-cols-1 gap-8 px-4 pt-12 sm:px-8 lg:px-16 xl:grid-cols-2">
+      <Partners data={data.scholarships.cardsOne} />
+
+      <Partners data={data.scholarships.cardsTwo} />
+
+      <Partners data={data.scholarships.cardsThree} />
+
+      <Partners data={data.scholarships.cardsFour} />
+    </div>
+  </section>
+
+  <PartnerSection data={data.scholarships.dataSectionTwo} />
+
+  <CTASimple content={data.scholarships.cta} />
+</BaseLayout>

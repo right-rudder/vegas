@@ -4,37 +4,29 @@ import ImageComp from "./ImageComp.astro";
 const { data } = Astro.props;
 ---
 
-<section class="relative isolate overflow-hidden bg-accent-100 text-accent-900">
-  <div class="relative px-4 pt-12 sm:px-8 lg:grid-cols-2 lg:gap-8 lg:px-16">
-    <div class="max-w-7xl text-center mx-auto">
-      <h2 class="mt-3 text-4xl leading-tight font-extrabold sm:text-5xl lg:text-6xl">
-        {data.title}
-      </h2>
+<div>
+  <h2 class="mt-3 text-4xl leading-tight font-extrabold">
+    {data.title}
+  </h2>
 
-      <div class="mt-4 mx-auto max-w-4xl text-base text-left sm:text-lg">
-        {data.description && <p class="text-center mb-12 text-lg font-medium" set:html={data.description} />}
+  <div class="mt-4 mx-auto max-w-4xl text-left">
+    {data.description && <p class="text-center mb-12 text-lg font-medium" set:html={data.description} />}
 
-        {
-          data.items.map((item: any) => (
-            <div class="flex flex-col gap-8 mb-12 bg-white border border-accent-300 rounded-xl p-4 transition-all duration-300 ease-in-out md:flex-row hover:scale-105 hover:shadow-xl hover:shadow-accent-300/60">
-              <ImageComp
-                src={item.logo.src}
-                alt={item.logo.alt}
-                class="mx-auto object-contain object-center md:w-1/4"
-              />
-              <div class="flex-1">
-                <h3 class="text-2xl font-medium mb-4">{item.title}</h3>
-                <p class="whitespace-pre-line mb-4">{item.description}</p>
-                {item.cta && (
-                  <a href={item.cta.url} class="btn-primary mx-auto w-fit">
-                    {item.cta.text}
-                  </a>
-                )}
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
+    {
+      data.items.map((item: any) => (
+        <div class="flex flex-col items-center gap-4 mb-12 bg-white border border-accent-300 rounded-xl p-4 transition-all duration-300 ease-in-out min-h-72 hover:scale-105 hover:shadow-xl hover:shadow-accent-300/60 md:flex-row">
+          <ImageComp src={item.logo.src} alt={item.logo.alt} class={`mx-auto object-contain object-center w-56 h-32${item.logo.class ? " " + item.logo.class : ""}`} />
+          <div class="flex-1">
+            <h3 class="text-2xl font-medium mb-4">{item.title}</h3>
+            <p class="whitespace-pre-line mb-4">{item.description}</p>
+            {item.cta && (
+              <a href={item.cta.url} class="btn-primary w-fit">
+                {item.cta.text}
+              </a>
+            )}
+          </div>
+        </div>
+      ))
+    }
   </div>
-</section>
+</div>

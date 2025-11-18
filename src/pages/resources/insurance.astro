@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ImageComp from "../../components/ImageComp.astro";
 import Banner from "../../components/Banner.astro";
-import { FaArrowRight } from "react-icons/fa";
-import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
-import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
 import CTASimple from "../../components/CTAs/CTASimple.astro";
+import PartnerSection from "../../components/sections/PartnerSection.astro";
+import Partners from "../../components/Partners.astro";
 
-const data = {
+import { data } from "../../data/resources";
+
+/* const data = {
     siteTitle: "Insurance Requirements | Vegas Aviation",
     siteDescription: SITE_DESCRIPTION,
     siteKeywords: KEYWORDS,
@@ -125,16 +125,22 @@ const data = {
             link: "/contact",
         },
     },
-};
-
-
-
+}; */
 ---
 <BaseLayout
-  siteTitle={data.siteTitle}
+  siteTitle={data.insurance.siteTitle}
   siteDescription={data.siteDescription}
   siteKeywords={data.siteKeywords}>
-  <Banner data={data.header} slot="hero" />
-  <CTASimple content={data.introSection} />
-  <CTAIntroFlight />
+
+  <Banner data={data.insurance.header} slot="hero" />
+
+  <PartnerSection data={data.insurance.requirements} />
+  
+  <section class="overflow-hidden bg-accent-100 text-accent-900">
+    <div class="max-w-7xl text-center mx-auto px-4 pt-12 sm:px-8 lg:px-16">
+      <Partners data={data.insurance} />
+    </div>
+  </section>
+  
+  <CTASimple content={data.insurance.cta} />
 </BaseLayout>
