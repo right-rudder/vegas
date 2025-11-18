@@ -2,8 +2,8 @@ import { SITE_DESCRIPTION, KEYWORDS } from "./consts";
 
 export const data = {
   siteTitle: "Page Not Found | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
-  siteKeywords: KEYWORDS /* TODO : Update? */,
+  siteDescription: SITE_DESCRIPTION,
+  siteKeywords: KEYWORDS,
   header: {
     image: {
       src: "/src/assets/pilot-flying-over-city-vegas-aviation-summerlin-become-a-pilot.jpg",

@@ -2,8 +2,8 @@ import { SITE_DESCRIPTION, KEYWORDS, COMPANY_NAME, EMAIL_ADDRESS } from "./const
 
 export const privacyPolicies = {
   siteTitle: `Privacy Policy | ${COMPANY_NAME}`,
-  siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
-  siteKeywords: KEYWORDS /* TODO : Update? */,
+  siteDescription: SITE_DESCRIPTION,
+  siteKeywords: KEYWORDS,
 
   header: {
     image: {

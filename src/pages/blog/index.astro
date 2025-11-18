@@ -2,10 +2,10 @@
 import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
 import ImageComp from "../../components/ImageComp.astro";
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Banner from "../../components/Banner.astro";
 import Author from "../../components/Author.astro";
+import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
@@ -26,26 +26,36 @@ const data = {
 <BaseLayout siteTile="Blog | Vegas Aviation" siteDescription={SITE_DESCRIPTION} siteKeywords={KEYWORDS}>
   <Banner data={data.header} />
 
-  <section class="max-w-7xl mx-auto">
-    <ul class="grid grid-cols-1 gap-6 px-4 py-12 md:grid-cols-2 lg:grid-cols-3">
-      {
-        posts.map((post) => (
-          <a
-            class="rounded-xl overflow-hidden bg-white border-2 border-primary-600 transition-all duration-300 ease-in-out hover:scale-105 hover:ring-2 hover:ring-primary-600"
-            href={`/blog/${post.id}/`}
-          >
-            <ImageComp
-              src={post.data.heroImage}
-              alt={post.data.heroImageAlt}
-              class="max-h-64 w-full object-cover object-center"
-            />
-            <div class="p-4">
-              <Author data={post.data} small={true} />
-              <h4 class="font-bold mb-4 text-2xl">{post.data.title}</h4>
-            </div>
-          </a>
-        ))
-      }
-    </ul>
+  <section class="bg-accent-100">
+    <div class="max-w-7xl mx-auto">
+      <ul class="grid grid-cols-1 gap-6 px-4 py-12 md:grid-cols-2 lg:grid-cols-3">
+        {
+          posts.map((post) => (
+            <a
+              class="rounded-xl overflow-hidden bg-white border-2 border-primary-600 transition-all duration-300 ease-in-out hover:scale-105 hover:ring-2 hover:ring-primary-600"
+              href={`/blog/${post.id}/`}
+            >
+              <ImageComp
+                src={post.data.heroImage}
+                alt={post.data.heroImageAlt}
+                class="h-64 w-full object-cover object-center"
+              />
+              <div class="p-4">
+                <Author data={post.data} small={true} />
+                <h4 class="font-bold mb-2 text-xl text-primary-600 uppercase">{post.data.subTitle}</h4>
+                <h4 class="font-bold mb-4 text-2xl">{post.data.title}</h4>
+                <p class="text-accent-600 text-base">
+                  {post.data.description.length < 200
+                    ? post.data.description
+                    : post.data.description.slice(0, 200).trim() + "..."}
+                </p>
+              </div>
+            </a>
+          ))
+        }
+      </ul>
+    </div>
   </section>
+
+  <CTAIntroFlight />
 </BaseLayout>
