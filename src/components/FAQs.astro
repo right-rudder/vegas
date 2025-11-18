@@ -98,38 +98,6 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
     }
 
     expand() {
-      // // Set the element as "being expanding"
-      // this.isExpanding = true;
-      // // Get the current fixed height of the element
-      // const startHeight = `${this.el.offsetHeight}px`;
-      // // Calculate the open height of the element (summary height + content height)
-      // const summaryHeight = this.summary?.offsetHeight || 0;
-      // const contentHeight = this.content?.offsetHeight || 0;
-
-      // const endHeight = `${summaryHeight + contentHeight}px`;
-
-      // // If there is already an animation running
-      // if (this.animation) {
-      //   // Cancel the current animation
-      //   this.animation.cancel();
-      // }
-
-      // // Start a WAAPI animation
-      // this.animation = this.el.animate(
-      //   {
-      //     // Set the keyframes from the startHeight to endHeight
-      //     height: [startHeight, endHeight],
-      //   },
-      //   {
-      //     duration: 400,
-      //     easing: "ease-out",
-      //   }
-      // );
-      // // When the animation is complete, call onAnimationFinish()
-      // this.animation.onfinish = () => this.onAnimationFinish(true);
-      // // If the animation is cancelled, isExpanding variable is set to false
-      // this.animation.oncancel = () => (this.isExpanding = false);
-
       // Apply fixed height before opening
       this.el.style.height = `${this.el.offsetHeight}px`;
 
@@ -156,16 +124,6 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
     }
 
     onAnimationFinish(open: boolean) {
-      // // Set the open attribute based on the parameter
-      // this.el.open = open;
-      // // Clear the stored animation
-      // this.animation = new Animation();
-      // // Reset isClosing & isExpanding
-      // this.isClosing = false;
-      // this.isExpanding = false;
-      // // Remove the overflow hidden and the fixed height
-      // this.el.style.height = this.el.style.overflow = "";
-
       this.el.open = open;
       this.animation = new Animation();
       this.isClosing = false;
@@ -236,7 +194,7 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
 </style>
 
 <div class="bg-accent-100">
-  <div class="mx-auto text-center flex flex-col items-center justify-center max-w-7xl p-8 px-4 lg:px-0">
+  <div class="mx-auto text-center flex flex-col items-center justify-center max-w-7xl px-5 py-16 md:px-8 lg:px-10">
     <div class="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
       {
         showTitle && (

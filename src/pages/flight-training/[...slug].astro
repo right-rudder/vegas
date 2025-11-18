@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Banner from "../../components/Banner.astro";
-import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
+import CTAIntroFlight from "../../components/CTAs/CTAIntroFlight.astro";
 import FAQs from "../../components/FAQs.astro";
 import CenteredSection from "../../components/flight-training/CenteredSection.astro";
 import CostSection from "../../components/flight-training/CostSection.astro";
@@ -28,7 +28,7 @@ const program = Astro.props;
 >
   <Banner data={program.data.header} slot="hero" />
 
-  <div class="bg-accent-200">
+  <div class="bg-accent-100">
     {program.data.sections.map((item: any, index: number) => (
       <div>
         { index > 0 ? <SectionDivider /> : ""} 
@@ -40,8 +40,6 @@ const program = Astro.props;
       <CostSection data={program.data.costs} />
     )}
 
-    {!program.data.faqs && !program.data.costs ? <SectionDivider /> : ""}
-  
     {program.data.faqs && (
       <FAQs faqs={program.data.faqs} />
     )}
