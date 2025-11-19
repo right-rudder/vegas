@@ -1,9 +1,20 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "./consts";
+import { KEYWORDS, LOCATION_KEYWORDS, PROGRAM_KEYWORDS } from "./consts";
+
+const keywords = [
+  KEYWORDS,
+  LOCATION_KEYWORDS.secondary,
+  PROGRAM_KEYWORDS.privatePilot,
+  PROGRAM_KEYWORDS.instrument,
+  PROGRAM_KEYWORDS.commercial,
+  PROGRAM_KEYWORDS.flightInstructor,
+  PROGRAM_KEYWORDS.multiEngine,
+  PROGRAM_KEYWORDS.flightSimulation,
+].join(", ");
 
 export const faq = {
   siteTitle: "FAQ | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
-  siteKeywords: KEYWORDS /* TODO : Update? */,
+  siteDescription: "Clear up any queries you might have with the Frequented Asked Questions (FAQ) at Vegas Aviation. Whether you're interested in becoming a career pilot or just looking for a discovery flight, we can help you figure out the best path, what are the costs and the perfect schedule.",
+  siteKeywords: keywords,
   customBreadcrumbs: [
     { name: "Home", url: "/" },
     { name: "About Us", url: "/about-us" },

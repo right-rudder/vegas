@@ -1,9 +1,17 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "./consts";
+import { KEYWORDS, LOCATION_KEYWORDS, PRIMARY_KEYWORDS } from "./consts";
+
+const keywords = [
+  KEYWORDS, 
+  PRIMARY_KEYWORDS.transactional,
+  LOCATION_KEYWORDS.primary,
+  LOCATION_KEYWORDS.secondary,
+].join(", ");
 
 export const data = {
   siteTitle: "Discovery Flight | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION,
-  siteKeywords: KEYWORDS,
+  siteDescription:
+    "Curious about becoming a pilot? A Discovery Flight lets you take the controls and experience what it's really like to fly, no experience needed. Schedule your Discovery Flight at Vegas Aviation.",
+  siteKeywords: keywords,
 
   header: {
     image: {

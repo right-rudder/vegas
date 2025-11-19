@@ -1,9 +1,16 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "../consts";
+import { KEYWORDS, LOCATION_KEYWORDS } from "../consts";
+
+const keywords = [
+  KEYWORDS, 
+  "aircraft maintenance, aircraft damage repairs, avionics installation, avionics upgrades, aircraft-on-ground, aog, avionics, turbine aircraft, piston aircraft",
+  LOCATION_KEYWORDS.primary,
+  LOCATION_KEYWORDS.secondary,
+].join(", ");
 
 export const data = {
   siteTitle: "Aircraft Maintenance | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION,
-  siteKeywords: KEYWORDS,
+  siteDescription: "Your aircraft is a valuable investment, Vegas Aviation's certified mechanics and state-of-the-art facility ensure it stays safe, reliable, and performing at its best.",
+  siteKeywords: keywords,
 
   header: {
     image: {

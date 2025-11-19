@@ -1,4 +1,15 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "./consts";
+import { KEYWORDS, LOCATION_KEYWORDS, PROGRAM_KEYWORDS } from "./consts";
+
+const keywords = [
+  KEYWORDS,
+  LOCATION_KEYWORDS.secondary,
+  PROGRAM_KEYWORDS.privatePilot,
+  PROGRAM_KEYWORDS.instrument,
+  PROGRAM_KEYWORDS.commercial,
+  PROGRAM_KEYWORDS.flightInstructor,
+  PROGRAM_KEYWORDS.multiEngine,
+  PROGRAM_KEYWORDS.flightSimulation,
+].join(", ");
 
 const AirplaneSVG = `
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
@@ -38,8 +49,8 @@ const SimulationSVG = `
 
 export const data = {
   siteTitle: "Flight Training | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
-  siteKeywords: KEYWORDS /* TODO : Update? */,
+  siteDescription: "Join Vegas Aviation for premier flight training programs. Our expert instructors and cutting-edge facilities ensure top-tier instruction. Whether you're aiming for a private pilot license or advancing to commercial ratings, we offer comprehensive training for confident flying.",
+  siteKeywords: keywords,
   header: {
     image: {
       src: "/src/assets/flight-training/banner-pilots-cockpit-backview-vegas-aviation-flight-training.jpg",

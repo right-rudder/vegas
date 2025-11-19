@@ -1,9 +1,16 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "../consts";
+import { SITE_DESCRIPTION, KEYWORDS, LOCATION_KEYWORDS } from "../consts";
+
+const keywords = [
+  KEYWORDS, 
+  LOCATION_KEYWORDS.primary,
+  LOCATION_KEYWORDS.secondary,
+].join(", ");
+
 
 export const data = {
   siteTitle: "About Us | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
-  siteKeywords: KEYWORDS /* TODO : Update? */,
+  siteDescription: SITE_DESCRIPTION,
+  siteKeywords: keywords,
   header: {
     image: {
       src: "/src/assets/about-us-cfi-team-vegas-aviation-flight-lessons.jpg",

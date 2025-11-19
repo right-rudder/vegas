@@ -1,9 +1,16 @@
-import { SITE_DESCRIPTION, KEYWORDS, COMPANY_NAME, EMAIL_ADDRESS } from "./consts";
+import { KEYWORDS, COMPANY_NAME, EMAIL_ADDRESS, LOCATION_KEYWORDS } from "./consts";
+
+const keywords = [
+  KEYWORDS, 
+  LOCATION_KEYWORDS.primary,
+  LOCATION_KEYWORDS.secondary,
+].join(", ");
+
 
 export const privacyPolicies = {
   siteTitle: `Privacy Policy | ${COMPANY_NAME}`,
-  siteDescription: SITE_DESCRIPTION,
-  siteKeywords: KEYWORDS,
+  siteDescription: "Document page with information on Vegas Aviation's Privacy Policy",
+  siteKeywords: keywords,
 
   header: {
     image: {

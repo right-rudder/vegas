@@ -1,9 +1,17 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "./consts";
+import { KEYWORDS, LOCATION_KEYWORDS } from "./consts";
+
+const keywords = [
+  KEYWORDS,
+  "pilot resources, flight training financing, aircraft rental insurance, flight training insurance, flight training scholarships, pilot scholarships",
+  LOCATION_KEYWORDS.primary,
+  LOCATION_KEYWORDS.secondary,
+].join(", ");
+
 
 export const data = {
   siteTitle: "Pilot Resources | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION,
-  siteKeywords: KEYWORDS,
+  siteDescription: "Achieve your aviation dreams through Vegas Aviation's partnerships with scholarships, financing and insurance designed specifically for pilots.",
+  siteKeywords: keywords,
 
   header: {
     image: {

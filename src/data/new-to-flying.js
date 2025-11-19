@@ -1,9 +1,17 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "./consts";
+import { KEYWORDS, LOCATION_KEYWORDS, PRIMARY_KEYWORDS } from "./consts";
+
+const keywords = [
+  KEYWORDS,
+  PRIMARY_KEYWORDS.transactional,
+  PRIMARY_KEYWORDS.informational,
+  LOCATION_KEYWORDS.secondary,
+].join(", ");
 
 export const data = {
   siteTitle: "New to Flying | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
-  siteKeywords: KEYWORDS /* TODO : Update? */,
+  siteDescription:
+    "Start your pilot career at Vegas Aviation during the boom of the expected shortage of pilots in the near future. There will be a need for over 600,000 new pilots in the next 20 years, this is your opportunity to become one of them.",
+  siteKeywords: keywords,
   header: {
     image: {
       src: "/src/assets/pilot-flying-over-city-vegas-aviation-summerlin-become-a-pilot.jpg",

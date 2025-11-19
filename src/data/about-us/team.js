@@ -1,14 +1,12 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "../consts";
+import { KEYWORDS, LOCATION_KEYWORDS } from "../consts";
+
+const keywords = [KEYWORDS, LOCATION_KEYWORDS.secondary].join(", ");
 
 export const data = {
-  siteTitle: "About Us | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
-  siteKeywords: KEYWORDS /* TODO : Update? */,
+  siteTitle: "Our Team | Vegas Aviation",
+  siteDescription: "Vegas Aviation's instructors, staff, and leadership share one mission: to provide safe, supportive, and high-value pilot training for every student. Get to know the team who will guide you on your aviation journey.",
+  siteKeywords: keywords,
   header: {
-    /* image: {
-      src: "/src/assets/cfi-group-airplane-vegas-aviation-las-vegas-flight-instructor.webp",
-      alt: "Vegas Aviation CFI team in front of a plane",
-    }, */
     image: {
       src: "/src/assets/team/team-vegas-aviation-flight-school-north-las-vegas.jpg",
       alt: "Vegas Aviation team in office",
