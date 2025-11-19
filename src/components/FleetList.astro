@@ -1,37 +1,7 @@
 ---
 import ImageComp from "./ImageComp.astro";
 
-const example = {
-  title: "Our Fleet",
-  fleet: [
-    {
-      id: "C1",
-      tail: "N1950F",
-      image:
-        "/src/assets/fleet/Fleet_C1-N1950F_Vegas-Aviation_Las-Vegas-Nevada_Flight-School_Pilot-Training_Aircraft-Rental.jpg",
-      type: "Cessna 172N",
-      summary: {
-        seats: 4,
-        engine: "Lycoming O-320 Series (Reciprocating)",
-        horsepower: 180,
-        weight: "<12,500 lbs",
-        speed: "105 mph",
-      },
-      details: {
-        owner: "ACE OF SPADES AVIATION LLC",
-        serialNumber: "17273040",
-        airworthinessClass: "Standard / Normal",
-        certificateIssueDate: "2019-09-04",
-        airworthinessDate: "1979-08-18",
-        lastActionDate: "2022-08-19",
-        expiration: "2025-09-30",
-        modeS: "050276434 / A17D1C",
-      },
-    },
-  ],
-};
-
-const { content = example } = Astro.props;
+const { content } = Astro.props;
 ---
 
 <section class="bg-accent-100 relative isolate z-0 overflow-hidden text-accent-900">

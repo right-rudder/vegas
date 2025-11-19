@@ -11,6 +11,7 @@ import BecomePilotSummary from "../components/BecomePilotSummary.astro";
 import BlogFeed from "../components/BlogFeed.astro";
 import Marquee from "../components/Marquee.astro";
 import GoogleReviews from "../components/GoogleReviews.astro";
+import TestimonialsCarousel from "../components/TestimonialsCarousel";
 
 import { faq } from "../data/faqs";
 import contactData from "../data/forms/contact.js";
@@ -44,14 +45,14 @@ const data = {
   <Marquee data={partners} />
   <ProgramsList />
   <HomePageAbout />
-  <CTAWhyUs />
   <GoogleReviews />
-  <!-- <TestimonialsCarousel
-    items={[]}
-    className="from-sky-900/30 to-accent-100 bg-linear-to-b text-accent-900"
-    client:load
-  /> -->
+  <CTAWhyUs />
   <ContactForm content={contactData} />
+  <TestimonialsCarousel
+    items={[]}
+    className="from-accent-100 via-white to-accent-100 bg-linear-to-b text-accent-900"
+    client:load
+  />
   <FAQs faqs={faq.privatePilot.items} />
   <BlogFeed />
   <CTAIntroFlight />

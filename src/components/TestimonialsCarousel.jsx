@@ -1,10 +1,8 @@
 import { useEffect, useMemo, useRef, useState, useLayoutEffect } from "react";
 import { BiSolidQuoteLeft } from "react-icons/bi";
+import { BiSolidQuoteRight } from "react-icons/bi";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { testimonials } from "../data/testimonials";
-
-/* TODO : Remove? Currently not used */
-/* TODO : Allow height change on mobile */
 
 export default function TestimonialsCarousel({ items, autoPlayMs = 0, className = "" }) {
   const data = useMemo(
@@ -73,35 +71,37 @@ export default function TestimonialsCarousel({ items, autoPlayMs = 0, className 
     >
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 lg:px-10">
         <div className="mb-10 text-center">
-          <p className="eyebrow-dark inline-flex items-center gap-2 tracking-widest">What Our Students Say</p>
+          <p className="eyebrow-dark inline-flex items-center gap-2 tracking-widest">Student Testimonials</p>
           <h2 className="mt-2 text-5xl font-semibold">Inspiring Stories from Our Students</h2>
         </div>
 
         <div className="flex w-full flex-col items-center justify-start rounded-lg transition-all duration-300">
-          <BiSolidQuoteLeft className="text-primary-600 size-10" />
-
           <div
             id="testimonials-carousel"
-            className="relative flex w-full items-stretch justify-stretch overflow-hidden"
+            className="relative flex w-full overflow-hidden justify-stretch items-stretch"
           >
             {data.map((t, i) => (
               <div
                 key={t.id}
                 ref={(el) => (refs.current[i] = el)}
-                className={`flex grow shrink-0 basis-full w-full flex-col items-center justify-center px-4 text-center transition duration-500 ease-in-out md:px-6 ${
+                className={`flex grow shrink-0 basis-full w-full flex-col items-center justify-around px-4 text-center transition duration-500 ease-in-out md:px-6 ${
                   index === i ? "opacity-100" : "opacity-0"
                 }`}
                 id={`testimonial-card-${i}`}
               >
-                <blockquote className="mt-4 text-xl leading-relaxed text-balance whitespace-pre-line md:text-2xl">
-                  “{t.quote}”
-                </blockquote>
-                <div className="mt-6 shrink-0">
-                  <div className="text-center">
-                    <p className="text-primary-600 text-3xl font-semibold">{t.author}</p>
-                    {t.role && <p className="text-muted-500 text-lg">{t.role}</p>}
+                <BiSolidQuoteLeft className="text-primary-600 size-16 my-2" />
+                <div>
+                  <blockquote className="mt-4 text-xl leading-relaxed text-balance whitespace-pre-line md:text-2xl">
+                    “{t.quote}”
+                  </blockquote>
+                  <div className="mt-6 shrink-0">
+                    <div className="text-center">
+                      <p className="text-primary-600 text-3xl font-semibold">{t.author}</p>
+                      {t.role && <p className="text-muted-500 text-lg">{t.role}</p>}
+                    </div>
                   </div>
                 </div>
+                <BiSolidQuoteRight className="text-primary-600 size-16 my-2" />
               </div>
             ))}
           </div>
@@ -123,8 +123,8 @@ export default function TestimonialsCarousel({ items, autoPlayMs = 0, className 
                 aria-label={`Go to testimonial ${i + 1}`}
                 aria-current={index === i}
                 onClick={() => goTo(i)}
-                className={`h-2.5 w-2.5 rounded-full transition-all cursor-pointer ${
-                  index === i ? "bg-primary-600 w-6" : "bg-primary-600/20 hover:bg-accent-900/30"
+                className={`h-4 w-4 rounded-full transition-all cursor-pointer ${
+                  index === i ? "bg-primary-600 w-10" : "bg-primary-600/20 hover:bg-accent-900/30"
                 }`}
               />
             ))}
