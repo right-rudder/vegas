@@ -24,14 +24,14 @@ export const data = {
     list: {
       title: "We Offer",
       items: [
-        "Basic and advanced repairs and maintenance",
-        "Oil changes",
-        "100-hour inspections",
-        "Pre-purchase inspections",
-        "Annual inspections",
-        "Aircraft damage repairs",
-        "Avionics installations and upgrades",
-        "Upholstery and more",
+        "Basic and advanced repairs and maintenance.",
+        "Oil changes.",
+        "100-hour inspections.",
+        "Pre-purchase inspections.",
+        "Annual inspections.",
+        "Aircraft damage repairs.",
+        "Avionics installations and upgrades.",
+        "Upholstery and more.",
       ],
     },
     button: {

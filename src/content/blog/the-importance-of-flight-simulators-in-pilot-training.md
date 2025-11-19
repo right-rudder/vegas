@@ -51,7 +51,7 @@ Simulators are particularly effective for IFR training, allowing students to pra
 
 Flight Simulators can be updated with the latest advancements in avionics and navigation systems.  This ensures students are trained on the most current equipment and procedures, keeping them ahead in their aviation careers.
 
-![Backview of two men using Vegas Aviation's Flight Simulator](/blog/2024-apr-15-two-persons-using-vegas-aviations-flight-simulator.jpg)
+![Backview of two men using Vegas Aviation's Flight Simulator](/blog/2024-apr-15-two-people-using-vegas-aviations-flight-simulator.jpg)
 
 # Conclusion
 

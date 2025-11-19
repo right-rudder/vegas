@@ -142,8 +142,8 @@ export const data = {
 
         With a range of scenarios and aircraft to choose from, you can perfect your maneuvers, practice emergency procedures, and prepare for real-world flights with confidence.`,
       img: {
-        src: "/src/assets/flight-training/instrument-panel-vegas-aviation-flight-simulation.jpg",
-        alt: "Cockpit instrument panel",
+        src: "/src/assets/flight-training/two-people-using-vegas-aviations-flight-simulator-vegas-aviation-nevada.jpg",
+        alt: "Backview of two people using a flight simulator",
       },
       cta: {
         url: "/flight-training/flight-simulation/",

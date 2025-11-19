@@ -24,7 +24,7 @@ export const data = {
     {
       underHeader: "About us",
       title: "Get to Know Us",
-      description: ` Where quality flight training meets safety and support. Our fun family culture enhances top-notch instruction and meticulous aircraft maintenance.
+      description: `Where quality flight training meets safety and support. Our fun family culture enhances top-notch instruction and meticulous aircraft maintenance.
       
       Since its inception, Vegas Aviation has continuously grown and adapted, enriching its offerings and facilities to align with the dynamic demands of the aviation sector.`,
       image: {
