@@ -64,24 +64,24 @@ export default defineConfig({
     "/scholarships": "/resources/scholarships",
     "/academic-partnerships": "/resources/education",
     "/insurance-requirements-for-students-and-renters": "/resources/insurance",
+
     "/aircraft-services": "/services",
     "/aircraft-rental": "/services/aircraft-rental",
     "/aircraft-maintenance": "/services/aircraft-maintenance",
+
     "/private-pilot": "/flight-training/private-pilot",
     "/instrument-rating": "/flight-training/instrument-rating",
     "/commercial-pilot": "/flight-training/commercial-pilot",
     "/flight-simulation": "/flight-training/flight-simulation",
     "/multi-engine-add-on": "/flight-training/multi-engine",
     "/certified-flight-instructor": "/flight-training/cfi",
+
     "/contact-us": "/contact",
+
     "/flight-training/summertime-flying": "/blog/summertime-flying",
     "/flight-training/csn-aviation-program": "/blog/csn-aviation-program",
     "/flight-training/hot-weather-flight-tips": "/blog/hot-weather-flight-tips",
-    "/updates/vegas-aviation-partnership-with-purdue-global": "/blog/vegas-aviation-partnership-with-purdue-global",
     "/flight-training/rancho-h-s-aviation-magnet": "/blog/rancho-h-s-aviation-magnet",
-    "/updates/vegas-aviation-partnership-with-stratus-financial":
-      "/blog/vegas-aviation-partnership-with-stratus-financial",
-    "/updates/announcing-two-additional-group-ground-schools": "/blog/announcing-two-additional-group-ground-schools",
     "/flight-training/the-importance-of-flight-simulators-in-pilot-training":
       "/blog/the-importance-of-flight-simulators-in-pilot-training",
     "/flight-training/7-reasons-las-vegas-is-ideal-for-flight-training":
@@ -90,5 +90,25 @@ export default defineConfig({
       "/blog/10-reasons-why-the-beechcraft-duchess-is-the-best-plane",
     "/flight-training/guide-to-choosing-a-flight-school-for-your-pilot-training":
       "/blog/guide-to-choosing-a-flight-school-for-your-pilot-training",
+    "/flight-training/soaring-demand-for-pilots-why-now-is-the-time-to-begin-training":
+      "/blog/soaring-demand-for-pilots-why-now-is-the-time-to-begin-training",
+    "flight-training/discounts-for-military-and-university-of-las-vegas-unlv-rotc":
+      "/blog/discounts-for-military-and-university-of-las-vegas-unlv-rotc",
+    "flight-training/why-pilots-get-their-shirts-cut-after-a-first-solo-flight-the-story-behind-this-timeless-tradition":
+      "/blog/why-pilots-get-their-shirts-cut-after-a-first-solo-flight-the-story-behind-this-timeless-tradition",
+    "flight-training/7-reasons-why-the-cessna-172-is-the-best-plane-to-start-your-flight-training":
+      "/blog/7-reasons-why-the-cessna-172-is-the-best-plane-to-start-your-flight-training",
+
+    "/updates/vegas-aviation-partnership-with-purdue-global": "/blog/vegas-aviation-partnership-with-purdue-global",
+    "/updates/vegas-aviation-partnership-with-stratus-financial":
+      "/blog/vegas-aviation-partnership-with-stratus-financial",
+    "/updates/announcing-two-additional-group-ground-schools": "/blog/announcing-two-additional-group-ground-schools",
+    "updates/announcing-vegas-aviations-next-ground-school-for-private-pilot-and-instrument-december-2024": "/blog/announcing-vegas-aviations-next-ground-school-for-private-pilot-and-instrument-december-2024",
+    "updates/new-vegas-aviation-private-pilot-and-instrument-ground-school-training": "/blog/new-vegas-aviation-private-pilot-and-instrument-ground-school-training",
+
+    "/events/turn-your-flight-training-into-college-credit-join-purdue-global-at-vegas-aviation-oct-31": "/blog/turn-your-flight-training-into-college-credit-join-purdue-global-at-vegas-aviation-oct-31",
+
+    "aircraft-maintenance/the-importance-of-seasonal-aircraft-maintenance-checks": "/blog/the-importance-of-seasonal-aircraft-maintenance-checks",
+    "aircraft-maintenance/understanding-the-cost-of-aircraft-maintenance-what-owners-need-to-know": "/blog/understanding-the-cost-of-aircraft-maintenance-what-owners-need-to-know",
   },
 });
