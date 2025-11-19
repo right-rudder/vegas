@@ -54,7 +54,7 @@ export const data = {
         
         Vegas Aviation partners with Purdue University Global to offer flight students a flexible path to a Bachelor of Science in Professional Flight or Aviation Management. This program combines our expert flight training with Purdue's top-tier aviation education, preparing students for diverse careers in the industry.`,
         logo: {
-          src: "/src/assets/partners/education-purdu-global-logo-vegas-aviation-nevada-flight-training-scholarship.png",
+          src: "/src/assets/partners/education-purdue-global-logo-vegas-aviation-nevada-flight-training-scholarship.png",
           alt: "Purdue Global Logo",
         },
         cta: {
