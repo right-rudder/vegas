@@ -10,6 +10,36 @@ import CardBlog from "../../components/cards/CardBlog.astro";
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
+/* TODO : Fix */
+
+const blogPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  name: "Vegas Aviation Blog",
+  description:
+    "Aviation blog with flight training tips, pilot education resources, and industry news from Vegas Aviation. Expert insights for aspiring and experienced pilots.",
+  url: "https://vegasaviation.com/blog/",
+  publisher: {
+    "@type": "Organization",
+    name: "Vegas Aviation",
+    /* logo: {
+      "@type": "ImageObject",
+      url: "https://vegasaviation.com/images/vegas-aviation-logo.svg",
+    }, */
+  },
+  blogPost: posts.slice(0, 10).map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.data.title,
+    description: post.data.description,
+    url: `https://vegasaviation.com/blog/${post.id}`,
+    datePublished: post.data.pubDate.toISOString(),
+    author: {
+      "@type": "Person",
+      name: post.data.author,
+    },
+  })),
+};
+
 const data = {
   header: {
     image: {
@@ -24,18 +54,17 @@ const data = {
 };
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify(blogPageSchema)} />
+
 <BaseLayout siteTile="Blog | Vegas Aviation" siteDescription={SITE_DESCRIPTION} siteKeywords={KEYWORDS}>
   <Banner data={data.header} />
 
   <section class="bg-accent-100">
     <div class="max-w-7xl mx-auto">
       <ul class="grid grid-cols-1 gap-6 px-4 py-12 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => <CardBlog blogEntry={post} />)}
         {
-          posts.map((post) => (
-            <CardBlog blogEntry={post} />
-          ))
-        }
-        {/* <a
+          /* <a
           class="rounded-xl overflow-hidden bg-white border-2 border-primary-600 transition-all duration-300 ease-in-out hover:scale-105 hover:ring-2 hover:ring-primary-600"
           href={`/blog/${post.id}/`}
         >
@@ -54,7 +83,8 @@ const data = {
                 : post.data.description.slice(0, 200).trim() + "..."}
             </p>
           </div>
-        </a> */}
+        </a> */
+        }
       </ul>
     </div>
   </section>

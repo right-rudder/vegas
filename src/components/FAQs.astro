@@ -10,18 +10,35 @@ class FAQsClass {
 }
 
 const { faqs = FAQsClass, showTitle = true } = Astro.props;
+
+// Generate FAQ schema for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq: any) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+// Convert schema to string for inclusion in script tag
+const faqSchemaString = JSON.stringify(faqSchema);
 ---
 
-<script>
+<script  define:vars={{faqSchemaString}} >
   class Accordion {
     el;
     summary;
     content;
-    animation: Animation;
+    animation;
     isClosing;
     isExpanding;
 
-    constructor(el: any) {
+    constructor(el) {
       // Store the <details> element
       this.el = el;
       // Store the <summary> element
@@ -36,12 +53,12 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
       // Store if the element is expanding
       this.isExpanding = false;
       // Detect user clicks on the summary element
-      this.summary?.addEventListener("click", (e: any) => this.onClick(e));
+      this.summary?.addEventListener("click", (e) => this.onClick(e));
 
       this.el.accordionObj = this;
     }
 
-    onClick(e: MouseEvent) {
+    onClick(e) {
       // Stop default behaviour from the browser
       e.preventDefault();
       // Add an overflow on the <details> to avoid content overflowing
@@ -123,7 +140,7 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
       this.animation.oncancel = () => (this.isExpanding = false);
     }
 
-    onAnimationFinish(open: boolean) {
+    onAnimationFinish(open) {
       this.el.open = open;
       this.animation = new Animation();
       this.isClosing = false;
@@ -136,6 +153,12 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
   document.querySelectorAll("details").forEach((el) => {
     new Accordion(el);
   });
+
+  // Add schema to document head
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.text = faqSchemaString;
+  document.head.appendChild(script);
 </script>
 
 <style>
