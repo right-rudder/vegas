@@ -29,7 +29,7 @@ const faqSchema = {
 const faqSchemaString = JSON.stringify(faqSchema);
 ---
 
-<script  define:vars={{faqSchemaString}} >
+<script define:vars={{faqSchemaString}}>
   class Accordion {
     el;
     summary;
@@ -227,23 +227,23 @@ const faqSchemaString = JSON.stringify(faqSchema);
         )
       }
 
-      <dl class="flex flex-col gap-4 mt-6 w-full justify-stretch items-stretch">
+      <div class="flex flex-col gap-4 mt-6 w-full justify-stretch items-stretch">
         {
           faqs.map((faq: FAQsClass) => (
             <details class="w-full relative">
               <summary class="p-1 py-2 pl-12 flex bg-accent-900 text-white font-semibold cursor-pointer rounded-sm overflow-hidden text-left relative list-none focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-primary-900">
                 <span>{faq.question}</span>
               </summary>
-              <div class="w-full text-left mt-0.5" set:html={faq.answer} />
+              <div class="w-full text-left mt-0.5 font-force-roboto" set:html={faq.answer} />
             </details>
           ))
         }
-      </dl>
+      </div>
     </div>
     <small class="mt-2"
       >Got any more questions? <a
         href="/contact"
-        class="text-primary-500 hover:text-accent-950 font-semibold transition-all duration-300">Contact Us</a
+        class="text-primary-700 font-semibold transition-all duration-300 hover:text-accent-950">Contact Us</a
       >
     </small>
   </div>

@@ -10,6 +10,7 @@ const {
   loading = "lazy",
   widths: userWidths,
   sizes: userSizes,
+  fetchpriority = "auto"
 } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -38,4 +39,5 @@ const sizes =
   widths={widths}
   sizes={sizes}
   loading={loading}
+  fetchpriority={fetchpriority}
 />
