@@ -20,7 +20,7 @@ const { content = discoveryData } = Astro.props;
           )
         }
 
-        <ul class="mt-12 space-y-6">
+        <ul class="mt-12 space-y-6 font-force-roboto">
           {
             content?.info?.addressLine1 && (
               <li class="flex items-center gap-4">
@@ -31,7 +31,7 @@ const { content = discoveryData } = Astro.props;
                   />
                 </svg>
                 <div>
-                  <p class="text-muted-100 font-semibold">{content?.info?.locationLabel || "Location"}</p>
+                  <p class="text-muted-100 font-bold">{content?.info?.locationLabel || "Location"}</p>
                   <div class="flex flex-wrap gap-1">
                     <p class="text-muted-300">{content.info.addressLine1},</p>
                     {content?.info?.addressLine2 && <p class="text-muted-300">{content.info.addressLine2}</p>}
@@ -51,7 +51,7 @@ const { content = discoveryData } = Astro.props;
                   />
                 </svg>
                 <div>
-                  <p class="text-muted-100 font-semibold">{content?.info?.phoneLabel || "Phone"}</p>
+                  <p class="text-muted-100 font-bold">{content?.info?.phoneLabel || "Phone"}</p>
                   <a
                     href={`tel:${content.info.phoneValue}`}
                     class="text-muted-300 transition-colors duration-300 ease-in-out hover:text-primary-500!"

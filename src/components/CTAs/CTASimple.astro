@@ -30,7 +30,7 @@ const { content } = Astro.props;
           content.list && (
             <div>
               <p class="mt-2 font-semibold">{content.list.title}</p>
-              <ul class="text-left">
+              <ul class="text-left font-force-roboto">
                 {content.list.items.map((item: string) => (
                   <li class="flex gap-4 items-center my-1">
                     <FaCheckCircle className="text-primary-600 size-5 shrink-0" />
