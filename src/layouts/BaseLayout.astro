@@ -93,24 +93,22 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
     )}
     
     <!-- Google Tag Manager -->
-    <!-- <script>
-      (function (w, d, s, l, i) {
-        (w as any)[l] = (w as any)[l] || [];
-        (w as any)[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
+    <script type="text/javascript">
+      (function(w, d, s, l, i) {
+        w[l]=w[l]||[];w[l].push({
+          'gtm.start': new Date().getTime(),
+          event:'gtm.js'
         });
+
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        var script = j as HTMLScriptElement;
-        script.async = true;
-        script.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        if (f && f.parentNode) {
-          f.parentNode.insertBefore(script, f);
-        }
-      })(window, document, "script", "dataLayer", "GTM-WQWV363W");
-    </script> -->
+          dl= l != 'dataLayer' ? '&l=' + l : '';
+        
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window, document, 'script', 'dataLayer', 'GTM-TRSPV7CX');
+    </script>
     <!-- End Google Tag Manager -->
 
     <!-- Preconnect to external domains to improve performance -->
@@ -132,15 +130,11 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <!-- <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id="
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"></iframe></noscript
-    > -->
-
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRSPV7CX" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <HeaderContact />
     <header class="sticky w-full h-0 inset-0 z-50">
       <Navbar pathname={pathname} navBarBG={navBarBG}></Navbar>

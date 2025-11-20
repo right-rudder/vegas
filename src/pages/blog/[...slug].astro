@@ -16,8 +16,6 @@ const post = Astro.props;
 
 const metaDescription = post.data.description || `Read ${post.data.title} on Vegas Aviation's blog`;
 
-/* TODO : Fix */
-
 const blogPostSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -30,10 +28,10 @@ const blogPostSchema = {
   publisher: {
     "@type": "Organization",
     name: "Vegas Aviation",
-    /* logo: {
+    logo: {
       "@type": "ImageObject",
-      url: "https://vegasaviation.com/images/vegas-aviation-logo.svg",
-    }, */
+      url: "https://vegasaviation.com/images/vegas-logo-black.png",
+    },
   },
   datePublished: post.data.pubDate.toISOString(),
   dateModified: post.data.pubDate.toISOString(),

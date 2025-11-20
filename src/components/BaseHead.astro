@@ -55,37 +55,14 @@ const {
 
 <meta name="generator" content={Astro.generator} />
 
-<!-- TODO : Google tag (gtag.js) -->
-
-<!-- Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCNNK7Z4RF"></script>
-  <script type="text/javascript">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-HCNNK7Z4RF');
-</script>
- -->
-<!-- Google Tag Manager -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCNNK7Z4RF"></script>
-  <script type="text/javascript">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-HCNNK7Z4RF');
-</script> -->
-<!-- End Google Tag Manager -->
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FlightSchool",
   "name": "Vegas Aviation",
   "url": "https://vegasaviation.com/",
-  /* "logo": "https://vegasaviation.com/assets/vegas-aviation-logo-written-short.png",
-  "image": "https://vegasaviation.com/assets/vegas-aviation-logo-written-short.png", */
+  "logo": "https://vegasaviation.com/images/vegas-logo-black.png",
+  "image": "https://vegasaviation.com/images/vegas-logo-black.png",
   "description": "Vegas Aviation is a full-service flight school and aircraft maintenance provider located at North Las Vegas Airport (KVGT). We offer FAA-certified pilot training from Private Pilot through Commercial, Instrument, and Instructor ratings, along with aircraft rental and in-house maintenance. With a modern fleet of Cessna 172s, experienced instructors, and a supportive culture, Vegas Aviation helps students achieve their aviation goals safely and efficiently in the clear skies of Southern Nevada.",
   "telephone": "+1 (888) 235-9834",
   "email": "info@vegasaviation.com",
@@ -114,12 +91,19 @@ const {
         "Wednesday",
         "Thursday",
         "Friday",
+      ],
+      "opens": "08:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
         "Saturday",
         "Sunday",
       ],
       "opens": "08:00",
-      "closes": "20:00"
-    }
+      "closes": "16:00"
+    },
   ],
   "sameAs": [
     "https://www.instagram.com/vegasaviationllc",
@@ -142,27 +126,25 @@ const {
     "priceCurrency": "USD",
     "price": "Varies"
   },
-  /* "identifier": [
+  "identifier": [
     {
       "@type": "PropertyValue",
       "name": "IATA Code",
-      "value": "FME"
+      "value": "VGT"
     },
     {
       "@type": "PropertyValue",
       "name": "ICAO Code",
-      "value": "KFME"
+      "value": "KVGT"
     },
     {
       "@type": "PropertyValue",
       "name": "Airport Code",
-      "value": "FME"
+      "value": "KVGT"
     }
-  ] */
+  ]
 }
 </script>
-
-
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>

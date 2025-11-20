@@ -1,16 +1,12 @@
 ---
 import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
-import ImageComp from "../../components/ImageComp.astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Banner from "../../components/Banner.astro";
-import Author from "../../components/Author.astro";
 import CTAIntroFlight from "../../components/CTAs/CTAIntroFlight.astro";
 import CardBlog from "../../components/cards/CardBlog.astro";
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-
-/* TODO : Fix */
 
 const blogPageSchema = {
   "@context": "https://schema.org",
@@ -22,10 +18,10 @@ const blogPageSchema = {
   publisher: {
     "@type": "Organization",
     name: "Vegas Aviation",
-    /* logo: {
+    logo: {
       "@type": "ImageObject",
-      url: "https://vegasaviation.com/images/vegas-aviation-logo.svg",
-    }, */
+      url: "https://vegasaviation.com/images/vegas-logo-black.png",
+    },
   },
   blogPost: posts.slice(0, 10).map((post) => ({
     "@type": "BlogPosting",
