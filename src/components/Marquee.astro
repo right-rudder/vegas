@@ -10,10 +10,10 @@ const { data } = Astro.props;
   >
     <h2
       set:html={data.heading}
-      class="mx-auto max-w-2xl text-6xl font-bold capitalize tracking-tight text-accent"
+      class="mx-auto max-w-2xl text-4xl font-extrabold leading-tight capitalize tracking-tight sm:text-5xl"
     />
     <p
-      class="mx-auto my-8 max-w-xl text-lg leading-8"
+      class="mx-auto my-8 max-w-xl text-lg text-accent-700 md:text-xl"
       set:html={data.description}
     />
     <div class="group">
