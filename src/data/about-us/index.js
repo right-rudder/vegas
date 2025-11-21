@@ -53,11 +53,11 @@ export const data = {
       image: {
         src: "/src/assets/team-vegas-aviation-zero-to-hero-aviation.png",
         alt: "Vegas Aviation CFI team",
-      },
+      },/* 
       button: {
         title: "Know Our Team",
         link: "/about-us/team",
-      },
+      }, */
       orientation: "right",
     },
     {
@@ -69,11 +69,11 @@ export const data = {
       image: {
         src: "/src/assets/maintenance/service-maintenance-aircraft-vegas-aviation-nevada-flight-school-cesnna.jpg",
         alt: "Two members of the Vegas Aviation mechanics team working on an aircraft",
-      },
+      },/* 
       button: {
         title: "Know Our Team",
         link: "/about-us/team",
-      },
+      }, */
       orientation: "left",
     },
     {

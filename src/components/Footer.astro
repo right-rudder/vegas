@@ -25,7 +25,11 @@ const today = new Date();
 
         <!-- Social icons -->
         <div class="flex items-start align-middle gap-4">
-          <a href={INSTAGRAM_URL} target="_blank" class="transition-colors duration-200 ease-in-out hover:text-primary-600">
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            class="transition-colors duration-200 ease-in-out hover:text-primary-600"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
@@ -34,7 +38,11 @@ const today = new Date();
             </svg>
             <span class="sr-only">Vegas Aviation Instagram account link</span>
           </a>
-          <a href={FACEBOOK_URL} target="_blank" class="transition-colors duration-200 ease-in-out hover:text-primary-600">
+          <a
+            href={FACEBOOK_URL}
+            target="_blank"
+            class="transition-colors duration-200 ease-in-out hover:text-primary-600"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
@@ -53,9 +61,16 @@ const today = new Date();
         {
           footerMenu.map((item) => (
             <div class="min-w-40">
-              <a class="font-bold text-xl transition-colors duration-200 ease-in-out hover:text-primary-600" href={item.url}>
-                {item.label}
-              </a>
+              {item.url ? (
+                <a
+                  class="font-bold text-lg transition-colors duration-200 ease-in-out hover:text-primary-600"
+                  href={item.url}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <span class="font-bold text-lg transition-colors duration-200 ease-in-out">{item.label}</span>
+              )}
               <ul class="mt-2">
                 {item.children &&
                   item.children.map((item) => (
@@ -109,25 +124,29 @@ const today = new Date();
       </div>
     </div>
 
-    <div class="w-full mb-6">
-     
-    </div>
+    <div class="w-full mb-6"></div>
   </div>
 
-  <div class="relative z-10 flex flex-col justify-center items-center gap-6 py-6 text-sm text-center sm:flex-row sm:gap-2">
-     <span class="inline-block text-center sm:w-1/3">
-        Powered by
-        <a href="https://rightruddermarketing.com/" target="_blank" class="font-medium transition-colors duration-200 ease-in-out hover:text-primary-600">
-          More Right Rudder
-        </a>
-      </span>
-      <p class="inline-block text-center sm:w-1/3">
-        &copy; Copyright {today.getFullYear()} • {COMPANY_NAME} • All rights reserved.
-      </p>
-      <p class="inline-block text-center sm:w-1/3">
-        <a href="/privacy-policy" class="transition-colors duration-200 hover:text-primary-600">Privacy Policy</a>
-        •
-        <a href="/terms-of-service" class="transition-colors duration-200 hover:text-primary-600">Terms of Service</a>
-      </p>
+  <div
+    class="relative z-10 flex flex-col justify-center items-center gap-6 py-6 text-sm text-center sm:flex-row sm:gap-2"
+  >
+    <span class="inline-block text-center sm:w-1/3">
+      Powered by
+      <a
+        href="https://rightruddermarketing.com/"
+        target="_blank"
+        class="font-medium transition-colors duration-200 ease-in-out hover:text-primary-600"
+      >
+        More Right Rudder
+      </a>
+    </span>
+    <p class="inline-block text-center sm:w-1/3">
+      &copy; Copyright {today.getFullYear()} • {COMPANY_NAME} • All rights reserved.
+    </p>
+    <p class="inline-block text-center sm:w-1/3">
+      <a href="/privacy-policy" class="transition-colors duration-200 hover:text-primary-600">Privacy Policy</a>
+      •
+      <a href="/terms-of-service" class="transition-colors duration-200 hover:text-primary-600">Terms of Service</a>
+    </p>
   </div>
 </footer>

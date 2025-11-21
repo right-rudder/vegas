@@ -61,6 +61,7 @@ export const menu: MenuItem[] = [
     label: "Services",
     url: "/services",
     children: [
+      { label: "Services", url: "/services" },
       { label: "Aircraft Maintenance", url: "/services/aircraft-maintenance" },
       { label: "Aircraft Rental", url: "/services/aircraft-rental" },
     ],
@@ -96,7 +97,7 @@ export const menu: MenuItem[] = [
     url: "/about-us",
     children: [
       { label: "About Us", url: "/about-us" },
-      { label: "Our Team", url: "/about-us/team" },
+      /* { label: "Our Team", url: "/about-us/team" }, */
       { label: "Our Fleet", url: "/about-us/fleet" },
       { label: "FAQ", url: "/about-us/faq" },
       { label: "Blog", url: "/blog" },
@@ -108,7 +109,7 @@ export const menu: MenuItem[] = [
 export const footerMenu: MenuItem[] = [
   {
     label: "Quick Links",
-    url: "/",
+    url: "",
     children: [
       { label: "New to Flying", url: "/new-to-flying/" },
       { label: "Discovery Flight", url: "/discovery-flight/" },
