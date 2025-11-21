@@ -17,7 +17,7 @@ const threeMostRecentPosts: CollectionEntry<"blog">[] = blogPosts.splice(0, 3);
 
 <section class="py-8 text-accent-900 bg-accent-100">
   <div class="mx-auto max-w-7xl px-5 py-16 md:px-8 lg:px-10">
-    <h2 class="text-center text-5xl font-bold uppercase mb-8 border-b-4 gradient-border-image pb-2 max-w-5xl mx-auto">Recent Aviation News</h2>
+    <h2 class="text-center text-4xl font-bold uppercase mb-8 border-b-4 gradient-border-image pb-2 max-w-5xl mx-auto sm:text-5xl">Recent Aviation News</h2>
 
     <div class="grid grid-cols-1 gap-4 xl:grid-cols-3">
       {threeMostRecentPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} smallCard={true} />)}

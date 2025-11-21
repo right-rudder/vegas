@@ -29,16 +29,24 @@ const faqSchema = {
 const faqSchemaString = JSON.stringify(faqSchema);
 ---
 
-<script define:vars={{faqSchemaString}}>
+<script define:vars={{ faqSchemaString }}>
+  // Add schema to document head
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.text = faqSchemaString;
+  document.head.appendChild(script);
+</script>
+
+<script>
   class Accordion {
     el;
     summary;
     content;
-    animation;
+    animation: Animation;
     isClosing;
     isExpanding;
 
-    constructor(el) {
+    constructor(el: any) {
       // Store the <details> element
       this.el = el;
       // Store the <summary> element
@@ -53,12 +61,12 @@ const faqSchemaString = JSON.stringify(faqSchema);
       // Store if the element is expanding
       this.isExpanding = false;
       // Detect user clicks on the summary element
-      this.summary?.addEventListener("click", (e) => this.onClick(e));
+      this.summary?.addEventListener("click", (e: any) => this.onClick(e));
 
       this.el.accordionObj = this;
     }
 
-    onClick(e) {
+    onClick(e: any) {
       // Stop default behaviour from the browser
       e.preventDefault();
       // Add an overflow on the <details> to avoid content overflowing
@@ -75,6 +83,9 @@ const faqSchemaString = JSON.stringify(faqSchema);
     shrink() {
       // Set the element as "being closed"
       this.isClosing = true;
+
+      // Prevent outline visual bug
+      this.summary.style.outlineStyle = "none";
 
       // Store the current height of the element
       const startHeight = `${this.el.offsetHeight}px`;
@@ -118,6 +129,9 @@ const faqSchemaString = JSON.stringify(faqSchema);
       // Apply fixed height before opening
       this.el.style.height = `${this.el.offsetHeight}px`;
 
+      // Prevent outline visual bug
+      this.summary.style.outlineStyle = "none";
+
       // Temporarily keep it closed so the browser doesn’t jump
       this.el.open = true;
       this.content.style.display = "block"; // ensure content is measurable
@@ -140,25 +154,20 @@ const faqSchemaString = JSON.stringify(faqSchema);
       this.animation.oncancel = () => (this.isExpanding = false);
     }
 
-    onAnimationFinish(open) {
+    onAnimationFinish(open: boolean) {
       this.el.open = open;
       this.animation = new Animation();
       this.isClosing = false;
       this.isExpanding = false;
       this.el.style.height = "";
       this.el.style.overflow = "";
+      this.summary.style.outlineStyle = "";
     }
   }
 
   document.querySelectorAll("details").forEach((el) => {
     new Accordion(el);
   });
-
-  // Add schema to document head
-  const script = document.createElement("script");
-  script.type = "application/ld+json";
-  script.text = faqSchemaString;
-  document.head.appendChild(script);
 </script>
 
 <style>
@@ -183,9 +192,9 @@ const faqSchemaString = JSON.stringify(faqSchema);
     height: auto;
   }
 
-  details[open] > summary:focus {
+  /*  details[open] > summary:focus {
     outline-style: none !important;
-  }
+  } */
 
   details > summary > span {
     position: relative;
@@ -221,7 +230,7 @@ const faqSchemaString = JSON.stringify(faqSchema);
     <div class="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
       {
         showTitle && (
-          <h2 class="my-3 text-5xl font-bold text-center max-w-5xl mx-auto uppercase border-b-4 gradient-border-image pb-2">
+          <h2 class="my-3 text-4xl font-bold text-center max-w-5xl mx-auto uppercase border-b-4 gradient-border-image pb-2 sm:text-5xl">
             Frequently Asked Questions
           </h2>
         )
@@ -231,7 +240,7 @@ const faqSchemaString = JSON.stringify(faqSchema);
         {
           faqs.map((faq: FAQsClass) => (
             <details class="w-full relative">
-              <summary class="p-1 py-2 pl-12 flex bg-accent-900 text-white font-semibold cursor-pointer rounded-sm overflow-hidden text-left relative list-none focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-primary-900">
+              <summary class="p-1 py-2 pl-12 flex bg-accent-900 text-white font-semibold cursor-pointer rounded-sm overflow-hidden text-left relative list-none outline-2 focus:outline-primary-900">
                 <span>{faq.question}</span>
               </summary>
               <div class="w-full text-left mt-0.5 font-force-roboto" set:html={faq.answer} />

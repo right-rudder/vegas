@@ -72,7 +72,7 @@ export default function TestimonialsCarousel({ items, autoPlayMs = 0, className 
       <div className="mx-auto w-full max-w-7xl px-5 py-16 md:px-8 lg:px-10">
         <div className="mb-10 text-center">
           <p className="eyebrow-dark inline-flex items-center gap-2 tracking-widest">Student Testimonials</p>
-          <h2 className="mt-2 text-5xl font-semibold">Inspiring Stories from Our Students</h2>
+          <h2 className="mt-2 text-4xl font-semibold sm:text-5xl">Inspiring Stories from Our Students</h2>
         </div>
 
         <div className="flex w-full flex-col items-center justify-start rounded-lg transition-all duration-300">

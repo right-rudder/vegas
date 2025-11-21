@@ -11,7 +11,7 @@ const { content = contactData } = Astro.props;
     {/* LEFT: Info panel */}
     <div class="w-full overflow-hidden rounded-lg text-accent-900 top-28 lg:w-1/2 lg:self-start lg:sticky">
       <div class="text-accent-900 lg:p-10">
-        <h2 class="text-5xl font-extrabold text-slate-950">
+        <h2 class="text-4xl font-extrabold text-slate-950 sm:text-5xl">
           {content?.info?.title}
         </h2>
         {
@@ -83,7 +83,7 @@ const { content = contactData } = Astro.props;
       }
       {
         content?.heading && (
-          <h2 id="contact-heading" class="mt-4 text-4xl text-slate-950 font-extrabold lg:text-5xl">
+          <h2 id="contact-heading" class="mt-4 text-4xl text-slate-950 font-extrabold sm:text-5xl">
             {content.heading}
           </h2>
         )
