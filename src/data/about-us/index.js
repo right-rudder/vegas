@@ -1,9 +1,16 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "../consts";
+import { SITE_DESCRIPTION, KEYWORDS, LOCATION_KEYWORDS } from "../consts";
+
+const keywords = [
+  KEYWORDS, 
+  LOCATION_KEYWORDS.primary,
+  LOCATION_KEYWORDS.secondary,
+].join(", ");
+
 
 export const data = {
   siteTitle: "About Us | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
-  siteKeywords: KEYWORDS /* TODO : Update? */,
+  siteDescription: SITE_DESCRIPTION,
+  siteKeywords: keywords,
   header: {
     image: {
       src: "/src/assets/about-us-cfi-team-vegas-aviation-flight-lessons.jpg",
@@ -24,7 +31,7 @@ export const data = {
     {
       underHeader: "About us",
       title: "Get to Know Us",
-      description: ` Where quality flight training meets safety and support. Our fun family culture enhances top-notch instruction and meticulous aircraft maintenance.
+      description: `Where quality flight training meets safety and support. Our fun family culture enhances top-notch instruction and meticulous aircraft maintenance.
       
       Since its inception, Vegas Aviation has continuously grown and adapted, enriching its offerings and facilities to align with the dynamic demands of the aviation sector.`,
       image: {
@@ -46,11 +53,11 @@ export const data = {
       image: {
         src: "/src/assets/team-vegas-aviation-zero-to-hero-aviation.png",
         alt: "Vegas Aviation CFI team",
-      },
+      },/* 
       button: {
         title: "Know Our Team",
         link: "/about-us/team",
-      },
+      }, */
       orientation: "right",
     },
     {
@@ -62,11 +69,11 @@ export const data = {
       image: {
         src: "/src/assets/maintenance/service-maintenance-aircraft-vegas-aviation-nevada-flight-school-cesnna.jpg",
         alt: "Two members of the Vegas Aviation mechanics team working on an aircraft",
-      },
+      },/* 
       button: {
         title: "Know Our Team",
         link: "/about-us/team",
-      },
+      }, */
       orientation: "left",
     },
     {

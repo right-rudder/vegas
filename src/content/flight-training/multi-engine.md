@@ -4,9 +4,30 @@ siteDescription: "Vegas Aviation’s Multi-Engine Land Add-on and Multi-Engine I
 siteKeywords:
   - "flight training"
   - "multi engine"
+  - "multi-engine rating Nevada, twin-engine training Las Vegas, MEL course, complex aircraft training Las Vegas"
+  - "learn to fly"
   - "Vegas Aviation"
   - "Las Vegas flight school"
-  - "learn to fly"
+  - "flight training Nevada"
+  - "North Las Vegas pilot training"
+  - "discovery flight Las Vegas"
+  - "private pilot training Las Vegas"
+  - "instrument rating Nevada"
+  - "commercial pilot course Las Vegas"
+  - "certified flight instructor training Nevada"
+  - "multi-engine rating Las Vegas"
+  - "best flight school in Las Vegas"
+  - "aircraft rental Las Vegas"
+  - "aircraft maintenance Nevada"
+  - "learn to fly in Las Vegas"
+  - "pilot training near Henderson"
+  - "flight school North Las Vegas Airport"
+  - "Vegas Aviation Cessna 172"
+  - "aviation programs Nevada"
+  - "FAA certified flight school Las Vegas"
+  - "affordable pilot training Las Vegas"
+  - "Henderson flight school, Summerlin aviation training, Nevada flight instruction, Boulder City flight lessons, Southern Nevada pilot school"
+  - "North Las Vegas Airport flight training, Las Vegas flight lessons"
 header:
   image:
     src: "/src/assets/flight-training/beachcraft-duchess-vegas-aviation-multi-engine-rating.jpg"
@@ -21,9 +42,6 @@ sections:
   - eyebrow: "Get Started"
     title: "Unlock New Horizons: Multi-Engine Land (MEL) Add-On Rating"
     subTitle: "Fly advanced complex twin engine aircraft"
-    img:
-      src: "/src/assets/flight-training/cockpit-instrument-panel-vegas-aviation-multi-engine-boulder-city.jpg"
-      alt: "Cockpit instrument panel"
     bullets:
       - "Enhance your aviation skills with our Multi-Engine Land (MEL) Add-On Rating."
       - "Gain confidence in piloting complex, multi-engine aircraft."
@@ -37,9 +55,6 @@ sections:
   - eyebrow: "Get Started"
     title: "Become a Leader in Aviation: Earn Your Multi-Engine Instructor Rating"
     subTitle: "Fly advanced complex twin engine aircraft"
-    img:
-      src: "/src/assets/stock/airplane-flying-above-mountains-left-wing-vegas-aviation-summerlin.jpg"
-      alt: "View of the left wing of an airplane above mountains"
     bullets:
       - "Expand career opportunities as a certified Multi-Engine Instructor (MEI)."
       - "Master teaching techniques for instructing on multi-engine aircraft."

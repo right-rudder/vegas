@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Banner from "../../components/Banner.astro";
+import CTAIntroFlight from "../../components/CTAs/CTAIntroFlight.astro";
+import CTASimple from "../../components/CTAs/CTASimple.astro";
+import Partners from "../../components/Partners.astro";
+
+import { data } from "../../data/resources";
+---
+
+<BaseLayout siteTitle={data.education.siteTitle} siteDescription={data.siteDescription} siteKeywords={data.siteKeywords}>
+  <Banner data={data.education.header} slot="hero" />
+
+  <CTASimple content={data.education.introSection} />
+
+  <section class="overflow-hidden bg-accent-100 text-accent-900">
+    <div class="max-w-7xl text-center mx-auto px-4 pt-12 sm:px-8 lg:px-16">
+      <Partners data={data.education} />
+    </div>
+  </section>
+
+  <CTAIntroFlight />
+</BaseLayout>

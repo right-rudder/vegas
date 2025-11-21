@@ -4,16 +4,16 @@ import ImageComp from "../ImageComp.astro";
 const { content } = Astro.props;
 ---
 
-<div class="bg-white py-24 md:py-32">
+<div class="bg-accent-100 py-16">
   <div class="mx-auto flex flex-col max-w-7xl gap-20 px-6 items-start lg:px-8 xl:flex-row">
-    <div class="max-w-2xl flex-1 top-28 lg:sticky">
+    <div class="max-w-2xl flex-1 top-28 text-center sm:text-left lg:sticky">
       <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">{content.title}</h2>
       <p class="mt-6 text-lg/8 text-gray-600">{content.description}</p>
     </div>
     <ul role="list" class="flex-1 divide-y divide-gray-200">
       {
         content.team.map((member: any) => (
-          <li class="group flex flex-col gap-10 py-12 first:pt-0 last:pb-0 sm:flex-row">
+          <li class="group flex flex-col items-center text-center gap-10 py-12 first:pt-0 last:pb-0 sm:text-left sm:flex-row">
             <ImageComp
               src={member.image.src}
               alt={member.image.alt}

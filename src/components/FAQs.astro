@@ -10,7 +10,32 @@ class FAQsClass {
 }
 
 const { faqs = FAQsClass, showTitle = true } = Astro.props;
+
+// Generate FAQ schema for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq: any) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+// Convert schema to string for inclusion in script tag
+const faqSchemaString = JSON.stringify(faqSchema);
 ---
+
+<script define:vars={{ faqSchemaString }}>
+  // Add schema to document head
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.text = faqSchemaString;
+  document.head.appendChild(script);
+</script>
 
 <script>
   class Accordion {
@@ -41,7 +66,7 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
       this.el.accordionObj = this;
     }
 
-    onClick(e: MouseEvent) {
+    onClick(e: any) {
       // Stop default behaviour from the browser
       e.preventDefault();
       // Add an overflow on the <details> to avoid content overflowing
@@ -58,6 +83,9 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
     shrink() {
       // Set the element as "being closed"
       this.isClosing = true;
+
+      // Prevent outline visual bug
+      this.summary.style.outlineStyle = "none";
 
       // Store the current height of the element
       const startHeight = `${this.el.offsetHeight}px`;
@@ -98,40 +126,11 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
     }
 
     expand() {
-      // // Set the element as "being expanding"
-      // this.isExpanding = true;
-      // // Get the current fixed height of the element
-      // const startHeight = `${this.el.offsetHeight}px`;
-      // // Calculate the open height of the element (summary height + content height)
-      // const summaryHeight = this.summary?.offsetHeight || 0;
-      // const contentHeight = this.content?.offsetHeight || 0;
-
-      // const endHeight = `${summaryHeight + contentHeight}px`;
-
-      // // If there is already an animation running
-      // if (this.animation) {
-      //   // Cancel the current animation
-      //   this.animation.cancel();
-      // }
-
-      // // Start a WAAPI animation
-      // this.animation = this.el.animate(
-      //   {
-      //     // Set the keyframes from the startHeight to endHeight
-      //     height: [startHeight, endHeight],
-      //   },
-      //   {
-      //     duration: 400,
-      //     easing: "ease-out",
-      //   }
-      // );
-      // // When the animation is complete, call onAnimationFinish()
-      // this.animation.onfinish = () => this.onAnimationFinish(true);
-      // // If the animation is cancelled, isExpanding variable is set to false
-      // this.animation.oncancel = () => (this.isExpanding = false);
-
       // Apply fixed height before opening
       this.el.style.height = `${this.el.offsetHeight}px`;
+
+      // Prevent outline visual bug
+      this.summary.style.outlineStyle = "none";
 
       // Temporarily keep it closed so the browser doesn’t jump
       this.el.open = true;
@@ -156,22 +155,13 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
     }
 
     onAnimationFinish(open: boolean) {
-      // // Set the open attribute based on the parameter
-      // this.el.open = open;
-      // // Clear the stored animation
-      // this.animation = new Animation();
-      // // Reset isClosing & isExpanding
-      // this.isClosing = false;
-      // this.isExpanding = false;
-      // // Remove the overflow hidden and the fixed height
-      // this.el.style.height = this.el.style.overflow = "";
-
       this.el.open = open;
       this.animation = new Animation();
       this.isClosing = false;
       this.isExpanding = false;
       this.el.style.height = "";
       this.el.style.overflow = "";
+      this.summary.style.outlineStyle = "";
     }
   }
 
@@ -194,7 +184,7 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
     bottom: 0;
     width: 2rem; /* w-8 */
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-    background: oklch(0.75019 0.21579 135.347); /* bg-primary-500 */
+    background: #51a50b; /* bg-primary-600 */
     pointer-events: none;
   }
 
@@ -202,9 +192,9 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
     height: auto;
   }
 
-  details[open] > summary:focus {
+  /*  details[open] > summary:focus {
     outline-style: none !important;
-  }
+  } */
 
   details > summary > span {
     position: relative;
@@ -236,33 +226,33 @@ const { faqs = FAQsClass, showTitle = true } = Astro.props;
 </style>
 
 <div class="bg-accent-100">
-  <div class="mx-auto text-center flex flex-col items-center justify-center max-w-7xl p-8 px-4 lg:px-0">
+  <div class="mx-auto text-center flex flex-col items-center justify-center max-w-7xl px-5 py-16 md:px-8 lg:px-10">
     <div class="w-full max-w-7xl mx-auto flex flex-col items-center justify-center">
       {
         showTitle && (
-          <h2 class="my-3 text-5xl font-bold text-center max-w-5xl mx-auto uppercase border-b-4 gradient-border-image pb-2">
+          <h2 class="my-3 text-4xl font-bold text-center max-w-5xl mx-auto uppercase border-b-4 gradient-border-image pb-2 sm:text-5xl">
             Frequently Asked Questions
           </h2>
         )
       }
 
-      <dl class="flex flex-col gap-4 mt-6 w-full justify-stretch items-stretch">
+      <div class="flex flex-col gap-4 mt-6 w-full justify-stretch items-stretch">
         {
           faqs.map((faq: FAQsClass) => (
             <details class="w-full relative">
-              <summary class="p-1 py-2 pl-12 flex bg-accent-900 text-white font-semibold cursor-pointer rounded-sm overflow-hidden text-left relative list-none focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-primary-900">
+              <summary class="p-1 py-2 pl-12 flex bg-accent-900 text-white font-semibold cursor-pointer rounded-sm overflow-hidden text-left relative list-none outline-2 focus:outline-primary-900">
                 <span>{faq.question}</span>
               </summary>
-              <div class="w-full text-left mt-0.5" set:html={faq.answer} />
+              <div class="w-full text-left mt-0.5 font-force-roboto" set:html={faq.answer} />
             </details>
           ))
         }
-      </dl>
+      </div>
     </div>
     <small class="mt-2"
       >Got any more questions? <a
         href="/contact"
-        class="text-primary-500 hover:text-accent-950 font-semibold transition-all duration-300">Contact Us</a
+        class="text-primary-700 font-semibold transition-all duration-300 hover:text-accent-950">Contact Us</a
       >
     </small>
   </div>

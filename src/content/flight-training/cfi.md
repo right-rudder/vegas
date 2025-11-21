@@ -4,9 +4,33 @@ siteDescription: "Inspire the next generation of aviators with Vegas Aviation’
 siteKeywords:
   - "flight training"
   - "certified flight instructor"
+  - "learn to fly"
+  - "CFI training Las Vegas"
+  - "CFI course Nevada"
+  - "become a flight instructor Las Vegas"
+  - "aviation instructor certification Nevada"
   - "Vegas Aviation"
   - "Las Vegas flight school"
-  - "learn to fly"
+  - "flight training Nevada"
+  - "North Las Vegas pilot training"
+  - "discovery flight Las Vegas"
+  - "private pilot training Las Vegas"
+  - "instrument rating Nevada"
+  - "commercial pilot course Las Vegas"
+  - "certified flight instructor training Nevada"
+  - "multi-engine rating Las Vegas"
+  - "best flight school in Las Vegas"
+  - "aircraft rental Las Vegas"
+  - "aircraft maintenance Nevada"
+  - "learn to fly in Las Vegas"
+  - "pilot training near Henderson"
+  - "flight school North Las Vegas Airport"
+  - "Vegas Aviation Cessna 172"
+  - "aviation programs Nevada"
+  - "FAA certified flight school Las Vegas"
+  - "affordable pilot training Las Vegas"
+  - "Henderson flight school, Summerlin aviation training, Nevada flight instruction, Boulder City flight lessons, Southern Nevada pilot school"
+  - "North Las Vegas Airport flight training, Las Vegas flight lessons"
 header:
   image:
     src: "/src/assets/flight-training/cfi-student-front-plane-vegas-aviation-commercial-pilot.jpg"
@@ -21,9 +45,6 @@ sections:
   - eyebrow: "Get Started"
     title: "Become a Certified Flight Instructor (CFI)"
     subTitle: "Learn to teach others"
-    img:
-      src: "/src/assets/flight-training/lesson-inside-vagas-aviation-cfi-nevada.jpg"
-      alt: "CFI and student during a lesson inside"
     bullets:
       - "Certified Flight Instructors (CFIs) are essential educators and mentors in aviation."
       - "They offer guidance and instruction to aspiring pilots, fostering their skills and prioritizing safety."
@@ -34,9 +55,6 @@ sections:
   - eyebrow: "Perks"
     title: "Advantages of Becoming a Certified Flight Instructor"
     subTitle: "What you get"
-    img:
-      src: "/src/assets/flight-training/cfi-plane-vegas-aviation-summerlin.jpg"
-      alt: "CFIs standing on the doors of a plane"
     description:
       "Obtaining an instrument rating on top of your private pilot license offers several significant advantages, including the ability to safely navigate through adverse weather conditions, fly in low visibility situations, and operate in controlled airspace with precision and confidence. With an IR, pilots can enhance their skills, expand their flying opportunities, and ensure a higher level of safety for themselves and their passengers."
     bullets:

@@ -1,0 +1,23 @@
+---
+import MarqueeLogos from "./MarqueeLogos";
+
+const { data } = Astro.props;
+---
+
+<div class="w-full bg-accent-100 text-accent-900">
+  <div
+    class="relative isolate overflow-hidden px-6 py-16 text-center rounded-sm"
+  >
+    <h2
+      set:html={data.heading}
+      class="mx-auto max-w-2xl text-4xl font-extrabold leading-tight capitalize tracking-tight sm:text-5xl"
+    />
+    <p
+      class="mx-auto my-8 max-w-xl text-lg text-accent-700 md:text-xl"
+      set:html={data.description}
+    />
+    <div class="group">
+      <MarqueeLogos items={data.items} client:only />
+    </div>
+  </div>
+</div>

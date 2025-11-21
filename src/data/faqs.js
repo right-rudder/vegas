@@ -1,9 +1,20 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "./consts";
+import { KEYWORDS, LOCATION_KEYWORDS, PROGRAM_KEYWORDS } from "./consts";
+
+const keywords = [
+  KEYWORDS,
+  LOCATION_KEYWORDS.secondary,
+  PROGRAM_KEYWORDS.privatePilot,
+  PROGRAM_KEYWORDS.instrument,
+  PROGRAM_KEYWORDS.commercial,
+  PROGRAM_KEYWORDS.flightInstructor,
+  PROGRAM_KEYWORDS.multiEngine,
+  PROGRAM_KEYWORDS.flightSimulation,
+].join(", ");
 
 export const faq = {
   siteTitle: "FAQ | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
-  siteKeywords: KEYWORDS /* TODO : Update? */,
+  siteDescription: "Clear up any queries you might have with the Frequented Asked Questions (FAQ) at Vegas Aviation. Whether you're interested in becoming a career pilot or just looking for a discovery flight, we can help you figure out the best path, what are the costs and the perfect schedule.",
+  siteKeywords: keywords,
   customBreadcrumbs: [
     { name: "Home", url: "/" },
     { name: "About Us", url: "/about-us" },
@@ -30,7 +41,7 @@ export const faq = {
               <li><b>Age:</b> Must be at least 17 years old.</li>
               <li><b>Language Proficiency:</b> Proficient in English.</li>
               <li><b>Medical Certificate:</b> Hold a valid FAA-issued medical certificate.</li>
-              <li><b>Flight Hours:</b> Log at least 40 hours of flight time*. This includes at least 10 hours of solo flying, five hours of which must be dedicated to cross-country flights.<br/><i>*Note: 40 hours is a very ambitious schedule. The national average to complete a PPL  is 70 hours.</i></li>
+              <li><b>Flight Hours:</b> Log at least 40 hours of flight time*. This includes at least 10 hours of solo flying, five hours of which must be dedicated to cross-country flights.<br/><i>* Note: 40 hours is the FAA minimum requirement. The national average to complete a PPL is 70 hours.</i></li>
               <li><b>Knowledge Test:</b> Pass a written knowledge exam with a grade of at least 70%.</li>
               <li><b>Practical Test:</b> Pass an oral exam and take a practical flying test (known as a check ride) administered by an FAA-designated evaluator.</li>
             </ul>
@@ -82,7 +93,8 @@ export const faq = {
             <li><b>Language Proficiency:</b> Proficient in English.</li>
             <li><b>Medical Certificate:</b> Hold a valid FAA-issued medical certificate.</li>
             <li>
-              <b>Flight Hours:</b> Complete at least 250 hours of flight time, which must include:
+              <b>Flight Hours:</b> Complete at least 250 hours of flight time*, which must include:
+              <br/><i>* Note: 250 hours is the FAA minimum requirement.</i>
               <ul class="list-disc pl-8 mb-4">
                 <li>100 hours as pilot-in-command (PIC).</li>
                 <li>50 hours of cross-country flight time as PIC.</li>
@@ -136,6 +148,7 @@ export const faq = {
             <li>Log an IFR Cross-Country of at Least 250 Miles as Pilot in Command.</li>
             <li>
               <b>Flight Hours:</b>
+              <br/><i>* Note: These hours are the FAA minimum requirement.</i>
               <ul class="list-disc pl-8 mb-4">
                 <li>Complete a Minimum of 15 Hours of instrument training from an authorized instructor.</li>
                 <li>Complete at least 50 Hours of Cross Country as a Pilot in Command (PIC), with at least 10 of those hours in airplanes for an instrument-airplane rating.</li>
@@ -163,7 +176,10 @@ export const faq = {
               <ul class="list-disc pl-8 mb-4">
                 <li>Holding a Commercial Pilot License (CPL) or Airline Transport Pilot (ATP) certificate.</li>
                 <li>Holding an Instrument Rating.</li>
-                <li>Accumulating a minimum number of 250 flight hours,  including instructional and cross-country flight time.</li>
+                <li>
+                  Accumulating a minimum number of 250 flight hours*,  including instructional and cross-country flight time.
+                  <br/><i>* Note: 250 hours is the FAA minimum requirement.</i>
+                </li>
               </ul>
             </li>
             <li><b>Knowledge Test:</b> Pass a written knowledge exam covering flight instruction principles, regulations, and teaching methods.</li>
@@ -185,6 +201,7 @@ export const faq = {
             <li><b>Medical Certificate:</b> Hold a valid FAA-issued medical certificate.</li>
             <li>
               <b>Flight Experience:</b>
+              <br/><i>* Note: These hours are the FAA minimum requirement.</i>
               <ul class="list-disc pl-8 mb-4">
                 <li>Hold a Valid Private Pilot License (PPL).</li>
                 <li>Have logged a minimum of 40 hours of flight time as pilot-in-command (PIC).</li>
@@ -213,7 +230,10 @@ export const faq = {
               <ul class="list-disc pl-8 mb-4">
                 <li>Hold a current Commercial Pilot Certificate with a Multi-Engine Land (MEL) rating.</li>
                 <li>Complete a flight instructor training course.</li>
-                <li>Accumulate a minimum of 15 hours of flight time as pilot-in-command (PIC) in multi-engine aircraft.</li>
+                <li>
+                  Accumulate a minimum of 15 hours* of flight time as pilot-in-command (PIC) in multi-engine aircraft.
+                  <br/><i>* Note: 15 hours is the FAA minimum requirement.</i>
+                </li>
               </ul>
             </li>
             <li><b>Practical Test:</b> Successfully pass the MEI practical test with an FAA-designated examiner or an authorized flight instructor.</li>

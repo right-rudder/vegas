@@ -1,0 +1,62 @@
+---
+import ImageComp from "../ImageComp.astro";
+import { FaArrowRight } from "react-icons/fa";
+import { FaCheckCircle } from "react-icons/fa";
+
+const data = {
+  eyebrow: "WHY CHOOSE US",
+  title: "Building Wings For\nAviation Leaders",
+  bullets: [
+    "One-on-one training with a highly experienced instructor",
+    "Comprehensive programs from private pilot to flight instructor",
+    "Hands-on control from your very first lesson",
+    "Flexible scheduling that adapts to your lifestyle",
+    "A focus on discipline, persistence, and confidence in every flight",
+  ],
+  blurb: "We equip aspiring pilots with the vision, discipline, and skills needed to excel above the rest in aviation.",
+  imageSrc: "/src/assets/cfi-group-airplane-vegas-aviation-las-vegas-flight-instructor copy.jpg",
+  imageAlt: "Vegas Aviation Certified Flight Instructors",
+  ctaLabel: "Learn About Our Programs",
+  ctaHref: "/flight-training/",
+};
+---
+
+<section class="relative isolate overflow-hidden bg-accent-100">
+  <div class="mx-auto max-w-7xl px-5 py-16 md:px-8 lg:px-10">
+    <div class="flex flex-col items-center justify-center gap-10 lg:gap-16 xl:gap-24 lg:flex-row lg:justify-between">
+      <figure class="w-full h-[70vh] relative overflow-hidden rounded-lg shadow-lg lg:w-1/2">
+        <ImageComp src={data.imageSrc} alt={data.imageAlt} class="size-full object-cover object-center" />
+      </figure>
+
+      <div class="w-full lg:w-1/2">
+        <p class="eyebrow-dark inline-flex items-center gap-2 tracking-widest">
+          {data.eyebrow}
+        </p>
+
+        <h2 class="mt-4 text-4xl text-left font-extrabold leading-tight tracking-tight sm:text-5xl">
+          {data.title}
+        </h2>
+
+        <ul class="mt-6 space-y-4 text-lg text-left">
+          {
+            data.bullets.map((item) => (
+              <li class="flex items-center gap-3 font-medium">
+                <FaCheckCircle className="size-4 flex-1 max-w-4" />
+                <span class="flex-1">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+
+        <p class="mt-6 font-medium">
+          {data.blurb}
+        </p>
+
+        <a href={data.ctaHref} class="mt-2 btn-primary w-fit mx-auto sm:mx-0">
+          {data.ctaLabel}
+          <FaArrowRight />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

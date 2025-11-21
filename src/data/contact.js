@@ -1,9 +1,11 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "./consts";
+import { SITE_DESCRIPTION, KEYWORDS, LOCATION_KEYWORDS } from "./consts";
+
+const keywords = [KEYWORDS, LOCATION_KEYWORDS.primary, LOCATION_KEYWORDS.secondary].join(", ");
 
 export const data = {
   siteTitle: "Contact Us | Vegas Aviation",
   siteDescription: SITE_DESCRIPTION,
-  siteKeywords: KEYWORDS,
+  siteKeywords: keywords,
 
   header: {
     image: {
@@ -12,7 +14,6 @@ export const data = {
     },
     eyebrow: "Contact Us",
     title: "Let us know what is on your mind",
-    subTitle:
-      "Have any questions? Feel free to contact us and we will answer your inquiries as soon as possible.",
+    subTitle: "Have any questions? Feel free to contact us and we will answer your inquiries as soon as possible.",
   },
 };

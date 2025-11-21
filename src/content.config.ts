@@ -8,7 +8,7 @@ const blog = defineCollection({
   schema: () =>
     z.object({
       title: z.string(),
-      subTitle: z.string(), /* Only for blog post card */
+      subTitle: z.string() /* Only for blog post card */,
       description: z.string(),
       author: z.string(),
       authorImage: z.string(),
@@ -52,15 +52,51 @@ const flightTraining = defineCollection({
           .optional(),
         heroCards: z.boolean().optional(),
       }),
+      whatIsIt: z.object({
+        eyebrow: z.string(),
+        title: z.string(),
+        subTitle: z.string(),
+        description: z.string().optional(),
+        bullets: z.array(z.string()).optional(),
+        cta: z.object({
+          url: z.string(),
+          text: z.string(),
+        }),
+      }).optional(),
+      howTo: z
+        .object({
+          eyebrow: z.string(),
+          title: z.string(),
+          subTitle: z.string(),
+          steps: z.array(
+            z.object({
+              title: z.string(),
+              description: z.string(),
+              image: z.object({
+                src: z.string(),
+                alt: z.string(),
+              }),
+              cta: z
+                .object({
+                  url: z.string(),
+                  text: z.string(),
+                })
+                .optional(),
+            })
+          ),
+          cta: z
+            .object({
+              url: z.string(),
+              text: z.string(),
+            })
+            .optional(),
+        })
+        .optional(),
       sections: z.array(
         z.object({
           eyebrow: z.string(),
           title: z.string(),
           subTitle: z.string(),
-          img: z.object({
-            src: z.string(),
-            alt: z.string(),
-          }),
           description: z.string().optional(),
           bullets: z.array(z.string()).optional(),
           cta: z.object({

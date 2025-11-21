@@ -4,9 +4,30 @@ siteDescription: "Designed for aspiring pilots seeking professional excellence, 
 siteKeywords:
   - "flight training"
   - "commercial pilot license"
-  - "Vegas Aviation"
+  - "commercial pilot training Las Vegas, professional pilot program Nevada, advanced flight training KVGT, career pilot school Las Vegas"
   - "Las Vegas flight school"
   - "learn to fly"
+  - "Vegas Aviation"
+  - "flight training Nevada"
+  - "North Las Vegas pilot training"
+  - "discovery flight Las Vegas"
+  - "private pilot training Las Vegas"
+  - "instrument rating Nevada"
+  - "commercial pilot course Las Vegas"
+  - "certified flight instructor training Nevada"
+  - "multi-engine rating Las Vegas"
+  - "best flight school in Las Vegas"
+  - "aircraft rental Las Vegas"
+  - "aircraft maintenance Nevada"
+  - "learn to fly in Las Vegas"
+  - "pilot training near Henderson"
+  - "flight school North Las Vegas Airport"
+  - "Vegas Aviation Cessna 172"
+  - "aviation programs Nevada"
+  - "FAA certified flight school Las Vegas"
+  - "affordable pilot training Las Vegas"
+  - "Henderson flight school, Summerlin aviation training, Nevada flight instruction, Boulder City flight lessons, Southern Nevada pilot school"
+  - "North Las Vegas Airport flight training, Las Vegas flight lessons"
 header:
   image:
     src: "/src/assets/flight-training/cockpit-instrument-panel-flying-vegas-aviation-commercial-pilot-henderson.jpg"
@@ -21,9 +42,6 @@ sections:
   - eyebrow: "Get Started"
     title: "Earn Your Commercial Pilot License"
     subTitle: "Advanced skills for professional pilots"
-    img:
-      src: "/src/assets/stock/plane-flying-above-city-night-vegas-aviation-commercial-pilot-nevada.jpg"
-      alt: "Plane flying above city at night"
     description:
       "Vegas Aviation Flight School Commercial Pilot Certificate Program transforms aviation enthusiasts into skilled commercial pilots ready to take on the skies with confidence and professionalism."
     bullets:
@@ -36,9 +54,6 @@ sections:
   - eyebrow: "Why Us"
     title: "Why Choose Vegas Aviation Flight School?"
     subTitle: "We provide the best value"
-    img:
-      src: "/src/assets/about-us-cfi-team-vegas-aviation-flight-lessons.jpg"
-      alt: "Vegas Aviation CFI team posing in front of a plane"
     bullets:
       - "<b>Safety is Our Top Priority: </b> We strictly adhere to all FAA regulations to ensure that you receive top-tier instruction in a secure learning environment."
       - "<b>Expert Instructors:</b> Learn from FAA-certified professionals who offer personalized guidance tailored to your learning style, ensuring effective progress."

@@ -1,9 +1,16 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "./consts";
+import { SITE_DESCRIPTION, KEYWORDS, PRIMARY_KEYWORDS, LOCATION_KEYWORDS } from "./consts";
+
+const keywords = [
+  KEYWORDS, 
+  PRIMARY_KEYWORDS.transactional,
+  LOCATION_KEYWORDS.primary,
+  LOCATION_KEYWORDS.secondary,
+].join(", ");
 
 export const data = {
   siteTitle: "Enroll | Vegas Aviation",
   siteDescription: SITE_DESCRIPTION,
-  siteKeywords: KEYWORDS,
+  siteKeywords: keywords,
 
   header: {
     image: {

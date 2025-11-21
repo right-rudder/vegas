@@ -1,0 +1,33 @@
+---
+import ImageComp from "../ImageComp.astro";
+import Author from "../Author.astro";
+import type { CollectionEntry } from "astro:content";
+
+const { blogEntry, smallCard = false } = Astro.props;
+
+interface Props {
+  blogEntry: CollectionEntry<"blog">;
+  smallCard?: boolean;
+}
+---
+
+<a
+  class="rounded-xl overflow-hidden bg-white border-2 border-primary-600 transition-all duration-300 ease-in-out hover:scale-105 hover:ring-2 hover:ring-primary-600"
+  href={`/blog/${blogEntry.id}/`}
+>
+  <ImageComp
+    src={blogEntry.data.heroImage}
+    alt={blogEntry.data.heroImageAlt}
+    class="h-64 w-full object-cover object-center"
+  />
+  <div class="p-4">
+    <Author data={blogEntry.data} small={true} />
+    <p class="font-bold mb-2 text-xl text-primary-600 uppercase">{blogEntry.data.subTitle}</h4>
+    <p class="font-bold mb-4 text-2xl">{blogEntry.data.title}</p>
+    <p class="text-accent-600 text-base">
+      {blogEntry.data.description.length < 200
+        ? blogEntry.data.description
+        : blogEntry.data.description.slice(0, 200).trim() + "..."}
+    </p>
+  </div>
+</a>

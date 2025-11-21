@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Banner from "../../components/Banner.astro";
+import CTAIntroFlight from "../../components/CTAs/CTAIntroFlight.astro";
+import TeamMembers from "../../components/team/TeamMembers.astro";
+import LeadershipMembers from "../../components/team/LeadershipMembers.astro";
+
+import { data } from "../../data/about-us/team";
+---
+
+<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription} siteKeywords={data.siteKeywords}>
+  <Banner data={data.header} slot="hero" />
+
+  <LeadershipMembers content={data.leadershipTeam} />
+
+  <TeamMembers content={data.cfi} />
+
+  <TeamMembers content={data.mechanics} />
+
+  <CTAIntroFlight />
+</BaseLayout>

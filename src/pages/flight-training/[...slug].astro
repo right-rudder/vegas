@@ -2,11 +2,12 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Banner from "../../components/Banner.astro";
-import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
+import CTAIntroFlight from "../../components/CTAs/CTAIntroFlight.astro";
 import FAQs from "../../components/FAQs.astro";
 import CenteredSection from "../../components/flight-training/CenteredSection.astro";
 import CostSection from "../../components/flight-training/CostSection.astro";
 import SectionDivider from "../../components/flight-training/SectionDivider.astro";
+import HowTo from "../../components/HowTo.astro";
 
 export async function getStaticPaths() {
   const programs = await getCollection("flight-training");
@@ -28,25 +29,33 @@ const program = Astro.props;
 >
   <Banner data={program.data.header} slot="hero" />
 
-  <div class="bg-accent-200">
-    {program.data.sections.map((item: any, index: number) => (
-      <div>
-        { index > 0 ? <SectionDivider /> : ""} 
-        <CenteredSection data={item} />
-      </div>
-    ))}
-  
+  <div class="bg-accent-100"> 
+    {program.data.whatIsIt && (
+      <CenteredSection data={program.data.whatIsIt} />
+      <SectionDivider />
+    )}
+
+    {program.data.howTo && (
+      <HowTo data={program.data.howTo} />
+      <SectionDivider />
+    )}
+
+    {
+      program.data.sections.map((item: any, index: number) => (
+        <div>
+          {index > 0 ? <SectionDivider /> : ""}
+          <CenteredSection data={item} />
+        </div>
+      ))
+    }
+
     {program.data.costs && (
+      <SectionDivider /> 
       <CostSection data={program.data.costs} />
     )}
 
-    {!program.data.faqs && !program.data.costs ? <SectionDivider /> : ""}
-  
-    {program.data.faqs && (
-      <FAQs faqs={program.data.faqs} />
-    )}
-  
+    {program.data.faqs && <FAQs faqs={program.data.faqs} />}
+
     <CTAIntroFlight />
   </div>
-
 </BaseLayout>

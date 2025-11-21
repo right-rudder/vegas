@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Banner from "../../components/Banner.astro";
-import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
+import CTAIntroFlight from "../../components/CTAs/CTAIntroFlight.astro";
 import CTASimple from "../../components/CTAs/CTASimple.astro";
 import { FaStar } from "react-icons/fa";
 
@@ -15,7 +15,7 @@ console.log(data.sections);
 
   {data.sections.map((item) => <CTASimple content={item} />)}
 
-  <section class="bg-accent-50 relative isolate z-0 overflow-hidden text-accent-900 text-center">
+  <section class="bg-accent-100 relative isolate z-0 overflow-hidden text-accent-900 text-center">
     {/* soft radial glow */}
     <div
       class="from-primary-200/40 pointer-events-none absolute -inset-24 -z-10 bg-radial-[at_50%_50%] to-transparent to-60%"
@@ -40,7 +40,7 @@ console.log(data.sections);
           <FaStar className="size-8 sm:size-12" />
           <FaStar className="size-8 sm:size-12" />
         </div>
-        <span class="text-8xl font-extrabold text-accent-600 text-shadow-md">
+        <span class="text-8xl font-extrabold text-accent-600 text-shadow-md font-force-roboto">
           {data.whyUs.stat}
         </span>
         <p class="text-md tracking-widest text-accent-700 uppercase text-lg">5 star reviews</p>

@@ -1,9 +1,16 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
+import { SITE_DESCRIPTION, KEYWORDS, LOCATION_KEYWORDS } from "../../data/consts";
+
+const keywords = [
+  KEYWORDS, 
+  "aircraft rental, cessna 172, beechcraft duchess",
+  LOCATION_KEYWORDS.primary,
+  LOCATION_KEYWORDS.secondary,
+].join(", ");
 
 export const data = {
   siteTitle: "Aircraft Rental | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION,
-  siteKeywords: KEYWORDS,
+  siteDescription: "Whether you're a newer pilot or an experienced aviator, Vegas Avoaton's fleet is meticulously maintained and ready to fly. Explore Las Vegas and beyond with confidence.",
+  siteKeywords: keywords,
 
   header: {
     image: {
@@ -76,13 +83,13 @@ export const data = {
     title: "Important Requirements for All Renters",
     subTitle: "Rental Insurance Policy",
     description:
-      "All aircraft rentals must follow Vegas Aviation's safety and insurance standards to ensure a safe, smooth rental experience.",
+      `<span class="font-force-roboto">All aircraft rentals must follow Vegas Aviation's safety and insurance standards to ensure a safe, smooth rental experience.</span>`,
     bullets: [
-      "All renters must complete a checkout flight with a Vegas Aviation CFI.",
-      "There is no hourly minimum for the checkout; maneuvers are at the instructor's discretion.",
-      "Renters must carry non-owned aircraft (renter's) insurance with at least $50,000 in aircraft damage liability.",
-      "Higher limits are recommended—choose what you can comfortably afford.",
-      "Recommended insurance carriers: Avemco and AssuredPartners (but any approved provider is acceptable).",
+      `<span class="font-force-roboto">All renters must complete a checkout flight with a Vegas Aviation CFI.</span>`,
+      `<span class="font-force-roboto">There is no hourly minimum for the checkout; maneuvers are at the instructor's discretion.</span>`,
+      `<span class="font-force-roboto">Renters must carry non-owned aircraft (renter's) insurance with at least $50,000 in aircraft damage liability.</span>`,
+      `<span class="font-force-roboto">Higher limits are recommended—choose what you can comfortably afford.</span>`,
+      `<span class="font-force-roboto">Recommended insurance carriers: Avemco and AssuredPartners (but any approved provider is acceptable).</span>`,
     ],
   },
 

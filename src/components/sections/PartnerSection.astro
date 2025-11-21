@@ -1,0 +1,49 @@
+---
+import ImageComp from "../ImageComp.astro";
+
+const { data } = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden bg-accent-100 text-accent-900 font-force-roboto">
+  <div class="max-w-7xl mx-auto px-5 py-16 md:px-8 lg:px-10">
+    <h2 class="mb-4 text-4xl leading-tight font-extrabold sm:text-5xl lg:text-6xl">
+      {data.title}
+    </h2>
+
+    {
+      data.img && (
+        <ImageComp
+          src={data.img.src}
+          alt={data.img.alt}
+          class={`w-full my-4 rounded-xl object-cover object-center`}
+        />
+      )
+    }
+
+    <div>
+      {
+        data.content.map((item: any) => (
+          <div>
+            {item.title && <h3 class="text-3xl font-bold my-4">{item.title}</h3>}
+            {item.description && <p class="whitespace-pre-line mb-2" set:html={item.description}></p>}
+            {item.bulletPoints && (
+              <ul class="list-disc pl-5">
+                {item.bulletPoints.map((text: string) => (
+                  <li class="mb-2" set:html={text}></li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    {
+      data.cta && (
+        <a class="btn-primary w-fit mt-4 mx-auto" href={data.cta.url}>
+          {data.cta.text}
+        </a>
+      )
+    }
+  </div>
+</section>

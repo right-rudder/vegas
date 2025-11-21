@@ -1,4 +1,15 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "./consts";
+import { KEYWORDS, LOCATION_KEYWORDS, PROGRAM_KEYWORDS } from "./consts";
+
+const keywords = [
+  KEYWORDS,
+  LOCATION_KEYWORDS.secondary,
+  PROGRAM_KEYWORDS.privatePilot,
+  PROGRAM_KEYWORDS.instrument,
+  PROGRAM_KEYWORDS.commercial,
+  PROGRAM_KEYWORDS.flightInstructor,
+  PROGRAM_KEYWORDS.multiEngine,
+  PROGRAM_KEYWORDS.flightSimulation,
+].join(", ");
 
 const AirplaneSVG = `
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
@@ -38,8 +49,8 @@ const SimulationSVG = `
 
 export const data = {
   siteTitle: "Flight Training | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION /* TODO : Update? */,
-  siteKeywords: KEYWORDS /* TODO : Update? */,
+  siteDescription: "Join Vegas Aviation for premier flight training programs. Our expert instructors and cutting-edge facilities ensure top-tier instruction. Whether you're aiming for a private pilot license or advancing to commercial ratings, we offer comprehensive training for confident flying.",
+  siteKeywords: keywords,
   header: {
     image: {
       src: "/src/assets/flight-training/banner-pilots-cockpit-backview-vegas-aviation-flight-training.jpg",
@@ -73,22 +84,6 @@ export const data = {
       },
     },
     {
-      icon: AirplaneTakingOffSVG,
-      title: "Commercial Pilot License",
-      subTitle: "Advanced skills for professional pilots",
-      content: `Crafted for aspiring aviators aiming to transform their passion for flying into a fulfilling career, our curriculum blends rigorous training with practical experience. Led by seasoned instructors and industry experts, you'll gain the skills, knowledge, and confidence needed to thrive in commercial aviation.
-
-        From advanced maneuvers to aeronautical expertise, our program ensures you're prepared to navigate the skies with precision and professionalism.`,
-      img: {
-        src: "/src/assets/flight-training/cfi-student-front-plane-vegas-aviation-commercial-pilot.jpg",
-        alt: "CFI and student in front of a plane",
-      },
-      cta: {
-        url: "/flight-training/commercial-pilot/",
-        text: "Learn More",
-      },
-    },
-    {
       icon: BookSVG,
       title: "Instrument Rating",
       subTitle: "Master precise navigation in any weather",
@@ -103,18 +98,18 @@ export const data = {
       },
     },
     {
-      icon: TeacherSVG,
-      title: "Certified Flight Instructor (CFI / CFII)",
-      subTitle: "Learn how to teach others",
-      content: `Tailored for pilots eager to inspire and mentor future aviators, our Certified Flight Instructor course provides the skills and confidence to excel in this role.
+      icon: AirplaneTakingOffSVG,
+      title: "Commercial Pilot License",
+      subTitle: "Advanced skills for professional pilots",
+      content: `Crafted for aspiring aviators aiming to transform their passion for flying into a fulfilling career, our curriculum blends rigorous training with practical experience. Led by seasoned instructors and industry experts, you'll gain the skills, knowledge, and confidence needed to thrive in commercial aviation.
 
-        With comprehensive ground school and hands-on flight training, you'll be equipped to impart invaluable knowledge with precision and professionalism.`,
+        From advanced maneuvers to aeronautical expertise, our program ensures you're prepared to navigate the skies with precision and professionalism.`,
       img: {
-        src: "/src/assets/flight-training/cfi-student-front-plane-vegas-aviation-certified-flight-instructor.jpg",
+        src: "/src/assets/flight-training/cfi-student-front-plane-vegas-aviation-commercial-pilot.jpg",
         alt: "CFI and student in front of a plane",
       },
       cta: {
-        url: "/flight-training/cfi/",
+        url: "/flight-training/commercial-pilot/",
         text: "Learn More",
       },
     },
@@ -135,6 +130,22 @@ export const data = {
       },
     },
     {
+      icon: TeacherSVG,
+      title: "Certified Flight Instructor (CFI / CFII)",
+      subTitle: "Learn how to teach others",
+      content: `Tailored for pilots eager to inspire and mentor future aviators, our Certified Flight Instructor course provides the skills and confidence to excel in this role.
+
+        With comprehensive ground school and hands-on flight training, you'll be equipped to impart invaluable knowledge with precision and professionalism.`,
+      img: {
+        src: "/src/assets/flight-training/cfi-student-front-plane-vegas-aviation-certified-flight-instructor.jpg",
+        alt: "CFI and student in front of a plane",
+      },
+      cta: {
+        url: "/flight-training/cfi/",
+        text: "Learn More",
+      },
+    },
+    {
       icon: SimulationSVG,
       title: "Flight Simulation",
       subTitle: "Experience advanced aircraft simulation",
@@ -142,8 +153,8 @@ export const data = {
 
         With a range of scenarios and aircraft to choose from, you can perfect your maneuvers, practice emergency procedures, and prepare for real-world flights with confidence.`,
       img: {
-        src: "/src/assets/flight-training/instrument-panel-vegas-aviation-flight-simulation.jpg",
-        alt: "Cockpit instrument panel",
+        src: "/src/assets/flight-training/two-people-using-vegas-aviations-flight-simulator-vegas-aviation-nevada.jpg",
+        alt: "Backview of two people using a flight simulator",
       },
       cta: {
         url: "/flight-training/flight-simulation/",

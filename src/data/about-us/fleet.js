@@ -1,9 +1,15 @@
-import { SITE_DESCRIPTION, KEYWORDS } from "../consts";
+import { KEYWORDS, LOCATION_KEYWORDS } from "../consts";
+
+const keywords = [
+  KEYWORDS,
+  LOCATION_KEYWORDS.primary,
+  LOCATION_KEYWORDS.secondary,
+].join(", ");
 
 export const data = {
   siteTitle: "Our Fleet | Vegas Aviation",
-  siteDescription: SITE_DESCRIPTION,
-  siteKeywords: KEYWORDS,
+  siteDescription: "Train with confidence at Vegas Aviation in a reliable, high-performing fleet maintained to FAA standards. From primary trainers to multi-engine aircraft, our lineup supports every stage of your aviation journey.",
+  siteKeywords: keywords,
 
   header: {
     image: {

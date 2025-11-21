@@ -4,9 +4,30 @@ siteDescription: "The Private Pilot Certificate, internationally referred to as 
 siteKeywords:
   - "flight training"
   - "private pilot license"
+  - "learn to fly Nevada, PPL course KVGT, beginner flight lessons Las Vegas"
+  - "learn to fly"
   - "Vegas Aviation"
   - "Las Vegas flight school"
-  - "learn to fly"
+  - "flight training Nevada"
+  - "North Las Vegas pilot training"
+  - "discovery flight Las Vegas"
+  - "private pilot training Las Vegas"
+  - "instrument rating Nevada"
+  - "commercial pilot course Las Vegas"
+  - "certified flight instructor training Nevada"
+  - "multi-engine rating Las Vegas"
+  - "best flight school in Las Vegas"
+  - "aircraft rental Las Vegas"
+  - "aircraft maintenance Nevada"
+  - "learn to fly in Las Vegas"
+  - "pilot training near Henderson"
+  - "flight school North Las Vegas Airport"
+  - "Vegas Aviation Cessna 172"
+  - "aviation programs Nevada"
+  - "FAA certified flight school Las Vegas"
+  - "affordable pilot training Las Vegas"
+  - "Henderson flight school, Summerlin aviation training, Nevada flight instruction, Boulder City flight lessons, Southern Nevada pilot school"
+  - "North Las Vegas Airport flight training, Las Vegas flight lessons"
 header:
   image:
     src: "/src/assets/flight-training/banner-pilots-cockpit-backview-vegas-aviation-flight-training.jpg"
@@ -17,27 +38,62 @@ header:
   cta:
     - url: "/enroll"
       text: "Take Off Now"
+whatIsIt:
+  eyebrow: "Get Started"
+  title: "What is a Private Pilot License?"
+  subTitle: "The base pilot certification"
+  description: "A Private Pilot License (PPL) is the foundational pilot certification that allows you to fly an aircraft for personal, recreational, and non-commercial purposes. With a PPL, you can act as pilot-in-command, carry passengers, travel cross-country, and build flight experience, all while gaining the essential skills and aeronautical knowledge needed for advanced ratings and career pathways in aviation."
+  cta:
+    url: "/enroll"
+    text: "Enroll Now"
+# Finish
+# howTo:
+#   eyebrow: "Roadmap"
+#   title: "Getting Your License"
+#   subTitle: "Start your aviation journey with the foundational certificate every pilot needs."
+#   steps: 
+#     - title: "Meet Eligibility Requirements"
+#       description: "The first step is confirming you meet the FAA’s basic requirements. You can begin training before you turn 17, but you must be at least 17 to receive your certificate. You’ll also need to be able to read, write, speak, and understand English, complete TSA or citizenship documentation, and obtain a 3rd-Class Medical Certificate through an Aviation Medical Examiner. Getting your medical early ensures you’re fully eligible to solo and progress through training without delays."
+#       image:
+#         src: "/src/assets/stock/medical-certificate-vegas-aviation-flight-training-nevada.webp"
+#         alt: "Medical certificate documents"
+#     - title: "Ground School Training"
+#       description: "Ground school provides the essential academic knowledge behind flying. You’ll study how airplanes work, how weather affects flight, how to navigate using charts, and how different classes of airspace operate. You’ll also learn FAA regulations, weight and balance, aircraft performance, and the decision-making skills expected of every safe pilot. This prepares you for both the written exam and real cockpit scenarios."
+#       image:
+#         src: "/src/assets/flying-lessons_vegas-aviation_become-a-pilot_las-vegas_nevada.jpg"
+#         alt: "Student and CFI on a study session indoors"
+#     - title: "Flight Training"
+#       description: "Flight training is where everything comes together. Under the guidance of a Vegas Aviation instructor, you’ll learn how to control the aircraft, take off, land, communicate on the radios, and safely handle different flight situations. You’ll master climbs, descents, turns, stalls, slow flight, emergency procedures, and the basics of cross-country navigation. Most students finish with 60-75 hours of flight time, giving them a strong foundation for solo flight."
+#       image:
+#         src: "/src/assets/flight-training/cockpit-instrument-panel-flying-vegas-aviation-commercial-pilot-henderson.jpg"
+#         alt: "Cockpit instrument panel of flying flying"
+#     - title: "Solo Flight Experience"
+#       description: "Once you demonstrate consistent safety and proficiency, your instructor will endorse you for your first solo flight. Flying an airplane on your own for the first time is a milestone every pilot remembers. During this stage, you’ll gain experience operating independently in the traffic pattern, practicing maneuvers in the designated practice area, and building the confidence you need to fly without an instructor onboard."
+#       image:
+#         src: "/src/assets/flight-training/pilot-cockpit-taking-off-vegas-aviation-instrument-rating-boulder-city.jpg"
+#         alt: "Pilot in the cockpit getting ready to take off"
+#     - title: "Cross-Country and Night Training"
+#       description: "As you advance, you’ll fly to new airports and gain experience navigating over longer distances. You’ll learn how to plan and execute cross-country flights during the day and at night, how to manage workload in unfamiliar environments, and how to use navigation tools ranging from pilotage and dead reckoning to GPS. This phase builds real-world skills that prepare you for both recreational flying and higher-level training."
+#       image:
+#         src: "/src/assets/stock/plane-flying-above-city-night-vegas-aviation-commercial-pilot-nevada.jpg"
+#         alt: "Plane flying above city at night"
+#     - title: "Pass the FAA Knowledge Test"
+#       description: "Before your final evaluation, you’ll complete the FAA Private Pilot Knowledge Test. This written exam confirms your understanding of the concepts you learned in ground school. Vegas Aviation will help you prepare through review sessions, test readiness guidance, and instructor endorsements, ensuring you’re fully confident going into the exam."
+#       image:
+#         src: "/src/assets/stock/financing-loan-vegas-aviation-north-las-vegas-pilot-student.jpg"
+#         alt: "Man writing on a document"
+#     - title: "Prepare for and Pass the Checkride"
+#       description: "The final step is the FAA checkride with a Designated Pilot Examiner. You’ll begin with an oral exam that covers weather, regulations, aircraft systems, and flight planning, followed by a flight portion where you’ll demonstrate your ability to fly safely, navigate, and manage emergency scenarios. Once you pass, you’ll officially earn your Private Pilot License and gain the freedom to fly single-engine aircraft, continue training, or begin building toward a professional aviation career."
+#       image:
+#         src: "/src/assets/flight-training/pilots-plane-vegas-aviation-private-pilot-license.jpg"
+#         alt: "Outside view of two pilots in the cockpit"
+#   cta:
+#     url: "/enroll"
+#     text: "Start Your Journey Today"
 sections:
-  - eyebrow: "Get Started"
-    title: "Getting Your Private Pilot License"
-    subTitle: "Foundation training for aspiring aviators"
-    img:
-      src: "/src/assets/flight-training/first-solo-vegas-aviation-private-pilot-license.jpg"
-      alt: "Student in front of an airplane after his first solo"
-    bullets:
-      - "Vegas Aviation's flight training program unlocks a world of opportunities for personal travel, recreational flying, and further certifications in aviation."
-      - "We provide a structured curriculum to guide you through mastering safe and confident flight operations, step-by-step."
-      - "Benefit from a dedicated flight training schedule tailored for optimal learning and skill development."
-      - "Following the attainment of your Private Pilot Certificate, many individuals pursue additional endorsements, ratings, or advanced certifications."
-    cta:
-      url: "/enroll"
-      text: "Enroll Now"
   - eyebrow: "Why Us"
     title: "Why Choose Vegas Aviation Flight School?"
     subTitle: "We provide the best value"
-    img:
-      src: "/src/assets/team-vegas-aviation-zero-to-hero-aviation.png"
-      alt: "Vegas Aviation CFI team posing in front of a plane"
     bullets:
       - "<b>Safety First:</b> Your safety is our top priority. We maintain rigorous safety standards and adhere to all FAA regulations to ensure that you receive the highest level of instruction in a safe and supportive environment."
       - "<b>Experienced Instructors:</b> Our team of FAA-certified flight instructors brings a wealth of experience and expertise to the table. They are dedicated to providing personalized instruction tailored to your learning style and pace."

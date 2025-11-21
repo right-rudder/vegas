@@ -63,7 +63,7 @@ h6 {
 }
 
 .btn-primary {
-  @apply bg-primary-600 border border-primary-600 text-white font-semibold rounded-md px-5 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-accent-900 hover:border-accent-900 hover:text-primary-500;
+  @apply bg-primary-700 border border-primary-700 text-white font-semibold rounded-md px-5 py-2 flex items-center justify-center gap-2 transition cursor-pointer hover:bg-accent-900 hover:border-accent-900 hover:text-primary-500;
 }
 
 .btn-primary:disabled {
@@ -79,7 +79,7 @@ h6 {
 }
 
 .btn-transparent {
-  @apply bg-accent-900/40 text-accent-50 border border-primary-600 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-600 hover:border-primary-600 hover:text-accent-900;
+  @apply bg-accent-900/40 text-white border border-primary-700 rounded-md px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-primary-700 hover:border-primary-700;
 }
 
 .btn-transparent-dark {
@@ -87,7 +87,7 @@ h6 {
 }
 
 .eyebrow {
-  @apply text-primary-600 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base;
+  @apply text-accent-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-md text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base;
 }
 
 a.eyebrow {
@@ -171,6 +171,10 @@ hr {
   body {
     font-size: 18px;
   }
+}
+
+.font-force-roboto {
+  font-family: "Roboto Variable", "Atkinson", sans-serif;
 }
 
 .sr-only {

@@ -1,13 +1,40 @@
 ---
 import { SITE_DESCRIPTION, KEYWORDS } from "../../data/consts";
-import ImageComp from "../../components/ImageComp.astro";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Banner from "../../components/Banner.astro";
-import Author from "../../components/Author.astro";
-import CTAIntroFlight from "../../components/CTAIntroFlight.astro";
+import CTAIntroFlight from "../../components/CTAs/CTAIntroFlight.astro";
+import CardBlog from "../../components/cards/CardBlog.astro";
 
 const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const blogPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  name: "Vegas Aviation Blog",
+  description:
+    "Aviation blog with flight training tips, pilot education resources, and industry news from Vegas Aviation. Expert insights for aspiring and experienced pilots.",
+  url: "https://vegasaviation.com/blog/",
+  publisher: {
+    "@type": "Organization",
+    name: "Vegas Aviation",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://vegasaviation.com/images/vegas-logo-black.png",
+    },
+  },
+  blogPost: posts.slice(0, 10).map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.data.title,
+    description: post.data.description,
+    url: `https://vegasaviation.com/blog/${post.id}`,
+    datePublished: post.data.pubDate.toISOString(),
+    author: {
+      "@type": "Person",
+      name: post.data.author,
+    },
+  })),
+};
 
 const data = {
   header: {
@@ -23,36 +50,15 @@ const data = {
 };
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify(blogPageSchema)} />
+
 <BaseLayout siteTile="Blog | Vegas Aviation" siteDescription={SITE_DESCRIPTION} siteKeywords={KEYWORDS}>
   <Banner data={data.header} />
 
   <section class="bg-accent-100">
     <div class="max-w-7xl mx-auto">
       <ul class="grid grid-cols-1 gap-6 px-4 py-12 md:grid-cols-2 lg:grid-cols-3">
-        {
-          posts.map((post) => (
-            <a
-              class="rounded-xl overflow-hidden bg-white border-2 border-primary-600 transition-all duration-300 ease-in-out hover:scale-105 hover:ring-2 hover:ring-primary-600"
-              href={`/blog/${post.id}/`}
-            >
-              <ImageComp
-                src={post.data.heroImage}
-                alt={post.data.heroImageAlt}
-                class="h-64 w-full object-cover object-center"
-              />
-              <div class="p-4">
-                <Author data={post.data} small={true} />
-                <h4 class="font-bold mb-2 text-xl text-primary-600 uppercase">{post.data.subTitle}</h4>
-                <h4 class="font-bold mb-4 text-2xl">{post.data.title}</h4>
-                <p class="text-accent-600 text-base">
-                  {post.data.description.length < 200
-                    ? post.data.description
-                    : post.data.description.slice(0, 200).trim() + "..."}
-                </p>
-              </div>
-            </a>
-          ))
-        }
+        {posts.map((post) => <CardBlog blogEntry={post} />)}
       </ul>
     </div>
   </section>

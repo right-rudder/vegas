@@ -9,11 +9,47 @@ export async function getStaticPaths() {
     props: post,
   }));
 }
+
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
+
+const metaDescription = post.data.description || `Read ${post.data.title} on Vegas Aviation's blog`;
+
+const blogPostSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: metaDescription,
+  author: {
+    "@type": "Person",
+    name: post.data.author,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Vegas Aviation",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://vegasaviation.com/images/vegas-logo-black.png",
+    },
+  },
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: post.data.pubDate.toISOString(),
+  image: post.data.heroImage,
+  url: `https://vegasaviation.com/blog/${post.id}`,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `https://vegasaviation.com/blog/${post.id}`,
+  },
+  keywords:
+    post.data.tags?.join(", ") || "flight training, aviation, pilot education",
+};
+
 const { Content } = await render(post);
 ---
+
+<!-- Blog Post Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(blogPostSchema)} />
 
 <BlogPost {...post.data}>
   <Content />
