@@ -5,7 +5,7 @@ import CTAIntroFlight from "../components/CTAs/CTAIntroFlight.astro";
 import CTAWhyUs from "../components/CTAs/CTAWhyUs.astro";
 import ProgramsList from "../components/ProgramsList.astro";
 import GoogleReviews from "../components/GoogleReviews.astro";
-import HowToBecomePilot from "../components/HowToBecomePilot.astro";
+import HowTo from "../components/HowTo.astro";
 
 import { data } from "../data/new-to-flying";
 // import { testimonials } from "../data/testimonials";
@@ -17,7 +17,7 @@ import { data } from "../data/new-to-flying";
   siteKeywords={data.siteKeywords}>
   <Banner data={data.header} slot="hero" />
 
-  <HowToBecomePilot />
+  <HowTo data={data.howTo} />
 
   <CTAWhyUs />
 
@@ -27,7 +27,7 @@ import { data } from "../data/new-to-flying";
 
   <!-- <TestimonialsCarousel 
     items={testimonials.slice(3)}
-    className="from-sky-900/30 to-accent-100 bg-linear-to-b px-5 py-16 text-accent-900 md:px-8 md:py-20 lg:px-10 lg:py-24"
+    className="from-sky-900/30 to-accent-100 bg-linear-to-b text-accent-900 px-5 py-16 md:px-8 lg:px-10"
     client:load
   /> -->
 

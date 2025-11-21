@@ -42,9 +42,6 @@ sections:
   - eyebrow: "Get Started"
     title: "Earn Your Commercial Pilot License"
     subTitle: "Advanced skills for professional pilots"
-    img:
-      src: "/src/assets/stock/plane-flying-above-city-night-vegas-aviation-commercial-pilot-nevada.jpg"
-      alt: "Plane flying above city at night"
     description:
       "Vegas Aviation Flight School Commercial Pilot Certificate Program transforms aviation enthusiasts into skilled commercial pilots ready to take on the skies with confidence and professionalism."
     bullets:
@@ -57,9 +54,6 @@ sections:
   - eyebrow: "Why Us"
     title: "Why Choose Vegas Aviation Flight School?"
     subTitle: "We provide the best value"
-    img:
-      src: "/src/assets/about-us-cfi-team-vegas-aviation-flight-lessons.jpg"
-      alt: "Vegas Aviation CFI team posing in front of a plane"
     bullets:
       - "<b>Safety is Our Top Priority: </b> We strictly adhere to all FAA regulations to ensure that you receive top-tier instruction in a secure learning environment."
       - "<b>Expert Instructors:</b> Learn from FAA-certified professionals who offer personalized guidance tailored to your learning style, ensuring effective progress."

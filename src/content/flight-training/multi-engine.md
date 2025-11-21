@@ -42,9 +42,6 @@ sections:
   - eyebrow: "Get Started"
     title: "Unlock New Horizons: Multi-Engine Land (MEL) Add-On Rating"
     subTitle: "Fly advanced complex twin engine aircraft"
-    img:
-      src: "/src/assets/flight-training/cockpit-instrument-panel-vegas-aviation-multi-engine-boulder-city.jpg"
-      alt: "Cockpit instrument panel"
     bullets:
       - "Enhance your aviation skills with our Multi-Engine Land (MEL) Add-On Rating."
       - "Gain confidence in piloting complex, multi-engine aircraft."
@@ -58,9 +55,6 @@ sections:
   - eyebrow: "Get Started"
     title: "Become a Leader in Aviation: Earn Your Multi-Engine Instructor Rating"
     subTitle: "Fly advanced complex twin engine aircraft"
-    img:
-      src: "/src/assets/stock/airplane-flying-above-mountains-left-wing-vegas-aviation-summerlin.jpg"
-      alt: "View of the left wing of an airplane above mountains"
     bullets:
       - "Expand career opportunities as a certified Multi-Engine Instructor (MEI)."
       - "Master teaching techniques for instructing on multi-engine aircraft."

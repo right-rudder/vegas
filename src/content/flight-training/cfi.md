@@ -45,9 +45,6 @@ sections:
   - eyebrow: "Get Started"
     title: "Become a Certified Flight Instructor (CFI)"
     subTitle: "Learn to teach others"
-    img:
-      src: "/src/assets/flight-training/lesson-inside-vagas-aviation-cfi-nevada.jpg"
-      alt: "CFI and student during a lesson inside"
     bullets:
       - "Certified Flight Instructors (CFIs) are essential educators and mentors in aviation."
       - "They offer guidance and instruction to aspiring pilots, fostering their skills and prioritizing safety."
@@ -58,9 +55,6 @@ sections:
   - eyebrow: "Perks"
     title: "Advantages of Becoming a Certified Flight Instructor"
     subTitle: "What you get"
-    img:
-      src: "/src/assets/flight-training/cfi-plane-vegas-aviation-summerlin.jpg"
-      alt: "CFIs standing on the doors of a plane"
     description:
       "Obtaining an instrument rating on top of your private pilot license offers several significant advantages, including the ability to safely navigate through adverse weather conditions, fly in low visibility situations, and operate in controlled airspace with precision and confidence. With an IR, pilots can enhance their skills, expand their flying opportunities, and ensure a higher level of safety for themselves and their passengers."
     bullets:
