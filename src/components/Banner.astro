@@ -46,8 +46,8 @@ const { data } = Astro.props;
         <p class="eyebrow">
           {data.eyebrow}
         </p>
-        <h1 class="max-w-3xl text-5xl/12 md:text-6xl/14 uppercase font-bold" set:html={data.title} />
-        {data.subTitle && <h2 class="text-xl/6 font-light max-w-2xl" set:html={data.subTitle} />}
+        <h1 class="max-w-3xl text-3xl sm:text-5xl md:text-6xl uppercase font-bold" set:html={data.title} />
+        {data.subTitle && <h2 class="text-xl font-light max-w-2xl" set:html={data.subTitle} />}
       </div>
 
       {
